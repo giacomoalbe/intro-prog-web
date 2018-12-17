@@ -6,7 +6,7 @@ Questo ebook digitale ha lo scopo di raccogliere gli appunti delle lezioni
 di un corso di introduzione alla Programmazione per il Web usando il linguaggio
 di programmazione PHP. 
 
-Il corso si propone di introdurre i concetti fondamentale per una buona comprensione
+Il corso si propone di introdurre i concetti fondamentali per una buona comprensione
 dei meccanismi che sono alla base del funzionamento dell'Internet *dinamico*, 
 ovvero quel complesso sistema che permette alle pagine web di essere generate **dinamicamente**
 su richiesta dell'utente. 
