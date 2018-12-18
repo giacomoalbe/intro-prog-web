@@ -1,0 +1,400 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Variabili &amp; Condizioni - Introduzione alla Programmazione per il Web</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="introduzione.html">Introduzione</a></li><li><a href="teoria.html"><strong aria-hidden="true">1.</strong> Teoria</a></li><li><ol class="section"><li><a href="variabili_e_condizioni.html" class="active"><strong aria-hidden="true">1.1.</strong> Variabili &amp; Condizioni</a></li><li><a href="cicli_e_array.html"><strong aria-hidden="true">1.2.</strong> Cicli e Array</a></li></ol></li><li><a href="esercizi.html"><strong aria-hidden="true">2.</strong> Esercizi</a></li><li><a href="soluzioni.html"><strong aria-hidden="true">3.</strong> Soluzioni</a></li><li><ol class="section"><li><a href="esericizi_cicli_for.html"><strong aria-hidden="true">3.1.</strong> Cicli For</a></li><li><a href="esercizi_scacchiera.html"><strong aria-hidden="true">3.2.</strong> Scacchiera</a></li><li><a href="esercizi_form_colori.html"><strong aria-hidden="true">3.3.</strong> Form &amp; Colori</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Introduzione alla Programmazione per il Web</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="variabili_e_condizioni.html#capitolo-1" id="capitolo-1"><h1>Capitolo 1</h1></a>
+<a class="header" href="variabili_e_condizioni.html#primi-comandi-con-php" id="primi-comandi-con-php"><h2>Primi comandi con PHP</h2></a>
+<a class="header" href="variabili_e_condizioni.html#commento-su-una-riga" id="commento-su-una-riga"><h3>Commento su una riga</h3></a>
+<pre><code class="language-php">// Commento su una riga
+# Altro modo per creare un commento su una riga
+</code></pre>
+<a class="header" href="variabili_e_condizioni.html#commento-multi-riga" id="commento-multi-riga"><h3>Commento multi riga</h3></a>
+<p>Utile quando si vuole ad esempio fare in modo che una parte
+di codice non venga eseguita oppure si vuole spiegare in modo più
+accurato il funzionamento di un pezzo di codice, ad esempio di una funzione.</p>
+<pre><code class="language-php">/* 
+Commento 
+su 
+più 
+righe
+*/
+</code></pre>
+<p>Per chiudere il blocco che vogliamo commentare usiamo la stessa combinazione
+che abbiamo usato per aprirlo, ma al contrario. Vedi riga successiva.</p>
+<a class="header" href="variabili_e_condizioni.html#variabili" id="variabili"><h3>Variabili</h3></a>
+<pre><code class="language-php">$intero = 1;
+$numero_virgola = 1.2;
+$vero = true;
+$stringa = &quot;'ciao mondo'&quot;;
+$altra_stringa = '&quot;ciao&quot;';
+$variabile = null; // Questa variabile non fa nulla
+</code></pre>
+<a class="header" href="variabili_e_condizioni.html#andare-a-capo-in-html" id="andare-a-capo-in-html"><h3>Andare a capo in HTML</h3></a>
+<p><code>&lt;br&gt;</code> è il tag HTML che serve ad indicare al browser che vogliamo andare a capo.
+Noi lo usiamo per rendere più leggibile il risultato che vediamo a schermo.</p>
+<a class="header" href="variabili_e_condizioni.html#stampare-contenuto-delle-variabili" id="stampare-contenuto-delle-variabili"><h3>Stampare contenuto delle variabili</h3></a>
+<pre><code class="language-php">echo &quot;Intero: &quot; . $intero  . &quot;&lt;br&gt;&quot;;
+echo $numero_virgola . &quot;&lt;br&gt;&quot;;
+echo $vero . &quot;&lt;br&gt;&quot;;
+echo $stringa . &quot;&lt;br&gt;&quot;;
+echo $altra_stringa . &quot;&lt;br&gt;&quot;;
+echo $variabile . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<a class="header" href="variabili_e_condizioni.html#operazioni-con-le-variabili" id="operazioni-con-le-variabili"><h3>Operazioni con le variabili</h3></a>
+<p>Questo è il nome da visualizzare</p>
+<pre><code class="language-php">$nome = &quot;Nome Cognome&quot;;
+</code></pre>
+<p>Questa è l'eta della persona ed alcune altre variabili:</p>
+<pre><code class="language-php">$eta = 25;
+
+$primo = 1.0;
+$secondo = 2.0;
+</code></pre>
+<p>Operazioni che possiamo fare con le variabili di tipo intero e float:</p>
+<pre><code class="language-php">$somma = $primo + $secondo;
+$differenza = $primo - $secondo;
+$prodotto = $primo * $secondo;
+$divisione = ($primo / $secondo);
+$modulo = $primo % $secondo;
+
+$terzo = 5;
+</code></pre>
+<p>Ordine di esecuzione delle operazioni all'interno calcoli &quot;complessi&quot;.
+NB: tutto quello che è all'interno delle parentesi viene eseguito prima del resto</p>
+<pre><code class="language-php">$operazione = ($primo + $secondo) * $terzo;
+
+echo &quot;Somma: $somma &lt;br&gt;&quot;;
+echo &quot;Differenza: $differenza &lt;br&gt;&quot;;
+echo &quot;Prodotto: $prodotto &lt;br&gt;&quot;;
+echo &quot;Divisione: $divisione &lt;br&gt;&quot;;
+echo &quot;Modulo: $modulo &lt;br&gt;&quot;;
+echo &quot;Operazione: $operazione &lt;br&gt;&quot;;
+</code></pre>
+<p>// echo &quot;vedete che non stampa!!&quot;;</p>
+<p>Variabili di tipo booleano o logico il cui valore può essere solamente true o false NON la stringa &quot;true&quot; o &quot;false&quot;!</p>
+<pre><code class="language-php">$vero = true;
+$falso = false;
+
+AND &amp;&amp; =&gt; e logico
+OR  || =&gt; o logico
+NOT !  =&gt; not logico
+
+</code></pre>
+<a class="header" href="variabili_e_condizioni.html#operazioni-logiche-con-i-booleani" id="operazioni-logiche-con-i-booleani"><h3>Operazioni logiche con i booleani</h3></a>
+<pre><code class="language-php">$and = $vero &amp;&amp; $falso; // F
+$or = $vero || $falso;  // V
+$not_vero = !$vero;     // F
+$not_falso = !$falso;   // V
+</code></pre>
+<a class="header" href="variabili_e_condizioni.html#tabelle-di-verità-per-i-booleani" id="tabelle-di-verità-per-i-booleani"><h3>Tabelle di Verità per i Booleani</h3></a>
+<pre><code class="language-php">$a = F (&quot;Oggi piove&quot;)
+$b = V (&quot;Oggi ho fatto un ciocco&quot;)
+
+$a AND $b = F
+$a OR $b = V
+NOT $b = F
+NOT $a = V
+</code></pre>
+<table><thead><tr><th> $a </th><th> $b </th><th> $a AND $b </th><th> $a OR $b  </th></tr></thead><tbody>
+<tr><td> V </td><td>  V </td><td> V </td><td> V </td></tr>
+<tr><td> V </td><td>  F </td><td> F </td><td> V </td></tr>
+<tr><td> F </td><td>  V </td><td> F </td><td> V </td></tr>
+<tr><td> F </td><td>  F </td><td> F </td><td> F </td></tr>
+</tbody></table>
+<a class="header" href="variabili_e_condizioni.html#istruzioni-condizionali" id="istruzioni-condizionali"><h3>Istruzioni condizionali</h3></a>
+<p>Istruzioni condizionali, per deviare il flusso di esecuzione del programma.
+Le condizioni che il PHP riesce a valutare sono SEMPRE di tipo booleano, quindi restituiscono una opzione binaria (true/false)
+Che fa eseguire il primo &quot;ramo&quot; (quello nel blocco dopo l'if) o il secondo, se presente (quello nel blocco dopo l'else).</p>
+<p>Di seguito un esempio di una doppia istruzione condizionale annidata:</p>
+<pre><code class="language-php">$eta = 45;
+$titolo = &quot;mr&quot;;  //oppure mrs
+
+if ($eta &gt;= 18) {
+    // Può entrare
+    if ($titolo == &quot;mr&quot;) {
+        echo &quot;Signor $nome lei può entrare&quot;;
+    } else {
+        echo &quot;Signora $nome lei può entrare&quot;;
+    }
+} else {
+    // Non può entrare
+    if ($titolo == &quot;mr&quot;) {
+        echo &quot;Signor $nome lei NON può entrare&quot;;
+    } else {
+        echo &quot;Signora $nome lei NON può entrare&quot;;
+    }
+}
+</code></pre>
+<pre><code class="language-php">$numero = 4;
+
+if ($numero &gt; 20) {
+    echo &quot;Maggiore di 20&quot;;
+} else if ($numero &gt; 10) {
+    echo &quot;Maggiore di 10 MA minore di 20&quot;;
+} else {
+    echo &quot;Ne maggiore di 10 ne di 20&quot;;
+}
+</code></pre>
+<a class="header" href="variabili_e_condizioni.html#funzioni" id="funzioni"><h3>Funzioni</h3></a>
+<p>Una funzione è un blocco di codice a cui si associa un nome e una serie di &quot;parametri&quot; che si vanno ad utilizzare nel corpo della funzione (quello delimitato dalle {}).
+Una funzione non è altro che la descrizione in termini di una sequenza di comandi di una certa funzionalità (da cui il nome).</p>
+<p>Questa funzionalità può aver bisogno di qualche <strong>dato in ingresso</strong> e può restituire dei <strong>valori in uscita</strong>.
+In questo modo possiamo delegare ad una funzione una certa operazione complessa da eseguire e salvare solamente il valore di uscita in una variabile che poi andremo ad usare successivamente nel codice.</p>
+<p>Si può pensare ad una funzione come ad una macchina industriale in cui ENTRANO delle materie prime (ad esempio la base di una pizza) e al suo interno
+alcuni meccanismi inseriscono oggetti e applicano lavorazioni tali per cui in USCITA abbiamo un prodotto lavorato (ad esempio la pizza cotta con tutti gli ingredienti scelti).</p>
+<p>In questo caso i &quot;parametri&quot; in INGRESSO sono la base della pizza e l'ordinazione mentre in USCITA abbiamo la pizza completa che ha subito la lavorazione della macchina.</p>
+<p>Nell'esempio riportato in seguito, la funzione in base all'età, al titolo e al nome di una persona, ritorna una variabile di tipo stringa con l'esito della nostra &quot;autenticazione&quot; di base: può entrare o non può entrare.  Il valore di ritorno della funzione può essere salvato in una variabile per un'utilizzo futuro
+oppure puà essere usato come valore da stampare o ancora come valore di ingresso per un'altra funzione.</p>
+<p>Per DEFINIRE una funzione bisogna usare il comando <code>function</code>, seguito dal NOME della funzione e dalla lista dei suoi PARAMETRI.</p>
+<p>E' da notare che definire una funzione <strong>non</strong> significa eseguire il codice contenuto al suo interno, ma semplicemente associare al NOME della funzione il blocco di codice.
+In questo modo solo conoscendo il nome della funzione sarà possibile richiamare la funzionalità che essa descrive in altri punto del nostro programma.</p>
+<pre><code class="language-php">function controlloIngresso($eta, $titolo, $nome) {
+    if ($titolo == 'mr' &amp;&amp; $eta &gt;= 18) {
+        return &quot;Signor $nome può entrare&quot;;
+    } else if ($titolo == 'mr' &amp;&amp; $eta &lt; 18) {
+        return &quot;Signor $nome, non può entrare&quot;;
+    } else if ($titolo == 'mrs' &amp;&amp; $eta &gt;= 18) {
+        return &quot;Signora $nome, può entrare&quot;;
+    } else {
+        return &quot;Signora $nome, non può entrare&quot;;
+    }
+}
+</code></pre>
+<p>Per richiamare o ESEGUIRE una funzione è necessario scrivere il NOME della funzione seguito dalla lista dei valori di ingresso, che all'interno del blocco di codice che
+abbiamo definito prima, prenderanno i valori che abbiamo associato ai parametri di ingresso.</p>
+<p>Ad esempio in questo caso il numero 25 sarà associato alla variabile $eta, &quot;mr&quot; a $titolo e &quot;Giacomo&quot; a $nome.</p>
+<pre><code class="language-php">echo controlloIngresso(25, &quot;mr&quot;, &quot;Giacomo&quot;) . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<p>Richiamando <code>echo</code> dandogli come argomento la chiamata di funzione, quello che accade è che il valore (eventuale) di ritorno della funzione <code>controlloIngresso</code> viene passato direttamente al comando echo il quale si occuperà
+di stamparlo sulla pagina.</p>
+<p>Al comando <code>echo</code>, in aggiunta, viene passata una stringa concatenata formata dal valore di ritorno di controlloIngresso e dalla stringa <code>&lt;br&gt;</code>. Il risultato della concatenazione viene passato ad echo
+che successivamente lo stamperà nel file che verrà visualizzato dal browser.</p>
+<pre><code class="language-php">echo controlloIngresso(12, &quot;mrs&quot;, &quot;Paola&quot;) . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<a class="header" href="variabili_e_condizioni.html#selezionare-più-condizioni-diverse-switch" id="selezionare-più-condizioni-diverse-switch"><h3>Selezionare più condizioni diverse: switch</h3></a>
+<p>Il comando switch serve per eseguire un particolare pezzo di codice basandosi sul valore di una variabile.
+Questa variabile può essere di qualsiasi tipo anche non necessariamente un booleano.</p>
+<p>L'istruzione switch, dunque, è un particolare tipo di selezione che non valuta una condizione booleana (true/false) bensì confronta il valore di una variabile con quelli presenti nei suoi diversi &quot;rami&quot;.</p>
+<p>Per definire un certo &quot;ramo&quot; dello swicth è necessario usare la sintassi del <code>case</code> che vediamo nell'esempio qui sotto.</p>
+<p>Fondamentale: alla fine del blocco di codice successivo al case va inserito il comando break!</p>
+<p>Nel momento in cui viene trovata corrispondenza tra il valore della variabile valutata dallo switch (in questo caso <code>$giornoDellaSettimana</code>) e uno dei suoi rami, viene eseguito il blocco di codice corrispondente al ramo e quindi l'esecuzione passa alla prima istruzione dopo lo switch.
+Nel caso si volesse eseguire del codice nel momento in cui non si trovasse corrispondenza con nessuno dei rami definiti, si puà introdurre un blocco default alla fine degli altri case.</p>
+<pre><code class="language-php">$giornoDellaSettimana = &quot;mercoledì&quot;;
+
+switch ($giornoDellaSettimana) {
+    case &quot;lun&quot;:
+        break;
+    case &quot;mar&quot;:
+        break;
+    case &quot;mer&quot;:
+        echo &quot;E' mercoledì! Yeeeeeee!&quot;;
+        break;
+    case &quot;gio&quot;:
+        echo &quot;E' giovedì!&quot;;
+        break;
+    case &quot;ven&quot;:
+        break;
+    case &quot;sab&quot;:
+        break;
+    case &quot;dom&quot;:
+        break;
+    default:
+        echo &quot;Non capisco nulla, cit. la classe&quot;;
+        break;
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="teoria.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="cicli_e_array.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="teoria.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="cicli_e_array.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
