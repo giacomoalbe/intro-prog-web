@@ -10,7 +10,9 @@
         }
     }
 ?>
+```
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,7 +107,9 @@ if (count($_POST) > 0) {
 }
 
 ?>
+```
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,7 +135,6 @@ if (count($_POST) > 0) {
     </style>
 </head>
 <body>
-
     <form action="" method="POST">
         <div>
             <label for="input_righe">Righe: </label>

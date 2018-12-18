@@ -2,7 +2,7 @@
 
 - Ripasso (index.php): `ripasso.php`
 
-```php
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,8 +52,10 @@ if (count($_GET) > 0) {
 }
 
 ?>
+```
 
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +65,6 @@ if (count($_GET) > 0) {
     <title>Document</title>
 </head>
 <body style="background-color: <?=$colorePluto?>">
-    
 </body>
 </html>
 ```

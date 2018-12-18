@@ -9,3 +9,4 @@
   - [Cicli For](./esericizi_cicli_for.md)
   - [Scacchiera](./esercizi_scacchiera.md)
   - [Form & Colori](./esercizi_form_colori.md)
+  - [Utenti CRUD](./utenti_crud.md)
