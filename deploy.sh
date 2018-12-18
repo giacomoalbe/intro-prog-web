@@ -7,6 +7,7 @@ echo "Checking out to gh-pages"
 git checkout gh-pages
 
 echo "Committing new release"
+cd book 
 git add --all .
 git commit -m "Book release $(date +"%d/%m/%Y - %H:%M")"
 
