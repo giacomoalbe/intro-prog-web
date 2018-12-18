@@ -3,19 +3,12 @@
 echo "Building with mdbook"
 mdbook build
 
-echo "Checking out to gh-pages"
-git checkout gh-pages
-
 echo "Committing new release"
-cd book 
-git add --all .
+git add --all book/ 
 git commit -m "Book release $(date +"%d/%m/%Y - %H:%M")"
 
 echo "Pushing to gh-pages"
-git push -u origin gh-pages
-
-echo "Checking back to master" 
-git checkout master
+git subtree push --prefix book origin gh-pages
 
 echo "Finished!"
 
