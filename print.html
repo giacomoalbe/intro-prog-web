@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="introduzione.html">Introduzione</a></li><li><a href="teoria.html"><strong aria-hidden="true">1.</strong> Teoria</a></li><li><ol class="section"><li><a href="variabili_e_condizioni.html"><strong aria-hidden="true">1.1.</strong> Variabili &amp; Condizioni</a></li><li><a href="cicli_e_array.html"><strong aria-hidden="true">1.2.</strong> Cicli e Array</a></li></ol></li><li><a href="esercizi.html"><strong aria-hidden="true">2.</strong> Esercizi</a></li><li><a href="soluzioni.html"><strong aria-hidden="true">3.</strong> Soluzioni</a></li><li><ol class="section"><li><a href="esericizi_cicli_for.html"><strong aria-hidden="true">3.1.</strong> Cicli For</a></li><li><a href="esercizi_scacchiera.html"><strong aria-hidden="true">3.2.</strong> Scacchiera</a></li><li><a href="esercizi_form_colori.html"><strong aria-hidden="true">3.3.</strong> Form &amp; Colori</a></li></ol></li></ol>
+            <ol class="chapter"><li class="affix"><a href="introduzione.html">Introduzione</a></li><li><a href="teoria.html"><strong aria-hidden="true">1.</strong> Teoria</a></li><li><ol class="section"><li><a href="variabili_e_condizioni.html"><strong aria-hidden="true">1.1.</strong> Variabili &amp; Condizioni</a></li><li><a href="cicli_e_array.html"><strong aria-hidden="true">1.2.</strong> Cicli e Array</a></li></ol></li><li><a href="esercizi.html"><strong aria-hidden="true">2.</strong> Esercizi</a></li><li><a href="soluzioni.html"><strong aria-hidden="true">3.</strong> Soluzioni</a></li><li><ol class="section"><li><a href="esericizi_cicli_for.html"><strong aria-hidden="true">3.1.</strong> Cicli For</a></li><li><a href="esercizi_scacchiera.html"><strong aria-hidden="true">3.2.</strong> Scacchiera</a></li><li><a href="esercizi_form_colori.html"><strong aria-hidden="true">3.3.</strong> Form &amp; Colori</a></li><li><a href="utenti_crud.html"><strong aria-hidden="true">3.4.</strong> Utenti CRUD</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -937,8 +937,8 @@ $utente = [
     // Esercizio 9
 
 ?&gt;
-
-&lt;!DOCTYPE html&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -1018,8 +1018,8 @@ $utente = [
         }
     }
 ?&gt;
-
-&lt;!DOCTYPE html&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -1112,8 +1112,8 @@ if (count($_POST) &gt; 0) {
 }
 
 ?&gt;
-
-&lt;!DOCTYPE html&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -1138,7 +1138,6 @@ if (count($_POST) &gt; 0) {
     &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-
     &lt;form action=&quot;&quot; method=&quot;POST&quot;&gt;
         &lt;div&gt;
             &lt;label for=&quot;input_righe&quot;&gt;Righe: &lt;/label&gt;
@@ -1203,7 +1202,7 @@ if (count($_POST) &gt; 0) {
 <ul>
 <li>Ripasso (index.php): <code>ripasso.php</code></li>
 </ul>
-<pre><code class="language-php">&lt;!DOCTYPE html&gt;
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -1251,9 +1250,8 @@ if (count($_GET) &gt; 0) {
 }
 
 ?&gt;
-
-
-&lt;!DOCTYPE html&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -1262,7 +1260,72 @@ if (count($_GET) &gt; 0) {
     &lt;title&gt;Document&lt;/title&gt;
 &lt;/head&gt;
 &lt;body style=&quot;background-color: &lt;?=$colorePluto?&gt;&quot;&gt;
-    
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<a class="header" href="print.html#utenti-crud" id="utenti-crud"><h1>Utenti CRUD</h1></a>
+<pre><code class="language-php">&lt;?php
+    $utenti = [
+        [
+            &quot;id&quot; =&gt; 1,
+            &quot;nome&quot; =&gt; &quot;Giacomo&quot;,
+            &quot;cognome&quot; =&gt; &quot;Alberini&quot;,
+            &quot;eta&quot; =&gt; 25
+        ],
+        [
+            &quot;id&quot; =&gt; 2,
+            &quot;nome&quot; =&gt; &quot;Silvio&quot;,
+            &quot;cognome&quot; =&gt; &quot;Danzi&quot;,
+            &quot;eta&quot; =&gt; 75
+        ],
+        [
+            &quot;id&quot; =&gt; 3,
+            &quot;nome&quot; =&gt; &quot;Terza&quot;,
+            &quot;cognome&quot; =&gt; &quot;CCi&quot;,
+            &quot;eta&quot; =&gt; 10
+        ], 
+    ];
+?&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css&quot; integrity=&quot;sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO&quot; crossorigin=&quot;anonymous&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h1&gt;CRUD Utenti&lt;/h1&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col&quot;&gt;
+            &lt;button class=&quot;btn btn-primary m-2&quot;&gt;Aggiungi Utente&lt;/button&gt;
+            &lt;table class=&quot;table&quot;&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;#&lt;/th&gt;
+                    &lt;th&gt;Nome&lt;/th&gt;
+                    &lt;th&gt;Cognome&lt;/th&gt;
+                    &lt;th&gt;Età&lt;/th&gt;
+                    &lt;th&gt;Azioni&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;?php foreach($utenti as $utente) { ?&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;&lt;?=$utente['id']?&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;?=$utente['nome']?&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;?=$utente['cognome']?&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;?=$utente['eta']?&gt;&lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;button class=&quot;btn btn-danger&quot;&gt;Modifica&lt;/button&gt;
+                        &lt;button class=&quot;btn btn-warning&quot;&gt;Cancella&lt;/button&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;?php } ?&gt;
+            &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
