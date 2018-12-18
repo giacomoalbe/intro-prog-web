@@ -1,0 +1,1324 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introduzione alla Programmazione per il Web</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="introduzione.html">Introduzione</a></li><li><a href="teoria.html"><strong aria-hidden="true">1.</strong> Teoria</a></li><li><ol class="section"><li><a href="variabili_e_condizioni.html"><strong aria-hidden="true">1.1.</strong> Variabili &amp; Condizioni</a></li><li><a href="cicli_e_array.html"><strong aria-hidden="true">1.2.</strong> Cicli e Array</a></li></ol></li><li><a href="esercizi.html"><strong aria-hidden="true">2.</strong> Esercizi</a></li><li><a href="soluzioni.html"><strong aria-hidden="true">3.</strong> Soluzioni</a></li><li><ol class="section"><li><a href="esericizi_cicli_for.html"><strong aria-hidden="true">3.1.</strong> Cicli For</a></li><li><a href="esercizi_scacchiera.html"><strong aria-hidden="true">3.2.</strong> Scacchiera</a></li><li><a href="esercizi_form_colori.html"><strong aria-hidden="true">3.3.</strong> Form &amp; Colori</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Introduzione alla Programmazione per il Web</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="print.html#introduzione-alla-programmazione-per-il-web" id="introduzione-alla-programmazione-per-il-web"><h1>Introduzione alla Programmazione per il Web</h1></a>
+<a class="header" href="print.html#scopo" id="scopo"><h2>Scopo</h2></a>
+<p>Questo ebook digitale ha lo scopo di raccogliere gli appunti delle lezioni
+di un corso di introduzione alla Programmazione per il Web usando il linguaggio
+di programmazione PHP.</p>
+<p>Il corso si propone di introdurre i concetti fondamentali per una buona comprensione
+dei meccanismi che sono alla base del funzionamento dell'Internet <em>dinamico</em>,
+ovvero quel complesso sistema che permette alle pagine web di essere generate <strong>dinamicamente</strong>
+su richiesta dell'utente.</p>
+<p>Si cercherà di spiegare in maniera chiara e senza particolari prerequisiti tutto
+l'insieme delle tecnologie, dei sistemi e dei metodi che rendono possibile la comunicazione
+e la visione di contenuti dinamici alle moderne applicazioni web.</p>
+<p>Si partirà dallo spiegare il protocollo HTTP e la comunicazione client-server per poi arrivare
+a introdurre sia i concetti di programmazione (come impartire istruzioni ad un calcolatore in
+modo che trasformi un problema in una soluzione) che quelli specifici relativi alla programmazione web.</p>
+<a class="header" href="print.html#programma" id="programma"><h2>Programma</h2></a>
+<p>Nel dettaglio, gli argomenti che verranno trattati nel corso sono i seguenti:</p>
+<ul>
+<li>Concetti Generali
+<ul>
+<li>Informazione Telematica: cos'è l'informatica</li>
+<li>Basi di Reti e Internet</li>
+<li>La comunicazione Client-Server</li>
+<li>La struttura di un server: hardware &amp; software</li>
+<li>Funzionamento della programmazione nel web: l'interprete PHP e HTML</li>
+</ul>
+</li>
+<li>Introuzione alla programmazione (web):
+<ul>
+<li>Le variabili e i tipo di dato</li>
+<li>Il flusso di un programma</li>
+<li>L'istruzione condizionale</li>
+<li>Gli array</li>
+<li>Cicli for e iterazione</li>
+<li>Funzioni e algoritmi</li>
+<li>Utilizzare le form per passare i dati tra pagine</li>
+<li>Pattern MVC, separare la logica dalla visualizzazione</li>
+<li>MySQL, i database come sistema per salvare i dati</li>
+<li>Realizzazione di un applicativo web completo (DB, Logica e Visualizzazione)</li>
+</ul>
+</li>
+<li>Argomenti intermedi:
+<ul>
+<li>Gestione dei file, tecniche di programmazione intermedie e gestione dei progetti</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="print.html#struttura-del-libro" id="struttura-del-libro"><h2>Struttura del libro</h2></a>
+<p>All'interno del libro troverete le seguenti sezioni:</p>
+<ul>
+<li><a href="./teoria.html">Teoria</a></li>
+<li><a href="./esercizi.html">Esercizi</a></li>
+<li><a href="./soluzioni.html">Soluzioni</a></li>
+</ul>
+<a class="header" href="print.html#teoria" id="teoria"><h1>Teoria</h1></a>
+<p>In questa sezione troverete tutti gli argomenti trattati a lezione, ognuno all'interno del proprio file.</p>
+<a class="header" href="print.html#informazioni-per-lesame" id="informazioni-per-lesame"><h3>Informazioni per l'esame</h3></a>
+<p>Per quanto riguarda la parte <em>teorica</em> dell'esame del corso di Coding, sarà sufficiente studiare e ripassare direttamente
+dalle dispense presenti in questo libro online.</p>
+<p>La parte <em>pratica</em>, invece, sarà relativa principalmente agli esercizi svolti in classe che si trovano nella sezione <code>Esercizi Svolti</code>.</p>
+<p>Alla fine di ogni lezione sarà presente un link per accedere agli esercizi relativi agli argomenti trattati, sempre presenti in questo libro.</p>
+<a class="header" href="print.html#capitolo-1" id="capitolo-1"><h1>Capitolo 1</h1></a>
+<a class="header" href="print.html#primi-comandi-con-php" id="primi-comandi-con-php"><h2>Primi comandi con PHP</h2></a>
+<a class="header" href="print.html#commento-su-una-riga" id="commento-su-una-riga"><h3>Commento su una riga</h3></a>
+<pre><code class="language-php">// Commento su una riga
+# Altro modo per creare un commento su una riga
+</code></pre>
+<a class="header" href="print.html#commento-multi-riga" id="commento-multi-riga"><h3>Commento multi riga</h3></a>
+<p>Utile quando si vuole ad esempio fare in modo che una parte
+di codice non venga eseguita oppure si vuole spiegare in modo più
+accurato il funzionamento di un pezzo di codice, ad esempio di una funzione.</p>
+<pre><code class="language-php">/* 
+Commento 
+su 
+più 
+righe
+*/
+</code></pre>
+<p>Per chiudere il blocco che vogliamo commentare usiamo la stessa combinazione
+che abbiamo usato per aprirlo, ma al contrario. Vedi riga successiva.</p>
+<a class="header" href="print.html#variabili" id="variabili"><h3>Variabili</h3></a>
+<pre><code class="language-php">$intero = 1;
+$numero_virgola = 1.2;
+$vero = true;
+$stringa = &quot;'ciao mondo'&quot;;
+$altra_stringa = '&quot;ciao&quot;';
+$variabile = null; // Questa variabile non fa nulla
+</code></pre>
+<a class="header" href="print.html#andare-a-capo-in-html" id="andare-a-capo-in-html"><h3>Andare a capo in HTML</h3></a>
+<p><code>&lt;br&gt;</code> è il tag HTML che serve ad indicare al browser che vogliamo andare a capo.
+Noi lo usiamo per rendere più leggibile il risultato che vediamo a schermo.</p>
+<a class="header" href="print.html#stampare-contenuto-delle-variabili" id="stampare-contenuto-delle-variabili"><h3>Stampare contenuto delle variabili</h3></a>
+<pre><code class="language-php">echo &quot;Intero: &quot; . $intero  . &quot;&lt;br&gt;&quot;;
+echo $numero_virgola . &quot;&lt;br&gt;&quot;;
+echo $vero . &quot;&lt;br&gt;&quot;;
+echo $stringa . &quot;&lt;br&gt;&quot;;
+echo $altra_stringa . &quot;&lt;br&gt;&quot;;
+echo $variabile . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<a class="header" href="print.html#operazioni-con-le-variabili" id="operazioni-con-le-variabili"><h3>Operazioni con le variabili</h3></a>
+<p>Questo è il nome da visualizzare</p>
+<pre><code class="language-php">$nome = &quot;Nome Cognome&quot;;
+</code></pre>
+<p>Questa è l'eta della persona ed alcune altre variabili:</p>
+<pre><code class="language-php">$eta = 25;
+
+$primo = 1.0;
+$secondo = 2.0;
+</code></pre>
+<p>Operazioni che possiamo fare con le variabili di tipo intero e float:</p>
+<pre><code class="language-php">$somma = $primo + $secondo;
+$differenza = $primo - $secondo;
+$prodotto = $primo * $secondo;
+$divisione = ($primo / $secondo);
+$modulo = $primo % $secondo;
+
+$terzo = 5;
+</code></pre>
+<p>Ordine di esecuzione delle operazioni all'interno calcoli &quot;complessi&quot;.
+NB: tutto quello che è all'interno delle parentesi viene eseguito prima del resto</p>
+<pre><code class="language-php">$operazione = ($primo + $secondo) * $terzo;
+
+echo &quot;Somma: $somma &lt;br&gt;&quot;;
+echo &quot;Differenza: $differenza &lt;br&gt;&quot;;
+echo &quot;Prodotto: $prodotto &lt;br&gt;&quot;;
+echo &quot;Divisione: $divisione &lt;br&gt;&quot;;
+echo &quot;Modulo: $modulo &lt;br&gt;&quot;;
+echo &quot;Operazione: $operazione &lt;br&gt;&quot;;
+</code></pre>
+<p>// echo &quot;vedete che non stampa!!&quot;;</p>
+<p>Variabili di tipo booleano o logico il cui valore può essere solamente true o false NON la stringa &quot;true&quot; o &quot;false&quot;!</p>
+<pre><code class="language-php">$vero = true;
+$falso = false;
+
+AND &amp;&amp; =&gt; e logico
+OR  || =&gt; o logico
+NOT !  =&gt; not logico
+
+</code></pre>
+<a class="header" href="print.html#operazioni-logiche-con-i-booleani" id="operazioni-logiche-con-i-booleani"><h3>Operazioni logiche con i booleani</h3></a>
+<pre><code class="language-php">$and = $vero &amp;&amp; $falso; // F
+$or = $vero || $falso;  // V
+$not_vero = !$vero;     // F
+$not_falso = !$falso;   // V
+</code></pre>
+<a class="header" href="print.html#tabelle-di-verità-per-i-booleani" id="tabelle-di-verità-per-i-booleani"><h3>Tabelle di Verità per i Booleani</h3></a>
+<pre><code class="language-php">$a = F (&quot;Oggi piove&quot;)
+$b = V (&quot;Oggi ho fatto un ciocco&quot;)
+
+$a AND $b = F
+$a OR $b = V
+NOT $b = F
+NOT $a = V
+</code></pre>
+<table><thead><tr><th> $a </th><th> $b </th><th> $a AND $b </th><th> $a OR $b  </th></tr></thead><tbody>
+<tr><td> V </td><td>  V </td><td> V </td><td> V </td></tr>
+<tr><td> V </td><td>  F </td><td> F </td><td> V </td></tr>
+<tr><td> F </td><td>  V </td><td> F </td><td> V </td></tr>
+<tr><td> F </td><td>  F </td><td> F </td><td> F </td></tr>
+</tbody></table>
+<a class="header" href="print.html#istruzioni-condizionali" id="istruzioni-condizionali"><h3>Istruzioni condizionali</h3></a>
+<p>Istruzioni condizionali, per deviare il flusso di esecuzione del programma.
+Le condizioni che il PHP riesce a valutare sono SEMPRE di tipo booleano, quindi restituiscono una opzione binaria (true/false)
+Che fa eseguire il primo &quot;ramo&quot; (quello nel blocco dopo l'if) o il secondo, se presente (quello nel blocco dopo l'else).</p>
+<p>Di seguito un esempio di una doppia istruzione condizionale annidata:</p>
+<pre><code class="language-php">$eta = 45;
+$titolo = &quot;mr&quot;;  //oppure mrs
+
+if ($eta &gt;= 18) {
+    // Può entrare
+    if ($titolo == &quot;mr&quot;) {
+        echo &quot;Signor $nome lei può entrare&quot;;
+    } else {
+        echo &quot;Signora $nome lei può entrare&quot;;
+    }
+} else {
+    // Non può entrare
+    if ($titolo == &quot;mr&quot;) {
+        echo &quot;Signor $nome lei NON può entrare&quot;;
+    } else {
+        echo &quot;Signora $nome lei NON può entrare&quot;;
+    }
+}
+</code></pre>
+<pre><code class="language-php">$numero = 4;
+
+if ($numero &gt; 20) {
+    echo &quot;Maggiore di 20&quot;;
+} else if ($numero &gt; 10) {
+    echo &quot;Maggiore di 10 MA minore di 20&quot;;
+} else {
+    echo &quot;Ne maggiore di 10 ne di 20&quot;;
+}
+</code></pre>
+<a class="header" href="print.html#funzioni" id="funzioni"><h3>Funzioni</h3></a>
+<p>Una funzione è un blocco di codice a cui si associa un nome e una serie di &quot;parametri&quot; che si vanno ad utilizzare nel corpo della funzione (quello delimitato dalle {}).
+Una funzione non è altro che la descrizione in termini di una sequenza di comandi di una certa funzionalità (da cui il nome).</p>
+<p>Questa funzionalità può aver bisogno di qualche <strong>dato in ingresso</strong> e può restituire dei <strong>valori in uscita</strong>.
+In questo modo possiamo delegare ad una funzione una certa operazione complessa da eseguire e salvare solamente il valore di uscita in una variabile che poi andremo ad usare successivamente nel codice.</p>
+<p>Si può pensare ad una funzione come ad una macchina industriale in cui ENTRANO delle materie prime (ad esempio la base di una pizza) e al suo interno
+alcuni meccanismi inseriscono oggetti e applicano lavorazioni tali per cui in USCITA abbiamo un prodotto lavorato (ad esempio la pizza cotta con tutti gli ingredienti scelti).</p>
+<p>In questo caso i &quot;parametri&quot; in INGRESSO sono la base della pizza e l'ordinazione mentre in USCITA abbiamo la pizza completa che ha subito la lavorazione della macchina.</p>
+<p>Nell'esempio riportato in seguito, la funzione in base all'età, al titolo e al nome di una persona, ritorna una variabile di tipo stringa con l'esito della nostra &quot;autenticazione&quot; di base: può entrare o non può entrare.  Il valore di ritorno della funzione può essere salvato in una variabile per un'utilizzo futuro
+oppure puà essere usato come valore da stampare o ancora come valore di ingresso per un'altra funzione.</p>
+<p>Per DEFINIRE una funzione bisogna usare il comando <code>function</code>, seguito dal NOME della funzione e dalla lista dei suoi PARAMETRI.</p>
+<p>E' da notare che definire una funzione <strong>non</strong> significa eseguire il codice contenuto al suo interno, ma semplicemente associare al NOME della funzione il blocco di codice.
+In questo modo solo conoscendo il nome della funzione sarà possibile richiamare la funzionalità che essa descrive in altri punto del nostro programma.</p>
+<pre><code class="language-php">function controlloIngresso($eta, $titolo, $nome) {
+    if ($titolo == 'mr' &amp;&amp; $eta &gt;= 18) {
+        return &quot;Signor $nome può entrare&quot;;
+    } else if ($titolo == 'mr' &amp;&amp; $eta &lt; 18) {
+        return &quot;Signor $nome, non può entrare&quot;;
+    } else if ($titolo == 'mrs' &amp;&amp; $eta &gt;= 18) {
+        return &quot;Signora $nome, può entrare&quot;;
+    } else {
+        return &quot;Signora $nome, non può entrare&quot;;
+    }
+}
+</code></pre>
+<p>Per richiamare o ESEGUIRE una funzione è necessario scrivere il NOME della funzione seguito dalla lista dei valori di ingresso, che all'interno del blocco di codice che
+abbiamo definito prima, prenderanno i valori che abbiamo associato ai parametri di ingresso.</p>
+<p>Ad esempio in questo caso il numero 25 sarà associato alla variabile $eta, &quot;mr&quot; a $titolo e &quot;Giacomo&quot; a $nome.</p>
+<pre><code class="language-php">echo controlloIngresso(25, &quot;mr&quot;, &quot;Giacomo&quot;) . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<p>Richiamando <code>echo</code> dandogli come argomento la chiamata di funzione, quello che accade è che il valore (eventuale) di ritorno della funzione <code>controlloIngresso</code> viene passato direttamente al comando echo il quale si occuperà
+di stamparlo sulla pagina.</p>
+<p>Al comando <code>echo</code>, in aggiunta, viene passata una stringa concatenata formata dal valore di ritorno di controlloIngresso e dalla stringa <code>&lt;br&gt;</code>. Il risultato della concatenazione viene passato ad echo
+che successivamente lo stamperà nel file che verrà visualizzato dal browser.</p>
+<pre><code class="language-php">echo controlloIngresso(12, &quot;mrs&quot;, &quot;Paola&quot;) . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<a class="header" href="print.html#selezionare-più-condizioni-diverse-switch" id="selezionare-più-condizioni-diverse-switch"><h3>Selezionare più condizioni diverse: switch</h3></a>
+<p>Il comando switch serve per eseguire un particolare pezzo di codice basandosi sul valore di una variabile.
+Questa variabile può essere di qualsiasi tipo anche non necessariamente un booleano.</p>
+<p>L'istruzione switch, dunque, è un particolare tipo di selezione che non valuta una condizione booleana (true/false) bensì confronta il valore di una variabile con quelli presenti nei suoi diversi &quot;rami&quot;.</p>
+<p>Per definire un certo &quot;ramo&quot; dello swicth è necessario usare la sintassi del <code>case</code> che vediamo nell'esempio qui sotto.</p>
+<p>Fondamentale: alla fine del blocco di codice successivo al case va inserito il comando break!</p>
+<p>Nel momento in cui viene trovata corrispondenza tra il valore della variabile valutata dallo switch (in questo caso <code>$giornoDellaSettimana</code>) e uno dei suoi rami, viene eseguito il blocco di codice corrispondente al ramo e quindi l'esecuzione passa alla prima istruzione dopo lo switch.
+Nel caso si volesse eseguire del codice nel momento in cui non si trovasse corrispondenza con nessuno dei rami definiti, si puà introdurre un blocco default alla fine degli altri case.</p>
+<pre><code class="language-php">$giornoDellaSettimana = &quot;mercoledì&quot;;
+
+switch ($giornoDellaSettimana) {
+    case &quot;lun&quot;:
+        break;
+    case &quot;mar&quot;:
+        break;
+    case &quot;mer&quot;:
+        echo &quot;E' mercoledì! Yeeeeeee!&quot;;
+        break;
+    case &quot;gio&quot;:
+        echo &quot;E' giovedì!&quot;;
+        break;
+    case &quot;ven&quot;:
+        break;
+    case &quot;sab&quot;:
+        break;
+    case &quot;dom&quot;:
+        break;
+    default:
+        echo &quot;Non capisco nulla, cit. la classe&quot;;
+        break;
+}
+</code></pre>
+<a class="header" href="print.html#capitolo-2" id="capitolo-2"><h1>Capitolo 2</h1></a>
+<a class="header" href="print.html#cicli-e-array" id="cicli-e-array"><h2>Cicli e Array</h2></a>
+<a class="header" href="print.html#array" id="array"><h3>Array</h3></a>
+<p>In programmazione un array è un tipo di variabile il cui valore è un insieme di altre variabili.</p>
+<p>Questo array viene definito posizionale in quanto le variabili al suo interno sono distinte l'una dall'altra in base alla loro posizione all'interno dell'array.</p>
+<p>Ogni variabile infatti ha un suo indice, che identifica appunto la posizione di quella variabile all'interno dell'array.</p>
+<p>Da notare che in programmazione il primo elemento di qualsiasi insieme ha indice 0, non 1.</p>
+<p>Quindi il primo elemento di un array si dice che è all'indice 0, il secondo all'indice 1 e così via.</p>
+<p>L'indice corrispondente all'ultimo elemento è dunque il numero di elementi dell'array meno uno.</p>
+<p>Per definire un array si usano le parentesi quadre, separando tutti gli elementi con una virgola</p>
+<pre><code class="language-php">//           Indice: 0  1  2  3
+$arrayPosizionale = [1, 2, 3, 4];
+</code></pre>
+<a class="header" href="print.html#accedere-agli-elementi-di-un-array-indicizzazione" id="accedere-agli-elementi-di-un-array-indicizzazione"><h3>Accedere agli elementi di un array: indicizzazione</h3></a>
+<p>Per accedere al contenuto di una variabile che fa parte di un array è necessario indicizzare l'array,
+ovvero indicare il nome dell'array e tra le parentesi quadre l'indice dell'elemento che si desidera ottenere:</p>
+<pre><code class="language-php">echo $arrayPosizionale[3];
+</code></pre>
+<a class="header" href="print.html#inserire-un-elemento-in-un-array" id="inserire-un-elemento-in-un-array"><h3>Inserire un elemento in un array</h3></a>
+<p>Per inserire un elemento in un array è sufficiente richiamare il nome dell'array con a fianco una coppia di parentesi quadre.
+A seguito dell'uguale sarà necessario inserire il valore che si intende aggiungere all'array.</p>
+<p>Questa operazione aggiungere l'elemento alla fine dell'array, quindi in questo modo inseriamo il nuovo elemento finale dell'array:</p>
+<pre><code class="language-php">$arrayPosizionale[] = 5;
+
+// Stampa dell'elemento appena inserito
+echo $arrayPosizionale[4] . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<a class="header" href="print.html#eliminazione-elemento-da-array" id="eliminazione-elemento-da-array"><h3>Eliminazione elemento da array</h3></a>
+<p>Per eliminare un elemento da un array si deve richiamare la funzione unset sull'elemento dell'array che vogliomo cancellare.</p>
+<p>Per definire quale elemento vogliamo cancellare dobbiamo indicizzare quell'elemento, mettendo tra parentesi quadre l'indice desiderato</p>
+<pre><code class="language-php">unset($arrayPosizionale[4]);
+</code></pre>
+<p>In questo caso stiamo richiedendo il valore corrispondente all'indice 400 dell'array, quindi il 401esimo elemento.
+Dal momento che il nostro <code>arrayPosizionale</code> ha solo 5 elementi, l'interprete di PHP darà un warning dicendo che non riesce a trovare l'elemento richiesto.</p>
+<pre><code class="language-php">echo $arrayPosizionale[400] . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<a class="header" href="print.html#testare-se-elemento-è-presente-in-array" id="testare-se-elemento-è-presente-in-array"><h3>Testare se elemento è presente in array</h3></a>
+<p>Per verificare che un elemento sia presente all'interno di un array posizionale, ovvero che un certo indice corrisponda ad un elemento esistente dell'array, dobbiamo utilizzare la funzione isset(), la quale prende come argomento l'elemento dell'array
+di cui vogliamo verificare l'esistenza e restituisce un valore booleano (true/false) che possiamo utilizzare ad esempio all'interno di una selezione if (come nel caso sottostante).</p>
+<pre><code class="language-php">if (isset($arrayPosizionale[400])) {
+  echo $arrayPosizionale[400];
+} else {
+  echo &quot;Elemento non trovato all'interno dell'array!&lt;br&gt;&quot;;
+}
+</code></pre>
+<a class="header" href="print.html#modificare-elemento-esistente" id="modificare-elemento-esistente"><h3>Modificare elemento esistente</h3></a>
+<p>Per modificare un elemento esistente è sufficiente indicizzarlo alla sinistra dell'uguale usando l'operatore <code>[&lt;indice&gt;]</code> e alla destra dell'uguale inserire il nuovo valore che si intende associare a quella posizione nell'array.
+Se noi inserissimo un indice non presente nell'array, PHP lo creerebbe e quindi gli assocerebbe il valore che abbiamo scritto:</p>
+<pre><code class="language-php">$arrayPosizionale[2] = 467;
+</code></pre>
+<p>Per contare gli elementi di un array e quindi conoscere la lunghezza di quest'ultimo si usa la funzione <code>count()</code> che prende come argomento l'array e restituisce la lunghezza (intera) dell'array</p>
+<pre><code class="language-php">echo &quot;Elementi di un array: &quot; . count($arrayPosizionale) . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<a class="header" href="print.html#stampare-contenuto-di-un-array" id="stampare-contenuto-di-un-array"><h3>Stampare contenuto di un array</h3></a>
+<p>Per stampare il contenuto di un array è necessario usare la funzione <code>var_dump</code>, in quanto l'echo normale non è in grado di mostrarci correttamente i valori all'interno dell'array.</p>
+<p><code>var_dump</code> ci mostra anche il tipo di variabile contenuto nell'array, la lunghezza dei vari campi e separa graficamente gli elementi</p>
+<pre><code class="language-php">echo var_dump($arrayPosizionale);
+</code></pre>
+<p>Si possono definire array di tutti i tipi fondamentali di dati, come ad esempio le stringhe.</p>
+<p>Per agevolare la lettura, è consigliabile scrivere gli array come segue, inserendo ogni elemento in una riga diversa e mettendo le parentesi anch'esse su una riga a parte</p>
+<pre><code class="language-php">$giorniDellaSettimana = [
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+];
+</code></pre>
+<p>E' possibile stampare l'array nel modo seguente, indicando tutti gli indici fino all'ultimo.
+Nel momento in cui dovessimo cambiare gli elementi dell'array giorniDellaSettimana dovremmo ricordarci anche di modificare la procedura di stampa sottostante, cosa non agevole.
+Di seguito verrà presentato un modo automatico per realizzare la stessa funzionalità.</p>
+<pre><code class="language-php">echo $giorniDellaSettimana[0] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[1] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[2] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[3] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[4] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[5] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[6] . &quot;&lt;br&gt;&quot;;
+
+echo &quot;I giorni della settimana sono &quot; . count($giorniDellaSettimana) . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<a class="header" href="print.html#convenzioni-per-la-scrittura-di-variabili-e-nomi-di-funzioni-e-classi" id="convenzioni-per-la-scrittura-di-variabili-e-nomi-di-funzioni-e-classi"><h3>Convenzioni per la scrittura di variabili e nomi di funzioni e classi.</h3></a>
+<p>Non è obbligatorio sceglierne una in particolare, quello che è fortemente consigliato e decisamente necessario è sceglierne UNA e UNA SOLA all'interno di un progetto e utilizzarla PER OGNI variabile o funzione che si crea.</p>
+<p>Altro consiglio utile: perdete pure del tempo a dare dei nomi significativi a variabili e funzioni.</p>
+<p><em>Ricordate: un nome ben dato è meglio di una riga di commento!</em> cit. il saggio programmatore sulla roccia.</p>
+<ul>
+<li>
+<p>CamelCase</p>
+<ul>
+<li>ciaoComeAndiamo</li>
+<li>giorniDellaSettimana</li>
+</ul>
+</li>
+<li>
+<p>PascalCase</p>
+<ul>
+<li>CiaoComeAndiamo</li>
+<li>GiorniDellaSettimana</li>
+</ul>
+</li>
+<li>
+<p>SnakeCase</p>
+<ul>
+<li>ciao_come_andiamo</li>
+<li>giorni_della_settimana</li>
+</ul>
+</li>
+<li>
+<p>KebabCase</p>
+<ul>
+<li>ciao-come-andiamo</li>
+<li>giorni-della-settimana</li>
+</ul>
+</li>
+<li>
+<p>AdMinchiamCase</p>
+<ul>
+<li>gioRNi_Della_sett</li>
+<li>gds</li>
+<li>ccc</li>
+<li>a</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="print.html#ripetere-azioni-un-numero-definito-di-volte-il-ciclo-for" id="ripetere-azioni-un-numero-definito-di-volte-il-ciclo-for"><h3>Ripetere azioni un numero definito di volte: il ciclo FOR</h3></a>
+<p>Il ciclo for è uno degli elementi più comuni e potenti della programmazione.<br />
+E' un costrutto il cui scopo principale è ripetere un certo numero di istruzioni/operazioni un certo numero di volte.
+Ad esempio se si volesse ripetere 5 volte la stampa a schermo di un messaggio &quot;ciao mondo&quot;, dovremmo scrivere il comando: <code>echo 'ciao mondo';</code> su 5 righe diverse, in questo modo:</p>
+<pre><code class="language-php">echo 'ciao mondo'; 
+echo 'ciao mondo'; 
+echo 'ciao mondo'; 
+echo 'ciao mondo'; 
+echo 'ciao mondo'; 
+</code></pre>
+<p>Questo approccio benchè funzionante non è molto comodo.
+La soluzione a questo problema è individuare il gruppo di istruzioni che si intendono ripetere (in questo caso <code>echo &quot;ciao mondo&quot;</code>) e inserirlo all'interno di un ciclo for, impostando correttamente il ciclo in modo da dirgli di ripetere l'operazione un certo numero di volte (5 nel nostro caso)</p>
+<p>La sintassi del ciclo for è la seguente:</p>
+<pre><code class="language-php">for (&lt;inizializzazione&gt;; &lt;condizione&gt;; &lt;incremento&gt; {
+   &lt;istruzione 1&gt;
+   &lt;istruzione 2&gt;
+   &lt;istruzione 3&gt;
+    &lt;istruzione 4&gt;
+}
+</code></pre>
+<p>Dove:</p>
+<ul>
+<li>
+<p><strong>INIZIALIZZAZIONE</strong></p>
+<p>E' la prima istruzione da dare al ciclo.
+Qui dobbiamo definire una variabile, chiamata variabile di ciclo, la quale avrà la funzione di &quot;segnaposto&quot; per farci capire a che punto siamo arrivati nel ciclo
+Solitamente alle variabili di ciclo si usa dare il nome degli indici matematici (i,j,k,l).
+Non è obbligatorio, ma è consigliato rispettare questa convenzione, per far capire subito a chi scrive o legge il nostro codice appunto che stiamo parlando di variabili che hanno senso solamente all'interno del ciclo e non al di fuori di esso.</p>
+<p>Una possibile inizializzazione potrebbe essere la seguente:</p>
+<pre><code class="language-php"> $i = 0;
+</code></pre>
+<p>Il nostro ciclo dunque partità con la variabile $i a 0.</p>
+</li>
+<li>
+<p><strong>CONDIZIONE</strong></p>
+<p>Affinchè il ciclo possa proseguire a ripetere le istruzioni contenute al suo interno, è necessario che la condizione
+che impostiamo come seconda istruzione del ciclo sia vera.
+Nel momento in cui questa condizione diventasse falsa, il ciclo smetterebbe di ripetere le istruzioni e il flusso del programma
+ripartirebbe dall'istruzione successivo al ciclo (dopo la parentesi } di chiusura del for).
+Essendo una condizione, essa risulta in un valore vero o falso. Come per ogni altra condizione, valgono le regole della logica booleana,
+quindi tutte le operazioni che potremmo fare all'interno di un if valgono anche qui (ad esempio comporre più variabili insieme con OR o AND).</p>
+</li>
+<li>
+<p><strong>INCREMENTO</strong></p>
+<p>Questa è l'ultima istruzione da inserire in un ciclo for e serve per incrementare la variabile di ciclo. Senza questa istruzione, il ciclo potrebbe avere
+durata infinita nel caso in cui la condizione iniziale dovesse risultare vera.
+Questa istruzione è necessaria per poter portare a termine il ciclo, e determina il &quot;passo&quot; del ciclo, ovvero il modo in cui varia la variabile di ciclo,
+responsabile delle iterazioni del ciclo.</p>
+</li>
+</ul>
+<p>Facciamo un rapido esempio per comprendere come funzionano queste 3 istruzioni insieme:</p>
+<pre><code class="language-php">for ($i = 0; $i &lt; 5; $i = $i + 1) {
+  //echo &quot;Variabile di Ciclo: $i&lt;br&gt;&quot;;
+  echo &quot;Ciao&quot;;
+}
+</code></pre>
+<p>In questo caso vogliamo eseguire 5 volte l'istruzione echo 'Ciao';</p>
+<ul>
+<li>Inizializziamo la variabile $i al valore 0 (Viene fatta solo una volta!!!)</li>
+<li>Testiamo la condizione: <code>$i &lt; 5</code> =&gt; 0 è minore di 5 quindi è VERA. Proseguiamo</li>
+<li>Eseguiamo le istruzioni all'interno del ciclo =&gt; echo 'Ciao'; =&gt; Stampa &quot;Ciao&quot; sullo schermo.</li>
+<li>Eseguiamo l'istruzione di incremento =&gt; $i = $i + 1 =&gt; $i = 0 + 1 =&gt; $i = 1;</li>
+<li>Testiamo la condizione: $i &lt; 5 =&gt; 1 è minore di 5 quindi è VERA. Proseguiamo</li>
+<li>Eseguiamo le istruzioni all'interno del ciclo =&gt; echo 'Ciao'; =&gt; Stampa &quot;Ciao&quot; sullo schermo.</li>
+<li>Eseguiamo l'istruzione di incremento =&gt; $i = $i + 1 =&gt; $i = 1 + 1 =&gt; $i = 2;</li>
+<li>Testiamo la condizione: $i &lt; 5 =&gt; 2 è minore di 5 quindi è VERA. Proseguiamo</li>
+<li>Eseguiamo le istruzioni all'interno del ciclo =&gt; echo 'Ciao'; =&gt; Stampa &quot;Ciao&quot; sullo schermo.</li>
+<li>Eseguiamo l'istruzione di incremento =&gt; $i = $i + 1 =&gt; $i = 2 + 1 =&gt; $i = 3;</li>
+<li>Testiamo la condizione: $i &lt; 5 =&gt; 3 è minore di 5 quindi è VERA. Proseguiamo</li>
+<li>Eseguiamo le istruzioni all'interno del ciclo =&gt; echo 'Ciao'; =&gt; Stampa &quot;Ciao&quot; sullo schermo.</li>
+<li>Eseguiamo l'istruzione di incremento =&gt; $i = $i + 1 =&gt; $i = 3 + 1 =&gt; $i = 4;</li>
+<li>Testiamo la condizione: $i &lt; 5 =&gt; 4 è minore di 5 quindi è VERA. Proseguiamo</li>
+<li>Eseguiamo le istruzioni all'interno del ciclo =&gt; echo 'Ciao'; =&gt; Stampa &quot;Ciao&quot; sullo schermo.</li>
+<li>Eseguiamo l'istruzione di incremento =&gt; $i = $i + 1 =&gt; $i = 4 + 1 =&gt; $i = 5;</li>
+<li>Testiamo la condizione: $i &lt; 5 =&gt; 5 NON è minore di 5 quindi è FALSE. STOP!</li>
+</ul>
+<p>Come potete notare, il ciclo esegue le operazioni in esso contenuto 5 volte, ovvero lo stesso
+numero che compare nella condizione. E' bene notare che la condizione di uscita è che $i
+deve essere STRETTAMENTE minore di 5, ovvero nel momento in cui $i vale 5 il ciclo si arresta.</p>
+<p>In questo modo, imponendo che la condizione sia minore STRETTO, sappiamo che mettendo un
+numero N qualsiasi nella condizione e PARTENDO DA ZERO ($i = 0) il ciclo ripeterà N volte le
+istruzioni in esso contenute.</p>
+<p>La lista di operazioni sopra descritta può essere un utile strumento per comprendere come
+funziona internamente un ciclo for. Se non vi è chiaro ancora il funzionamento del ciclo
+vi consiglio di provare a replicare la struttura appena descritta anche su altri cicli,
+fino a quando non dovesse essere più chiaro il suo funzionamento.</p>
+<p>Nulla vieta all'interno del ciclo di utilizzare il valore della variabile $i, e anzi questo
+è tipicamente quello che accade. Si può usare la variabile $i, crescente dal valore di inizializzazione
+a quello di fine delle condizione (5 nel caso precendente) ad esempio per stampare gli elementi
+di un array posizionale, come nell'esempio qui sotto.</p>
+<pre><code class="language-php">for ($i = 0; $i &lt; count($giorniDellaSettimana); $i = $i + 1) {
+  echo $giorniDellaSettimana[$i] . &quot;&lt;br&gt;&quot;;
+}
+</code></pre>
+<p>Per evitare di stampare elementi al di fuori dell'array si è utilizzata la funzione
+<code>count(&lt;nome_variabile_array&gt;)</code> che restituisce il numero di elementi dell'array.
+Sapendo che il primo elemento ha indice 0 e che il ciclo eseguirà la stampa un numero di volte
+uguale alla dimensione dell'array, siamo sicuri di stampare tutti gli elementi dell'array
+e niente di più.</p>
+<pre><code class="language-php">echo &quot;Il ciclo è finito, ciao ciao!&lt;br&gt;&quot;;
+</code></pre>
+<a class="header" href="print.html#iterare-su-oggetti-e-array-ciclo-foreach" id="iterare-su-oggetti-e-array-ciclo-foreach"><h3>Iterare su oggetti e array: ciclo foreach</h3></a>
+<p>Il foreach è un altro tipo di ciclo, un po meno versatile del FOR ma molto più potente e comodo.
+Ci permette di pensare all'array non in termini di indici e posizioni, ma come un insieme di elementi
+che possiamo prendere separatamente e trattare come &quot;oggetti&quot; su cui svolgere certe azioni.
+Per capire il suo funzionamento sarebbe utile cercare di tradurre il costrutto in Italiano.</p>
+<pre><code class="language-php">foreach(&lt;nome_variabile_array&gt; as &lt;nome_elemento&gt;) {
+ &lt;istruzione 1&gt;
+ &lt;istruzione 2&gt;
+ &lt;istruzione 3&gt;
+}
+</code></pre>
+<pre><code class="language-php">perogni &lt;elemento&gt; dell'array &lt;nome_variabile_array&gt; eseguiamo il blocco di istruzioni
+ &lt;istruzione 1&gt;, 
+ &lt;istruzione 2&gt;, 
+ &lt;istruzione 3&gt;,
+</code></pre>
+<p>Copiando il valore di <code>elemento</code> all'interno di una variabile che sarà disponibile
+nel ciclo con il nome di <code>nome_elemento</code>.</p>
+<p>Questo ciclo può essere assimilato ad un generale Romano che passa in rassegna i suoi uomini.</p>
+<ul>
+<li>Per prima cosa li fa mettere tutti in una lunga fila.</li>
+<li>A quel punto si mette di fronte al primo e gli chiede un documento</li>
+<li>Guardando il documento grida il suo nome: <em>&quot;Ave, soldato di nome Tizio!&quot;</em>.</li>
+<li>Una volta fatto questo si sposta di fronte al successivo soldato, gli chiede il documento e di nuovo grida il suo nome: <em>&quot;Ave, soldato di nome Caio!&quot;</em>.</li>
+<li>E così via fino a quando non si sono più soldati.</li>
+</ul>
+<p>A quel punto &quot;esce dal ciclo&quot; e continua con le sue operazioni quotidiane, ad esempio ordinare la carica sulla Città di Gerico.</p>
+<p>Come tradurre questo insieme di operazioni usando i costrutti di PHP?</p>
+<pre><code class="language-php">$soldati = [&quot;Tizio&quot;, &quot;Caio&quot;, &quot;Sempronio&quot;]; // 1
+
+foreach($soldati /* 2 */ as $soldato /* 3 */) {
+  echo &quot;Ave, soldato di nome $soldato!&quot;; // 4
+}
+</code></pre>
+<ol>
+<li>
+<p><em>&quot;Mettiamo tutti i soldati in riga&quot;</em></p>
+<p>Inseriamoli i nomi dei soldati in un array posizionale</p>
+</li>
+<li>
+<p>&quot;Ci mettiamo di fronte ai soldati&quot;</p>
+<p>Iniziamo un foreach, con l'obiettivo di prendere uno ad uno i nomi dei soldati per salutarli</p>
+</li>
+<li>
+<p><em>&quot;Chiede al soldato un documento&quot;</em></p>
+<p>Inseriamo il valore dell'elemento corrente (quello a cui siamo di fronte)
+all'interno di una variabile a cui potremo fare riferimento all'interno del ciclo.</p>
+</li>
+<li>
+<p><em>&quot;Grida il suo nome&quot;</em></p>
+<p>Una volta che sappiamo come si chiama il soldato, non dobbiamo fare
+altro che stampare il suo nome, eseguiamo dunque echo dandogli come
+parametro appunto la variabile che contiene il nome dell'elemento corrente,
+ovvero il soldato che abbiamo davanti.</p>
+</li>
+</ol>
+<p>Utilizzando <code>foreach</code> al posto di <code>for</code> possiamo dimenticarci di usare count
+dovendoci sincerare di stampare solamente elementi al di fuori dell'array
+stesso, in quanto <code>foreach</code> si occupa internamente di renderci disponibili
+solamente gli elementi presenti nell'array.</p>
+<p>Nel caso avessimo bisogno di avere accesso anche all'indice o chiave dell'elemento,
+possiamo usare un'altra sintassi di <code>foreach</code>.</p>
+<pre><code class="language-php">foreach ($giorniDellaSettimana as $i =&gt; $giorno) {
+  echo &quot;$i =&gt; $giorno &lt;br&gt;&quot;;
+}
+</code></pre>
+<p>In questo caso utilizzando questo costrutto <code>$i =&gt; $giorni</code> rendiamo disponibili
+all'interno del ciclo sia il valore dell'elemento (all'interno della variabile <code>$giorno</code>)
+che la sua chiave all'interno dell'array (essendo un array posizionale, la chiave
+di ogni elemento è appunto la sua posizione all'interno dell'array.</p>
+<a class="header" href="print.html#array-associativi" id="array-associativi"><h3>Array Associativi</h3></a>
+<p>In PHP esistono due diversi tipo di array, che differiscono principalmente per il modo in cui associano
+gli elementi presenti al loro interno ai valori che utilizziamo per accedere a questi elementi.</p>
+<p>Negli array posizionali, quello che abbiamo appena visto e utilizzato fino ad adesso, il modo che abbiamo per
+accedere ad un elemento è quello di usare l'indice di quell'elemento, ovvero indicizzare l'array su quell'elemento.
+Ad esempio se avessimo un array di 3 elementi</p>
+<pre><code class="language-php">$array = [1,2,3] 
+</code></pre>
+<p>E volessimo accedere al secondo elemento, dovremmo utilizzare la seguente istruzione:</p>
+<pre><code class="language-php">$secondoElemento = $array[1]; // 1 non 2, in quanto sappiamo che gli indici in PHP iniziano da 0!!!
+</code></pre>
+<p>In questo caso si dice che la chiave per accedere al secondo elemento è la sua posizione.</p>
+<p>In PHP esiste un'altro tipo di variabile molto simile ma nel quale il modo
+che abbiamo per identificare un'elemento è quello di utilizzare la sua chiave,
+che definiziamo in fase di creazione della variabile.
+Quello che facciamo infatti è associare quell'elemento a quella chiave.
+Questo tipo di variabile è chiamato, appunto, array associativo.</p>
+<pre><code class="language-php">$arrayAssociativi = [
+  &quot;lun&quot; =&gt; &quot;Lunedì&quot;, 
+  &quot;mar&quot; =&gt; &quot;Martedì&quot;,
+  &quot;mer&quot; =&gt; &quot;Mercoledì&quot;,
+];
+</code></pre>
+<p>Come si può notare, l'array associativo si definisce allo stesso modo di quello posizionale, l'unica differenza
+sta nel modo di scrivere i suoi elementi.
+Per semplicità di lettura, ogni elemento è scritto su una riga diversa, ma nulla vieta di scrivere tutti gli elementi
+su di un a riga sola. Consiglio caldamente però di non sacrificare mai la leggibilità del codice, quindi è sempre meglio,
+anche per gli array posizionali, scrivere tutti ogni elemento su di una riga diversa.</p>
+<p>Per aggiungere un elemento ad un array associativo è necessario definire una chiave e ad essa associarli un valore.
+La chiave deve essere un valore di tipo stringa, numerico o booleano. Il valore, invece, può essere di qualsiasi tipo e
+nulla vieta che esso sia un altro array posizionale o associativo.</p>
+<p>Tutte le operazioni che applicavamo ad un array posizionale possiamo tranquillamente applicarle anche ad un array associativo
+con l'unica accortezza di cambiare il modo con cui ci interfacciamo agli elementi.
+Se con l'array posizionale usavamo la posizione o l'indice dell'elemento per riferirci ad essere, con quelli associativi
+dobbiamo usare esclusivamente la chiave con cui abbiamo definito quell'elemento. Non possiamo, ad esempio, stampare il primo
+elemento di un array associativo scrivendo</p>
+<pre><code class="language-php">echo $arrayAssociativi[0]
+</code></pre>
+<p>In quanto su quell'array non esiste la chiave corrispondente a 0 (che infatti è &quot;lun&quot;).
+Anche gli array posizionali, infatti, non sono altro che array associativi in cui le chiavi sono gli indici
+con cui l'elemento è inserito all'interno dell'array</p>
+<p>Questa istruzione stampa l'elemento corrispondente alla chiave &quot;lun&quot; dell'array <code>arrayAssociativi</code>:</p>
+<pre><code class="language-php">echo $arrayAssociativi[&quot;lun&quot;]; 
+</code></pre>
+<p>Una delle funzioni più importanti degli array associativi è quella di definire delle strutture di dati,
+ovvero delle variabili che al loro interno contengano dei campi relativi a certe caratteristiche dell'oggetto
+che vogliono descrivere.</p>
+<p>Ad esempio, qui andiamo a definire una variabile chiamata <code>$utente</code> che al suo interno definisce degli elementi
+associati a diverse chiavi che rappresentano dei &quot;campi&quot; dell'oggetto, ovvero vanno a descrivere delle caratteristiche
+dell'oggetto <code>$utente</code> e ci permettono di riferirci ad esse usando il loro nome.</p>
+<p>Il primo elemento dell'array associativo <code>$utente</code> non è un solamente un oggetto scorrelato da <code>$utente</code>, bensì
+una caratteristica di <code>$utente</code>, in particolare rappresenta l'età del nostro utente, e ci permette di
+riferirci ad essa usando una chiave &quot;semantica&quot;, ovvero che descrive il contenuto della variabile a cui fa riferimento.</p>
+<p>Ora dunque per riferirci all'età del nostro utente potremo scrivere <code>$utente</code>['eta'], ovvero &quot;dammi l'età dell'utente&quot;.
+Sarà molto più facile all'interno di funzioni e in generale nel nostro codice riferirci ai campi che ci interessano.</p>
+<pre><code class="language-php">$utente = [
+  &quot;eta&quot; =&gt; 25,
+  &quot;nome&quot; =&gt; &quot;Giacomo&quot;,
+  &quot;cognome&quot; =&gt; &quot;Alberini&quot;,
+  &quot;email&quot; =&gt; &quot;giacomoalbe@gmail.com&quot;,
+  &quot;password&quot; =&gt; &quot;ilovephpjustkidding&quot; 
+];
+</code></pre>
+<p>Un esempio di quanto appena detto. Per scrivere nome e cognome dell'utente possiamo
+fare riferimento agli elementi dell'array associativo, che sono relativi appunto
+alle caratteristiche dell'oggetto che stiamo descrivendo (una persona appunto).</p>
+<pre><code class="language-php">echo &quot;Ciao, &quot; . $utente[&quot;nome&quot;] . &quot; &quot; . $utente['cognome'] . &quot;!&lt;br&gt;&quot;;
+</code></pre>
+<p>Questa funzione si aspetta che il suo parametro di ingresso di un array associativo
+contenente le chiavi nome, cognome, eta e email che poi andrà a stampare
+Qui definiamo la funzione, ovvero associamo un certo numero di istruzioni ad una &quot;etichetta&quot;
+(il nome della funzione) che più tardi utilizzeremo per eseguire il codice ad essa associato.</p>
+<pre><code class="language-php">function salutaPersona($utente) {
+  $nome = $utente[&quot;nome&quot;];
+  $cognome = $utente[&quot;cognome&quot;];
+  $eta = $utente[&quot;eta&quot;];
+  $email = $utente[&quot;email&quot;];
+
+  echo &quot;Ciao, $nome $cognome! Hai $eta anni! Ti mando una mail a $email!&lt;br&gt;&quot;;
+}
+</code></pre>
+<p>Qui richiamiamo la funzione salutaPersona, dopo averla definita sopra.
+Fino al momento della chiamata, la funzione non fa assolutamente nulla.</p>
+<pre><code class="language-php">salutaPersona($utente);
+</code></pre>
+<p>Questo è un esempio di come possiamo usare il ciclo foreach per stampare
+sia le chiavi che gli elementi di un array associativo. Se non avessimo
+usato la sintassi <code>$chiave =&gt; $valore</code>, non avremmo avuto accesso a tutte le informazioni
+per descrivere correttamente un array associativo, ma solo il valore corrispondente ad ogni chiave
+senza però sapere il valore della chiave stessa.</p>
+<pre><code class="language-php">foreach($utente as $chiave =&gt; $valore) {
+  echo &quot;Chiave: $chiave =&gt; Valore: $valore&lt;br&gt;&quot;;
+}
+</code></pre>
+<a class="header" href="print.html#modo-corretto-di-dividere-php-e-html-nei-propri-file-php" id="modo-corretto-di-dividere-php-e-html-nei-propri-file-php"><h3>Modo <em>corretto</em> di dividere PHP e HTML nei propri file .php</h3></a>
+<pre><code class="language-php">&lt;?php
+
+// Qui definiamo sia la logica che i dati
+$utente = [
+  &quot;nome&quot; =&gt; &quot;Nome&quot;,
+  &quot;cognome&quot; =&gt; &quot;Cognome&quot;,
+  &quot;eta&quot; =&gt; &quot;Età&quot;,
+];
+
+?&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Cicli For &amp; Array&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Cicli For &amp; Array&lt;/h1&gt;
+    &lt;ul&gt;
+    &lt;!-- 
+      Modo CORRETTO di dividere PHP e HTML all'interno del vostro file PHP 
+      Cercate il più possibile di limitare l'uso di istruzioni PHP nel vostro HTML.
+    --&gt;
+    &lt;?php foreach($utente as $chiave =&gt; $valore) { ?&gt;
+        &lt;li&gt;
+            &lt;b&gt;&lt;?=$chiave?&gt;:&lt;/b&gt; &lt;?=$valore?&gt;
+        &lt;/li&gt;
+    &lt;?php } ?&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<a class="header" href="print.html#esercizi" id="esercizi"><h1>Esercizi</h1></a>
+<a class="header" href="print.html#sezione-in-costruzione" id="sezione-in-costruzione"><h2>Sezione in costruzione!</h2></a>
+<p>In questa sezione sono contenuti gli esercizi relativi alle varie lezioni svolte e ai vari argomenti.</p>
+<p><strong>ATTENZIONE: Ad oggi (17/12/18) non sono ancora presenti gli esercizi da svolgere!</strong></p>
+<a class="header" href="print.html#soluzioni" id="soluzioni"><h1>Soluzioni</h1></a>
+<p>Qui verranno raccolti tutti gli esercizi svolti a lezione, divisi per argomento, insieme alle loro relative soluzioni.</p>
+<p>Per accedere al contenuto degli esercizi selezionare dalla barra laterale il link corrispondente.</p>
+<pre><code class="language-php">&lt;?php
+    // Esercizio 1
+    $eroiMarvel = [
+        &quot;Thor&quot;,
+        &quot;Hulk&quot;,
+        &quot;Spiderman&quot;,
+        &quot;Venom&quot;,
+        &quot;Danzi&quot;,
+        &quot;Blackcat&quot;,
+    ];
+
+    //sort($eroiMarvel);
+
+    // $poteriEroi = [
+    //     &quot;Danzi&quot; =&gt; &quot;rompic******i&quot;,
+    //     &quot;Superman&quot; =&gt; &quot;paranoia&quot;,
+    //     &quot;Spiderman&quot; =&gt; &quot;imbrattamuri&quot;,
+    // ];
+
+    function ordinaArray($arrayDaOrdinare, $ordinamento) {
+        if ($ordinamento == &quot;+&quot;) {
+            sort($arrayDaOrdinare);
+        }
+
+        if ($ordinamento == &quot;-&quot;) {
+            rsort($arrayDaOrdinare);
+        }
+
+        return $arrayDaOrdinare;
+
+    }
+
+    $eroiMarvel = ordinaArray($eroiMarvel, &quot;+&quot;);
+
+    function stampaRigaAsterischi($n) {
+        for ($i=0; $i&lt;$n; $i++) {
+            echo &quot;*&quot;;
+        }
+        echo &quot;&lt;br&gt;&quot;;
+    }
+
+    stampaRigaAsterischi(10);
+
+    // Esercizio 5
+    function stampaNRighe($n) {
+        for ($i=0; $i&lt;$n; $i++) {
+            echo &quot;$i. Adoro il PHP (?)&lt;br&gt;&quot;;
+        }
+    }
+
+    stampaNRighe(5);
+
+    // Esercizio 6 + Esercizio 7
+    function stampaRettangolo($b, $h) {
+        if ($b &gt; 0 &amp;&amp; $h &gt; 0) {
+            for ($i=0; $i &lt; $h; $i++) {
+                //stampaRigaAsterischi($b);
+                for ($j=0; $j &lt; $b; $j++) {
+                    echo &quot;*&quot;;
+                }
+                echo &quot;&lt;br&gt;&quot;;
+            }
+        } else {
+            echo &quot;Errore! b o h minori di 0&lt;br&gt;&quot;;
+        }
+    }
+
+    stampaRettangolo(10, 7);
+    echo &quot;&lt;br&gt;&lt;br&gt;&quot;;
+    stampaRettangolo(2, 2);
+
+    $statiEuropa = [
+        &quot;Italy&quot;=&gt;&quot;Rome&quot;, 
+        &quot;Luxembourg&quot;=&gt;&quot;Luxembourg&quot;, 
+        &quot;Belgium&quot;=&gt; &quot;Brussels&quot;, 
+        &quot;Denmark&quot;=&gt;&quot;Copenhagen&quot;,
+        &quot;Finland&quot;=&gt;&quot;Helsinki&quot;,
+        &quot;France&quot; =&gt; &quot;Paris&quot;,
+        &quot;Slovakia&quot;=&gt;&quot;Bratislava&quot;,
+        &quot;Slovenia&quot;=&gt;&quot;Ljubljana&quot;,
+        &quot;Germany&quot; =&gt; &quot;Berlin&quot;,
+        &quot;Greece&quot; =&gt; &quot;Athens&quot;,
+        &quot;Ireland&quot;=&gt;&quot;Dublin&quot;,
+        &quot;Netherlands&quot;=&gt;&quot;Amsterdam&quot;,
+        &quot;Portugal&quot;=&gt;&quot;Lisbon&quot;,
+        &quot;Spain&quot;=&gt;&quot;Madrid&quot;,
+        &quot;Sweden&quot;=&gt;&quot;Stockholm&quot;,
+        &quot;United Kingdom&quot;=&gt;&quot;London&quot;,
+        &quot;Cyprus&quot;=&gt;&quot;Nicosia&quot;,
+        &quot;Lithuania&quot;=&gt;&quot;Vilnius&quot;,
+        &quot;Czech Republic&quot;=&gt;&quot;Prague&quot;,
+        &quot;Estonia&quot;=&gt;&quot;Tallin&quot;,
+        &quot;Hungary&quot;=&gt;&quot;Budapest&quot;,
+        &quot;Latvia&quot;=&gt;&quot;Riga&quot;,
+        &quot;Malta&quot;=&gt;&quot;Valetta&quot;,
+        &quot;Austria&quot; =&gt; &quot;Vienna&quot;,
+        &quot;Poland&quot;=&gt;&quot;Warsaw&quot;
+    ];
+
+
+    // Ordina crescente le chiavi
+    //ksort($statiEuropa);
+    // Ordina decrescente le chiavi
+    //krsort($statiEuropa);
+    // Ordina crescente i valori
+    //asort($statiEuropa);
+    // Ordina decrescente i valori
+    //arsort($statiEuropa);
+
+    // Esercizio 9
+
+?&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Esercizi&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Personaggi&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;?php foreach($eroiMarvel as $chiave =&gt; $valore) { ?&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;?=$valore?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;?php } ?&gt; 
+    &lt;/table&gt;
+
+    &lt;ul&gt;
+        &lt;?php foreach($statiEuropa as $stato =&gt; $capitale) { ?&gt;
+        &lt;li&gt;
+            &lt;b&gt;&lt;?=$stato?&gt;:&lt;/b&gt;
+            &lt;i&gt;&lt;?=$capitale?&gt;&lt;/i&gt;
+        &lt;/li&gt;
+        &lt;?php } ?&gt;
+    &lt;/ul&gt;
+
+
+    &lt;table&gt;
+        &lt;tbody&gt;
+            &lt;?php for ($i=0; $i &lt; 8; $i++) { ?&gt;
+            &lt;tr&gt;
+                &lt;?php for ($j=0; $j &lt; 8; $j++) { ?&gt;
+
+                &lt;?php //if (($j % 2 == 0 and $i % 2 == 0) or ($j % 2 == 1 and $i % 2 == 1)) { ?&gt;
+                &lt;?php if (($i+$j) % 2 == 0) {?&gt;
+                &lt;td style=&quot;
+                    color: white;
+                    text-align: center;
+                    line-height: 50px;
+                    width: 50px; 
+                    height: 50px; 
+                    background-color: black&quot;
+                &gt;
+                &lt;?=&quot;$i $j&quot;?&gt;
+                &lt;/td&gt;
+                &lt;?php } else { ?&gt;
+                &lt;td style=&quot;
+                    color: black;
+                    text-align: center;
+                    line-height: 50px;  
+                    width: 50px; 
+                    height: 50px; 
+                    background-color: white&quot;
+                &gt;
+                &lt;?=&quot;$i $j&quot;?&gt;
+                &lt;/td&gt;
+                &lt;?php } ?&gt;
+                &lt;?php } ?&gt;
+            &lt;/tr&gt;
+            &lt;?php } ?&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<a class="header" href="print.html#stampa-scacchiera-con-dati-inseriti-da-form" id="stampa-scacchiera-con-dati-inseriti-da-form"><h1>Stampa Scacchiera con Dati Inseriti da Form</h1></a>
+<ul>
+<li>Index: <code>index.php</code></li>
+</ul>
+<pre><code class="language-php">&lt;?php
+    if (count($_POST) &gt; 0) {
+        foreach($_POST as $chiave =&gt; $valore) {
+            echo &quot;$chiave =&gt; $valore&lt;br&gt;&quot;;
+        }
+    }
+?&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form 
+        action=&quot;&quot; 
+        method=&quot;POST&quot;&gt;
+        &lt;div&gt;
+            &lt;label for=&quot;numero_righe&quot;&gt;
+                Numero righe: 
+            &lt;/label&gt;
+            &lt;input 
+                id=&quot;numero_righe&quot;
+                name=&quot;numero_righe&quot;
+                placeholder=&quot;Inserisci numero righe&quot;
+                type=&quot;number&quot;&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&quot;numero_colonne&quot;&gt;
+                Numero colonne: 
+            &lt;/label&gt;
+            &lt;input 
+                id=&quot;numero_colonne&quot;
+                name=&quot;numero_colonne&quot;
+                placeholder=&quot;Inserisci numero colonne&quot;
+                type=&quot;number&quot;&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&quot;colore_1&quot;&gt;
+                Colore 1: 
+            &lt;/label&gt;
+            &lt;input 
+                id=&quot;colore_1&quot;
+                name=&quot;colore_1&quot;
+                placeholder=&quot;Inserisci il colore 1&quot;
+                type=&quot;text&quot;&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&quot;colore_2&quot;&gt;
+                Colore 2: 
+            &lt;/label&gt;
+            &lt;input 
+                id=&quot;colore_2&quot;
+                name=&quot;colore_2&quot;
+                placeholder=&quot;Inserisci colore 2&quot;
+                type=&quot;text&quot;&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;Inviami&quot;&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li>Scacchiera: <code>scacchiera.php</code></li>
+</ul>
+<pre><code class="language-php">&lt;?php
+// Step esercizio: 
+
+// 1. Creare file scacchiera.php
+// 2. Definire variabili $righe, $colonne e valorizzarli
+// 3. Nell'html creare una table con righe e colonne
+//    quante nelle variabili appena definite usando
+//    il ciclo FOR nell'HTML (farlo bene!)
+//    ATTENZIONE: td per colonne
+//                tr per righe
+// 4. Creare un tag style nell'head con questa classe:
+//    td {
+//      width: 40px;
+//        height: 40px;
+//        background-color: orange;
+//}
+
+// Valori di Default
+$righe = 8;
+$colonne = 8;
+$colore1 = &quot;#000000&quot;;
+$colore2 = &quot;#ffffff&quot;;
+
+if (count($_POST) &gt; 0) {
+    $righe = $_POST['righe'];
+    $colonne = $_POST['colonne'];
+    $colore1 = $_POST['colore1'];
+    $colore2 = $_POST['colore2'];
+}
+
+?&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+
+    &lt;style&gt;
+        td {
+            width: 40px;
+            height: 40px;
+            background-color: orange;
+        }
+
+        td.pari {
+            background-color: red;
+        }
+
+        td.dispari {
+            background-color: green;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;form action=&quot;&quot; method=&quot;POST&quot;&gt;
+        &lt;div&gt;
+            &lt;label for=&quot;input_righe&quot;&gt;Righe: &lt;/label&gt;
+            &lt;input
+                value=&quot;&lt;?=$righe?&gt;&quot; 
+                min=&quot;0&quot; 
+                max=&quot;100&quot; 
+                id=&quot;input_righe&quot; 
+                type=&quot;number&quot; 
+                name=&quot;righe&quot;&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&quot;input_colonne&quot;&gt;Colonne: &lt;/label&gt;
+            &lt;input
+                value=&quot;&lt;?=$colonne?&gt;&quot;  
+                min=&quot;0&quot; 
+                max=&quot;100&quot; 
+                id=&quot;input_colonne&quot; 
+                type=&quot;number&quot; 
+                name=&quot;colonne&quot;&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&quot;input_colore1&quot;&gt;Colore1: &lt;/label&gt;
+            &lt;input
+                value=&quot;&lt;?=$colore1?&gt;&quot; 
+                id=&quot;input_color1&quot; 
+                type=&quot;color&quot; 
+                name=&quot;colore1&quot;&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&quot;input_colore2&quot;&gt;Colore2: &lt;/label&gt;
+            &lt;input
+                value=&quot;&lt;?=$colore2?&gt;&quot; 
+                id=&quot;input_colore2&quot; 
+                type=&quot;color&quot; 
+                name=&quot;colore2&quot;&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;input 
+                type=&quot;submit&quot; 
+                value=&quot;Disegna griglia&quot;&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+
+    &lt;table&gt;
+        &lt;?php for($i=0; $i &lt; $righe; $i++) { ?&gt;
+        &lt;tr&gt;
+            &lt;?php for($j=0; $j &lt; $colonne; $j++) { ?&gt;
+                &lt;?php if (($i + $j) % 2 == 0) { ?&gt;
+                    &lt;td style=&quot;background-color: &lt;?=$colore1?&gt;&quot;&gt;&lt;/td&gt;
+                &lt;?php } else { ?&gt;
+                    &lt;td style=&quot;background-color: &lt;?=$colore2?&gt;&quot;&gt;&lt;/td&gt;
+                &lt;?php } ?&gt;
+            &lt;?php } ?&gt;
+        &lt;/tr&gt;
+        &lt;?php } ?&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<a class="header" href="print.html#form--colori" id="form--colori"><h1>Form &amp; Colori</h1></a>
+<ul>
+<li>Ripasso (index.php): <code>ripasso.php</code></li>
+</ul>
+<pre><code class="language-php">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form action=&quot;color.php&quot; method=&quot;POST&quot;&gt;
+        &lt;label for=&quot;input_colore&quot;&gt;Colore:&lt;/label&gt;
+        &lt;input id=&quot;input_colore&quot; autofocus type=&quot;text&quot; name=&quot;colore&quot;&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Cliccami, per piacere&quot;&gt;
+    &lt;/form&gt;
+
+    &lt;form action=&quot;color.php&quot; method=&quot;GET&quot;&gt;
+        &lt;label for=&quot;input_colore&quot;&gt;Colore:&lt;/label&gt;
+        &lt;input id=&quot;input_colore&quot; autofocus type=&quot;text&quot; name=&quot;colore&quot;&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Cliccami, per piacere&quot;&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li>Colori: <code>color.php</code></li>
+</ul>
+<pre><code class="language-php">&lt;?php
+$colorePluto = &quot;orange&quot;;
+
+echo var_dump($_GET) . &quot;&lt;br&gt;&quot;;
+
+if (count($_POST) &gt; 0) {
+    if (isset($_POST['colore'])) {
+
+        $colorePluto = $_POST['colore'];
+        echo &quot;Colore: &quot; . $_POST[&quot;colore&quot;] . &quot;&lt;br&gt;&quot;;
+    }
+}
+
+if (count($_GET) &gt; 0) {
+    if (isset($_GET['colore'])) {
+
+        $colorePluto = $_GET['colore'];
+        echo &quot;Colore: &quot; . $_GET[&quot;colore&quot;] . &quot;&lt;br&gt;&quot;;
+    }
+}
+
+?&gt;
+
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body style=&quot;background-color: &lt;?=$colorePluto?&gt;&quot;&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introduzione - Introduzione alla Programmazione per il Web</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="introduzione.html" class="active">Introduzione</a></li><li><a href="teoria.html"><strong aria-hidden="true">1.</strong> Teoria</a></li><li><ol class="section"><li><a href="variabili_e_condizioni.html"><strong aria-hidden="true">1.1.</strong> Variabili &amp; Condizioni</a></li><li><a href="cicli_e_array.html"><strong aria-hidden="true">1.2.</strong> Cicli e Array</a></li></ol></li><li><a href="esercizi.html"><strong aria-hidden="true">2.</strong> Esercizi</a></li><li><a href="soluzioni.html"><strong aria-hidden="true">3.</strong> Soluzioni</a></li><li><ol class="section"><li><a href="esericizi_cicli_for.html"><strong aria-hidden="true">3.1.</strong> Cicli For</a></li><li><a href="esercizi_scacchiera.html"><strong aria-hidden="true">3.2.</strong> Scacchiera</a></li><li><a href="esercizi_form_colori.html"><strong aria-hidden="true">3.3.</strong> Form &amp; Colori</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Introduzione alla Programmazione per il Web</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="introduzione.html#introduzione-alla-programmazione-per-il-web" id="introduzione-alla-programmazione-per-il-web"><h1>Introduzione alla Programmazione per il Web</h1></a>
+<a class="header" href="introduzione.html#scopo" id="scopo"><h2>Scopo</h2></a>
+<p>Questo ebook digitale ha lo scopo di raccogliere gli appunti delle lezioni
+di un corso di introduzione alla Programmazione per il Web usando il linguaggio
+di programmazione PHP.</p>
+<p>Il corso si propone di introdurre i concetti fondamentali per una buona comprensione
+dei meccanismi che sono alla base del funzionamento dell'Internet <em>dinamico</em>,
+ovvero quel complesso sistema che permette alle pagine web di essere generate <strong>dinamicamente</strong>
+su richiesta dell'utente.</p>
+<p>Si cercherà di spiegare in maniera chiara e senza particolari prerequisiti tutto
+l'insieme delle tecnologie, dei sistemi e dei metodi che rendono possibile la comunicazione
+e la visione di contenuti dinamici alle moderne applicazioni web.</p>
+<p>Si partirà dallo spiegare il protocollo HTTP e la comunicazione client-server per poi arrivare
+a introdurre sia i concetti di programmazione (come impartire istruzioni ad un calcolatore in
+modo che trasformi un problema in una soluzione) che quelli specifici relativi alla programmazione web.</p>
+<a class="header" href="introduzione.html#programma" id="programma"><h2>Programma</h2></a>
+<p>Nel dettaglio, gli argomenti che verranno trattati nel corso sono i seguenti:</p>
+<ul>
+<li>Concetti Generali
+<ul>
+<li>Informazione Telematica: cos'è l'informatica</li>
+<li>Basi di Reti e Internet</li>
+<li>La comunicazione Client-Server</li>
+<li>La struttura di un server: hardware &amp; software</li>
+<li>Funzionamento della programmazione nel web: l'interprete PHP e HTML</li>
+</ul>
+</li>
+<li>Introuzione alla programmazione (web):
+<ul>
+<li>Le variabili e i tipo di dato</li>
+<li>Il flusso di un programma</li>
+<li>L'istruzione condizionale</li>
+<li>Gli array</li>
+<li>Cicli for e iterazione</li>
+<li>Funzioni e algoritmi</li>
+<li>Utilizzare le form per passare i dati tra pagine</li>
+<li>Pattern MVC, separare la logica dalla visualizzazione</li>
+<li>MySQL, i database come sistema per salvare i dati</li>
+<li>Realizzazione di un applicativo web completo (DB, Logica e Visualizzazione)</li>
+</ul>
+</li>
+<li>Argomenti intermedi:
+<ul>
+<li>Gestione dei file, tecniche di programmazione intermedie e gestione dei progetti</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="introduzione.html#struttura-del-libro" id="struttura-del-libro"><h2>Struttura del libro</h2></a>
+<p>All'interno del libro troverete le seguenti sezioni:</p>
+<ul>
+<li><a href="./teoria.html">Teoria</a></li>
+<li><a href="./esercizi.html">Esercizi</a></li>
+<li><a href="./soluzioni.html">Soluzioni</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+                            <a rel="next" href="teoria.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+                    <a href="teoria.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
