@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="introduzione.html">Introduzione</a></li><li><a href="teoria.html"><strong aria-hidden="true">1.</strong> Teoria</a></li><li><ol class="section"><li><a href="variabili_e_condizioni.html"><strong aria-hidden="true">1.1.</strong> Variabili &amp; Condizioni</a></li><li><a href="cicli_e_array.html"><strong aria-hidden="true">1.2.</strong> Cicli e Array</a></li></ol></li><li><a href="esercizi.html"><strong aria-hidden="true">2.</strong> Esercizi</a></li><li><a href="soluzioni.html"><strong aria-hidden="true">3.</strong> Soluzioni</a></li><li><ol class="section"><li><a href="esericizi_cicli_for.html"><strong aria-hidden="true">3.1.</strong> Cicli For</a></li><li><a href="esercizi_scacchiera.html"><strong aria-hidden="true">3.2.</strong> Scacchiera</a></li><li><a href="esercizi_form_colori.html"><strong aria-hidden="true">3.3.</strong> Form &amp; Colori</a></li><li><a href="utenti_crud.html"><strong aria-hidden="true">3.4.</strong> Utenti CRUD</a></li></ol></li></ol>
+            <ol class="chapter"><li class="affix"><a href="introduzione.html">Introduzione</a></li><li><a href="teoria.html"><strong aria-hidden="true">1.</strong> Teoria</a></li><li><ol class="section"><li><a href="variabili_e_condizioni.html"><strong aria-hidden="true">1.1.</strong> Variabili &amp; Condizioni</a></li><li><a href="cicli_e_array.html"><strong aria-hidden="true">1.2.</strong> Cicli e Array</a></li></ol></li><li><a href="esercizi.html"><strong aria-hidden="true">2.</strong> Esercizi</a></li><li><a href="soluzioni.html"><strong aria-hidden="true">3.</strong> Soluzioni</a></li><li><ol class="section"><li><a href="esericizi_cicli_for.html"><strong aria-hidden="true">3.1.</strong> Cicli For</a></li><li><a href="esercizi_scacchiera.html"><strong aria-hidden="true">3.2.</strong> Scacchiera</a></li><li><a href="esercizi_form_colori.html"><strong aria-hidden="true">3.3.</strong> Form &amp; Colori</a></li><li><a href="utenti_crud.html"><strong aria-hidden="true">3.4.</strong> Utenti CRUD</a></li><li><a href="utenti_crud_edit.html"><strong aria-hidden="true">3.5.</strong> Utenti CRUD con Edit</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -1325,6 +1325,230 @@ if (count($_GET) &gt; 0) {
             &lt;/table&gt;
             &lt;/div&gt;
         &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<a class="header" href="print.html#utenti-crud-con-edit" id="utenti-crud-con-edit"><h1>Utenti CRUD con Edit</h1></a>
+<ul>
+<li>Lista Utenti: <code>index.php</code></li>
+</ul>
+<pre><code class="language-php">&lt;?php
+    $connection = mysqli_connect(&quot;localhost&quot;, &quot;root&quot;, &quot;&quot;, &quot;kusf&quot;);
+
+    $rsUtenti = mysqli_query($connection, &quot;SELECT * FROM utenti&quot;);
+    $utenti = mysqli_fetch_all($rsUtenti, MYSQLI_ASSOC);
+
+    mysqli_close($connection);
+?&gt;
+</code></pre>
+<pre><code class="language-php">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css&quot; integrity=&quot;sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO&quot; crossorigin=&quot;anonymous&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h1&gt;CRUD Utenti&lt;/h1&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col&quot;&gt;
+            &lt;a href=&quot;addUtente.php&quot; class=&quot;btn btn-primary m-2&quot;&gt;Aggiungi Utente&lt;/a&gt;
+            &lt;table class=&quot;table&quot;&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;#&lt;/th&gt;
+                    &lt;th&gt;Nome&lt;/th&gt;
+                    &lt;th&gt;Cognome&lt;/th&gt;
+                    &lt;th&gt;Età&lt;/th&gt;
+                    &lt;th&gt;Azioni&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;?php foreach($utenti as $utente) { ?&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;&lt;?=$utente['ID']?&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;?=$utente['NOME']?&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;?=$utente['COGNOME']?&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;?=$utente['ETA']?&gt;&lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;a href=&quot;editUtente.php?ID=&lt;?=$utente['ID']?&gt;&quot; class=&quot;btn btn-danger&quot;&gt;Modifica&lt;/a&gt;
+                        &lt;button class=&quot;btn btn-warning&quot;&gt;Cancella&lt;/button&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;?php } ?&gt;
+            &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li>Aggiungi Utente: <code>addUtente.php</code></li>
+</ul>
+<pre><code class="language-php">&lt;?php
+
+// Controllare che ci sia qualcosa in POST
+if (count($_POST)) {
+    // Aggiungere utente da dati POST in DB
+
+    // Connessione al DB
+    $connection = mysqli_connect(&quot;localhost&quot;, &quot;root&quot;, &quot;&quot;, &quot;kusf&quot;);
+
+    $nome = $_POST['nome'];
+    $cognome = $_POST['cognome'];
+    $eta = $_POST['eta'];
+
+    $sqlAddUser = &quot;
+        INSERT INTO utenti
+        (nome, cognome, eta)
+        VALUES
+        ('$nome', '$cognome', '$eta')
+    &quot;;
+
+    $result = mysqli_query($connection, $sqlAddUser);
+
+    if ($result) {
+        mysqli_close($connection);
+
+        header(&quot;Location: index.php&quot;);
+        die();
+        
+    } else {
+        echo var_dump(mysqli_error($connection));
+    }
+
+}
+
+
+// Trick per tornare all'index
+
+?&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Aggiungi Utente&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css&quot; integrity=&quot;sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO&quot; crossorigin=&quot;anonymous&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h1&gt;Aggiungi Utente&lt;/h1&gt;
+        &lt;form action=&quot;&quot; method=&quot;POST&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;&quot;&gt;Nome:&lt;/label&gt;
+                &lt;input name=&quot;nome&quot; class=&quot;form-control&quot; type=&quot;text&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;&quot;&gt;Cognome:&lt;/label&gt;
+                &lt;input name=&quot;cognome&quot; class=&quot;form-control&quot; type=&quot;text&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;&quot;&gt;Età:&lt;/label&gt;
+                &lt;input name=&quot;eta&quot; class=&quot;form-control&quot; type=&quot;number&quot;&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;a href=&quot;.&quot; class=&quot;btn&quot;&gt;Indietro&lt;/a&gt;
+                &lt;input class=&quot;btn btn-primary&quot; type=&quot;submit&quot; value=&quot;Crea Utente&quot;&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li>Modifica Utente: <code>editUtente.php</code></li>
+</ul>
+<pre><code class="language-php">&lt;?php
+
+if (isset($_GET['ID'])) {
+    $userIdToEdit = $_GET['ID'];
+
+    $connection = mysqli_connect(&quot;localhost&quot;, &quot;root&quot;, &quot;&quot;, &quot;kusf&quot;);
+
+    $sqlGetUser = &quot;SELECT * FROM utenti WHERE ID = $userIdToEdit&quot;;
+    $rsUtente = mysqli_query($connection, $sqlGetUser);
+
+    $utente = mysqli_fetch_assoc($rsUtente);
+
+    mysqli_close($connection);
+}
+
+// Controllare che ci sia qualcosa in POST
+if (count($_POST)) {
+    // Aggiungere utente da dati POST in DB
+
+    // Connessione al DB
+    $connection = mysqli_connect(&quot;localhost&quot;, &quot;root&quot;, &quot;&quot;, &quot;kusf&quot;);
+
+    $nome = $_POST['nome'];
+    $cognome = $_POST['cognome'];
+    $eta = $_POST['eta'];
+    $id = $_POST['ID'];
+
+    $sqlEditUser = &quot;
+        UPDATE utenti
+        SET
+        nome='$nome',
+        cognome='$cognome',
+        eta=$eta
+        WHERE ID = $id
+    &quot;;
+
+    $result = mysqli_query($connection, $sqlEditUser);
+
+    if ($result) {
+        mysqli_close($connection);
+
+        header(&quot;Location: index.php&quot;);
+        die();
+        
+    } else {
+        echo var_dump(mysqli_error($connection));
+    }
+
+}
+
+
+// Trick per tornare all'index
+
+?&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Aggiungi Utente&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css&quot; integrity=&quot;sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO&quot; crossorigin=&quot;anonymous&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h1&gt;Modifica Utente con ID &lt;?=$userIdToEdit?&gt;&lt;/h1&gt;
+        &lt;form action=&quot;&quot; method=&quot;POST&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;&quot;&gt;Nome:&lt;/label&gt;
+                &lt;input name=&quot;nome&quot; class=&quot;form-control&quot; value=&quot;&lt;?=$utente['NOME']?&gt;&quot; type=&quot;text&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;&quot;&gt;Cognome:&lt;/label&gt;
+                &lt;input value=&quot;&lt;?=$utente['COGNOME']?&gt;&quot; name=&quot;cognome&quot; class=&quot;form-control&quot; type=&quot;text&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;&quot;&gt;Età:&lt;/label&gt;
+                &lt;input value=&quot;&lt;?=$utente['ETA']?&gt;&quot; name=&quot;eta&quot; class=&quot;form-control&quot; type=&quot;number&quot;&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;a href=&quot;.&quot; class=&quot;btn&quot;&gt;Indietro&lt;/a&gt;
+                &lt;input type=&quot;hidden&quot; name=&quot;ID&quot; value=&quot;&lt;?=$userIdToEdit?&gt;&quot;&gt;
+                &lt;input class=&quot;btn btn-primary&quot; type=&quot;submit&quot; value=&quot;Salva Utente&quot;&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
     &lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
