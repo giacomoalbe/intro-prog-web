@@ -1,0 +1,344 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Basi di PHP - Introduzione alla Programmazione per il Web</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="introduzione.html">Introduzione</a></li><li><a href="teoria.html"><strong aria-hidden="true">1.</strong> Teoria</a></li><li><ol class="section"><li><a href="basi_internet_php.html" class="active"><strong aria-hidden="true">1.1.</strong> Basi di PHP</a></li><li><a href="variabili.html"><strong aria-hidden="true">1.2.</strong> Variabili</a></li><li><a href="selezione.html"><strong aria-hidden="true">1.3.</strong> Selezione</a></li><li><a href="iterazione.html"><strong aria-hidden="true">1.4.</strong> Iterazione</a></li><li><a href="array.html"><strong aria-hidden="true">1.5.</strong> Array</a></li><li><a href="funzioni.html"><strong aria-hidden="true">1.6.</strong> Funzioni</a></li><li><a href="database.html"><strong aria-hidden="true">1.7.</strong> Database</a></li></ol></li><li><a href="esercizi.html"><strong aria-hidden="true">2.</strong> Esercizi</a></li><li><a href="soluzioni.html"><strong aria-hidden="true">3.</strong> Soluzioni</a></li><li><ol class="section"><li><a href="esericizi_cicli_for.html"><strong aria-hidden="true">3.1.</strong> Cicli For</a></li><li><a href="esercizi_scacchiera.html"><strong aria-hidden="true">3.2.</strong> Scacchiera</a></li><li><a href="esercizi_form_colori.html"><strong aria-hidden="true">3.3.</strong> Form &amp; Colori</a></li><li><a href="utenti_crud.html"><strong aria-hidden="true">3.4.</strong> Utenti CRUD</a></li><li><a href="utenti_crud_edit.html"><strong aria-hidden="true">3.5.</strong> Utenti CRUD con Edit</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Introduzione alla Programmazione per il Web</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="basi_internet_php.html#basi-di-php" id="basi-di-php"><h1>Basi di PHP</h1></a>
+<a class="header" href="basi_internet_php.html#storia" id="storia"><h2>Storia</h2></a>
+<p>PHP (<strong>P</strong>HP <strong>H</strong>ypertext <strong>P</strong>reprocessor) è un linguaggio di programmazione nato nel 1995 con lo scopo iniziale di rendere dinamiche le pagine visualizzabili da un browser web.</p>
+<p>Inizialmente, il <em>browser</em> era semplicemente un programma in grado di visualizzare il testo contenuto all'interno di un documento HTML, formattandolo secondole regole dettate dai <em>tag HTML</em>.</p>
+<p>Questo testo, opportunamente formattato e mostrato sullo schermo, era <strong>statico</strong>, ovvero il suo contenuto era sempre lo stesso, indipendentemente da chi lo visualizzava, quando o da quale piattaforma.</p>
+<p>Dall'esigenza di mostrare testo <em>diverso</em> in base ai parametri sopra citati (chi, come, quando e da dove) è nato il <strong>PHP</strong>, ovvero un linguaggio in grado di produrre <strong>output</strong> HTML <em>dinamico</em> in base ad un certo numero di <em>parametri</em> esterni.</p>
+<a class="header" href="basi_internet_php.html#meccanismo-clientserver" id="meccanismo-clientserver"><h2>Meccanismo Client/Server</h2></a>
+<p>Su <em>Internet</em>, ogni sito, pagina o applicazione è chiamato <strong>risorsa</strong>.</p>
+<p>Una <em>risorsa</em> è un documento HTML che risiede su di un server collegato alla rete Internet.</p>
+<p>Con <em>server</em> si intende un computer connesso ad una rete in grado di accettare a delle <em>richieste</em> provenienti dalla rete e <em>rispondere</em> in maniera opportuna.</p>
+<p>Ogni server è contraddistinto da un suo <em>indirizzo IP</em>, che identifica in modo univoco quel server all'interno della rete.</p>
+<p>L'applicazione delegata a richiedere una <em>risorsa</em> è chiamata <em>client</em>. Il <em>client</em> non identifica una particolare applicazione, bensì rappresenta semplicemente chiunque faccia partire una richiesta.
+Esempi di client sono il browser, le applicazioni mobili  o desktop che usano Internet (<em>Facebook, Spotify, ecc</em>), programmi di messaggistica (<em>Telegram, Whatsapp</em>), ecc.</p>
+<p>Sebbene i concetti di <strong>client</strong> e <strong>server</strong> siano generici e non obblighino ad utilizzare un particolare formato di file per lo scambio di informazioni, quando si parla di Internet e di PHP insieme, quello che viene scambiato tra le parti è rappresentato da file HTML visualizzabili da un browser.</p>
+<p>Quindi ad ogni richiesta del client, il server web risponderà con un documento HTML che verrà visualizzato all'interno di un browser.</p>
+<p>Il funzionamento (di base) dell'<em>Internet dinamico</em> può essere così riassunto:</p>
+<ul>
+<li><em>client</em> e <em>server</em> sono collegati ad Internet e hanno un loro indirizzo IP identificativo</li>
+<li>Il <em>client</em> richiede una particolare <em>risorsa</em>, contraddistinta da un <em>nome</em> e da un indirizzo del <em>server</em> su cui si trova la risorsa.</li>
+<li>Il <em>server</em> riceve la richiesta e prepara la risorsa corrispondente. Se è un file HTML semplice, lo preleva dal suo disco fisso e lo prepara per l'invio. In caso la risorsa fosse un file <code>php</code>, la procedura è leggermente diversa ed è descritta nel prossimo capitolo.</li>
+<li>Il <em>server</em> invia il file HTML sulla rete indirizzandolo al <em>client</em> che ha fatto partire la richiesta.</li>
+<li>Il <em>client</em> riceve il file e lo mostra a schermo.</li>
+</ul>
+<a class="header" href="basi_internet_php.html#gestione-risorse-php" id="gestione-risorse-php"><h2>Gestione Risorse PHP</h2></a>
+<p>Il <em>browser web</em> è in grado di visualizzare solamente file HTML.</p>
+<p>Quando richiediamo una risorsa <code>php</code>, ovvero una risorsa <em>dinamica</em>, il server web, invece di restituire direttamente il contenuto del file, <strong>esegue</strong> le istruzioni contenute in esso e invia come risposta al client il file HTML generato dall'esecuzione del file <code>php</code>.</p>
+<p>Il PHP è un linguaggio di programmazione.</p>
+<p>Come ogni linguaggio, è formato da <em>parole</em> che permettono di costruire <em>frasi</em>.</p>
+<p>Le <em>frasi</em> sono chiamate <strong>istruzioni</strong> e rappresentano azioni che possiamo far eseguire al computer.
+Mettendo insieme più istruzioni, è possibile far eseguire al computer operazioni complesse, come collegarsi ad un database, richiedergli dei dati, eseguire qualche elaborazione sui dati (ordinarli, modificarli, estenderli) e mostrarli.</p>
+<p>Quando un server riceve una richiesta per una <em>risorsa php</em>, il contenuto del file <code>php</code> viene passato ad un programma all'interno del server chiamato <strong>interprete php</strong> che esegue le istruzioni contenute nel file e ritorna al server web un file HTML contente il risultato dell'elaborazione di quel file PHP.</p>
+<p>Questo file HTML sarà spedito al client e quindi visualizzato all'interno del browser.</p>
+<p>L'<strong>interprete php</strong> è quindi responsabile di <em>interpretare</em> le istruzioni contenute in un file <code>php</code> e produrre un output HTML.</p>
+<p>Data la presenza di un <em>interprete</em>, si dice che <code>php</code> è un linguaggio <strong>interpretato</strong>, ovvero che il codice viene eseguito dall'interprete ogni volta che viene richiesta la risorsa, senza passare attraverso alcuno statio di compilazione.</p>
+<a class="header" href="basi_internet_php.html#modo-corretto-di-dividere-php-e-html-nei-propri-file-php" id="modo-corretto-di-dividere-php-e-html-nei-propri-file-php"><h2>Modo <em>corretto</em> di dividere PHP e HTML nei propri file .php</h2></a>
+<pre><code class="language-php">&lt;?php
+
+// Qui definiamo sia la logica che i dati
+$utente = [
+  &quot;nome&quot; =&gt; &quot;Nome&quot;,
+  &quot;cognome&quot; =&gt; &quot;Cognome&quot;,
+  &quot;eta&quot; =&gt; &quot;Età&quot;,
+];
+
+?&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Cicli For &amp; Array&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Cicli For &amp; Array&lt;/h1&gt;
+    &lt;ul&gt;
+    &lt;!-- 
+      Modo CORRETTO di dividere PHP e HTML all'interno del vostro file PHP 
+      Cercate il più possibile di limitare l'uso di istruzioni PHP nel vostro HTML.
+    --&gt;
+    &lt;?php foreach($utente as $chiave =&gt; $valore) { ?&gt;
+        &lt;li&gt;
+            &lt;b&gt;&lt;?=$chiave?&gt;:&lt;/b&gt; &lt;?=$valore?&gt;
+        &lt;/li&gt;
+    &lt;?php } ?&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<a class="header" href="basi_internet_php.html#convenzioni--best-practicies" id="convenzioni--best-practicies"><h2>Convenzioni &amp; Best Practicies</h2></a>
+<a class="header" href="basi_internet_php.html#commento-su-una-riga" id="commento-su-una-riga"><h3>Commento su una riga</h3></a>
+<pre><code class="language-php">// Commento su una riga
+# Altro modo per creare un commento su una riga
+</code></pre>
+<a class="header" href="basi_internet_php.html#commento-multi-riga" id="commento-multi-riga"><h3>Commento multi riga</h3></a>
+<p>Utile quando si vuole ad esempio fare in modo che una parte
+di codice non venga eseguita oppure si vuole spiegare in modo più
+accurato il funzionamento di un pezzo di codice, ad esempio di una funzione.</p>
+<pre><code class="language-php">/* 
+Commento 
+su 
+più 
+righe
+*/
+</code></pre>
+<p>Per chiudere il blocco che vogliamo commentare usiamo la stessa combinazione
+che abbiamo usato per aprirlo, ma al contrario.</p>
+<a class="header" href="basi_internet_php.html#andare-a-capo-in-html" id="andare-a-capo-in-html"><h3>Andare a capo in HTML</h3></a>
+<p><code>&lt;br&gt;</code> è il tag HTML che serve ad indicare al browser che vogliamo andare a capo.
+Noi lo usiamo per rendere più leggibile il risultato che vediamo a schermo.</p>
+<a class="header" href="basi_internet_php.html#convenzioni-per-la-scrittura-di-variabili-e-nomi-di-funzioni-e-classi" id="convenzioni-per-la-scrittura-di-variabili-e-nomi-di-funzioni-e-classi"><h3>Convenzioni per la scrittura di variabili e nomi di funzioni e classi.</h3></a>
+<p>Non è obbligatorio sceglierne una in particolare, quello che è fortemente consigliato e decisamente necessario è sceglierne UNA e UNA SOLA all'interno di un progetto e utilizzarla PER OGNI variabile o funzione che si crea.</p>
+<p>Altro consiglio utile: perdete pure del tempo a dare dei nomi significativi a variabili e funzioni.</p>
+<p><em>Ricordate: un nome ben dato è meglio di una riga di commento!</em> cit. il saggio programmatore sulla roccia.</p>
+<ul>
+<li>
+<p><em>CamelCase</em></p>
+<ul>
+<li>ciaoComeAndiamo</li>
+<li>giorniDellaSettimana</li>
+</ul>
+</li>
+<li>
+<p><em>PascalCase</em></p>
+<ul>
+<li>CiaoComeAndiamo</li>
+<li>GiorniDellaSettimana</li>
+</ul>
+</li>
+<li>
+<p><em>SnakeCase</em></p>
+<ul>
+<li>ciao_come_andiamo</li>
+<li>giorni_della_settimana</li>
+</ul>
+</li>
+<li>
+<p><em>KebabCase</em></p>
+<ul>
+<li>ciao-come-andiamo</li>
+<li>giorni-della-settimana</li>
+</ul>
+</li>
+<li>
+<p><em>AdMinchiamCase</em></p>
+<ul>
+<li>gioRNi_Della_sett</li>
+<li>gds</li>
+<li>ccc</li>
+<li>a</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="teoria.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="variabili.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="teoria.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="variabili.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
