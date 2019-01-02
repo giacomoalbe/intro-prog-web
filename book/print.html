@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="introduzione.html">Introduzione</a></li><li><a href="teoria.html"><strong aria-hidden="true">1.</strong> Teoria</a></li><li><ol class="section"><li><a href="variabili_e_condizioni.html"><strong aria-hidden="true">1.1.</strong> Variabili &amp; Condizioni</a></li><li><a href="cicli_e_array.html"><strong aria-hidden="true">1.2.</strong> Cicli e Array</a></li></ol></li><li><a href="esercizi.html"><strong aria-hidden="true">2.</strong> Esercizi</a></li><li><a href="soluzioni.html"><strong aria-hidden="true">3.</strong> Soluzioni</a></li><li><ol class="section"><li><a href="esericizi_cicli_for.html"><strong aria-hidden="true">3.1.</strong> Cicli For</a></li><li><a href="esercizi_scacchiera.html"><strong aria-hidden="true">3.2.</strong> Scacchiera</a></li><li><a href="esercizi_form_colori.html"><strong aria-hidden="true">3.3.</strong> Form &amp; Colori</a></li><li><a href="utenti_crud.html"><strong aria-hidden="true">3.4.</strong> Utenti CRUD</a></li><li><a href="utenti_crud_edit.html"><strong aria-hidden="true">3.5.</strong> Utenti CRUD con Edit</a></li></ol></li></ol>
+            <ol class="chapter"><li class="affix"><a href="introduzione.html">Introduzione</a></li><li><a href="teoria.html"><strong aria-hidden="true">1.</strong> Teoria</a></li><li><ol class="section"><li><a href="basi_internet_php.html"><strong aria-hidden="true">1.1.</strong> Basi di PHP</a></li><li><a href="variabili.html"><strong aria-hidden="true">1.2.</strong> Variabili</a></li><li><a href="selezione.html"><strong aria-hidden="true">1.3.</strong> Selezione</a></li><li><a href="iterazione.html"><strong aria-hidden="true">1.4.</strong> Iterazione</a></li><li><a href="array.html"><strong aria-hidden="true">1.5.</strong> Array</a></li><li><a href="funzioni.html"><strong aria-hidden="true">1.6.</strong> Funzioni</a></li><li><a href="database.html"><strong aria-hidden="true">1.7.</strong> Database</a></li></ol></li><li><a href="esercizi.html"><strong aria-hidden="true">2.</strong> Esercizi</a></li><li><a href="soluzioni.html"><strong aria-hidden="true">3.</strong> Soluzioni</a></li><li><ol class="section"><li><a href="esericizi_cicli_for.html"><strong aria-hidden="true">3.1.</strong> Cicli For</a></li><li><a href="esercizi_scacchiera.html"><strong aria-hidden="true">3.2.</strong> Scacchiera</a></li><li><a href="esercizi_form_colori.html"><strong aria-hidden="true">3.3.</strong> Form &amp; Colori</a></li><li><a href="utenti_crud.html"><strong aria-hidden="true">3.4.</strong> Utenti CRUD</a></li><li><a href="utenti_crud_edit.html"><strong aria-hidden="true">3.5.</strong> Utenti CRUD con Edit</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -194,8 +194,73 @@ modo che trasformi un problema in una soluzione) che quelli specifici relativi a
 dalle dispense presenti in questo libro online.</p>
 <p>La parte <em>pratica</em>, invece, sarà relativa principalmente agli esercizi svolti in classe che si trovano nella sezione <code>Esercizi Svolti</code>.</p>
 <p>Alla fine di ogni lezione sarà presente un link per accedere agli esercizi relativi agli argomenti trattati, sempre presenti in questo libro.</p>
-<a class="header" href="print.html#capitolo-1" id="capitolo-1"><h1>Capitolo 1</h1></a>
-<a class="header" href="print.html#primi-comandi-con-php" id="primi-comandi-con-php"><h2>Primi comandi con PHP</h2></a>
+<a class="header" href="print.html#basi-di-php" id="basi-di-php"><h1>Basi di PHP</h1></a>
+<a class="header" href="print.html#storia" id="storia"><h2>Storia</h2></a>
+<p>PHP (<strong>P</strong>HP <strong>H</strong>ypertext <strong>P</strong>reprocessor) è un linguaggio di programmazione nato nel 1995 con lo scopo iniziale di rendere dinamiche le pagine visualizzabili da un browser web.</p>
+<p>Inizialmente, il <em>browser</em> era semplicemente un programma in grado di visualizzare il testo contenuto all'interno di un documento HTML, formattandolo secondole regole dettate dai <em>tag HTML</em>.</p>
+<p>Questo testo, opportunamente formattato e mostrato sullo schermo, era <strong>statico</strong>, ovvero il suo contenuto era sempre lo stesso, indipendentemente da chi lo visualizzava, quando o da quale piattaforma.</p>
+<p>Dall'esigenza di mostrare testo <em>diverso</em> in base ai parametri sopra citati (chi, come, quando e da dove) è nato il <strong>PHP</strong>, ovvero un linguaggio in grado di produrre <strong>output</strong> HTML <em>dinamico</em> in base ad un certo numero di <em>parametri</em> esterni.</p>
+<a class="header" href="print.html#meccanismo-clientserver" id="meccanismo-clientserver"><h2>Meccanismo Client/Server</h2></a>
+<p>Su <em>Internet</em>, ogni sito, pagina o applicazione è chiamato <strong>risorsa</strong>.</p>
+<p>Una <em>risorsa</em> è un documento HTML che risiede su di un server collegato alla rete Internet.</p>
+<p>Con <em>server</em> si intende un computer connesso ad una rete in grado di accettare a delle <em>richieste</em> provenienti dalla rete e <em>rispondere</em> in maniera opportuna.</p>
+<p>Ogni server è contraddistinto da un suo <em>indirizzo IP</em>, che identifica in modo univoco quel server all'interno della rete.</p>
+<p>L'applicazione delegata a richiedere una <em>risorsa</em> è chiamata <em>client</em>. Il <em>client</em> non identifica una particolare applicazione, bensì rappresenta semplicemente chiunque faccia partire una richiesta.
+Esempi di client sono il browser, le applicazioni mobili  o desktop che usano Internet (<em>Facebook, Spotify, ecc</em>), programmi di messaggistica (<em>Telegram, Whatsapp</em>), ecc.</p>
+<p>Sebbene i concetti di <strong>client</strong> e <strong>server</strong> siano generici e non obblighino ad utilizzare un particolare formato di file per lo scambio di informazioni, quando si parla di Internet e di PHP insieme, quello che viene scambiato tra le parti è rappresentato da file HTML visualizzabili da un browser.</p>
+<p>Quindi ad ogni richiesta del client, il server web risponderà con un documento HTML che verrà visualizzato all'interno di un browser.</p>
+<p>Il funzionamento (di base) dell'<em>Internet dinamico</em> può essere così riassunto:</p>
+<ul>
+<li><em>client</em> e <em>server</em> sono collegati ad Internet e hanno un loro indirizzo IP identificativo</li>
+<li>Il <em>client</em> richiede una particolare <em>risorsa</em>, contraddistinta da un <em>nome</em> e da un indirizzo del <em>server</em> su cui si trova la risorsa.</li>
+<li>Il <em>server</em> riceve la richiesta e prepara la risorsa corrispondente. Se è un file HTML semplice, lo preleva dal suo disco fisso e lo prepara per l'invio. In caso la risorsa fosse un file <code>php</code>, la procedura è leggermente diversa ed è descritta nel prossimo capitolo.</li>
+<li>Il <em>server</em> invia il file HTML sulla rete indirizzandolo al <em>client</em> che ha fatto partire la richiesta.</li>
+<li>Il <em>client</em> riceve il file e lo mostra a schermo.</li>
+</ul>
+<a class="header" href="print.html#gestione-risorse-php" id="gestione-risorse-php"><h2>Gestione Risorse PHP</h2></a>
+<p>Il <em>browser web</em> è in grado di visualizzare solamente file HTML.</p>
+<p>Quando richiediamo una risorsa <code>php</code>, ovvero una risorsa <em>dinamica</em>, il server web, invece di restituire direttamente il contenuto del file, <strong>esegue</strong> le istruzioni contenute in esso e invia come risposta al client il file HTML generato dall'esecuzione del file <code>php</code>.</p>
+<p>Il PHP è un linguaggio di programmazione.</p>
+<p>Come ogni linguaggio, è formato da <em>parole</em> che permettono di costruire <em>frasi</em>.</p>
+<p>Le <em>frasi</em> sono chiamate <strong>istruzioni</strong> e rappresentano azioni che possiamo far eseguire al computer.
+Mettendo insieme più istruzioni, è possibile far eseguire al computer operazioni complesse, come collegarsi ad un database, richiedergli dei dati, eseguire qualche elaborazione sui dati (ordinarli, modificarli, estenderli) e mostrarli.</p>
+<p>Quando un server riceve una richiesta per una <em>risorsa php</em>, il contenuto del file <code>php</code> viene passato ad un programma all'interno del server chiamato <strong>interprete php</strong> che esegue le istruzioni contenute nel file e ritorna al server web un file HTML contente il risultato dell'elaborazione di quel file PHP.</p>
+<p>Questo file HTML sarà spedito al client e quindi visualizzato all'interno del browser.</p>
+<p>L'<strong>interprete php</strong> è quindi responsabile di <em>interpretare</em> le istruzioni contenute in un file <code>php</code> e produrre un output HTML.</p>
+<p>Data la presenza di un <em>interprete</em>, si dice che <code>php</code> è un linguaggio <strong>interpretato</strong>, ovvero che il codice viene eseguito dall'interprete ogni volta che viene richiesta la risorsa, senza passare attraverso alcuno statio di compilazione.</p>
+<a class="header" href="print.html#modo-corretto-di-dividere-php-e-html-nei-propri-file-php" id="modo-corretto-di-dividere-php-e-html-nei-propri-file-php"><h2>Modo <em>corretto</em> di dividere PHP e HTML nei propri file .php</h2></a>
+<pre><code class="language-php">&lt;?php
+
+// Qui definiamo sia la logica che i dati
+$utente = [
+  &quot;nome&quot; =&gt; &quot;Nome&quot;,
+  &quot;cognome&quot; =&gt; &quot;Cognome&quot;,
+  &quot;eta&quot; =&gt; &quot;Età&quot;,
+];
+
+?&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Cicli For &amp; Array&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Cicli For &amp; Array&lt;/h1&gt;
+    &lt;ul&gt;
+    &lt;!-- 
+      Modo CORRETTO di dividere PHP e HTML all'interno del vostro file PHP 
+      Cercate il più possibile di limitare l'uso di istruzioni PHP nel vostro HTML.
+    --&gt;
+    &lt;?php foreach($utente as $chiave =&gt; $valore) { ?&gt;
+        &lt;li&gt;
+            &lt;b&gt;&lt;?=$chiave?&gt;:&lt;/b&gt; &lt;?=$valore?&gt;
+        &lt;/li&gt;
+    &lt;?php } ?&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<a class="header" href="print.html#convenzioni--best-practicies" id="convenzioni--best-practicies"><h2>Convenzioni &amp; Best Practicies</h2></a>
 <a class="header" href="print.html#commento-su-una-riga" id="commento-su-una-riga"><h3>Commento su una riga</h3></a>
 <pre><code class="language-php">// Commento su una riga
 # Altro modo per creare un commento su una riga
@@ -212,19 +277,86 @@ righe
 */
 </code></pre>
 <p>Per chiudere il blocco che vogliamo commentare usiamo la stessa combinazione
-che abbiamo usato per aprirlo, ma al contrario. Vedi riga successiva.</p>
-<a class="header" href="print.html#variabili" id="variabili"><h3>Variabili</h3></a>
-<pre><code class="language-php">$intero = 1;
-$numero_virgola = 1.2;
-$vero = true;
-$stringa = &quot;'ciao mondo'&quot;;
-$altra_stringa = '&quot;ciao&quot;';
-$variabile = null; // Questa variabile non fa nulla
-</code></pre>
+che abbiamo usato per aprirlo, ma al contrario.</p>
 <a class="header" href="print.html#andare-a-capo-in-html" id="andare-a-capo-in-html"><h3>Andare a capo in HTML</h3></a>
 <p><code>&lt;br&gt;</code> è il tag HTML che serve ad indicare al browser che vogliamo andare a capo.
 Noi lo usiamo per rendere più leggibile il risultato che vediamo a schermo.</p>
-<a class="header" href="print.html#stampare-contenuto-delle-variabili" id="stampare-contenuto-delle-variabili"><h3>Stampare contenuto delle variabili</h3></a>
+<a class="header" href="print.html#convenzioni-per-la-scrittura-di-variabili-e-nomi-di-funzioni-e-classi" id="convenzioni-per-la-scrittura-di-variabili-e-nomi-di-funzioni-e-classi"><h3>Convenzioni per la scrittura di variabili e nomi di funzioni e classi.</h3></a>
+<p>Non è obbligatorio sceglierne una in particolare, quello che è fortemente consigliato e decisamente necessario è sceglierne UNA e UNA SOLA all'interno di un progetto e utilizzarla PER OGNI variabile o funzione che si crea.</p>
+<p>Altro consiglio utile: perdete pure del tempo a dare dei nomi significativi a variabili e funzioni.</p>
+<p><em>Ricordate: un nome ben dato è meglio di una riga di commento!</em> cit. il saggio programmatore sulla roccia.</p>
+<ul>
+<li>
+<p><em>CamelCase</em></p>
+<ul>
+<li>ciaoComeAndiamo</li>
+<li>giorniDellaSettimana</li>
+</ul>
+</li>
+<li>
+<p><em>PascalCase</em></p>
+<ul>
+<li>CiaoComeAndiamo</li>
+<li>GiorniDellaSettimana</li>
+</ul>
+</li>
+<li>
+<p><em>SnakeCase</em></p>
+<ul>
+<li>ciao_come_andiamo</li>
+<li>giorni_della_settimana</li>
+</ul>
+</li>
+<li>
+<p><em>KebabCase</em></p>
+<ul>
+<li>ciao-come-andiamo</li>
+<li>giorni-della-settimana</li>
+</ul>
+</li>
+<li>
+<p><em>AdMinchiamCase</em></p>
+<ul>
+<li>gioRNi_Della_sett</li>
+<li>gds</li>
+<li>ccc</li>
+<li>a</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="print.html#variabili" id="variabili"><h2>Variabili</h2></a>
+<p>In PHP una <em>variabile</em> è un <strong>contenitore</strong> a cui associamo un <strong>nome</strong>.</p>
+<p>All'interno di una <em>variabile</em> (e quindi del suo corrispondente <strong>contenitore</strong>) possiamo inserire dei <strong>valori</strong>. Ogni variabile è caratterizzata dal <strong>tipo</strong> di valore che possiamo inserire al suo interno.</p>
+<p>E' possibile vedere questo procedimento di inserimento di valore all'interno di una variabile come un metodo per rappresentare delle <strong>informazioni</strong> in modo che siano utilizzabili e comprensibili anche ad un computer.</p>
+<p>Ad esempio, per rappresentare un testo si usa un tipo di variabile chiamato <strong>stringa</strong>.</p>
+<p>Per rappresentare un numero, invece, si usa il tipo <strong>intero</strong>.</p>
+<p>Se volessimo definire una <em>lista</em> di elementi, si dovrebbe usare il tipo <strong>array</strong>.</p>
+<p><em>Programmare un computer</em> significa operare, utilizzando le istruzioni che esso può comprendere, su <strong>informazioni</strong> contenute all'interno di variabili e salvare i risultati all'interno di altre variabili per renderle disponibili agli utilizzatori finali o ad altri programmi.</p>
+<p>Possiamo inoltre dire che la <em>variabile</em> è il blocco fondamentale di elaborazioni di un computer.</p>
+<p>Ogni linguaggio di programmazione prevede un modo di inserire, valorizzare e modificare variabili.</p>
+<a class="header" href="print.html#definizione-delle-variabili" id="definizione-delle-variabili"><h3>Definizione delle variabili</h3></a>
+<p>In PHP per <em>definire</em> una variabile si usa il <code>$</code> unitamente al nome che si intende dare alla variabile stessa.</p>
+<p>Dal momento che una variabile non è altro che una <em>scatola</em> con un'<em>etichetta</em>, per identificare una variabile sarà sufficiente fare riferimento al suo <strong>nome</strong>.</p>
+<p>Il nome che diamo ad una variabile, quindi, è molto importante, in quanto sarà il modo con cui, all'interno del programma, saremo in grado di fare riferimento al suo contenuto.</p>
+<p>E' fondamentale, dunque, assicurarsi che il <em>nome</em> che diamo alle nostre variabili sia <em>semanticamente corretto</em>, ovvero che descriva nel modo più chiaro possibile  l'utilizzo che si intende farne.</p>
+<p>Per <strong>assegnare</strong> un valore ad una variabile si usa l'operatore <code>=</code> seguito dal valore che si intende dare alla variabile.</p>
+<p>In PHP ogni testo inserito all'interno degli <em>apici</em> doppi o singoli (quindi <code>'</code> oppure <code>&quot;</code>) è considerato una <strong>stringa</strong>.</p>
+<p>Ad esempio per creare una variabile di tipo <em>stringa</em> bisogna inserire il valore della stessa all'interno di apici doppi o singoli;</p>
+<pre><code class="language-php">$stringa = &quot;Valore string in apici doppi&quot;;
+$altra_stringa = 'Valore string in apici singoli';
+</code></pre>
+<p>Per definire un intero invece di usa la seguente sintassi:</p>
+<pre><code class="language-php">$intero = 1;
+</code></pre>
+<p>E' possibile definire anche variabili di tipo <em>float</em> (numeri con la virgola), <em>booleano</em> (vero/false, in inglese <em>true/false</em>), o <em>null</em>.</p>
+<pre><code class="language-php">$numero_virgola = 1.2;
+$vero = true;
+$variabile = null; // Questa variabile non fa nulla
+</code></pre>
+<a class="header" href="print.html#stampare-il-contenuto-delle-variabili" id="stampare-il-contenuto-delle-variabili"><h3>Stampare il contenuto delle variabili</h3></a>
+<p>Per stampare (o comunque utilizzare) il valore contenuto in una variabile, bisogna fare fare riferimento al suo nome all'interno di una espressione o come parametro di una istruzione.</p>
+<p>Quando il nome della variabile si trova <em>prima</em> del simbolo <code>=</code>, allora siamo nella fase di <strong>definizione</strong> del valore, quando si trova alla <em>destra</em> dell'<code>=</code> oppure all'interno di un'espressione o istruzione siamo nella fase di <strong>uso</strong> del valore.</p>
+<p>In questa seconda fase, il nome della variabile fa riferimento al suo valore.</p>
 <pre><code class="language-php">echo &quot;Intero: &quot; . $intero  . &quot;&lt;br&gt;&quot;;
 echo $numero_virgola . &quot;&lt;br&gt;&quot;;
 echo $vero . &quot;&lt;br&gt;&quot;;
@@ -233,11 +365,10 @@ echo $altra_stringa . &quot;&lt;br&gt;&quot;;
 echo $variabile . &quot;&lt;br&gt;&quot;;
 </code></pre>
 <a class="header" href="print.html#operazioni-con-le-variabili" id="operazioni-con-le-variabili"><h3>Operazioni con le variabili</h3></a>
-<p>Questo è il nome da visualizzare</p>
+<p>Definiamo alcune variabili e inseriamo dei valori per poter <em>operare</em> su di essi.</p>
 <pre><code class="language-php">$nome = &quot;Nome Cognome&quot;;
-</code></pre>
-<p>Questa è l'eta della persona ed alcune altre variabili:</p>
-<pre><code class="language-php">$eta = 25;
+
+$eta = 25;
 
 $primo = 1.0;
 $secondo = 2.0;
@@ -261,8 +392,8 @@ echo &quot;Prodotto: $prodotto &lt;br&gt;&quot;;
 echo &quot;Divisione: $divisione &lt;br&gt;&quot;;
 echo &quot;Modulo: $modulo &lt;br&gt;&quot;;
 echo &quot;Operazione: $operazione &lt;br&gt;&quot;;
+// echo &quot;vedete che non stampa!!&quot;;
 </code></pre>
-<p>// echo &quot;vedete che non stampa!!&quot;;</p>
 <p>Variabili di tipo booleano o logico il cui valore può essere solamente true o false NON la stringa &quot;true&quot; o &quot;false&quot;!</p>
 <pre><code class="language-php">$vero = true;
 $falso = false;
@@ -293,11 +424,29 @@ NOT $a = V
 <tr><td> F </td><td>  V </td><td> F </td><td> V </td></tr>
 <tr><td> F </td><td>  F </td><td> F </td><td> F </td></tr>
 </tbody></table>
-<a class="header" href="print.html#istruzioni-condizionali" id="istruzioni-condizionali"><h3>Istruzioni condizionali</h3></a>
-<p>Istruzioni condizionali, per deviare il flusso di esecuzione del programma.
-Le condizioni che il PHP riesce a valutare sono SEMPRE di tipo booleano, quindi restituiscono una opzione binaria (true/false)
-Che fa eseguire il primo &quot;ramo&quot; (quello nel blocco dopo l'if) o il secondo, se presente (quello nel blocco dopo l'else).</p>
-<p>Di seguito un esempio di una doppia istruzione condizionale annidata:</p>
+<a class="header" href="print.html#istruzioni-condizionali" id="istruzioni-condizionali"><h2>Istruzioni condizionali</h2></a>
+<p>Si definisce <strong>flusso</strong> di un programma l'insieme ordinato delle istruzioni che lo compongono.</p>
+<p>Di norma, un programma parte dalla prima istruzione che trova nel file <code>php</code> e procede, dall'alto verso il basso, fino all'ultima.</p>
+<p>A volte si ha la necessità di modificare il flusso del programma. In particolare, potrebbe risultare necessario decidere di eseguire una parte di codice piuttosto di un'altra sulla base di un calcolo o del valore di una variabile.</p>
+<p>Per fare questo, occorre introdurre il concetto di <strong>selezione</strong> o di <strong>istruzione condizionale</strong>.</p>
+<p>In PHP è possibile decidere di eseguire un certo gruppo di istruzioni sulla base di alcune <em>condizioni</em>.</p>
+<p>Una <em>condizione</em> è un'espressione contenente variabili e operatori che può essere ricondotta ad un valore di <em>verità</em> o <em>falsità</em> (true/false).</p>
+<p>Le condizioni che il PHP riesce a valutare sono <strong>SEMPRE</strong> di tipo booleano.</p>
+<p>Per definire una istruzione condizionale si usa la sintassi</p>
+<pre><code class="language-php">if (condizione) {
+  /*
+  Blocco di istruzioni
+  eseguito se condizione == true
+  */
+} else {
+  /*
+  Blocco di istruzioni
+  eseguito se condizione == false
+  */
+}
+</code></pre>
+<p>Sulla base del valore (true/false) della condizione, verrà eseguito il primo <em>ramo</em> (quello nel blocco dopo l'if) o il secondo, se presente (quello nel blocco dopo l'else).</p>
+<p>Di seguito un esempio di una doppia istruzione condizionale annidiata:</p>
 <pre><code class="language-php">$eta = 45;
 $titolo = &quot;mr&quot;;  //oppure mrs
 
@@ -326,42 +475,6 @@ if ($numero &gt; 20) {
 } else {
     echo &quot;Ne maggiore di 10 ne di 20&quot;;
 }
-</code></pre>
-<a class="header" href="print.html#funzioni" id="funzioni"><h3>Funzioni</h3></a>
-<p>Una funzione è un blocco di codice a cui si associa un nome e una serie di &quot;parametri&quot; che si vanno ad utilizzare nel corpo della funzione (quello delimitato dalle {}).
-Una funzione non è altro che la descrizione in termini di una sequenza di comandi di una certa funzionalità (da cui il nome).</p>
-<p>Questa funzionalità può aver bisogno di qualche <strong>dato in ingresso</strong> e può restituire dei <strong>valori in uscita</strong>.
-In questo modo possiamo delegare ad una funzione una certa operazione complessa da eseguire e salvare solamente il valore di uscita in una variabile che poi andremo ad usare successivamente nel codice.</p>
-<p>Si può pensare ad una funzione come ad una macchina industriale in cui ENTRANO delle materie prime (ad esempio la base di una pizza) e al suo interno
-alcuni meccanismi inseriscono oggetti e applicano lavorazioni tali per cui in USCITA abbiamo un prodotto lavorato (ad esempio la pizza cotta con tutti gli ingredienti scelti).</p>
-<p>In questo caso i &quot;parametri&quot; in INGRESSO sono la base della pizza e l'ordinazione mentre in USCITA abbiamo la pizza completa che ha subito la lavorazione della macchina.</p>
-<p>Nell'esempio riportato in seguito, la funzione in base all'età, al titolo e al nome di una persona, ritorna una variabile di tipo stringa con l'esito della nostra &quot;autenticazione&quot; di base: può entrare o non può entrare.  Il valore di ritorno della funzione può essere salvato in una variabile per un'utilizzo futuro
-oppure puà essere usato come valore da stampare o ancora come valore di ingresso per un'altra funzione.</p>
-<p>Per DEFINIRE una funzione bisogna usare il comando <code>function</code>, seguito dal NOME della funzione e dalla lista dei suoi PARAMETRI.</p>
-<p>E' da notare che definire una funzione <strong>non</strong> significa eseguire il codice contenuto al suo interno, ma semplicemente associare al NOME della funzione il blocco di codice.
-In questo modo solo conoscendo il nome della funzione sarà possibile richiamare la funzionalità che essa descrive in altri punto del nostro programma.</p>
-<pre><code class="language-php">function controlloIngresso($eta, $titolo, $nome) {
-    if ($titolo == 'mr' &amp;&amp; $eta &gt;= 18) {
-        return &quot;Signor $nome può entrare&quot;;
-    } else if ($titolo == 'mr' &amp;&amp; $eta &lt; 18) {
-        return &quot;Signor $nome, non può entrare&quot;;
-    } else if ($titolo == 'mrs' &amp;&amp; $eta &gt;= 18) {
-        return &quot;Signora $nome, può entrare&quot;;
-    } else {
-        return &quot;Signora $nome, non può entrare&quot;;
-    }
-}
-</code></pre>
-<p>Per richiamare o ESEGUIRE una funzione è necessario scrivere il NOME della funzione seguito dalla lista dei valori di ingresso, che all'interno del blocco di codice che
-abbiamo definito prima, prenderanno i valori che abbiamo associato ai parametri di ingresso.</p>
-<p>Ad esempio in questo caso il numero 25 sarà associato alla variabile $eta, &quot;mr&quot; a $titolo e &quot;Giacomo&quot; a $nome.</p>
-<pre><code class="language-php">echo controlloIngresso(25, &quot;mr&quot;, &quot;Giacomo&quot;) . &quot;&lt;br&gt;&quot;;
-</code></pre>
-<p>Richiamando <code>echo</code> dandogli come argomento la chiamata di funzione, quello che accade è che il valore (eventuale) di ritorno della funzione <code>controlloIngresso</code> viene passato direttamente al comando echo il quale si occuperà
-di stamparlo sulla pagina.</p>
-<p>Al comando <code>echo</code>, in aggiunta, viene passata una stringa concatenata formata dal valore di ritorno di controlloIngresso e dalla stringa <code>&lt;br&gt;</code>. Il risultato della concatenazione viene passato ad echo
-che successivamente lo stamperà nel file che verrà visualizzato dal browser.</p>
-<pre><code class="language-php">echo controlloIngresso(12, &quot;mrs&quot;, &quot;Paola&quot;) . &quot;&lt;br&gt;&quot;;
 </code></pre>
 <a class="header" href="print.html#selezionare-più-condizioni-diverse-switch" id="selezionare-più-condizioni-diverse-switch"><h3>Selezionare più condizioni diverse: switch</h3></a>
 <p>Il comando switch serve per eseguire un particolare pezzo di codice basandosi sul valore di una variabile.
@@ -394,134 +507,11 @@ switch ($giornoDellaSettimana) {
         echo &quot;Non capisco nulla, cit. la classe&quot;;
         break;
 }
-</code></pre>
-<a class="header" href="print.html#capitolo-2" id="capitolo-2"><h1>Capitolo 2</h1></a>
-<a class="header" href="print.html#cicli-e-array" id="cicli-e-array"><h2>Cicli e Array</h2></a>
-<a class="header" href="print.html#array" id="array"><h3>Array</h3></a>
-<p>In programmazione un array è un tipo di variabile il cui valore è un insieme di altre variabili.</p>
-<p>Questo array viene definito posizionale in quanto le variabili al suo interno sono distinte l'una dall'altra in base alla loro posizione all'interno dell'array.</p>
-<p>Ogni variabile infatti ha un suo indice, che identifica appunto la posizione di quella variabile all'interno dell'array.</p>
-<p>Da notare che in programmazione il primo elemento di qualsiasi insieme ha indice 0, non 1.</p>
-<p>Quindi il primo elemento di un array si dice che è all'indice 0, il secondo all'indice 1 e così via.</p>
-<p>L'indice corrispondente all'ultimo elemento è dunque il numero di elementi dell'array meno uno.</p>
-<p>Per definire un array si usano le parentesi quadre, separando tutti gli elementi con una virgola</p>
-<pre><code class="language-php">//           Indice: 0  1  2  3
-$arrayPosizionale = [1, 2, 3, 4];
-</code></pre>
-<a class="header" href="print.html#accedere-agli-elementi-di-un-array-indicizzazione" id="accedere-agli-elementi-di-un-array-indicizzazione"><h3>Accedere agli elementi di un array: indicizzazione</h3></a>
-<p>Per accedere al contenuto di una variabile che fa parte di un array è necessario indicizzare l'array,
-ovvero indicare il nome dell'array e tra le parentesi quadre l'indice dell'elemento che si desidera ottenere:</p>
-<pre><code class="language-php">echo $arrayPosizionale[3];
-</code></pre>
-<a class="header" href="print.html#inserire-un-elemento-in-un-array" id="inserire-un-elemento-in-un-array"><h3>Inserire un elemento in un array</h3></a>
-<p>Per inserire un elemento in un array è sufficiente richiamare il nome dell'array con a fianco una coppia di parentesi quadre.
-A seguito dell'uguale sarà necessario inserire il valore che si intende aggiungere all'array.</p>
-<p>Questa operazione aggiungere l'elemento alla fine dell'array, quindi in questo modo inseriamo il nuovo elemento finale dell'array:</p>
-<pre><code class="language-php">$arrayPosizionale[] = 5;
+`
 
-// Stampa dell'elemento appena inserito
-echo $arrayPosizionale[4] . &quot;&lt;br&gt;&quot;;
 </code></pre>
-<a class="header" href="print.html#eliminazione-elemento-da-array" id="eliminazione-elemento-da-array"><h3>Eliminazione elemento da array</h3></a>
-<p>Per eliminare un elemento da un array si deve richiamare la funzione unset sull'elemento dell'array che vogliomo cancellare.</p>
-<p>Per definire quale elemento vogliamo cancellare dobbiamo indicizzare quell'elemento, mettendo tra parentesi quadre l'indice desiderato</p>
-<pre><code class="language-php">unset($arrayPosizionale[4]);
-</code></pre>
-<p>In questo caso stiamo richiedendo il valore corrispondente all'indice 400 dell'array, quindi il 401esimo elemento.
-Dal momento che il nostro <code>arrayPosizionale</code> ha solo 5 elementi, l'interprete di PHP darà un warning dicendo che non riesce a trovare l'elemento richiesto.</p>
-<pre><code class="language-php">echo $arrayPosizionale[400] . &quot;&lt;br&gt;&quot;;
-</code></pre>
-<a class="header" href="print.html#testare-se-elemento-è-presente-in-array" id="testare-se-elemento-è-presente-in-array"><h3>Testare se elemento è presente in array</h3></a>
-<p>Per verificare che un elemento sia presente all'interno di un array posizionale, ovvero che un certo indice corrisponda ad un elemento esistente dell'array, dobbiamo utilizzare la funzione isset(), la quale prende come argomento l'elemento dell'array
-di cui vogliamo verificare l'esistenza e restituisce un valore booleano (true/false) che possiamo utilizzare ad esempio all'interno di una selezione if (come nel caso sottostante).</p>
-<pre><code class="language-php">if (isset($arrayPosizionale[400])) {
-  echo $arrayPosizionale[400];
-} else {
-  echo &quot;Elemento non trovato all'interno dell'array!&lt;br&gt;&quot;;
-}
-</code></pre>
-<a class="header" href="print.html#modificare-elemento-esistente" id="modificare-elemento-esistente"><h3>Modificare elemento esistente</h3></a>
-<p>Per modificare un elemento esistente è sufficiente indicizzarlo alla sinistra dell'uguale usando l'operatore <code>[&lt;indice&gt;]</code> e alla destra dell'uguale inserire il nuovo valore che si intende associare a quella posizione nell'array.
-Se noi inserissimo un indice non presente nell'array, PHP lo creerebbe e quindi gli assocerebbe il valore che abbiamo scritto:</p>
-<pre><code class="language-php">$arrayPosizionale[2] = 467;
-</code></pre>
-<p>Per contare gli elementi di un array e quindi conoscere la lunghezza di quest'ultimo si usa la funzione <code>count()</code> che prende come argomento l'array e restituisce la lunghezza (intera) dell'array</p>
-<pre><code class="language-php">echo &quot;Elementi di un array: &quot; . count($arrayPosizionale) . &quot;&lt;br&gt;&quot;;
-</code></pre>
-<a class="header" href="print.html#stampare-contenuto-di-un-array" id="stampare-contenuto-di-un-array"><h3>Stampare contenuto di un array</h3></a>
-<p>Per stampare il contenuto di un array è necessario usare la funzione <code>var_dump</code>, in quanto l'echo normale non è in grado di mostrarci correttamente i valori all'interno dell'array.</p>
-<p><code>var_dump</code> ci mostra anche il tipo di variabile contenuto nell'array, la lunghezza dei vari campi e separa graficamente gli elementi</p>
-<pre><code class="language-php">echo var_dump($arrayPosizionale);
-</code></pre>
-<p>Si possono definire array di tutti i tipi fondamentali di dati, come ad esempio le stringhe.</p>
-<p>Per agevolare la lettura, è consigliabile scrivere gli array come segue, inserendo ogni elemento in una riga diversa e mettendo le parentesi anch'esse su una riga a parte</p>
-<pre><code class="language-php">$giorniDellaSettimana = [
-  &quot;Sabato sera&quot;,
-  &quot;Sabato sera&quot;,
-  &quot;Sabato sera&quot;,
-  &quot;Sabato sera&quot;,
-  &quot;Sabato sera&quot;,
-  &quot;Sabato sera&quot;,
-  &quot;Sabato sera&quot;,
-];
-</code></pre>
-<p>E' possibile stampare l'array nel modo seguente, indicando tutti gli indici fino all'ultimo.
-Nel momento in cui dovessimo cambiare gli elementi dell'array giorniDellaSettimana dovremmo ricordarci anche di modificare la procedura di stampa sottostante, cosa non agevole.
-Di seguito verrà presentato un modo automatico per realizzare la stessa funzionalità.</p>
-<pre><code class="language-php">echo $giorniDellaSettimana[0] . &quot;&lt;br&gt;&quot;;
-echo $giorniDellaSettimana[1] . &quot;&lt;br&gt;&quot;;
-echo $giorniDellaSettimana[2] . &quot;&lt;br&gt;&quot;;
-echo $giorniDellaSettimana[3] . &quot;&lt;br&gt;&quot;;
-echo $giorniDellaSettimana[4] . &quot;&lt;br&gt;&quot;;
-echo $giorniDellaSettimana[5] . &quot;&lt;br&gt;&quot;;
-echo $giorniDellaSettimana[6] . &quot;&lt;br&gt;&quot;;
-
-echo &quot;I giorni della settimana sono &quot; . count($giorniDellaSettimana) . &quot;&lt;br&gt;&quot;;
-</code></pre>
-<a class="header" href="print.html#convenzioni-per-la-scrittura-di-variabili-e-nomi-di-funzioni-e-classi" id="convenzioni-per-la-scrittura-di-variabili-e-nomi-di-funzioni-e-classi"><h3>Convenzioni per la scrittura di variabili e nomi di funzioni e classi.</h3></a>
-<p>Non è obbligatorio sceglierne una in particolare, quello che è fortemente consigliato e decisamente necessario è sceglierne UNA e UNA SOLA all'interno di un progetto e utilizzarla PER OGNI variabile o funzione che si crea.</p>
-<p>Altro consiglio utile: perdete pure del tempo a dare dei nomi significativi a variabili e funzioni.</p>
-<p><em>Ricordate: un nome ben dato è meglio di una riga di commento!</em> cit. il saggio programmatore sulla roccia.</p>
-<ul>
-<li>
-<p>CamelCase</p>
-<ul>
-<li>ciaoComeAndiamo</li>
-<li>giorniDellaSettimana</li>
-</ul>
-</li>
-<li>
-<p>PascalCase</p>
-<ul>
-<li>CiaoComeAndiamo</li>
-<li>GiorniDellaSettimana</li>
-</ul>
-</li>
-<li>
-<p>SnakeCase</p>
-<ul>
-<li>ciao_come_andiamo</li>
-<li>giorni_della_settimana</li>
-</ul>
-</li>
-<li>
-<p>KebabCase</p>
-<ul>
-<li>ciao-come-andiamo</li>
-<li>giorni-della-settimana</li>
-</ul>
-</li>
-<li>
-<p>AdMinchiamCase</p>
-<ul>
-<li>gioRNi_Della_sett</li>
-<li>gds</li>
-<li>ccc</li>
-<li>a</li>
-</ul>
-</li>
-</ul>
-<a class="header" href="print.html#ripetere-azioni-un-numero-definito-di-volte-il-ciclo-for" id="ripetere-azioni-un-numero-definito-di-volte-il-ciclo-for"><h3>Ripetere azioni un numero definito di volte: il ciclo FOR</h3></a>
+<a class="header" href="print.html#iterazione" id="iterazione"><h1>Iterazione</h1></a>
+<a class="header" href="print.html#ciclo-for" id="ciclo-for"><h2>Ciclo For</h2></a>
 <p>Il ciclo for è uno degli elementi più comuni e potenti della programmazione.<br />
 E' un costrutto il cui scopo principale è ripetere un certo numero di istruzioni/operazioni un certo numero di volte.
 Ad esempio se si volesse ripetere 5 volte la stampa a schermo di un messaggio &quot;ciao mondo&quot;, dovremmo scrivere il comando: <code>echo 'ciao mondo';</code> su 5 righe diverse, in questo modo:</p>
@@ -622,7 +612,7 @@ uguale alla dimensione dell'array, siamo sicuri di stampare tutti gli elementi d
 e niente di più.</p>
 <pre><code class="language-php">echo &quot;Il ciclo è finito, ciao ciao!&lt;br&gt;&quot;;
 </code></pre>
-<a class="header" href="print.html#iterare-su-oggetti-e-array-ciclo-foreach" id="iterare-su-oggetti-e-array-ciclo-foreach"><h3>Iterare su oggetti e array: ciclo foreach</h3></a>
+<a class="header" href="print.html#ciclo-foreach" id="ciclo-foreach"><h2>Ciclo Foreach</h2></a>
 <p>Il foreach è un altro tipo di ciclo, un po meno versatile del FOR ma molto più potente e comodo.
 Ci permette di pensare all'array non in termini di indici e posizioni, ma come un insieme di elementi
 che possiamo prendere separatamente e trattare come &quot;oggetti&quot; su cui svolgere certe azioni.
@@ -633,7 +623,7 @@ Per capire il suo funzionamento sarebbe utile cercare di tradurre il costrutto i
  &lt;istruzione 3&gt;
 }
 </code></pre>
-<pre><code class="language-php">perogni &lt;elemento&gt; dell'array &lt;nome_variabile_array&gt; eseguiamo il blocco di istruzioni
+<pre><code>perogni &lt;elemento&gt; dell'array &lt;nome_variabile_array&gt; eseguiamo 
  &lt;istruzione 1&gt;, 
  &lt;istruzione 2&gt;, 
  &lt;istruzione 3&gt;,
@@ -692,7 +682,89 @@ possiamo usare un'altra sintassi di <code>foreach</code>.</p>
 all'interno del ciclo sia il valore dell'elemento (all'interno della variabile <code>$giorno</code>)
 che la sua chiave all'interno dell'array (essendo un array posizionale, la chiave
 di ogni elemento è appunto la sua posizione all'interno dell'array.</p>
-<a class="header" href="print.html#array-associativi" id="array-associativi"><h3>Array Associativi</h3></a>
+<a class="header" href="print.html#array" id="array"><h1>Array</h1></a>
+<a class="header" href="print.html#array-posizionali" id="array-posizionali"><h2>Array Posizionali</h2></a>
+<p>In programmazione un array è un tipo di variabile il cui valore è un insieme di altre variabili.</p>
+<p>Questo array viene definito posizionale in quanto le variabili al suo interno sono distinte l'una dall'altra in base alla loro posizione all'interno dell'array.</p>
+<p>Ogni variabile infatti ha un suo indice, che identifica appunto la posizione di quella variabile all'interno dell'array.</p>
+<p>Da notare che in programmazione il primo elemento di qualsiasi insieme ha indice 0, non 1.</p>
+<p>Quindi il primo elemento di un array si dice che è all'indice 0, il secondo all'indice 1 e così via.</p>
+<p>L'indice corrispondente all'ultimo elemento è dunque il numero di elementi dell'array meno uno.</p>
+<p>Per definire un array si usano le parentesi quadre, separando tutti gli elementi con una virgola</p>
+<pre><code class="language-php">//           Indice: 0  1  2  3
+$arrayPosizionale = [1, 2, 3, 4];
+</code></pre>
+<a class="header" href="print.html#accedere-agli-elementi-di-un-array-indicizzazione" id="accedere-agli-elementi-di-un-array-indicizzazione"><h3>Accedere agli elementi di un array: indicizzazione</h3></a>
+<p>Per accedere al contenuto di una variabile che fa parte di un array è necessario indicizzare l'array,
+ovvero indicare il nome dell'array e tra le parentesi quadre l'indice dell'elemento che si desidera ottenere:</p>
+<pre><code class="language-php">echo $arrayPosizionale[3];
+</code></pre>
+<a class="header" href="print.html#inserire-un-elemento-in-un-array" id="inserire-un-elemento-in-un-array"><h3>Inserire un elemento in un array</h3></a>
+<p>Per inserire un elemento in un array è sufficiente richiamare il nome dell'array con a fianco una coppia di parentesi quadre.
+A seguito dell'uguale sarà necessario inserire il valore che si intende aggiungere all'array.</p>
+<p>Questa operazione aggiungere l'elemento alla fine dell'array, quindi in questo modo inseriamo il nuovo elemento finale dell'array:</p>
+<pre><code class="language-php">$arrayPosizionale[] = 5;
+
+// Stampa dell'elemento appena inserito
+echo $arrayPosizionale[4] . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<a class="header" href="print.html#eliminazione-elemento-da-array" id="eliminazione-elemento-da-array"><h3>Eliminazione elemento da array</h3></a>
+<p>Per eliminare un elemento da un array si deve richiamare la funzione unset sull'elemento dell'array che vogliomo cancellare.</p>
+<p>Per definire quale elemento vogliamo cancellare dobbiamo indicizzare quell'elemento, mettendo tra parentesi quadre l'indice desiderato</p>
+<pre><code class="language-php">unset($arrayPosizionale[4]);
+</code></pre>
+<p>In questo caso stiamo richiedendo il valore corrispondente all'indice 400 dell'array, quindi il 401esimo elemento.
+Dal momento che il nostro <code>arrayPosizionale</code> ha solo 5 elementi, l'interprete di PHP darà un warning dicendo che non riesce a trovare l'elemento richiesto.</p>
+<pre><code class="language-php">echo $arrayPosizionale[400] . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<a class="header" href="print.html#testare-se-elemento-è-presente-in-array" id="testare-se-elemento-è-presente-in-array"><h3>Testare se elemento è presente in array</h3></a>
+<p>Per verificare che un elemento sia presente all'interno di un array posizionale, ovvero che un certo indice corrisponda ad un elemento esistente dell'array, dobbiamo utilizzare la funzione isset(), la quale prende come argomento l'elemento dell'array
+di cui vogliamo verificare l'esistenza e restituisce un valore booleano (true/false) che possiamo utilizzare ad esempio all'interno di una selezione if (come nel caso sottostante).</p>
+<pre><code class="language-php">if (isset($arrayPosizionale[400])) {
+  echo $arrayPosizionale[400];
+} else {
+  echo &quot;Elemento non trovato all'interno dell'array!&lt;br&gt;&quot;;
+}
+</code></pre>
+<a class="header" href="print.html#modificare-elemento-esistente" id="modificare-elemento-esistente"><h3>Modificare elemento esistente</h3></a>
+<p>Per modificare un elemento esistente è sufficiente indicizzarlo alla sinistra dell'uguale usando l'operatore <code>[&lt;indice&gt;]</code> e alla destra dell'uguale inserire il nuovo valore che si intende associare a quella posizione nell'array.
+Se noi inserissimo un indice non presente nell'array, PHP lo creerebbe e quindi gli assocerebbe il valore che abbiamo scritto:</p>
+<pre><code class="language-php">$arrayPosizionale[2] = 467;
+</code></pre>
+<p>Per contare gli elementi di un array e quindi conoscere la lunghezza di quest'ultimo si usa la funzione <code>count()</code> che prende come argomento l'array e restituisce la lunghezza (intera) dell'array</p>
+<pre><code class="language-php">echo &quot;Elementi di un array: &quot; . count($arrayPosizionale) . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<a class="header" href="print.html#stampare-contenuto-di-un-array" id="stampare-contenuto-di-un-array"><h3>Stampare contenuto di un array</h3></a>
+<p>Per stampare il contenuto di un array è necessario usare la funzione <code>var_dump</code>, in quanto l'echo normale non è in grado di mostrarci correttamente i valori all'interno dell'array.</p>
+<p><code>var_dump</code> ci mostra anche il tipo di variabile contenuto nell'array, la lunghezza dei vari campi e separa graficamente gli elementi</p>
+<pre><code class="language-php">echo var_dump($arrayPosizionale);
+</code></pre>
+<p>Si possono definire array di tutti i tipi fondamentali di dati, come ad esempio le stringhe.</p>
+<p>Per agevolare la lettura, è consigliabile scrivere gli array come segue, inserendo ogni elemento in una riga diversa e mettendo le parentesi anch'esse su una riga a parte</p>
+<pre><code class="language-php">$giorniDellaSettimana = [
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+];
+</code></pre>
+<p>E' possibile stampare l'array nel modo seguente, indicando tutti gli indici fino all'ultimo.
+Nel momento in cui dovessimo cambiare gli elementi dell'array giorniDellaSettimana dovremmo ricordarci anche di modificare la procedura di stampa sottostante, cosa non agevole.
+Di seguito verrà presentato un modo automatico per realizzare la stessa funzionalità.</p>
+<pre><code class="language-php">echo $giorniDellaSettimana[0] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[1] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[2] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[3] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[4] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[5] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[6] . &quot;&lt;br&gt;&quot;;
+
+echo &quot;I giorni della settimana sono &quot; . count($giorniDellaSettimana) . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<a class="header" href="print.html#array-associativi" id="array-associativi"><h2>Array Associativi</h2></a>
 <p>In PHP esistono due diversi tipo di array, che differiscono principalmente per il modo in cui associano
 gli elementi presenti al loro interno ai valori che utilizziamo per accedere a questi elementi.</p>
 <p>Negli array posizionali, quello che abbiamo appena visto e utilizzato fino ad adesso, il modo che abbiamo per
@@ -786,38 +858,146 @@ senza però sapere il valore della chiave stessa.</p>
   echo &quot;Chiave: $chiave =&gt; Valore: $valore&lt;br&gt;&quot;;
 }
 </code></pre>
-<a class="header" href="print.html#modo-corretto-di-dividere-php-e-html-nei-propri-file-php" id="modo-corretto-di-dividere-php-e-html-nei-propri-file-php"><h3>Modo <em>corretto</em> di dividere PHP e HTML nei propri file .php</h3></a>
-<pre><code class="language-php">&lt;?php
-
-// Qui definiamo sia la logica che i dati
-$utente = [
-  &quot;nome&quot; =&gt; &quot;Nome&quot;,
-  &quot;cognome&quot; =&gt; &quot;Cognome&quot;,
-  &quot;eta&quot; =&gt; &quot;Età&quot;,
-];
-
-?&gt;
-
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;Cicli For &amp; Array&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Cicli For &amp; Array&lt;/h1&gt;
-    &lt;ul&gt;
-    &lt;!-- 
-      Modo CORRETTO di dividere PHP e HTML all'interno del vostro file PHP 
-      Cercate il più possibile di limitare l'uso di istruzioni PHP nel vostro HTML.
-    --&gt;
-    &lt;?php foreach($utente as $chiave =&gt; $valore) { ?&gt;
-        &lt;li&gt;
-            &lt;b&gt;&lt;?=$chiave?&gt;:&lt;/b&gt; &lt;?=$valore?&gt;
-        &lt;/li&gt;
-    &lt;?php } ?&gt;
-    &lt;/ul&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<a class="header" href="print.html#funzioni" id="funzioni"><h1>Funzioni</h1></a>
+<p>Una funzione è un blocco di codice a cui si associa un nome e una serie di <em>parametri</em>.</p>
+<p>Una funzione non è altro che la descrizione in termini di una sequenza di comandi di una certa funzionalità (da cui il nome).</p>
+<p>Questa funzionalità può aver bisogno di qualche <strong>dato in ingresso</strong> e può restituire dei <strong>valori in uscita</strong>.
+In questo modo possiamo delegare ad una funzione una certa operazione complessa da eseguire e salvare solamente il valore di uscita in una variabile che poi andremo ad usare successivamente nel codice.</p>
+<p>I <em>parametri</em> della funzione sono i nomi delle variabili che si utilizzano all'interno del
+corpo della funzione per fare riferimento ai <em>valori di input</em> che inseriamo
+nella funzione quando quest'ultima viene chiamata.</p>
+<p>Si può pensare ad una funzione come ad una macchina industriale in cui ENTRANO delle materie prime (ad esempio la base di una pizza) e al suo interno
+alcuni meccanismi inseriscono oggetti e applicano lavorazioni tali per cui in USCITA abbiamo un prodotto lavorato (ad esempio la pizza cotta con tutti gli ingredienti scelti).</p>
+<p>In questo caso i &quot;parametri&quot; in INGRESSO sono la base della pizza e l'ordinazione mentre in USCITA abbiamo la pizza completa che ha subito la lavorazione della macchina.</p>
+<p>Nell'esempio riportato in seguito, in base all'età, al titolo e al nome di una persona, la funzione ritorna una variabile di tipo stringa con l'esito della nostra &quot;autenticazione&quot; di base: può entrare o non può entrare.</p>
+<p>Il valore di ritorno della funzione può essere salvato in una variabile per un'utilizzo futuro
+oppure può essere usato come valore da stampare o ancora come valore di ingresso per un'altra funzione.</p>
+<p>Per DEFINIRE una funzione bisogna usare il comando <code>function</code>, seguito dal NOME della funzione e dalla lista dei suoi PARAMETRI.</p>
+<p>E' da notare che definire una funzione <strong>non</strong> significa eseguire il codice contenuto al suo interno, ma semplicemente associare al NOME della funzione il blocco di codice.
+In questo modo solo conoscendo il nome della funzione sarà possibile richiamare la funzionalità che essa descrive in altri punti del nostro programma.</p>
+<pre><code class="language-php">function controlloIngresso($eta, $titolo, $nome) {
+    if ($titolo == 'mr' &amp;&amp; $eta &gt;= 18) {
+        return &quot;Signor $nome può entrare&quot;;
+    } else if ($titolo == 'mr' &amp;&amp; $eta &lt; 18) {
+        return &quot;Signor $nome, non può entrare&quot;;
+    } else if ($titolo == 'mrs' &amp;&amp; $eta &gt;= 18) {
+        return &quot;Signora $nome, può entrare&quot;;
+    } else {
+        return &quot;Signora $nome, non può entrare&quot;;
+    }
+}
 </code></pre>
+<p>Per richiamare o ESEGUIRE una funzione è necessario scrivere il NOME della funzione seguito dalla lista dei valori di ingresso, che all'interno del blocco di codice che
+abbiamo definito prima, prenderanno i valori che abbiamo associato ai parametri di ingresso.</p>
+<p>Ad esempio in questo caso il numero 25 sarà associato alla variabile $eta, &quot;mr&quot; a $titolo e &quot;Giacomo&quot; a $nome.</p>
+<pre><code class="language-php">echo controlloIngresso(25, &quot;mr&quot;, &quot;Giacomo&quot;) . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<p>Richiamando <code>echo</code> dandogli come argomento la chiamata di funzione, quello che accade è che il valore (eventuale) di ritorno della funzione <code>controlloIngresso</code> viene passato direttamente al comando <code>echo</code> il quale si occuperà
+di stamparlo sulla pagina.</p>
+<p>Al comando <code>echo</code>, in aggiunta, viene passata una stringa concatenata formata dal valore di ritorno di controlloIngresso e dalla stringa <code>&lt;br&gt;</code>. Il risultato della concatenazione viene passato ad echo
+che successivamente lo stamperà nel file che verrà visualizzato dal browser.</p>
+<pre><code class="language-php">echo controlloIngresso(12, &quot;mrs&quot;, &quot;Paola&quot;) . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<p>`</p>
+<a class="header" href="print.html#database" id="database"><h2>Database</h2></a>
+<p>Il codice contenuto all'interno di una pagina PHP viene eseguito ogni volta che
+la risorsa corrispondente alla pagina viene richiesta.</p>
+<p>Questo significa che non è possibile utilizzare alcun file PHP per mantenere lo
+<strong>stato</strong> di una applicazione, ovvero qualsiasi dato contenuto nella pagina non
+può essere considerato permanente.</p>
+<p>Per ovviare a questo inconveniente strutturale del PHP si utilizza un altro
+strumento: il <strong>database</strong>, spesso abbreviato con la sigla <strong>DB</strong>.</p>
+<p>Un <strong>database</strong> è un software in grado di immagazzinare dati e renderli
+disponibili attraverso una connessione client/server.
+Dato che esso non viene <em>eseguito</em> ad ogni richiesta, può essere utilizzato per
+condividere dati tra diverse pagine PHP, in modo da rendere <em>permanente</em> lo
+stato dell'applicazione.</p>
+<p>La <strong>connessione</strong> al database è quel processo attraverso il quale un <em>client</em> (sia
+esso una pagina PHP, una applicazione mobile o qualsiasi altro software in grado
+di accedere alla rete) inizia una comunicazione con il server di database, si
+autentica e predispone il collegamento attraverso il quale invierà poi le
+istruzioni SQL.</p>
+<p>Dal momento che il server di database dispone di risorse finite, è buona norma
+<em>chiudere</em> la connessione una volta finito il processo di <em>interrogazione</em>
+(query) o di <em>inserimento dati</em> (insert) da parte del client.</p>
+<p>Per comunicare con i database si utilizza il linguaggio <strong>SQL</strong> (<strong>S</strong>tandard
+<strong>Q</strong>uery <strong>L</strong>anguage).</p>
+<p>I database si dividono in due categorie principali, in base al sistema interno
+che usano per immagazzinare e collegare i dati:</p>
+<ul>
+<li><strong>Relazionali</strong>: i dati sono divisi in <em>tabelle</em> e le relazioni tra le varie
+tabelle avvengono per mezzo di <strong>chiavi univoche</strong> (dette <em>primary</em> o
+<em>foreign</em>) che identificano le risorse da collegare.</li>
+<li><strong>Non Relazionali</strong> o <strong>Documentali</strong>: i dati sono inseriti in <em>documenti</em> a loro
+volta contenuti in <em>collezioni</em> di elementi. All'interno di ogni documento
+sono presenti tutti i dati ad esso collegati, comprese le eventuali
+relazioni.</li>
+</ul>
+<a class="header" href="print.html#mysql" id="mysql"><h3>MySQL</h3></a>
+<p><strong>MySQL</strong> è un server o <em>motore</em> (<em>database engine</em>) di database di tipo
+<em>relazionale</em> che, al momento, è maggiormente diffuso a livello globale.</p>
+<p>Fa parte dello <em>stack</em> LAMP (<strong>L</strong>inux <strong>A</strong>pache <strong>M</strong>ySQL <strong>P</strong>HP)
+l'architettura più comune del Web.</p>
+<p>L'integrazione tra PHP e MySQL avviene per mezzo di un <strong>driver</strong>, ovvero di una
+libreria contenente le funzioni necessarie al collegamento, all'interrogazione e
+all'estrapolazione dei dati contenuti nel database.</p>
+<p><code>mysqli</code> (<em>mysql improved</em>) è il driver predefinito per il collegamento con
+MySQL in PHP.</p>
+<p>Per utilizzarlo in uno script/pagina PHP non è necessario importare nessun
+componente o libreria, in quanto esso fa parte della distribuzione stadard di
+PHP ed è quindi già installato anche se si usano distribuzioni <em>entry level</em>
+come XAMPP.</p>
+<a class="header" href="print.html#funzioni-base-di-mysqli" id="funzioni-base-di-mysqli"><h3>Funzioni base di <code>mysqli</code></h3></a>
+<ul>
+<li>
+<p><code>mysqli_connect($servername, $username, $password, $database)</code> <br>
+Questa funziona è responsabile del collegamento con un database di nome
+<code>$database</code> installato su un server di nome <code>$servername</code>, usando come nome
+utente e password <code>$username</code> e <code>$password</code>. Questa funzione, quando va a buon
+fine, ritorna un oggetto di tipo <code>connessione</code>, da utilizzare per tutte le
+altre operazioni (inserimento, interrogazione, chiusura connessione)</p>
+</li>
+<li>
+<p><code>mysqli_close($connection)</code> <br>
+Questa funzione serve per chiudere la connessione al database una volta
+eseguite le operazioni richieste.</p>
+</li>
+<li>
+<p><code>mysqli_query($connection, $querySQL)</code> <br>
+Questa funzione serve per inviare al database una richiesta SQL, sia in
+lettura che in scrittura. La stringa <code>$querySQL</code> deve essere formattata
+correttamente seguendo il protocollo SQL, pena l'impossibilità da parte di
+MySQL, di processare correttamente la richiesta. Il risultato di questa
+operazione è un oggetto di tipo <code>resultSet</code> che contiene l'esito della query
+ed, eventualmente, i dati ad essa associati.</p>
+</li>
+<li>
+<p><code>mysqli_fetch_all($resultSet, ARRAY_TYPE)</code> <br>
+Con questa funzione è possibile recuperare da un <code>$resultSet</code> tutti i dati
+relativi alla query di <em>lettura</em> (SELECT) collegata al <code>$resultSet</code>. La
+costante <code>ARRAY_TYPE</code> rappresenta il tipo di array con cui si vuole
+rappresentare ogni <em>record</em> o <em>riga</em> dela tabella. Esso può essere uno tra:</p>
+<ul>
+<li><strong>MYSQLI_ASSOC</strong>: in questo caso, ogni riga sarà rappresentata da un <em>array
+associativo</em> in cui le chiavi saranno i nomi delle intestazioni delle
+colonne selezionate dalla query. I valori dell'array associativo
+rappresentano il valore effettivo contenuto nella colonna corrispondente
+alla chiave nella riga di riferimento.</li>
+<li><strong>MYSQLI_NUM</strong>: in questo caso, ogni riga sarà rappresentata da un <em>array
+posizionale</em> in cui ogni elemento corrisponde al valore della colonna
+i-esima della tabella. Per ricostruire la corrispondenza tra valore di
+riga e colonna sarà necessario conoscere l'ordinamento dell'array delle
+intestazioni di colonna.</li>
+</ul>
+</li>
+<li>
+<p><code>mysqli_error($connection)</code> <br>
+Questa funzione ritorna l'ultimo errore riscontrato durante l'ultima
+interrogazione al database, sia in lettura che in scrittura.</p>
+</li>
+</ul>
+<p>Per una più completa lista delle funzioni disponibili per l'interazione con il
+database MySQL si rimanda al sito <a href="https://www.w3schools.com/php/php_ref_mysqli.asp">w3schools</a> alla sezione <em>MySQLi Functions</em>.</p>
 <a class="header" href="print.html#esercizi" id="esercizi"><h1>Esercizi</h1></a>
 <a class="header" href="print.html#sezione-in-costruzione" id="sezione-in-costruzione"><h2>Sezione in costruzione!</h2></a>
 <p>In questa sezione sono contenuti gli esercizi relativi alle varie lezioni svolte e ai vari argomenti.</p>
@@ -1575,6 +1755,21 @@ if (count($_POST)) {
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

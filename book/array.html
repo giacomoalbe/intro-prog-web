@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Cicli e Array - Introduzione alla Programmazione per il Web</title>
+        <title>Array - Introduzione alla Programmazione per il Web</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="introduzione.html">Introduzione</a></li><li><a href="teoria.html"><strong aria-hidden="true">1.</strong> Teoria</a></li><li><ol class="section"><li><a href="variabili_e_condizioni.html"><strong aria-hidden="true">1.1.</strong> Variabili &amp; Condizioni</a></li><li><a href="cicli_e_array.html" class="active"><strong aria-hidden="true">1.2.</strong> Cicli e Array</a></li></ol></li><li><a href="esercizi.html"><strong aria-hidden="true">2.</strong> Esercizi</a></li><li><a href="soluzioni.html"><strong aria-hidden="true">3.</strong> Soluzioni</a></li><li><ol class="section"><li><a href="esericizi_cicli_for.html"><strong aria-hidden="true">3.1.</strong> Cicli For</a></li><li><a href="esercizi_scacchiera.html"><strong aria-hidden="true">3.2.</strong> Scacchiera</a></li><li><a href="esercizi_form_colori.html"><strong aria-hidden="true">3.3.</strong> Form &amp; Colori</a></li><li><a href="utenti_crud.html"><strong aria-hidden="true">3.4.</strong> Utenti CRUD</a></li><li><a href="utenti_crud_edit.html"><strong aria-hidden="true">3.5.</strong> Utenti CRUD con Edit</a></li></ol></li></ol>
+            <ol class="chapter"><li class="affix"><a href="introduzione.html">Introduzione</a></li><li><a href="teoria.html"><strong aria-hidden="true">1.</strong> Teoria</a></li><li><ol class="section"><li><a href="basi_internet_php.html"><strong aria-hidden="true">1.1.</strong> Basi di PHP</a></li><li><a href="variabili.html"><strong aria-hidden="true">1.2.</strong> Variabili</a></li><li><a href="selezione.html"><strong aria-hidden="true">1.3.</strong> Selezione</a></li><li><a href="iterazione.html"><strong aria-hidden="true">1.4.</strong> Iterazione</a></li><li><a href="array.html" class="active"><strong aria-hidden="true">1.5.</strong> Array</a></li><li><a href="funzioni.html"><strong aria-hidden="true">1.6.</strong> Funzioni</a></li><li><a href="database.html"><strong aria-hidden="true">1.7.</strong> Database</a></li></ol></li><li><a href="esercizi.html"><strong aria-hidden="true">2.</strong> Esercizi</a></li><li><a href="soluzioni.html"><strong aria-hidden="true">3.</strong> Soluzioni</a></li><li><ol class="section"><li><a href="esericizi_cicli_for.html"><strong aria-hidden="true">3.1.</strong> Cicli For</a></li><li><a href="esercizi_scacchiera.html"><strong aria-hidden="true">3.2.</strong> Scacchiera</a></li><li><a href="esercizi_form_colori.html"><strong aria-hidden="true">3.3.</strong> Form &amp; Colori</a></li><li><a href="utenti_crud.html"><strong aria-hidden="true">3.4.</strong> Utenti CRUD</a></li><li><a href="utenti_crud_edit.html"><strong aria-hidden="true">3.5.</strong> Utenti CRUD con Edit</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -133,9 +133,8 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="cicli_e_array.html#capitolo-2" id="capitolo-2"><h1>Capitolo 2</h1></a>
-<a class="header" href="cicli_e_array.html#cicli-e-array" id="cicli-e-array"><h2>Cicli e Array</h2></a>
-<a class="header" href="cicli_e_array.html#array" id="array"><h3>Array</h3></a>
+                        <a class="header" href="array.html#array" id="array"><h1>Array</h1></a>
+<a class="header" href="array.html#array-posizionali" id="array-posizionali"><h2>Array Posizionali</h2></a>
 <p>In programmazione un array è un tipo di variabile il cui valore è un insieme di altre variabili.</p>
 <p>Questo array viene definito posizionale in quanto le variabili al suo interno sono distinte l'una dall'altra in base alla loro posizione all'interno dell'array.</p>
 <p>Ogni variabile infatti ha un suo indice, che identifica appunto la posizione di quella variabile all'interno dell'array.</p>
@@ -146,12 +145,12 @@
 <pre><code class="language-php">//           Indice: 0  1  2  3
 $arrayPosizionale = [1, 2, 3, 4];
 </code></pre>
-<a class="header" href="cicli_e_array.html#accedere-agli-elementi-di-un-array-indicizzazione" id="accedere-agli-elementi-di-un-array-indicizzazione"><h3>Accedere agli elementi di un array: indicizzazione</h3></a>
+<a class="header" href="array.html#accedere-agli-elementi-di-un-array-indicizzazione" id="accedere-agli-elementi-di-un-array-indicizzazione"><h3>Accedere agli elementi di un array: indicizzazione</h3></a>
 <p>Per accedere al contenuto di una variabile che fa parte di un array è necessario indicizzare l'array,
 ovvero indicare il nome dell'array e tra le parentesi quadre l'indice dell'elemento che si desidera ottenere:</p>
 <pre><code class="language-php">echo $arrayPosizionale[3];
 </code></pre>
-<a class="header" href="cicli_e_array.html#inserire-un-elemento-in-un-array" id="inserire-un-elemento-in-un-array"><h3>Inserire un elemento in un array</h3></a>
+<a class="header" href="array.html#inserire-un-elemento-in-un-array" id="inserire-un-elemento-in-un-array"><h3>Inserire un elemento in un array</h3></a>
 <p>Per inserire un elemento in un array è sufficiente richiamare il nome dell'array con a fianco una coppia di parentesi quadre.
 A seguito dell'uguale sarà necessario inserire il valore che si intende aggiungere all'array.</p>
 <p>Questa operazione aggiungere l'elemento alla fine dell'array, quindi in questo modo inseriamo il nuovo elemento finale dell'array:</p>
@@ -160,7 +159,7 @@ A seguito dell'uguale sarà necessario inserire il valore che si intende aggiung
 // Stampa dell'elemento appena inserito
 echo $arrayPosizionale[4] . &quot;&lt;br&gt;&quot;;
 </code></pre>
-<a class="header" href="cicli_e_array.html#eliminazione-elemento-da-array" id="eliminazione-elemento-da-array"><h3>Eliminazione elemento da array</h3></a>
+<a class="header" href="array.html#eliminazione-elemento-da-array" id="eliminazione-elemento-da-array"><h3>Eliminazione elemento da array</h3></a>
 <p>Per eliminare un elemento da un array si deve richiamare la funzione unset sull'elemento dell'array che vogliomo cancellare.</p>
 <p>Per definire quale elemento vogliamo cancellare dobbiamo indicizzare quell'elemento, mettendo tra parentesi quadre l'indice desiderato</p>
 <pre><code class="language-php">unset($arrayPosizionale[4]);
@@ -169,7 +168,7 @@ echo $arrayPosizionale[4] . &quot;&lt;br&gt;&quot;;
 Dal momento che il nostro <code>arrayPosizionale</code> ha solo 5 elementi, l'interprete di PHP darà un warning dicendo che non riesce a trovare l'elemento richiesto.</p>
 <pre><code class="language-php">echo $arrayPosizionale[400] . &quot;&lt;br&gt;&quot;;
 </code></pre>
-<a class="header" href="cicli_e_array.html#testare-se-elemento-è-presente-in-array" id="testare-se-elemento-è-presente-in-array"><h3>Testare se elemento è presente in array</h3></a>
+<a class="header" href="array.html#testare-se-elemento-è-presente-in-array" id="testare-se-elemento-è-presente-in-array"><h3>Testare se elemento è presente in array</h3></a>
 <p>Per verificare che un elemento sia presente all'interno di un array posizionale, ovvero che un certo indice corrisponda ad un elemento esistente dell'array, dobbiamo utilizzare la funzione isset(), la quale prende come argomento l'elemento dell'array
 di cui vogliamo verificare l'esistenza e restituisce un valore booleano (true/false) che possiamo utilizzare ad esempio all'interno di una selezione if (come nel caso sottostante).</p>
 <pre><code class="language-php">if (isset($arrayPosizionale[400])) {
@@ -178,7 +177,7 @@ di cui vogliamo verificare l'esistenza e restituisce un valore booleano (true/fa
   echo &quot;Elemento non trovato all'interno dell'array!&lt;br&gt;&quot;;
 }
 </code></pre>
-<a class="header" href="cicli_e_array.html#modificare-elemento-esistente" id="modificare-elemento-esistente"><h3>Modificare elemento esistente</h3></a>
+<a class="header" href="array.html#modificare-elemento-esistente" id="modificare-elemento-esistente"><h3>Modificare elemento esistente</h3></a>
 <p>Per modificare un elemento esistente è sufficiente indicizzarlo alla sinistra dell'uguale usando l'operatore <code>[&lt;indice&gt;]</code> e alla destra dell'uguale inserire il nuovo valore che si intende associare a quella posizione nell'array.
 Se noi inserissimo un indice non presente nell'array, PHP lo creerebbe e quindi gli assocerebbe il valore che abbiamo scritto:</p>
 <pre><code class="language-php">$arrayPosizionale[2] = 467;
@@ -186,7 +185,7 @@ Se noi inserissimo un indice non presente nell'array, PHP lo creerebbe e quindi 
 <p>Per contare gli elementi di un array e quindi conoscere la lunghezza di quest'ultimo si usa la funzione <code>count()</code> che prende come argomento l'array e restituisce la lunghezza (intera) dell'array</p>
 <pre><code class="language-php">echo &quot;Elementi di un array: &quot; . count($arrayPosizionale) . &quot;&lt;br&gt;&quot;;
 </code></pre>
-<a class="header" href="cicli_e_array.html#stampare-contenuto-di-un-array" id="stampare-contenuto-di-un-array"><h3>Stampare contenuto di un array</h3></a>
+<a class="header" href="array.html#stampare-contenuto-di-un-array" id="stampare-contenuto-di-un-array"><h3>Stampare contenuto di un array</h3></a>
 <p>Per stampare il contenuto di un array è necessario usare la funzione <code>var_dump</code>, in quanto l'echo normale non è in grado di mostrarci correttamente i valori all'interno dell'array.</p>
 <p><code>var_dump</code> ci mostra anche il tipo di variabile contenuto nell'array, la lunghezza dei vari campi e separa graficamente gli elementi</p>
 <pre><code class="language-php">echo var_dump($arrayPosizionale);
@@ -216,221 +215,7 @@ echo $giorniDellaSettimana[6] . &quot;&lt;br&gt;&quot;;
 
 echo &quot;I giorni della settimana sono &quot; . count($giorniDellaSettimana) . &quot;&lt;br&gt;&quot;;
 </code></pre>
-<a class="header" href="cicli_e_array.html#convenzioni-per-la-scrittura-di-variabili-e-nomi-di-funzioni-e-classi" id="convenzioni-per-la-scrittura-di-variabili-e-nomi-di-funzioni-e-classi"><h3>Convenzioni per la scrittura di variabili e nomi di funzioni e classi.</h3></a>
-<p>Non è obbligatorio sceglierne una in particolare, quello che è fortemente consigliato e decisamente necessario è sceglierne UNA e UNA SOLA all'interno di un progetto e utilizzarla PER OGNI variabile o funzione che si crea.</p>
-<p>Altro consiglio utile: perdete pure del tempo a dare dei nomi significativi a variabili e funzioni.</p>
-<p><em>Ricordate: un nome ben dato è meglio di una riga di commento!</em> cit. il saggio programmatore sulla roccia.</p>
-<ul>
-<li>
-<p>CamelCase</p>
-<ul>
-<li>ciaoComeAndiamo</li>
-<li>giorniDellaSettimana</li>
-</ul>
-</li>
-<li>
-<p>PascalCase</p>
-<ul>
-<li>CiaoComeAndiamo</li>
-<li>GiorniDellaSettimana</li>
-</ul>
-</li>
-<li>
-<p>SnakeCase</p>
-<ul>
-<li>ciao_come_andiamo</li>
-<li>giorni_della_settimana</li>
-</ul>
-</li>
-<li>
-<p>KebabCase</p>
-<ul>
-<li>ciao-come-andiamo</li>
-<li>giorni-della-settimana</li>
-</ul>
-</li>
-<li>
-<p>AdMinchiamCase</p>
-<ul>
-<li>gioRNi_Della_sett</li>
-<li>gds</li>
-<li>ccc</li>
-<li>a</li>
-</ul>
-</li>
-</ul>
-<a class="header" href="cicli_e_array.html#ripetere-azioni-un-numero-definito-di-volte-il-ciclo-for" id="ripetere-azioni-un-numero-definito-di-volte-il-ciclo-for"><h3>Ripetere azioni un numero definito di volte: il ciclo FOR</h3></a>
-<p>Il ciclo for è uno degli elementi più comuni e potenti della programmazione.<br />
-E' un costrutto il cui scopo principale è ripetere un certo numero di istruzioni/operazioni un certo numero di volte.
-Ad esempio se si volesse ripetere 5 volte la stampa a schermo di un messaggio &quot;ciao mondo&quot;, dovremmo scrivere il comando: <code>echo 'ciao mondo';</code> su 5 righe diverse, in questo modo:</p>
-<pre><code class="language-php">echo 'ciao mondo'; 
-echo 'ciao mondo'; 
-echo 'ciao mondo'; 
-echo 'ciao mondo'; 
-echo 'ciao mondo'; 
-</code></pre>
-<p>Questo approccio benchè funzionante non è molto comodo.
-La soluzione a questo problema è individuare il gruppo di istruzioni che si intendono ripetere (in questo caso <code>echo &quot;ciao mondo&quot;</code>) e inserirlo all'interno di un ciclo for, impostando correttamente il ciclo in modo da dirgli di ripetere l'operazione un certo numero di volte (5 nel nostro caso)</p>
-<p>La sintassi del ciclo for è la seguente:</p>
-<pre><code class="language-php">for (&lt;inizializzazione&gt;; &lt;condizione&gt;; &lt;incremento&gt; {
-   &lt;istruzione 1&gt;
-   &lt;istruzione 2&gt;
-   &lt;istruzione 3&gt;
-    &lt;istruzione 4&gt;
-}
-</code></pre>
-<p>Dove:</p>
-<ul>
-<li>
-<p><strong>INIZIALIZZAZIONE</strong></p>
-<p>E' la prima istruzione da dare al ciclo.
-Qui dobbiamo definire una variabile, chiamata variabile di ciclo, la quale avrà la funzione di &quot;segnaposto&quot; per farci capire a che punto siamo arrivati nel ciclo
-Solitamente alle variabili di ciclo si usa dare il nome degli indici matematici (i,j,k,l).
-Non è obbligatorio, ma è consigliato rispettare questa convenzione, per far capire subito a chi scrive o legge il nostro codice appunto che stiamo parlando di variabili che hanno senso solamente all'interno del ciclo e non al di fuori di esso.</p>
-<p>Una possibile inizializzazione potrebbe essere la seguente:</p>
-<pre><code class="language-php"> $i = 0;
-</code></pre>
-<p>Il nostro ciclo dunque partità con la variabile $i a 0.</p>
-</li>
-<li>
-<p><strong>CONDIZIONE</strong></p>
-<p>Affinchè il ciclo possa proseguire a ripetere le istruzioni contenute al suo interno, è necessario che la condizione
-che impostiamo come seconda istruzione del ciclo sia vera.
-Nel momento in cui questa condizione diventasse falsa, il ciclo smetterebbe di ripetere le istruzioni e il flusso del programma
-ripartirebbe dall'istruzione successivo al ciclo (dopo la parentesi } di chiusura del for).
-Essendo una condizione, essa risulta in un valore vero o falso. Come per ogni altra condizione, valgono le regole della logica booleana,
-quindi tutte le operazioni che potremmo fare all'interno di un if valgono anche qui (ad esempio comporre più variabili insieme con OR o AND).</p>
-</li>
-<li>
-<p><strong>INCREMENTO</strong></p>
-<p>Questa è l'ultima istruzione da inserire in un ciclo for e serve per incrementare la variabile di ciclo. Senza questa istruzione, il ciclo potrebbe avere
-durata infinita nel caso in cui la condizione iniziale dovesse risultare vera.
-Questa istruzione è necessaria per poter portare a termine il ciclo, e determina il &quot;passo&quot; del ciclo, ovvero il modo in cui varia la variabile di ciclo,
-responsabile delle iterazioni del ciclo.</p>
-</li>
-</ul>
-<p>Facciamo un rapido esempio per comprendere come funzionano queste 3 istruzioni insieme:</p>
-<pre><code class="language-php">for ($i = 0; $i &lt; 5; $i = $i + 1) {
-  //echo &quot;Variabile di Ciclo: $i&lt;br&gt;&quot;;
-  echo &quot;Ciao&quot;;
-}
-</code></pre>
-<p>In questo caso vogliamo eseguire 5 volte l'istruzione echo 'Ciao';</p>
-<ul>
-<li>Inizializziamo la variabile $i al valore 0 (Viene fatta solo una volta!!!)</li>
-<li>Testiamo la condizione: <code>$i &lt; 5</code> =&gt; 0 è minore di 5 quindi è VERA. Proseguiamo</li>
-<li>Eseguiamo le istruzioni all'interno del ciclo =&gt; echo 'Ciao'; =&gt; Stampa &quot;Ciao&quot; sullo schermo.</li>
-<li>Eseguiamo l'istruzione di incremento =&gt; $i = $i + 1 =&gt; $i = 0 + 1 =&gt; $i = 1;</li>
-<li>Testiamo la condizione: $i &lt; 5 =&gt; 1 è minore di 5 quindi è VERA. Proseguiamo</li>
-<li>Eseguiamo le istruzioni all'interno del ciclo =&gt; echo 'Ciao'; =&gt; Stampa &quot;Ciao&quot; sullo schermo.</li>
-<li>Eseguiamo l'istruzione di incremento =&gt; $i = $i + 1 =&gt; $i = 1 + 1 =&gt; $i = 2;</li>
-<li>Testiamo la condizione: $i &lt; 5 =&gt; 2 è minore di 5 quindi è VERA. Proseguiamo</li>
-<li>Eseguiamo le istruzioni all'interno del ciclo =&gt; echo 'Ciao'; =&gt; Stampa &quot;Ciao&quot; sullo schermo.</li>
-<li>Eseguiamo l'istruzione di incremento =&gt; $i = $i + 1 =&gt; $i = 2 + 1 =&gt; $i = 3;</li>
-<li>Testiamo la condizione: $i &lt; 5 =&gt; 3 è minore di 5 quindi è VERA. Proseguiamo</li>
-<li>Eseguiamo le istruzioni all'interno del ciclo =&gt; echo 'Ciao'; =&gt; Stampa &quot;Ciao&quot; sullo schermo.</li>
-<li>Eseguiamo l'istruzione di incremento =&gt; $i = $i + 1 =&gt; $i = 3 + 1 =&gt; $i = 4;</li>
-<li>Testiamo la condizione: $i &lt; 5 =&gt; 4 è minore di 5 quindi è VERA. Proseguiamo</li>
-<li>Eseguiamo le istruzioni all'interno del ciclo =&gt; echo 'Ciao'; =&gt; Stampa &quot;Ciao&quot; sullo schermo.</li>
-<li>Eseguiamo l'istruzione di incremento =&gt; $i = $i + 1 =&gt; $i = 4 + 1 =&gt; $i = 5;</li>
-<li>Testiamo la condizione: $i &lt; 5 =&gt; 5 NON è minore di 5 quindi è FALSE. STOP!</li>
-</ul>
-<p>Come potete notare, il ciclo esegue le operazioni in esso contenuto 5 volte, ovvero lo stesso
-numero che compare nella condizione. E' bene notare che la condizione di uscita è che $i
-deve essere STRETTAMENTE minore di 5, ovvero nel momento in cui $i vale 5 il ciclo si arresta.</p>
-<p>In questo modo, imponendo che la condizione sia minore STRETTO, sappiamo che mettendo un
-numero N qualsiasi nella condizione e PARTENDO DA ZERO ($i = 0) il ciclo ripeterà N volte le
-istruzioni in esso contenute.</p>
-<p>La lista di operazioni sopra descritta può essere un utile strumento per comprendere come
-funziona internamente un ciclo for. Se non vi è chiaro ancora il funzionamento del ciclo
-vi consiglio di provare a replicare la struttura appena descritta anche su altri cicli,
-fino a quando non dovesse essere più chiaro il suo funzionamento.</p>
-<p>Nulla vieta all'interno del ciclo di utilizzare il valore della variabile $i, e anzi questo
-è tipicamente quello che accade. Si può usare la variabile $i, crescente dal valore di inizializzazione
-a quello di fine delle condizione (5 nel caso precendente) ad esempio per stampare gli elementi
-di un array posizionale, come nell'esempio qui sotto.</p>
-<pre><code class="language-php">for ($i = 0; $i &lt; count($giorniDellaSettimana); $i = $i + 1) {
-  echo $giorniDellaSettimana[$i] . &quot;&lt;br&gt;&quot;;
-}
-</code></pre>
-<p>Per evitare di stampare elementi al di fuori dell'array si è utilizzata la funzione
-<code>count(&lt;nome_variabile_array&gt;)</code> che restituisce il numero di elementi dell'array.
-Sapendo che il primo elemento ha indice 0 e che il ciclo eseguirà la stampa un numero di volte
-uguale alla dimensione dell'array, siamo sicuri di stampare tutti gli elementi dell'array
-e niente di più.</p>
-<pre><code class="language-php">echo &quot;Il ciclo è finito, ciao ciao!&lt;br&gt;&quot;;
-</code></pre>
-<a class="header" href="cicli_e_array.html#iterare-su-oggetti-e-array-ciclo-foreach" id="iterare-su-oggetti-e-array-ciclo-foreach"><h3>Iterare su oggetti e array: ciclo foreach</h3></a>
-<p>Il foreach è un altro tipo di ciclo, un po meno versatile del FOR ma molto più potente e comodo.
-Ci permette di pensare all'array non in termini di indici e posizioni, ma come un insieme di elementi
-che possiamo prendere separatamente e trattare come &quot;oggetti&quot; su cui svolgere certe azioni.
-Per capire il suo funzionamento sarebbe utile cercare di tradurre il costrutto in Italiano.</p>
-<pre><code class="language-php">foreach(&lt;nome_variabile_array&gt; as &lt;nome_elemento&gt;) {
- &lt;istruzione 1&gt;
- &lt;istruzione 2&gt;
- &lt;istruzione 3&gt;
-}
-</code></pre>
-<pre><code class="language-php">perogni &lt;elemento&gt; dell'array &lt;nome_variabile_array&gt; eseguiamo il blocco di istruzioni
- &lt;istruzione 1&gt;, 
- &lt;istruzione 2&gt;, 
- &lt;istruzione 3&gt;,
-</code></pre>
-<p>Copiando il valore di <code>elemento</code> all'interno di una variabile che sarà disponibile
-nel ciclo con il nome di <code>nome_elemento</code>.</p>
-<p>Questo ciclo può essere assimilato ad un generale Romano che passa in rassegna i suoi uomini.</p>
-<ul>
-<li>Per prima cosa li fa mettere tutti in una lunga fila.</li>
-<li>A quel punto si mette di fronte al primo e gli chiede un documento</li>
-<li>Guardando il documento grida il suo nome: <em>&quot;Ave, soldato di nome Tizio!&quot;</em>.</li>
-<li>Una volta fatto questo si sposta di fronte al successivo soldato, gli chiede il documento e di nuovo grida il suo nome: <em>&quot;Ave, soldato di nome Caio!&quot;</em>.</li>
-<li>E così via fino a quando non si sono più soldati.</li>
-</ul>
-<p>A quel punto &quot;esce dal ciclo&quot; e continua con le sue operazioni quotidiane, ad esempio ordinare la carica sulla Città di Gerico.</p>
-<p>Come tradurre questo insieme di operazioni usando i costrutti di PHP?</p>
-<pre><code class="language-php">$soldati = [&quot;Tizio&quot;, &quot;Caio&quot;, &quot;Sempronio&quot;]; // 1
-
-foreach($soldati /* 2 */ as $soldato /* 3 */) {
-  echo &quot;Ave, soldato di nome $soldato!&quot;; // 4
-}
-</code></pre>
-<ol>
-<li>
-<p><em>&quot;Mettiamo tutti i soldati in riga&quot;</em></p>
-<p>Inseriamoli i nomi dei soldati in un array posizionale</p>
-</li>
-<li>
-<p>&quot;Ci mettiamo di fronte ai soldati&quot;</p>
-<p>Iniziamo un foreach, con l'obiettivo di prendere uno ad uno i nomi dei soldati per salutarli</p>
-</li>
-<li>
-<p><em>&quot;Chiede al soldato un documento&quot;</em></p>
-<p>Inseriamo il valore dell'elemento corrente (quello a cui siamo di fronte)
-all'interno di una variabile a cui potremo fare riferimento all'interno del ciclo.</p>
-</li>
-<li>
-<p><em>&quot;Grida il suo nome&quot;</em></p>
-<p>Una volta che sappiamo come si chiama il soldato, non dobbiamo fare
-altro che stampare il suo nome, eseguiamo dunque echo dandogli come
-parametro appunto la variabile che contiene il nome dell'elemento corrente,
-ovvero il soldato che abbiamo davanti.</p>
-</li>
-</ol>
-<p>Utilizzando <code>foreach</code> al posto di <code>for</code> possiamo dimenticarci di usare count
-dovendoci sincerare di stampare solamente elementi al di fuori dell'array
-stesso, in quanto <code>foreach</code> si occupa internamente di renderci disponibili
-solamente gli elementi presenti nell'array.</p>
-<p>Nel caso avessimo bisogno di avere accesso anche all'indice o chiave dell'elemento,
-possiamo usare un'altra sintassi di <code>foreach</code>.</p>
-<pre><code class="language-php">foreach ($giorniDellaSettimana as $i =&gt; $giorno) {
-  echo &quot;$i =&gt; $giorno &lt;br&gt;&quot;;
-}
-</code></pre>
-<p>In questo caso utilizzando questo costrutto <code>$i =&gt; $giorni</code> rendiamo disponibili
-all'interno del ciclo sia il valore dell'elemento (all'interno della variabile <code>$giorno</code>)
-che la sua chiave all'interno dell'array (essendo un array posizionale, la chiave
-di ogni elemento è appunto la sua posizione all'interno dell'array.</p>
-<a class="header" href="cicli_e_array.html#array-associativi" id="array-associativi"><h3>Array Associativi</h3></a>
+<a class="header" href="array.html#array-associativi" id="array-associativi"><h2>Array Associativi</h2></a>
 <p>In PHP esistono due diversi tipo di array, che differiscono principalmente per il modo in cui associano
 gli elementi presenti al loro interno ai valori che utilizziamo per accedere a questi elementi.</p>
 <p>Negli array posizionali, quello che abbiamo appena visto e utilizzato fino ad adesso, il modo che abbiamo per
@@ -524,51 +309,19 @@ senza però sapere il valore della chiave stessa.</p>
   echo &quot;Chiave: $chiave =&gt; Valore: $valore&lt;br&gt;&quot;;
 }
 </code></pre>
-<a class="header" href="cicli_e_array.html#modo-corretto-di-dividere-php-e-html-nei-propri-file-php" id="modo-corretto-di-dividere-php-e-html-nei-propri-file-php"><h3>Modo <em>corretto</em> di dividere PHP e HTML nei propri file .php</h3></a>
-<pre><code class="language-php">&lt;?php
-
-// Qui definiamo sia la logica che i dati
-$utente = [
-  &quot;nome&quot; =&gt; &quot;Nome&quot;,
-  &quot;cognome&quot; =&gt; &quot;Cognome&quot;,
-  &quot;eta&quot; =&gt; &quot;Età&quot;,
-];
-
-?&gt;
-
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;Cicli For &amp; Array&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Cicli For &amp; Array&lt;/h1&gt;
-    &lt;ul&gt;
-    &lt;!-- 
-      Modo CORRETTO di dividere PHP e HTML all'interno del vostro file PHP 
-      Cercate il più possibile di limitare l'uso di istruzioni PHP nel vostro HTML.
-    --&gt;
-    &lt;?php foreach($utente as $chiave =&gt; $valore) { ?&gt;
-        &lt;li&gt;
-            &lt;b&gt;&lt;?=$chiave?&gt;:&lt;/b&gt; &lt;?=$valore?&gt;
-        &lt;/li&gt;
-    &lt;?php } ?&gt;
-    &lt;/ul&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="variabili_e_condizioni.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="iterazione.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="esercizi.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="funzioni.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -580,13 +333,13 @@ $utente = [
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="variabili_e_condizioni.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="iterazione.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="esercizi.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="funzioni.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -594,6 +347,21 @@ $utente = [
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

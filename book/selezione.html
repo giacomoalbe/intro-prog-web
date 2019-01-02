@@ -3,12 +3,13 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introduzione - Introduzione alla Programmazione per il Web</title>
+        <title>Selezione - Introduzione alla Programmazione per il Web</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        <base href="">
 
         <link rel="stylesheet" href="book.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -68,7 +69,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="introduzione.html" class="active">Introduzione</a></li><li><a href="teoria.html"><strong aria-hidden="true">1.</strong> Teoria</a></li><li><ol class="section"><li><a href="basi_internet_php.html"><strong aria-hidden="true">1.1.</strong> Basi di PHP</a></li><li><a href="variabili.html"><strong aria-hidden="true">1.2.</strong> Variabili</a></li><li><a href="selezione.html"><strong aria-hidden="true">1.3.</strong> Selezione</a></li><li><a href="iterazione.html"><strong aria-hidden="true">1.4.</strong> Iterazione</a></li><li><a href="array.html"><strong aria-hidden="true">1.5.</strong> Array</a></li><li><a href="funzioni.html"><strong aria-hidden="true">1.6.</strong> Funzioni</a></li><li><a href="database.html"><strong aria-hidden="true">1.7.</strong> Database</a></li></ol></li><li><a href="esercizi.html"><strong aria-hidden="true">2.</strong> Esercizi</a></li><li><a href="soluzioni.html"><strong aria-hidden="true">3.</strong> Soluzioni</a></li><li><ol class="section"><li><a href="esericizi_cicli_for.html"><strong aria-hidden="true">3.1.</strong> Cicli For</a></li><li><a href="esercizi_scacchiera.html"><strong aria-hidden="true">3.2.</strong> Scacchiera</a></li><li><a href="esercizi_form_colori.html"><strong aria-hidden="true">3.3.</strong> Form &amp; Colori</a></li><li><a href="utenti_crud.html"><strong aria-hidden="true">3.4.</strong> Utenti CRUD</a></li><li><a href="utenti_crud_edit.html"><strong aria-hidden="true">3.5.</strong> Utenti CRUD con Edit</a></li></ol></li></ol>
+            <ol class="chapter"><li class="affix"><a href="introduzione.html">Introduzione</a></li><li><a href="teoria.html"><strong aria-hidden="true">1.</strong> Teoria</a></li><li><ol class="section"><li><a href="basi_internet_php.html"><strong aria-hidden="true">1.1.</strong> Basi di PHP</a></li><li><a href="variabili.html"><strong aria-hidden="true">1.2.</strong> Variabili</a></li><li><a href="selezione.html" class="active"><strong aria-hidden="true">1.3.</strong> Selezione</a></li><li><a href="iterazione.html"><strong aria-hidden="true">1.4.</strong> Iterazione</a></li><li><a href="array.html"><strong aria-hidden="true">1.5.</strong> Array</a></li><li><a href="funzioni.html"><strong aria-hidden="true">1.6.</strong> Funzioni</a></li><li><a href="database.html"><strong aria-hidden="true">1.7.</strong> Database</a></li></ol></li><li><a href="esercizi.html"><strong aria-hidden="true">2.</strong> Esercizi</a></li><li><a href="soluzioni.html"><strong aria-hidden="true">3.</strong> Soluzioni</a></li><li><ol class="section"><li><a href="esericizi_cicli_for.html"><strong aria-hidden="true">3.1.</strong> Cicli For</a></li><li><a href="esercizi_scacchiera.html"><strong aria-hidden="true">3.2.</strong> Scacchiera</a></li><li><a href="esercizi_form_colori.html"><strong aria-hidden="true">3.3.</strong> Form &amp; Colori</a></li><li><a href="utenti_crud.html"><strong aria-hidden="true">3.4.</strong> Utenti CRUD</a></li><li><a href="utenti_crud_edit.html"><strong aria-hidden="true">3.5.</strong> Utenti CRUD con Edit</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -132,69 +133,105 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="introduzione.html#introduzione-alla-programmazione-per-il-web" id="introduzione-alla-programmazione-per-il-web"><h1>Introduzione alla Programmazione per il Web</h1></a>
-<a class="header" href="introduzione.html#scopo" id="scopo"><h2>Scopo</h2></a>
-<p>Questo ebook digitale ha lo scopo di raccogliere gli appunti delle lezioni
-di un corso di introduzione alla Programmazione per il Web usando il linguaggio
-di programmazione PHP.</p>
-<p>Il corso si propone di introdurre i concetti fondamentali per una buona comprensione
-dei meccanismi che sono alla base del funzionamento dell'Internet <em>dinamico</em>,
-ovvero quel complesso sistema che permette alle pagine web di essere generate <strong>dinamicamente</strong>
-su richiesta dell'utente.</p>
-<p>Si cercherà di spiegare in maniera chiara e senza particolari prerequisiti tutto
-l'insieme delle tecnologie, dei sistemi e dei metodi che rendono possibile la comunicazione
-e la visione di contenuti dinamici alle moderne applicazioni web.</p>
-<p>Si partirà dallo spiegare il protocollo HTTP e la comunicazione client-server per poi arrivare
-a introdurre sia i concetti di programmazione (come impartire istruzioni ad un calcolatore in
-modo che trasformi un problema in una soluzione) che quelli specifici relativi alla programmazione web.</p>
-<a class="header" href="introduzione.html#programma" id="programma"><h2>Programma</h2></a>
-<p>Nel dettaglio, gli argomenti che verranno trattati nel corso sono i seguenti:</p>
-<ul>
-<li>Concetti Generali
-<ul>
-<li>Informazione Telematica: cos'è l'informatica</li>
-<li>Basi di Reti e Internet</li>
-<li>La comunicazione Client-Server</li>
-<li>La struttura di un server: hardware &amp; software</li>
-<li>Funzionamento della programmazione nel web: l'interprete PHP e HTML</li>
-</ul>
-</li>
-<li>Introuzione alla programmazione (web):
-<ul>
-<li>Le variabili e i tipo di dato</li>
-<li>Il flusso di un programma</li>
-<li>L'istruzione condizionale</li>
-<li>Gli array</li>
-<li>Cicli for e iterazione</li>
-<li>Funzioni e algoritmi</li>
-<li>Utilizzare le form per passare i dati tra pagine</li>
-<li>Pattern MVC, separare la logica dalla visualizzazione</li>
-<li>MySQL, i database come sistema per salvare i dati</li>
-<li>Realizzazione di un applicativo web completo (DB, Logica e Visualizzazione)</li>
-</ul>
-</li>
-<li>Argomenti intermedi:
-<ul>
-<li>Gestione dei file, tecniche di programmazione intermedie e gestione dei progetti</li>
-</ul>
-</li>
-</ul>
-<a class="header" href="introduzione.html#struttura-del-libro" id="struttura-del-libro"><h2>Struttura del libro</h2></a>
-<p>All'interno del libro troverete le seguenti sezioni:</p>
-<ul>
-<li><a href="./teoria.html">Teoria</a></li>
-<li><a href="./esercizi.html">Esercizi</a></li>
-<li><a href="./soluzioni.html">Soluzioni</a></li>
-</ul>
+                        <a class="header" href="selezione.html#istruzioni-condizionali" id="istruzioni-condizionali"><h2>Istruzioni condizionali</h2></a>
+<p>Si definisce <strong>flusso</strong> di un programma l'insieme ordinato delle istruzioni che lo compongono.</p>
+<p>Di norma, un programma parte dalla prima istruzione che trova nel file <code>php</code> e procede, dall'alto verso il basso, fino all'ultima.</p>
+<p>A volte si ha la necessità di modificare il flusso del programma. In particolare, potrebbe risultare necessario decidere di eseguire una parte di codice piuttosto di un'altra sulla base di un calcolo o del valore di una variabile.</p>
+<p>Per fare questo, occorre introdurre il concetto di <strong>selezione</strong> o di <strong>istruzione condizionale</strong>.</p>
+<p>In PHP è possibile decidere di eseguire un certo gruppo di istruzioni sulla base di alcune <em>condizioni</em>.</p>
+<p>Una <em>condizione</em> è un'espressione contenente variabili e operatori che può essere ricondotta ad un valore di <em>verità</em> o <em>falsità</em> (true/false).</p>
+<p>Le condizioni che il PHP riesce a valutare sono <strong>SEMPRE</strong> di tipo booleano.</p>
+<p>Per definire una istruzione condizionale si usa la sintassi</p>
+<pre><code class="language-php">if (condizione) {
+  /*
+  Blocco di istruzioni
+  eseguito se condizione == true
+  */
+} else {
+  /*
+  Blocco di istruzioni
+  eseguito se condizione == false
+  */
+}
+</code></pre>
+<p>Sulla base del valore (true/false) della condizione, verrà eseguito il primo <em>ramo</em> (quello nel blocco dopo l'if) o il secondo, se presente (quello nel blocco dopo l'else).</p>
+<p>Di seguito un esempio di una doppia istruzione condizionale annidiata:</p>
+<pre><code class="language-php">$eta = 45;
+$titolo = &quot;mr&quot;;  //oppure mrs
+
+if ($eta &gt;= 18) {
+    // Può entrare
+    if ($titolo == &quot;mr&quot;) {
+        echo &quot;Signor $nome lei può entrare&quot;;
+    } else {
+        echo &quot;Signora $nome lei può entrare&quot;;
+    }
+} else {
+    // Non può entrare
+    if ($titolo == &quot;mr&quot;) {
+        echo &quot;Signor $nome lei NON può entrare&quot;;
+    } else {
+        echo &quot;Signora $nome lei NON può entrare&quot;;
+    }
+}
+</code></pre>
+<pre><code class="language-php">$numero = 4;
+
+if ($numero &gt; 20) {
+    echo &quot;Maggiore di 20&quot;;
+} else if ($numero &gt; 10) {
+    echo &quot;Maggiore di 10 MA minore di 20&quot;;
+} else {
+    echo &quot;Ne maggiore di 10 ne di 20&quot;;
+}
+</code></pre>
+<a class="header" href="selezione.html#selezionare-più-condizioni-diverse-switch" id="selezionare-più-condizioni-diverse-switch"><h3>Selezionare più condizioni diverse: switch</h3></a>
+<p>Il comando switch serve per eseguire un particolare pezzo di codice basandosi sul valore di una variabile.
+Questa variabile può essere di qualsiasi tipo anche non necessariamente un booleano.</p>
+<p>L'istruzione switch, dunque, è un particolare tipo di selezione che non valuta una condizione booleana (true/false) bensì confronta il valore di una variabile con quelli presenti nei suoi diversi &quot;rami&quot;.</p>
+<p>Per definire un certo &quot;ramo&quot; dello swicth è necessario usare la sintassi del <code>case</code> che vediamo nell'esempio qui sotto.</p>
+<p>Fondamentale: alla fine del blocco di codice successivo al case va inserito il comando break!</p>
+<p>Nel momento in cui viene trovata corrispondenza tra il valore della variabile valutata dallo switch (in questo caso <code>$giornoDellaSettimana</code>) e uno dei suoi rami, viene eseguito il blocco di codice corrispondente al ramo e quindi l'esecuzione passa alla prima istruzione dopo lo switch.
+Nel caso si volesse eseguire del codice nel momento in cui non si trovasse corrispondenza con nessuno dei rami definiti, si puà introdurre un blocco default alla fine degli altri case.</p>
+<pre><code class="language-php">$giornoDellaSettimana = &quot;mercoledì&quot;;
+
+switch ($giornoDellaSettimana) {
+    case &quot;lun&quot;:
+        break;
+    case &quot;mar&quot;:
+        break;
+    case &quot;mer&quot;:
+        echo &quot;E' mercoledì! Yeeeeeee!&quot;;
+        break;
+    case &quot;gio&quot;:
+        echo &quot;E' giovedì!&quot;;
+        break;
+    case &quot;ven&quot;:
+        break;
+    case &quot;sab&quot;:
+        break;
+    case &quot;dom&quot;:
+        break;
+    default:
+        echo &quot;Non capisco nulla, cit. la classe&quot;;
+        break;
+}
+`
+
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="variabili.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
                         
-                            <a rel="next" href="teoria.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="iterazione.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -206,9 +243,13 @@ modo che trasformi un problema in una soluzione) che quelli specifici relativi a
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a href="variabili.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
                 
-                    <a href="teoria.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="iterazione.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
