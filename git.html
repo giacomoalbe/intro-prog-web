@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Versionamento Codice - Introduzione alla Programmazione per il Web</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+
+    </head>
+    <body class="light">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="introduzione.html">Introduzione</a></li><li><a href="teoria.html"><strong aria-hidden="true">1.</strong> Teoria</a></li><li><ol class="section"><li><a href="basi_internet_php.html"><strong aria-hidden="true">1.1.</strong> Basi di PHP</a></li><li><a href="variabili.html"><strong aria-hidden="true">1.2.</strong> Variabili</a></li><li><a href="selezione.html"><strong aria-hidden="true">1.3.</strong> Selezione</a></li><li><a href="iterazione.html"><strong aria-hidden="true">1.4.</strong> Iterazione</a></li><li><a href="array.html"><strong aria-hidden="true">1.5.</strong> Array</a></li><li><a href="funzioni.html"><strong aria-hidden="true">1.6.</strong> Funzioni</a></li><li><a href="database.html"><strong aria-hidden="true">1.7.</strong> Database</a></li><li><a href="git.html" class="active"><strong aria-hidden="true">1.8.</strong> Versionamento Codice</a></li></ol></li><li><a href="esercizi.html"><strong aria-hidden="true">2.</strong> Esercizi</a></li><li><a href="soluzioni.html"><strong aria-hidden="true">3.</strong> Soluzioni</a></li><li><ol class="section"><li><a href="esericizi_cicli_for.html"><strong aria-hidden="true">3.1.</strong> Cicli For</a></li><li><a href="esercizi_scacchiera.html"><strong aria-hidden="true">3.2.</strong> Scacchiera</a></li><li><a href="esercizi_form_colori.html"><strong aria-hidden="true">3.3.</strong> Form &amp; Colori</a></li><li><a href="utenti_crud.html"><strong aria-hidden="true">3.4.</strong> Utenti CRUD</a></li><li><a href="utenti_crud_edit.html"><strong aria-hidden="true">3.5.</strong> Utenti CRUD con Edit</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Introduzione alla Programmazione per il Web</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="git.html#versionamento-codice" id="versionamento-codice"><h2>Versionamento Codice</h2></a>
+<p>Gestire il codice sorgente di un progetto software è un compito non banale.</p>
+<p>Difficilmente capiterà di lavorare su un progetto in completa autonomia e su una macchina sola, quindi è conveniente  trovare un sistema per condividere il proprio codice con altre persone o spostarlo da un PC all'altro oppure tra diverse cartelle in maniera veloce, facile e senza rischiare di perdere dati preziosi.</p>
+<p>Per risolvere i problemi succitati, sono stati sviluppati i <strong>Sistemi di Versionamento del Codice</strong> (in inglese <em>Software Configuration Manager</em> o <em>SCM</em>).</p>
+<p>Compiti principali di un SCM sono i seguenti:</p>
+<ul>
+<li>Creare delle <strong>versioni incrementali</strong> del proprio progetto software</li>
+<li>Navigare (avanti e indietro) <strong>la storia</strong> di un progetto e ripristinare un qualsiasi punto salvato</li>
+<li>Permettere <strong>la collaborazione</strong> di più persone sullo stesso progetto, gestendo in maniera semi-automatica i <strong>conflitti</strong>.</li>
+<li><strong>Muovere</strong> interi progetti software da un PC all'altro in maniera affidabile e sicura.</li>
+</ul>
+<p>Tra i vari software SCM, negli ultimi anni <code>git</code> ha trovato il favore di sviluppatori e aziende, diventando il sistema di versionamento maggiormente diffuso a livello globale.</p>
+<p>Per questo motivo, unitamente alla sua facilità di utilizzo e alla sua versatilità, andremo ad utilizzare questo strumento per gestire i nostri progetti software, avvalendoci della piattaforma online <code>github.com</code> che useremo come server <code>git</code> remoto per condividere i nostri progetti con altre persone.</p>
+<a class="header" href="git.html#come-usare-git" id="come-usare-git"><h2>Come usare Git</h2></a>
+<p><code>git</code> è uno strumento che può essere utilizzato sia da interfaccia grafica che da terminale.</p>
+<p>Dato che l'utilizzo da terminale è in generale più semplice e maggiormente in grado di far comprendere il funzionamento effettivo dello strumento, in questo capitolo andremo ad analizzare il programma git usando l'interfaccia da <em>riga di comando</em>, accessibile sia dal terminale di Windows/Linux/Mac oppure dalla console integrata nell'editor <code>Visual Studio Code</code>, che consigliamo ai meno esperti per la sua immediatezza e semplicità.</p>
+<a class="header" href="git.html#funzionamento-di-git" id="funzionamento-di-git"><h2>Funzionamento di Git</h2></a>
+<p>In <code>git</code> esistono 3 <em>entità</em> fondamentali:</p>
+<ol>
+<li>La <em>working directory</em></li>
+<li>Lo <em>stage</em></li>
+<li>La <em>commit</em></li>
+</ol>
+<a class="header" href="git.html#a1-la-working-directory" id="a1-la-working-directory"><h3>1. La <em>working directory</em></h3></a>
+<p>Con working directory si intende la cartalla in cui è contenuto il repository <code>git</code>.</p>
+<p>L'insieme dei file in essa contenuti sono la base del sistema di versionamento di <code>git</code>.</p>
+<p>Il software, infatti, ogniqualvolta andremo a modificare un file all'interno della cartella, andrà a calcolare le differenze (in termini di <em>diversità nel contenuto dei file</em>) tra la <em>working directory</em> e l'ultima versione salvata del repository.</p>
+<p>Una volta individuate le differenze (che possono derivare da <em>nuoviu file</em>, <em>file modificati</em>, <em>file cancellati</em>) <code>git</code> le mostrerà in rosso come output del comando <code>git status</code>.</p>
+<p><strong>ATTENZIONE</strong>: le differenze tra l'ultima versione salvata e la working directory <strong>NON</strong> verranno salvate a meno di non andarle a inserire in una commit, come vedremo successivamente.</p>
+<p>Le modifiche viste da <code>git</code> vengono calcolate sono al salvataggio dei file su cui si sta lavorando: qualsiasi modifica non salvata non sarà vista. Allo stesso modo, le modifiche non risentono di alcun salvataggio temporaneo, e quindi saranno presenti anche al riavvio del sistema.</p>
+<a class="header" href="git.html#a2-lo-stage" id="a2-lo-stage"><h3>2. Lo <em>stage</em></h3></a>
+<p>Lo stage è uno spazio virtuale di <code>git</code> in cui possiamo andare a comporre una <em>versione</em> del nostro progetto.</p>
+<p>All'interno dello stage possiamo aggiungere, in maniera manuale o automatica, le modifiche che <code>git</code> ha individuato all'interno della <em>working directory</em>.</p>
+<p>Lo <em>stage</em> è lo stadio che precede l'archiviazione di una particolare versione del codice e rappresenta l'insieme delle modifiche fatte al progetto che noi intendiamo <em>salvare</em> nella storia del progetto.</p>
+<p>Per aggiungere le modifiche allo stage si usa il comando <code>git add &lt;nome_del_file&gt;</code>.</p>
+<p>Una volta aggiunte allo stage, le modifiche comparitanno di colore verde nell'output del comando <code>git status</code>.</p>
+<a class="header" href="git.html#a3-la-commit" id="a3-la-commit"><h3>3. La <em>commit</em></h3></a>
+<p>Una commit rappresenta lo stato di un progetto in un certo momento del tempo.</p>
+<p>Compone la storia di quel progetto ed è l'unità cronologica minima del sistema di versionamento.</p>
+<p>Dato l'<em>hash</em> della commit (un valore identificativo univoco) è sempre possibile muoversi all'interno della storia del progetto e riportarsi a qualsiasi versione salvata.</p>
+<p>Quando si decidesse di portare il progetto ad una certa commit, <code>git</code> trasformerebbe il contenuto della cartella corrente (la <em>working directory</em>) nel contenuto presente nella stessa cartella nel momento di salvataggio di quella specifica commit, occupandosi di creare, modificare ed eliminare i file in modo da riportarsi in quella esatta condizione.</p>
+<p>Possiamo pensare alle commit come a delle <em>fotografie</em> della <em>working directory</em> che possiamo utilizzare per riportare il contenuto della cartella allo stato desiderato, esattamente come mostra la fotografia.</p>
+<p>Una commit è formata da 4 elementi principali:</p>
+<ul>
+<li>Un insieme di modifiche (quelle contenute nello stage)</li>
+<li>Un autore (colui che fa partire il comando <code>git commit</code>)</li>
+<li>Un messaggio identificativo della commit, che vada a descrivere le modifiche effettuate</li>
+<li>un <em>hash</em>, ovvero un codice identificativo univoco della commit</li>
+</ul>
+<p>L'<em>hash</em> e l'<em>autore</em> sono elementi che <code>git</code> genera in automatico, mentre le modifiche e il messaggio vengono definiti dall'utente.</p>
+<p>Per creare una commit associando ad essa un messaggio è necessario dare il seguente comando da terminale:</p>
+<pre><code>git commit -m 'Messaggio relativo alla commit'
+</code></pre>
+<p>Una volta salvate e committate le modifiche, <code>git status</code> ci segnalerà che la <em>working directory</em> è nuovamente <em>pulita</em> (clean), ovvero che non ci sono differenze tra i file della working directory e quelli dell'ultima versione salvata.</p>
+<p>Modificando nuovamente i file sarà possibile aggiungerli allo stage e creare una nuova versione.</p>
+<a class="header" href="git.html#condividere-il-codice-con-github" id="condividere-il-codice-con-github"><h2>Condividere il codice con GitHub</h2></a>
+<p>TODO</p>
+<a class="header" href="git.html#prontuario-comandi-di-git" id="prontuario-comandi-di-git"><h2>Prontuario Comandi di Git</h2></a>
+<ul>
+<li><code>git init</code>: crea un repository git nella cartella corrente, se vuota.</li>
+<li><code>git status</code>: informa circa lo stato del repository, mostra i file contenenti modifiche non ancora salvate nello stage (in rosso), le modifciche versionate (in verde) e le altre informazioni di tracciamento.</li>
+<li><code>git add &lt;nomefile&gt;</code>: aggiunge le modifiche effettuate nel file <code>&lt;nomefile&gt;</code> allo stage. Il file passerà dal colore rosso a quello verde nell'output di <code>git status</code></li>
+<li><code>git reset &lt;nomefile&gt;</code>: toglie <code>&lt;nomefile&gt;</code> dalla lista dei file presenti nello stage. Il file tornerà ad essere scritto in rosso nel'output di <code>git status</code>.</li>
+<li><code>git commit -m '&lt;Messaggio&gt;'</code>: salva le modifiche presenti in stage in una nuova commit e associa <code>&lt;Messaggio&gt;</code> alla nuova commit. Questa operazione svuota lo stage e <em>mette in pari</em> la working directory con la storia del progetto.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="database.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="esercizi.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="database.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="esercizi.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="searchindex.js" type="text/javascript" charset="utf-8"></script>
+        
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
