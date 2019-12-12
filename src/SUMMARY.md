@@ -9,6 +9,7 @@
   - [Array](./array.md)
   - [Funzioni](./funzioni.md)
   - [Database](./database.md)
+  - [Versionamento Codice](./git.md)
 - [Esercizi](./esercizi.md)
 - [Soluzioni](./soluzioni.md)
   - [Cicli For](./esericizi_cicli_for.md)
@@ -16,3 +17,4 @@
   - [Form & Colori](./esercizi_form_colori.md)
   - [Utenti CRUD](./utenti_crud.md)
   - [Utenti CRUD con Edit](./utenti_crud_edit.md)
+- [Contribuire al Libro](./contributing.md)
