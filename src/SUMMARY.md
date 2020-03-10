@@ -20,7 +20,7 @@
     - [Servizi Web](./servizi.md)
     - [Web Software Design](./web_software_design.md)
 - [Esercizi](./esercizi.md)
-    - [Basi di PHP](./esericizi_basi_php.md)
+    - [Basi di PHP](./esercizi_basi_php.md)
     - [Selezione & Iterazione](./esercizi_selezione_iterazione.md)
     - [Database](./esercizi_databse.md)
     - [Simulazioni Esami](./simulazioni_esami.md)
