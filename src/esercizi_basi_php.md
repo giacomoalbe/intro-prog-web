@@ -31,3 +31,54 @@ Svolgere i seguenti esercizi inserendo il codice nel corrispondente file PHP all
   <br>
   <br>
  **Esempio:** inserisco 10.000 € in 4 anni. La pagina dovrebbe ritornare 216,67 € / mese per 48 mesi.
+
+## Soluzione Guidata
+
+Esempio di come è possibile inviare dati tra due pagine PHP utilizzando le `form` HTML.
+
+1. Creare una nuova cartella all'interno di `htdocs`
+
+1. Creare un file `index.php` all'interno della cartella. Il file dovrà contenere una `form` HTML:
+
+    ```html
+    <h1>Il Salutatore</h1>
+    <form action="saluta.php" method="POST">
+      <input type="text" name="nome">
+      <input type="submit" value="Saluta">
+    </form>
+    ```
+
+1. Compilando il campo "nome" e inviando la form, il browser rimanda alla pagina `saluta.php`, dove andremo a creare una pagina dinamica che "saluta" in modo personalizzato il nostro utente.
+
+1. Creare il file `saluta.php` con il seguente contenuto:
+
+    ```php
+    <?php
+
+    $nome = $_REQUEST["nome"];
+
+    echo "Ciao " . $nome . "!";
+    ?>
+    ```
+
+1. La variabile `$_REQUEST` contiene tutti i dati inviati alla pagina, quindi in questo caso i dati inviati attraverso la form.
+ Questa variabile è un _array associativo_, ovvero una specie di dizionario che mette in relazione il **nome** di un input con il suo **valore**. In questo caso, il contenuto di questa variable sarà il seguente dizionario:
+
+    * **nome**: \<nome che abbiamo inserito nell'input della form\>
+
+    Ogni altro input che avessimo inserito nella form avrebbe la sua chiave corrispondente nel dizionario. Il _nome_ della chiave corrisponde al _nome_ dell'input che noi possiamo impostare usando l'attributo `name` dell'input stesso.
+
+1. A questo codice PHP possiamo aggiungere anche un link HTML per tornare alla pagina precedente, in questo modo:
+
+    ```php
+    <?php
+
+    $nome = $_REQUEST["nome"];
+
+    echo "Ciao " . $nome . "!";
+    ?>
+
+    <a href=".">Indietro</a>
+    ```
+
+    Inserendo come `href` (ovvero come link a cui punta il nostro tag \<a\>) il '.' intendiamo mandare il browser _nella cartella corrente_. In questo modo, il server Apache ci ritornerà il file `index.php`, che appunto contiene la form.
