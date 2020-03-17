@@ -22,6 +22,7 @@
 - [Esercizi](./esercizi.md)
     - [Basi di PHP](./esercizi_basi_php.md)
     - [Selezione & Iterazione](./esercizi_selezione_iterazione.md)
+    - [Array](./esercizi_array.md)
     - [Database](./esercizi_databse.md)
     - [Simulazioni Esami](./simulazioni_esami.md)
       - [Portale Pagamenti PA](./portale_pagamenti_pa.md)
