@@ -1172,6 +1172,42 @@ echo &quot;Ciao &quot; . $nome . &quot;!&quot;;
 </li>
 </ol>
 <a class="header" href="print.html#selezione--iterazione" id="selezione--iterazione"><h1>Selezione &amp; Iterazione</h1></a>
+<p>Svolgere i seguenti esercizi inserendo il codice nel corrispondente file PHP all'interno della cartella <code>htdocs</code> presente nella root della propria installazione di Xampp.</p>
+<a class="header" href="print.html#esercizi-2" id="esercizi-2"><h2>Esercizi</h2></a>
+<ol>
+<li>
+<p>Creare un  array con 10 supereroi (Marvel &amp; DC) e stamparli con <code>echo</code>, uno sotto l'altro (una riga per supereroe)</p>
+</li>
+<li>
+<p>Stampare i numeri da 1 a 100 con un ciclo for</p>
+</li>
+<li>
+<p>Stampare i numeri da 1 a 100 con un ciclo while</p>
+</li>
+<li>
+<p>Stampare i numeri da 1 a 100 (ciclo for o while) all'interno di una lista <code>ul</code></p>
+</li>
+<li>
+<p>Creare un array con i colori (in codice esadecimale) dell'arcobaleno e stamparli dentro un <code>ul</code>, dando ad ogni <code>li</code> il colore dell'arcobaleno e la scritta <code>Colore &lt;i&gt;</code> dove <code>i</code> rappresenta l'indice del colore</p>
+</li>
+<li>
+<p>Stampare all'interno di una <code>ul</code> la tabellina del 2</p>
+</li>
+<li>
+<p>Stampare in una tabella le tabelline dall'1 al 10</p>
+</li>
+<li>
+<p>Nella tabella precedente, colorare le caselle con numeri pari di blu e quelle con i numeri dispari di arancione</p>
+</li>
+<li>
+<p>Creare una tabella 8x8 e disegnare su di essa una scacchiera (aiutino: quali sono gli elementi bianchi e gli elementi neri? Provate, per ogni casella, a fare la somma dell'indice di colonna e di quello di riga, vedrete una correlazione interessante...)</p>
+</li>
+<li>
+<p>Create la tabella con le tabelline. Create nella stessa pagina una form in cui potrete inserire un numero. Inviando la form, dovrete stampare la tabella con le tabelline segnando di colore rosso i multipli del numero inserito e in colore verde i divisori del numero inserito.</p>
+</li>
+</ol>
+<a class="header" href="print.html#soluzione-guidata-1" id="soluzione-guidata-1"><h2>Soluzione Guidata</h2></a>
+<p>Prima provate gli esercizi :)</p>
 <a class="header" href="print.html#database-2" id="database-2"><h1>Database</h1></a>
 <a class="header" href="print.html#simulazioni-esami" id="simulazioni-esami"><h1>Simulazioni Esami</h1></a>
 <a class="header" href="print.html#portale-pagamenti-pa" id="portale-pagamenti-pa"><h1>Portale Pagamenti PA</h1></a>
@@ -1957,6 +1993,21 @@ if (count($_POST)) {
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         
