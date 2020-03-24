@@ -1249,16 +1249,17 @@ e stampare la lunghezza dell'array in un tag H1</p>
 </li>
 </ol>
 <ol start="11">
-<li>Creare un array posizionale (una &quot;lista&quot;) di utenti.
+<li>
+<p>Creare un array posizionale (una &quot;lista&quot;) di utenti.
 Ogni utente deve essere rappresentato da un array associativo contenente i seguenti campi: nome, cognome, eta, email, corso e media.
 Creare una prima funzione che prenda come input un utente (come precedentemente definito) e stampi a schermo ogni campo su una riga
 diversa indicando anche di che campo si tratta (ad esempio: &quot;Nome: Giacomo, Cognome: Alberini, ecc).
 Creare dunque un'altra funzione che prenda come oggetto una lista di utenti (quindi un array posizionale di array associativi)
-e stampi ogni elemento della lista applicando la funzione precendentemente creata ad ogni elemento.</li>
-</ol>
-<p>[BONUS] Strutturare i dati stampando anche HTML per mettere in risalto ad esempio per ogni utente il nome del campo che si sta stampando
+e stampi ogni elemento della lista applicando la funzione precendentemente creata ad ogni elemento.
+<br>
+[BONUS] Strutturare i dati stampando anche HTML per mettere in risalto ad esempio per ogni utente il nome del campo che si sta stampando
 (quindi Nome: e Cognome: per esempio potrebbero essere in grassetto o in un altro colore)</p>
-<ol>
+</li>
 <li>
 <p>Creare una form che permetta di inserire i campi relativi ad ogni utente dell'esercizio precedente (nome, cognome, età, email, corso e media). Inviando questa form il nuovo utente deve venire visualizzato sullo schermo, indicando nella stampa la chiave in &quot;grassetto&quot; e il valore in testo normale.</p>
 </li>
@@ -2054,6 +2055,21 @@ if (count($_POST)) {
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

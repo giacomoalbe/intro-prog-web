@@ -26,9 +26,9 @@ Creare una prima funzione che prenda come input un utente (come precedentemente 
 diversa indicando anche di che campo si tratta (ad esempio: "Nome: Giacomo, Cognome: Alberini, ecc).
 Creare dunque un'altra funzione che prenda come oggetto una lista di utenti (quindi un array posizionale di array associativi)
 e stampi ogni elemento della lista applicando la funzione precendentemente creata ad ogni elemento.
-
-[BONUS] Strutturare i dati stampando anche HTML per mettere in risalto ad esempio per ogni utente il nome del campo che si sta stampando
-(quindi Nome: e Cognome: per esempio potrebbero essere in grassetto o in un altro colore)
+  <br>
+  [BONUS] Strutturare i dati stampando anche HTML per mettere in risalto ad esempio per ogni utente il nome del campo che si sta stampando
+  (quindi Nome: e Cognome: per esempio potrebbero essere in grassetto o in un altro colore)
 
 1. Creare una form che permetta di inserire i campi relativi ad ogni utente dell'esercizio precedente (nome, cognome, età, email, corso e media). Inviando questa form il nuovo utente deve venire visualizzato sullo schermo, indicando nella stampa la chiave in "grassetto" e il valore in testo normale.
 
