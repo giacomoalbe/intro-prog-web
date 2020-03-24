@@ -1207,9 +1207,10 @@ echo &quot;Ciao &quot; . $nome . &quot;!&quot;;
 <p>Create la tabella con le tabelline. Create nella stessa pagina una form in cui potrete inserire un numero. Inviando la form, dovrete stampare la tabella con le tabelline segnando di colore rosso i multipli del numero inserito e in colore verde i divisori del numero inserito.</p>
 </li>
 </ol>
+<a class="header" href="print.html#esercizi-aggiuntivi" id="esercizi-aggiuntivi"><h2>Esercizi Aggiuntivi</h2></a>
 <a class="header" href="print.html#soluzione-guidata-1" id="soluzione-guidata-1"><h2>Soluzione Guidata</h2></a>
 <p>Prima provate gli esercizi :)</p>
-<a class="header" href="print.html#array-posizionali--associativi" id="array-posizionali--associativi"><h1>Array Posizionali &amp; Associativi</h1></a>
+<a class="header" href="print.html#array-associativi-1" id="array-associativi-1"><h1>Array Associativi</h1></a>
 <p>Svolgere i seguenti esercizi inserendo il codice nel corrispondente file PHP all'interno della cartella <code>htdocs</code> presente nella root della propria installazione di Xampp.</p>
 <a class="header" href="print.html#esercizi-3" id="esercizi-3"><h2>Esercizi</h2></a>
 <ol>
@@ -1257,6 +1258,17 @@ e stampi ogni elemento della lista applicando la funzione precendentemente creat
 </ol>
 <p>[BONUS] Strutturare i dati stampando anche HTML per mettere in risalto ad esempio per ogni utente il nome del campo che si sta stampando
 (quindi Nome: e Cognome: per esempio potrebbero essere in grassetto o in un altro colore)</p>
+<ol>
+<li>
+<p>Creare una form che permetta di inserire i campi relativi ad ogni utente dell'esercizio precedente (nome, cognome, età, email, corso e media). Inviando questa form il nuovo utente deve venire visualizzato sullo schermo, indicando nella stampa la chiave in &quot;grassetto&quot; e il valore in testo normale.</p>
+</li>
+<li>
+<p>Partendo dall'esercizio precedente, creare una pagina che mostri una lista di utenti in una tabella. Attraverso il pulsante &quot;Nuovo Utente&quot; si accede alla form che permette di creare un utente. Una volta inviata la form, si viene rimandati alla pagina precedente. Qui viene creato un utente (usando l'array associativo) e viene aggiunto alla lista, che poi viene mostrata.</p>
+</li>
+<li>
+<p>Partendo dall'esercizio precedente, ogni volta che si aggiunge un utente salvare su un file JSON il contenuto della lista. La pagina contenente la lista degli utenti, quindi, come prima cosa dovrà aprire il file, leggerne il contenuto, trasformarlo in una lista di utenti e mostrare gli utenti. Verificare che, ricaricando la pagina della lista utenti, l'utente appena creato risulti sempre presente.</p>
+</li>
+</ol>
 <a class="header" href="print.html#database-2" id="database-2"><h1>Database</h1></a>
 <a class="header" href="print.html#simulazioni-esami" id="simulazioni-esami"><h1>Simulazioni Esami</h1></a>
 <a class="header" href="print.html#portale-pagamenti-pa" id="portale-pagamenti-pa"><h1>Portale Pagamenti PA</h1></a>
@@ -2042,6 +2054,21 @@ if (count($_POST)) {
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

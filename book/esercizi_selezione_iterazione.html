@@ -168,6 +168,7 @@
 <p>Create la tabella con le tabelline. Create nella stessa pagina una form in cui potrete inserire un numero. Inviando la form, dovrete stampare la tabella con le tabelline segnando di colore rosso i multipli del numero inserito e in colore verde i divisori del numero inserito.</p>
 </li>
 </ol>
+<a class="header" href="esercizi_selezione_iterazione.html#esercizi-aggiuntivi" id="esercizi-aggiuntivi"><h2>Esercizi Aggiuntivi</h2></a>
 <a class="header" href="esercizi_selezione_iterazione.html#soluzione-guidata" id="soluzione-guidata"><h2>Soluzione Guidata</h2></a>
 <p>Prima provate gli esercizi :)</p>
 
@@ -208,6 +209,21 @@
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3001");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload(true); // force reload from server (not from cache)
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         

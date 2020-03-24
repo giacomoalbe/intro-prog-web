@@ -16,6 +16,8 @@ Svolgere i seguenti esercizi inserendo il codice nel corrispondente file PHP all
 1. Creare una tabella 8x8 e disegnare su di essa una scacchiera (aiutino: quali sono gli elementi bianchi e gli elementi neri? Provate, per ogni casella, a fare la somma dell'indice di colonna e di quello di riga, vedrete una correlazione interessante...)
 1. Create la tabella con le tabelline. Create nella stessa pagina una form in cui potrete inserire un numero. Inviando la form, dovrete stampare la tabella con le tabelline segnando di colore rosso i multipli del numero inserito e in colore verde i divisori del numero inserito.
 
+## Esercizi Aggiuntivi
+
 
 ## Soluzione Guidata
 
