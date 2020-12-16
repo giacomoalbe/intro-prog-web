@@ -165,7 +165,34 @@
                     <main>
                         <h1><a class="header" href="#migrazioni" id="migrazioni">Migrazioni</a></h1>
 <h2><a class="header" href="#introduzione" id="introduzione">Introduzione</a></h2>
-<p>TODO: Cos'è una migrazione, a cosa serve, perché viene versionata, come crearla, come vedere quali migrazioni ci sono da fare, come eseguire una migrazione</p>
+<p>Le migrazioni sono una classe speciale di Laravel che contengono una serie di azioni da eseguire sul database come per esempio la creazione o la modifica di una tabella.</p>
+<p>Queste migrazioni servono affinchè il database venga impostato in modo identico ogni volta che viene lanciato tra le diverse macchine di sviluppo che contribuiscono al progetto.</p>
+<p>Possiamo considerare le migrazioni come un versionamento del database dell'applicazione</p>
+<h3><a class="header" href="#creare-una-migrazione" id="creare-una-migrazione">Creare una migrazione</a></h3>
+<p>Per creare una migrazione è necessario utilizzare il seguente comando Artisan sul terminale:</p>
+<pre><code>php artisan make:migration create_table_names_table
+</code></pre>
+<p><strong>N.B.</strong> Per comodità il nome della tabella dovrà attenersi ad alcune regole: </p>
+<ul>
+<li>Tutte le lettere minuscole</li>
+<li>Le parole devono essere separate da _</li>
+<li>Nome della tabella plurale</li>
+</ul>
+<p>Una volta creata la migrazione è possibile trovarla dentro la cartella <em>database/migration</em> insieme a tutte le altre, ogni migrazione ha un <em>timestamp</em> che permette a Laravel di individuare l'ordine delle migrazioni.</p>
+<p>Una volta aperto il file dovrebbe presentarsi una schermata simile:</p>
+<p><img src="../immagini/migration.png" alt="Migration" /></p>
+<p>Sulla migrazione troveremo due funzioni:</p>
+<ul>
+<li>Up(): permette di aggiungere una nuova tabella, aggiungere nuove colonne o nuovi indici al database.</li>
+<li>Down(): permette di eliminare le precedenti modifiche.</li>
+</ul>
+<h3><a class="header" href="#principali-comandi-migrazioni" id="principali-comandi-migrazioni">Principali comandi migrazioni</a></h3>
+<ul>
+<li><strong>php artisan migrate</strong>: serve ad inizializzare tutte le migrazione con ordine eseguendo quindi le istruzione al database</li>
+<li><strong>php artisan migrate:rollback</strong>:  serve ad annullare le ultime operazioni delle migrazioni</li>
+<li><strong>php artisan migrate:fresh</strong>: serve ad inizializzare le migrazioni da capo eliminando quelle già eseguite</li>
+<li><strong>php artisan migrate:status</strong>: serve a vedere lo stato delle migrazioni eseguite</li>
+</ul>
 <h2><a class="header" href="#tipi-di-colonne" id="tipi-di-colonne">Tipi di Colonne</a></h2>
 <ul>
 <li>string</li>
