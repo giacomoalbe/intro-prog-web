@@ -5,6 +5,8 @@
 Model View Controller, abbreviato come **MVC**, è un paradigma di programmazione atto a dividere il codice in blocchi ben distinti in base alla loro funzionalità. 
 
 Per capire al meglio MVC è necessario approfondire il concetto di **paradigma di programmazione**, ovvero l'insieme di strumenti forniti dal linguaggio di programmazione per la stesura delle istruzioni-codice che a sua volta definiscono la visione che dovrà avere il programmatore nella fase di progettazione.
+
+Analizziamo una a una le 3 componenti:
  
 ## Model
 
@@ -22,3 +24,6 @@ Si tratta di quelle porzione di codice che **utilizza i dati** forniti dalla mod
 
 MVC detiene una relazione importante con il pattern request-response (es: login form), la view sarà la parte destinata alla visualizzazioni delle input box, il controller a sua volta correggerà ed opererà sui dati in input, il model invece si interfaccerà con il database per ottenere la response della richiesta inviata.
 Successivamente la model fornirà al controller i dati trasmessi dal db, e verranno corretamente visualizzati nella view
+
+
+Laravel nel caso corrente fa fede al paradigma MVC.
