@@ -11,7 +11,7 @@ Esso facilita notevolmente il lavoro del developer poichè:
 
 Esso permette di estendere le funzionalità del linguaggio di programmazione su cui è basato.  
 I **componenti principali** di un framework sono costituiti da **classi** collegate tra loro, a cui vengono assegnati dei **metodi**; tali metodi possono essere **statici**, ovvero immutabili, oppure **flessibili** e quindi modellabili.
-Vengono inoltre distinti i framework che lasciano maggiore controllo allo sviluppatore (**"un-opinonated"**), come per esempio Vue, e quelli che invece ne lasciano meno (**"opinionated"**).
+Vengono inoltre distinti i framework che lasciano maggiore controllo allo sviluppatore (**"un-opinonated"**), come per esempio Vue, e quelli che invece ne lasciano meno (**"opinionated"**), come per esempio Laravel.
 
 
 ### Laravel
@@ -27,11 +27,11 @@ Laravel inoltre mette a disposizione un **logging handler**, che permette di vis
 Artisan è il nome dell'interfaccia a riga di comando (**CLI**) inclusa con Laravel. 
 Esso fornisce numerose funzionalità, per visualizzarle tutte è sufficente usare il seguente comando:`php artisan list`.
 
-Di seguito vengono riportate le principali funzionalità:
-- creazione controller ==> `php artisan make:controller ControllerName`
-- creazione model ==> `php artisan make:model ModelName`
-- creazione migration ==> `php artisan make:migration migration_name`
-- lanciare migrazioni ==> `php artisan migrate`
+Di seguito vengono riportati i principali comandi e le relative funzionalità:
+- `php artisan make:controller ControllerName`     ==>       creazione controller
+- `php artisan make:model ModelName`               ==>       creazione model
+- `php artisan make:migration migration_name`      ==>       creazione migration
+- `php artisan migrate`                            ==>       lanciare migrazioni
 
 Inoltre permette di utilizzare l'ambiente shell **Tinker** (REPL: Read–eval–print loop).
 Ad esso si accede attraverso il comando `php artisan tinker`.
