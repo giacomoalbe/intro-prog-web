@@ -165,13 +165,33 @@
                     <main>
                         <h1><a class="header" href="#il-framework-laravel" id="il-framework-laravel">Il Framework Laravel</a></h1>
 <h2><a class="header" href="#concetti-generali" id="concetti-generali">Concetti Generali</a></h2>
-<p>TODO: cos'è un framework, dove di posiziona Laravel nello sviluppo web (frontend/backend), come usare Laravel come API server, logging</p>
-<p>Laravel è abbastanza una figata. Nonostante sia PHP, non fa per nulla <strong>schifo</strong>.</p>
-<p>Questo è a capo.
-Questo invece no, è sulla stessa riga.</p>
-<h2><a class="header" href="#artisan" id="artisan">Artisan</a></h2>
-<p>TODO: cos'è artisan, come si usa, cosa permette di fare (creare gli asset, ricaricare la cache, vedere le route, ecc</p>
-<h2><a class="header" href="#contenuti" id="contenuti">Contenuti</a></h2>
+<h3><a class="header" href="#cosè-un-framework" id="cosè-un-framework">Cos'è un framework?</a></h3>
+<p>Un framework è un'architettura logica di supporto sulla quale un software può essere progettato e realizzato.<br />
+Esso facilita notevolmente il lavoro del developer poichè:</p>
+<ul>
+<li>Fornisce un'infrastuttura generale sulla quale viene poi definito il contenuto vero e proprio dell'applicazione.</li>
+<li>Inoltre permette di risparmiare facilmente la riscrittura di codice già scritto in precedenza per compiti simili.</li>
+</ul>
+<p>Esso permette di estendere le funzionalità del linguaggio di programmazione su cui è basato.<br />
+I <strong>componenti principali</strong> di un framework sono costituiti da <strong>classi</strong> collegate tra loro, a cui vengono assegnati dei <strong>metodi</strong>; tali metodi possono essere <strong>statici</strong>, ovvero immutabili, oppure <strong>flessibili</strong> e quindi modellabili.
+Vengono inoltre distinti i framework che lasciano maggiore controllo allo sviluppatore (<strong>&quot;un-opinonated&quot;</strong>), come per esempio Vue, e quelli che invece ne lasciano meno (<strong>&quot;opinionated&quot;</strong>).</p>
+<h3><a class="header" href="#laravel" id="laravel">Laravel</a></h3>
+<p>Laravel è un <strong>framework</strong> orientato alla programmazione ad oggetti per la progettazione e la realizzazione di <strong>web applications</strong>, in particolare lato backend. Esso consente di sviluppare velocemente applicativi in linguaggio <strong>PHP</strong>, grazie al suo essere orientato al pattern architetturale MVC (<strong>Model-ViewController</strong>).</p>
+<p>Durante il corso si è utilizzato Laravel come <strong>API server</strong>. Attraverso la definizione di <strong>routes</strong> con l'ausilio del protocollo <strong>REST</strong> si richiamano specifiche funzioni dei <strong>controllers</strong> che vanno poi ad interfacciarsi con i dati contenuti nel database grazie ai <strong>models</strong>.</p>
+<p>Laravel inoltre mette a disposizione un <strong>logging handler</strong>, che permette di visionare eventuali errori di sistema e non durante l'utilizzo di Laravel.</p>
+<h3><a class="header" href="#artisan" id="artisan">Artisan</a></h3>
+<p>Artisan è il nome dell'interfaccia a riga di comando (<strong>CLI</strong>) inclusa con Laravel. 
+Esso fornisce numerose funzionalità, per visualizzarle tutte è sufficente usare il seguente comando:<code>php artisan list</code>.</p>
+<p>Di seguito vengono riportate le principali funzionalità:</p>
+<ul>
+<li>creazione controller ==&gt; <code>php artisan make:controller ControllerName</code></li>
+<li>creazione model ==&gt; <code>php artisan make:model ModelName</code></li>
+<li>creazione migration ==&gt; <code>php artisan make:migration migration_name</code></li>
+<li>lanciare migrazioni ==&gt; <code>php artisan migrate</code></li>
+</ul>
+<p>Inoltre permette di utilizzare l'ambiente shell <strong>Tinker</strong> (REPL: Read–eval–print loop).
+Ad esso si accede attraverso il comando <code>php artisan tinker</code>.</p>
+<h3><a class="header" href="#contenuti" id="contenuti">Contenuti</a></h3>
 <ul>
 <li><a href="./orm.html">ORM</a></li>
 <li><a href="./migrazioni.html">Migrazioni</a></li>
