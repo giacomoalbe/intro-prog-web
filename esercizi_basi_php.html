@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Basi di PHP - Introduzione alla Programmazione per il Web</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduzione.html">Introduzione</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/introduzione.html"><strong aria-hidden="true">1.</strong> Modern Web Development</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="corsi/modern-web-development/uso-del-terminale.html"><strong aria-hidden="true">1.1.</strong> Uso del terminale</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/git-e-github.html"><strong aria-hidden="true">1.2.</strong> Git &amp; Github</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/model-view-controller.html"><strong aria-hidden="true">1.3.</strong> Model View Controller</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/protocollo-rest.html"><strong aria-hidden="true">1.4.</strong> Protocollo REST</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/laravel/introduzione.html"><strong aria-hidden="true">1.5.</strong> Il Framework Laravel</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="corsi/modern-web-development/laravel/orm.html"><strong aria-hidden="true">1.5.1.</strong> ORM</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/laravel/migrazioni.html"><strong aria-hidden="true">1.5.2.</strong> Migrazioni</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/laravel/routing.html"><strong aria-hidden="true">1.5.3.</strong> Routing</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/laravel/controller.html"><strong aria-hidden="true">1.5.4.</strong> Controller</a></li></ol></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/vue/introduzione.html"><strong aria-hidden="true">1.6.</strong> Il Framework Vue</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="corsi/modern-web-development/vue/mvvm-e-data-binding.html"><strong aria-hidden="true">1.6.1.</strong> MVVM &amp; Data Binding</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/vue/methods-mounted-e-computed.html"><strong aria-hidden="true">1.6.2.</strong> Methods, Mounted &amp; Computed</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/vue/api-async-axios.html"><strong aria-hidden="true">1.6.3.</strong> API, async, axios</a></li></ol></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/tailwind-css.html"><strong aria-hidden="true">1.7.</strong> Il Framework Tailwind CSS</a></li></ol></li><li class="chapter-item expanded "><a href="corsi/vanilla-php/introduzione.html"><strong aria-hidden="true">2.</strong> Vannilla PHP</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="teoria.html"><strong aria-hidden="true">2.1.</strong> Teoria</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="php.html"><strong aria-hidden="true">2.1.1.</strong> PHP</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="basi_internet_php.html"><strong aria-hidden="true">2.1.1.1.</strong> Introduzione</a></li><li class="chapter-item expanded "><a href="variabili.html"><strong aria-hidden="true">2.1.1.2.</strong> Variabili</a></li><li class="chapter-item expanded "><a href="selezione.html"><strong aria-hidden="true">2.1.1.3.</strong> Selezione</a></li><li class="chapter-item expanded "><a href="iterazione.html"><strong aria-hidden="true">2.1.1.4.</strong> Iterazione</a></li><li class="chapter-item expanded "><a href="array.html"><strong aria-hidden="true">2.1.1.5.</strong> Array</a></li><li class="chapter-item expanded "><a href="funzioni.html"><strong aria-hidden="true">2.1.1.6.</strong> Funzioni</a></li></ol></li><li class="chapter-item expanded "><a href="intro_database.html"><strong aria-hidden="true">2.1.2.</strong> Database</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="database.html"><strong aria-hidden="true">2.1.2.1.</strong> Introduzione</a></li></ol></li><li class="chapter-item expanded "><a href="intro_git.html"><strong aria-hidden="true">2.1.3.</strong> Versionamento Codice</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="git.html"><strong aria-hidden="true">2.1.3.1.</strong> Introduzione</a></li></ol></li><li class="chapter-item expanded "><a href="intro_ui_design.html"><strong aria-hidden="true">2.1.4.</strong> UI/UX</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="flexbox.html"><strong aria-hidden="true">2.1.4.1.</strong> Flexbox</a></li></ol></li><li class="chapter-item expanded "><a href="intro_architettura_web.html"><strong aria-hidden="true">2.1.5.</strong> Architettura Web</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="design_patterns.html"><strong aria-hidden="true">2.1.5.1.</strong> Design Patterns</a></li><li class="chapter-item expanded "><a href="servizi.html"><strong aria-hidden="true">2.1.5.2.</strong> Servizi Web</a></li><li class="chapter-item expanded "><a href="web_software_design.html"><strong aria-hidden="true">2.1.5.3.</strong> Web Software Design</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="esercizi.html"><strong aria-hidden="true">2.2.</strong> Esercizi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="esercizi_basi_php.html" class="active"><strong aria-hidden="true">2.2.1.</strong> Basi di PHP</a></li><li class="chapter-item expanded "><a href="esercizi_selezione_iterazione.html"><strong aria-hidden="true">2.2.2.</strong> Selezione &amp; Iterazione</a></li><li class="chapter-item expanded "><a href="esercizi_array.html"><strong aria-hidden="true">2.2.3.</strong> Array</a></li><li class="chapter-item expanded "><a href="esercizi_database.html"><strong aria-hidden="true">2.2.4.</strong> Database</a></li><li class="chapter-item expanded "><a href="simulazioni_esami.html"><strong aria-hidden="true">2.2.5.</strong> Simulazioni Esami</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="portale_pagamenti_pa.html"><strong aria-hidden="true">2.2.5.1.</strong> Portale Pagamenti PA</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="soluzioni.html"><strong aria-hidden="true">2.3.</strong> Soluzioni</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="esericizi_cicli_for.html"><strong aria-hidden="true">2.3.1.</strong> Cicli For</a></li><li class="chapter-item expanded "><a href="esercizi_scacchiera.html"><strong aria-hidden="true">2.3.2.</strong> Scacchiera</a></li><li class="chapter-item expanded "><a href="esercizi_form_colori.html"><strong aria-hidden="true">2.3.3.</strong> Form &amp; Colori</a></li><li class="chapter-item expanded "><a href="utenti_crud.html"><strong aria-hidden="true">2.3.4.</strong> Utenti CRUD</a></li><li class="chapter-item expanded "><a href="utenti_crud_edit.html"><strong aria-hidden="true">2.3.5.</strong> Utenti CRUD con Edit</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="contributing.html"><strong aria-hidden="true">3.</strong> Contribuire al Libro</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Introduzione alla Programmazione per il Web</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#basi-di-php" id="basi-di-php">Basi di PHP</a></h1>
+<p>Svolgere i seguenti esercizi inserendo il codice nel corrispondente file PHP all'interno della cartella <code>htdocs</code> presente nella root della propria installazione di Xampp.</p>
+<h2><a class="header" href="#esercizi" id="esercizi">Esercizi</a></h2>
+<ol>
+<li>
+<p>Creare una form con nome e cognome e mandarla ad una pagina che saluti l'utente con la frase &quot;Ciao, &lt;nome&gt; &lt;cognome&gt;&quot;.</p>
+</li>
+<li>
+<p>Creare una form contente nome e una <code>select</code> con due valori - maschio e femmina - che mandi ad una pagina in cui, in base al valore della <code>select</code>, saluti l'utente con &quot;Buongiorno, signor &lt;nome&gt;&quot; oppure &quot;Buongiorno, signora &lt;nome&gt;&quot;.</p>
+</li>
+<li>
+<p>Creare una form con una <code>select</code> con i colori dell'arcobaleno che mandi ad una pagina in cui venga comunicato all'utente se il colore scelto è gradito al programmatore (ad esempio, &quot;indaco&quot; è il colore scelto, la pagina risponde con &quot;Che schifo di colore&quot;, oppure con &quot;E' il mio colore preferito, bravo!&quot;)</p>
+</li>
+<li>
+<p>Modificare l'esercizio 2 aggiungendo il colore alla scritta: se femmina &quot;rosa&quot;, se maschio &quot;blu&quot;. Se si volesse essere più politicamente corretti, aggiungere un campo &quot;altro&quot; alla <code>select</code> e colorare la scritta di arcobaleno.</p>
+</li>
+<li>
+<p>Creare una form con nome, cognome, sesso ed età. Inviando la form, si viene mandati su una pagina che saluta l'utente (differenziando in base al sesso), solo se l'utente è maggiorenne. Altrimenti comunica che l'utente non può entrare.</p>
+</li>
+<li>
+<p>Modificare l'esercizio precedente utilizzando l'input <code>radio</code> per indicare se maggiorenne oppure no.</p>
+</li>
+<li>
+<p>Creare una form con due campi di tipo numerico e mandare ad una pagina che fa somma, differeza, prodotto, divisione e modulo dei due numeri.</p>
+</li>
+<li>
+<p>Creare una form con un campo numerico che rimandi ad una pagina in cui viene indicato se il numero è pari o dispari. Nel primo caso, mostrare il numero in verde, nel secondo in rosso.</p>
+</li>
+<li>
+<p>Creare una form con un campo numerico che rimandi ad una pagina in cui viene indicato se il valore è inferiore a 10, tra 10 e 100, tra 100 e 1000 o maggiore di mille. Per ogni intervallo numerico scegliere un colore diverso con cui visualizzare la scritta.
+<br>
+<br>
+<strong>Esempio:</strong> inserisco 7, la pagina mi ritorna <em>7 è inferiore di 10</em>.
+<br>
+<strong>Esempio:</strong> inserisco 700, la pagina mi ritorna <em>700 è compreso tra 100 e 1000</em></p>
+</li>
+<li>
+<p>Creare una form per calcolare la rata mensile di un prestito. E' necessario inserire l'importo del prestito e il numero di anni in cui si vuole ripagarlo. Il tasso di interesse è del 5% se il rientro è inferiore ai 3 anni, 7% se tra 3 e 5, e 10% se sopra i 5 anni. L'interesse è calcolato, per semplicità, sull'intero ammontare del prestito, non sulle singole rate e una volta sola, non per ogni anno di rientro.
+<br>
+<br>
+<strong>Esempio:</strong> inserisco 10.000 € in 4 anni. La pagina dovrebbe ritornare 216,67 € / mese per 48 mesi.</p>
+</li>
+</ol>
+<h2><a class="header" href="#soluzione-guidata" id="soluzione-guidata">Soluzione Guidata</a></h2>
+<p>Esempio di come è possibile inviare dati tra due pagine PHP utilizzando le <code>form</code> HTML.</p>
+<ol>
+<li>
+<p>Creare una nuova cartella all'interno di <code>htdocs</code></p>
+</li>
+<li>
+<p>Creare un file <code>index.php</code> all'interno della cartella. Il file dovrà contenere una <code>form</code> HTML:</p>
+<pre><code class="language-html">&lt;h1&gt;Il Salutatore&lt;/h1&gt;
+&lt;form action=&quot;saluta.php&quot; method=&quot;POST&quot;&gt;
+  &lt;input type=&quot;text&quot; name=&quot;nome&quot;&gt;
+  &lt;input type=&quot;submit&quot; value=&quot;Saluta&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+</li>
+<li>
+<p>Compilando il campo &quot;nome&quot; e inviando la form, il browser rimanda alla pagina <code>saluta.php</code>, dove andremo a creare una pagina dinamica che &quot;saluta&quot; in modo personalizzato il nostro utente.</p>
+</li>
+<li>
+<p>Creare il file <code>saluta.php</code> con il seguente contenuto:</p>
+<pre><code class="language-php">&lt;?php
+
+$nome = $_REQUEST[&quot;nome&quot;];
+
+echo &quot;Ciao &quot; . $nome . &quot;!&quot;;
+?&gt;
+</code></pre>
+</li>
+<li>
+<p>La variabile <code>$_REQUEST</code> contiene tutti i dati inviati alla pagina, quindi in questo caso i dati inviati attraverso la form.
+Questa variabile è un <em>array associativo</em>, ovvero una specie di dizionario che mette in relazione il <strong>nome</strong> di un input con il suo <strong>valore</strong>. In questo caso, il contenuto di questa variable sarà il seguente dizionario:</p>
+<ul>
+<li><strong>nome</strong>: &lt;nome che abbiamo inserito nell'input della form&gt;</li>
+</ul>
+<p>Ogni altro input che avessimo inserito nella form avrebbe la sua chiave corrispondente nel dizionario. Il <em>nome</em> della chiave corrisponde al <em>nome</em> dell'input che noi possiamo impostare usando l'attributo <code>name</code> dell'input stesso.</p>
+</li>
+<li>
+<p>A questo codice PHP possiamo aggiungere anche un link HTML per tornare alla pagina precedente, in questo modo:</p>
+<pre><code class="language-php">&lt;?php
+
+$nome = $_REQUEST[&quot;nome&quot;];
+
+echo &quot;Ciao &quot; . $nome . &quot;!&quot;;
+?&gt;
+
+&lt;a href=&quot;.&quot;&gt;Indietro&lt;/a&gt;
+</code></pre>
+<p>Inserendo come <code>href</code> (ovvero come link a cui punta il nostro tag &lt;a&gt;) il '.' intendiamo mandare il browser <em>nella cartella corrente</em>. In questo modo, il server Apache ci ritornerà il file <code>index.php</code>, che appunto contiene la form.</p>
+</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="esercizi.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="esercizi_selezione_iterazione.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="esercizi.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="esercizi_selezione_iterazione.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

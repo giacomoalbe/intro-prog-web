@@ -1,0 +1,425 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Array - Introduzione alla Programmazione per il Web</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduzione.html">Introduzione</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/introduzione.html"><strong aria-hidden="true">1.</strong> Modern Web Development</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="corsi/modern-web-development/uso-del-terminale.html"><strong aria-hidden="true">1.1.</strong> Uso del terminale</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/git-e-github.html"><strong aria-hidden="true">1.2.</strong> Git &amp; Github</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/model-view-controller.html"><strong aria-hidden="true">1.3.</strong> Model View Controller</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/protocollo-rest.html"><strong aria-hidden="true">1.4.</strong> Protocollo REST</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/laravel/introduzione.html"><strong aria-hidden="true">1.5.</strong> Il Framework Laravel</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="corsi/modern-web-development/laravel/orm.html"><strong aria-hidden="true">1.5.1.</strong> ORM</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/laravel/migrazioni.html"><strong aria-hidden="true">1.5.2.</strong> Migrazioni</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/laravel/routing.html"><strong aria-hidden="true">1.5.3.</strong> Routing</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/laravel/controller.html"><strong aria-hidden="true">1.5.4.</strong> Controller</a></li></ol></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/vue/introduzione.html"><strong aria-hidden="true">1.6.</strong> Il Framework Vue</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="corsi/modern-web-development/vue/mvvm-e-data-binding.html"><strong aria-hidden="true">1.6.1.</strong> MVVM &amp; Data Binding</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/vue/methods-mounted-e-computed.html"><strong aria-hidden="true">1.6.2.</strong> Methods, Mounted &amp; Computed</a></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/vue/api-async-axios.html"><strong aria-hidden="true">1.6.3.</strong> API, async, axios</a></li></ol></li><li class="chapter-item expanded "><a href="corsi/modern-web-development/tailwind-css.html"><strong aria-hidden="true">1.7.</strong> Il Framework Tailwind CSS</a></li></ol></li><li class="chapter-item expanded "><a href="corsi/vanilla-php/introduzione.html"><strong aria-hidden="true">2.</strong> Vannilla PHP</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="teoria.html"><strong aria-hidden="true">2.1.</strong> Teoria</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="php.html"><strong aria-hidden="true">2.1.1.</strong> PHP</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="basi_internet_php.html"><strong aria-hidden="true">2.1.1.1.</strong> Introduzione</a></li><li class="chapter-item expanded "><a href="variabili.html"><strong aria-hidden="true">2.1.1.2.</strong> Variabili</a></li><li class="chapter-item expanded "><a href="selezione.html"><strong aria-hidden="true">2.1.1.3.</strong> Selezione</a></li><li class="chapter-item expanded "><a href="iterazione.html"><strong aria-hidden="true">2.1.1.4.</strong> Iterazione</a></li><li class="chapter-item expanded "><a href="array.html" class="active"><strong aria-hidden="true">2.1.1.5.</strong> Array</a></li><li class="chapter-item expanded "><a href="funzioni.html"><strong aria-hidden="true">2.1.1.6.</strong> Funzioni</a></li></ol></li><li class="chapter-item expanded "><a href="intro_database.html"><strong aria-hidden="true">2.1.2.</strong> Database</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="database.html"><strong aria-hidden="true">2.1.2.1.</strong> Introduzione</a></li></ol></li><li class="chapter-item expanded "><a href="intro_git.html"><strong aria-hidden="true">2.1.3.</strong> Versionamento Codice</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="git.html"><strong aria-hidden="true">2.1.3.1.</strong> Introduzione</a></li></ol></li><li class="chapter-item expanded "><a href="intro_ui_design.html"><strong aria-hidden="true">2.1.4.</strong> UI/UX</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="flexbox.html"><strong aria-hidden="true">2.1.4.1.</strong> Flexbox</a></li></ol></li><li class="chapter-item expanded "><a href="intro_architettura_web.html"><strong aria-hidden="true">2.1.5.</strong> Architettura Web</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="design_patterns.html"><strong aria-hidden="true">2.1.5.1.</strong> Design Patterns</a></li><li class="chapter-item expanded "><a href="servizi.html"><strong aria-hidden="true">2.1.5.2.</strong> Servizi Web</a></li><li class="chapter-item expanded "><a href="web_software_design.html"><strong aria-hidden="true">2.1.5.3.</strong> Web Software Design</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="esercizi.html"><strong aria-hidden="true">2.2.</strong> Esercizi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="esercizi_basi_php.html"><strong aria-hidden="true">2.2.1.</strong> Basi di PHP</a></li><li class="chapter-item expanded "><a href="esercizi_selezione_iterazione.html"><strong aria-hidden="true">2.2.2.</strong> Selezione &amp; Iterazione</a></li><li class="chapter-item expanded "><a href="esercizi_array.html"><strong aria-hidden="true">2.2.3.</strong> Array</a></li><li class="chapter-item expanded "><a href="esercizi_database.html"><strong aria-hidden="true">2.2.4.</strong> Database</a></li><li class="chapter-item expanded "><a href="simulazioni_esami.html"><strong aria-hidden="true">2.2.5.</strong> Simulazioni Esami</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="portale_pagamenti_pa.html"><strong aria-hidden="true">2.2.5.1.</strong> Portale Pagamenti PA</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="soluzioni.html"><strong aria-hidden="true">2.3.</strong> Soluzioni</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="esericizi_cicli_for.html"><strong aria-hidden="true">2.3.1.</strong> Cicli For</a></li><li class="chapter-item expanded "><a href="esercizi_scacchiera.html"><strong aria-hidden="true">2.3.2.</strong> Scacchiera</a></li><li class="chapter-item expanded "><a href="esercizi_form_colori.html"><strong aria-hidden="true">2.3.3.</strong> Form &amp; Colori</a></li><li class="chapter-item expanded "><a href="utenti_crud.html"><strong aria-hidden="true">2.3.4.</strong> Utenti CRUD</a></li><li class="chapter-item expanded "><a href="utenti_crud_edit.html"><strong aria-hidden="true">2.3.5.</strong> Utenti CRUD con Edit</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="contributing.html"><strong aria-hidden="true">3.</strong> Contribuire al Libro</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Introduzione alla Programmazione per il Web</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#array" id="array">Array</a></h1>
+<h2><a class="header" href="#array-posizionali" id="array-posizionali">Array Posizionali</a></h2>
+<p>In programmazione un array è un tipo di variabile il cui valore è un insieme di altre variabili.</p>
+<p>Questo array viene definito posizionale in quanto le variabili al suo interno sono distinte l'una dall'altra in base alla loro posizione all'interno dell'array. </p>
+<p>Ogni variabile infatti ha un suo indice, che identifica appunto la posizione di quella variabile all'interno dell'array.</p>
+<p>Da notare che in programmazione il primo elemento di qualsiasi insieme ha indice 0, non 1. </p>
+<p>Quindi il primo elemento di un array si dice che è all'indice 0, il secondo all'indice 1 e così via. </p>
+<p>L'indice corrispondente all'ultimo elemento è dunque il numero di elementi dell'array meno uno.</p>
+<p>Per definire un array si usano le parentesi quadre, separando tutti gli elementi con una virgola</p>
+<pre><code class="language-php">//           Indice: 0  1  2  3
+$arrayPosizionale = [1, 2, 3, 4];
+</code></pre>
+<h3><a class="header" href="#accedere-agli-elementi-di-un-array-indicizzazione" id="accedere-agli-elementi-di-un-array-indicizzazione">Accedere agli elementi di un array: indicizzazione</a></h3>
+<p>Per accedere al contenuto di una variabile che fa parte di un array è necessario indicizzare l'array,
+ovvero indicare il nome dell'array e tra le parentesi quadre l'indice dell'elemento che si desidera ottenere:</p>
+<pre><code class="language-php">echo $arrayPosizionale[3];
+</code></pre>
+<h3><a class="header" href="#inserire-un-elemento-in-un-array" id="inserire-un-elemento-in-un-array">Inserire un elemento in un array</a></h3>
+<p>Per inserire un elemento in un array è sufficiente richiamare il nome dell'array con a fianco una coppia di parentesi quadre. 
+A seguito dell'uguale sarà necessario inserire il valore che si intende aggiungere all'array. </p>
+<p>Questa operazione aggiungere l'elemento alla fine dell'array, quindi in questo modo inseriamo il nuovo elemento finale dell'array:</p>
+<pre><code class="language-php">$arrayPosizionale[] = 5;
+
+// Stampa dell'elemento appena inserito
+echo $arrayPosizionale[4] . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<h3><a class="header" href="#eliminazione-elemento-da-array" id="eliminazione-elemento-da-array">Eliminazione elemento da array</a></h3>
+<p>Per eliminare un elemento da un array si deve richiamare la funzione unset sull'elemento dell'array che vogliomo cancellare. </p>
+<p>Per definire quale elemento vogliamo cancellare dobbiamo indicizzare quell'elemento, mettendo tra parentesi quadre l'indice desiderato </p>
+<pre><code class="language-php">unset($arrayPosizionale[4]);
+</code></pre>
+<p>In questo caso stiamo richiedendo il valore corrispondente all'indice 400 dell'array, quindi il 401esimo elemento. 
+Dal momento che il nostro <code>arrayPosizionale</code> ha solo 5 elementi, l'interprete di PHP darà un warning dicendo che non riesce a trovare l'elemento richiesto. </p>
+<pre><code class="language-php">echo $arrayPosizionale[400] . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<h3><a class="header" href="#testare-se-elemento-è-presente-in-array" id="testare-se-elemento-è-presente-in-array">Testare se elemento è presente in array</a></h3>
+<p>Per verificare che un elemento sia presente all'interno di un array posizionale, ovvero che un certo indice corrisponda ad un elemento esistente dell'array, dobbiamo utilizzare la funzione isset(), la quale prende come argomento l'elemento dell'array 
+di cui vogliamo verificare l'esistenza e restituisce un valore booleano (true/false) che possiamo utilizzare ad esempio all'interno di una selezione if (come nel caso sottostante). </p>
+<pre><code class="language-php">if (isset($arrayPosizionale[400])) {
+  echo $arrayPosizionale[400];
+} else {
+  echo &quot;Elemento non trovato all'interno dell'array!&lt;br&gt;&quot;;
+}
+</code></pre>
+<h3><a class="header" href="#modificare-elemento-esistente" id="modificare-elemento-esistente">Modificare elemento esistente</a></h3>
+<p>Per modificare un elemento esistente è sufficiente indicizzarlo alla sinistra dell'uguale usando l'operatore <code>[&lt;indice&gt;]</code> e alla destra dell'uguale inserire il nuovo valore che si intende associare a quella posizione nell'array. 
+Se noi inserissimo un indice non presente nell'array, PHP lo creerebbe e quindi gli assocerebbe il valore che abbiamo scritto:</p>
+<pre><code class="language-php">$arrayPosizionale[2] = 467;
+</code></pre>
+<p>Per contare gli elementi di un array e quindi conoscere la lunghezza di quest'ultimo si usa la funzione <code>count()</code> che prende come argomento l'array e restituisce la lunghezza (intera) dell'array</p>
+<pre><code class="language-php">echo &quot;Elementi di un array: &quot; . count($arrayPosizionale) . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<h3><a class="header" href="#stampare-contenuto-di-un-array" id="stampare-contenuto-di-un-array">Stampare contenuto di un array</a></h3>
+<p>Per stampare il contenuto di un array è necessario usare la funzione <code>var_dump</code>, in quanto l'echo normale non è in grado di mostrarci correttamente i valori all'interno dell'array.</p>
+<p><code>var_dump</code> ci mostra anche il tipo di variabile contenuto nell'array, la lunghezza dei vari campi e separa graficamente gli elementi</p>
+<pre><code class="language-php">echo var_dump($arrayPosizionale);
+</code></pre>
+<p>Si possono definire array di tutti i tipi fondamentali di dati, come ad esempio le stringhe.</p>
+<p>Per agevolare la lettura, è consigliabile scrivere gli array come segue, inserendo ogni elemento in una riga diversa e mettendo le parentesi anch'esse su una riga a parte</p>
+<pre><code class="language-php">$giorniDellaSettimana = [
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+  &quot;Sabato sera&quot;,
+];
+</code></pre>
+<p>E' possibile stampare l'array nel modo seguente, indicando tutti gli indici fino all'ultimo.
+Nel momento in cui dovessimo cambiare gli elementi dell'array giorniDellaSettimana dovremmo ricordarci anche di modificare la procedura di stampa sottostante, cosa non agevole.
+Di seguito verrà presentato un modo automatico per realizzare la stessa funzionalità.</p>
+<pre><code class="language-php">echo $giorniDellaSettimana[0] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[1] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[2] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[3] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[4] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[5] . &quot;&lt;br&gt;&quot;;
+echo $giorniDellaSettimana[6] . &quot;&lt;br&gt;&quot;;
+
+echo &quot;I giorni della settimana sono &quot; . count($giorniDellaSettimana) . &quot;&lt;br&gt;&quot;;
+</code></pre>
+<h2><a class="header" href="#array-associativi" id="array-associativi">Array Associativi</a></h2>
+<p>In PHP esistono due diversi tipo di array, che differiscono principalmente per il modo in cui associano
+gli elementi presenti al loro interno ai valori che utilizziamo per accedere a questi elementi. </p>
+<p>Negli array posizionali, quello che abbiamo appena visto e utilizzato fino ad adesso, il modo che abbiamo per 
+accedere ad un elemento è quello di usare l'indice di quell'elemento, ovvero indicizzare l'array su quell'elemento. 
+Ad esempio se avessimo un array di 3 elementi</p>
+<pre><code class="language-php">$array = [1,2,3] 
+</code></pre>
+<p>E volessimo accedere al secondo elemento, dovremmo utilizzare la seguente istruzione:</p>
+<pre><code class="language-php">$secondoElemento = $array[1]; // 1 non 2, in quanto sappiamo che gli indici in PHP iniziano da 0!!!
+</code></pre>
+<p>In questo caso si dice che la chiave per accedere al secondo elemento è la sua posizione. </p>
+<p>In PHP esiste un'altro tipo di variabile molto simile ma nel quale il modo 
+che abbiamo per identificare un'elemento è quello di utilizzare la sua chiave, 
+che definiziamo in fase di creazione della variabile. 
+Quello che facciamo infatti è associare quell'elemento a quella chiave. 
+Questo tipo di variabile è chiamato, appunto, array associativo. </p>
+<pre><code class="language-php">$arrayAssociativi = [
+  &quot;lun&quot; =&gt; &quot;Lunedì&quot;, 
+  &quot;mar&quot; =&gt; &quot;Martedì&quot;,
+  &quot;mer&quot; =&gt; &quot;Mercoledì&quot;,
+];
+</code></pre>
+<p>Come si può notare, l'array associativo si definisce allo stesso modo di quello posizionale, l'unica differenza 
+sta nel modo di scrivere i suoi elementi. 
+Per semplicità di lettura, ogni elemento è scritto su una riga diversa, ma nulla vieta di scrivere tutti gli elementi 
+su di un a riga sola. Consiglio caldamente però di non sacrificare mai la leggibilità del codice, quindi è sempre meglio, 
+anche per gli array posizionali, scrivere tutti ogni elemento su di una riga diversa. </p>
+<p>Per aggiungere un elemento ad un array associativo è necessario definire una chiave e ad essa associarli un valore.
+La chiave deve essere un valore di tipo stringa, numerico o booleano. Il valore, invece, può essere di qualsiasi tipo e 
+nulla vieta che esso sia un altro array posizionale o associativo.</p>
+<p>Tutte le operazioni che applicavamo ad un array posizionale possiamo tranquillamente applicarle anche ad un array associativo 
+con l'unica accortezza di cambiare il modo con cui ci interfacciamo agli elementi. 
+Se con l'array posizionale usavamo la posizione o l'indice dell'elemento per riferirci ad essere, con quelli associativi 
+dobbiamo usare esclusivamente la chiave con cui abbiamo definito quell'elemento. Non possiamo, ad esempio, stampare il primo
+elemento di un array associativo scrivendo</p>
+<pre><code class="language-php">echo $arrayAssociativi[0]
+</code></pre>
+<p>In quanto su quell'array non esiste la chiave corrispondente a 0 (che infatti è &quot;lun&quot;).
+Anche gli array posizionali, infatti, non sono altro che array associativi in cui le chiavi sono gli indici
+con cui l'elemento è inserito all'interno dell'array</p>
+<p>Questa istruzione stampa l'elemento corrispondente alla chiave &quot;lun&quot; dell'array <code>arrayAssociativi</code>:</p>
+<pre><code class="language-php">echo $arrayAssociativi[&quot;lun&quot;]; 
+</code></pre>
+<p>Una delle funzioni più importanti degli array associativi è quella di definire delle strutture di dati,
+ovvero delle variabili che al loro interno contengano dei campi relativi a certe caratteristiche dell'oggetto 
+che vogliono descrivere. </p>
+<p>Ad esempio, qui andiamo a definire una variabile chiamata <code>$utente</code> che al suo interno definisce degli elementi
+associati a diverse chiavi che rappresentano dei &quot;campi&quot; dell'oggetto, ovvero vanno a descrivere delle caratteristiche 
+dell'oggetto <code>$utente</code> e ci permettono di riferirci ad esse usando il loro nome. </p>
+<p>Il primo elemento dell'array associativo <code>$utente</code> non è un solamente un oggetto scorrelato da <code>$utente</code>, bensì 
+una caratteristica di <code>$utente</code>, in particolare rappresenta l'età del nostro utente, e ci permette di 
+riferirci ad essa usando una chiave &quot;semantica&quot;, ovvero che descrive il contenuto della variabile a cui fa riferimento. </p>
+<p>Ora dunque per riferirci all'età del nostro utente potremo scrivere <code>$utente</code>['eta'], ovvero &quot;dammi l'età dell'utente&quot;. 
+Sarà molto più facile all'interno di funzioni e in generale nel nostro codice riferirci ai campi che ci interessano.</p>
+<pre><code class="language-php">$utente = [
+  &quot;eta&quot; =&gt; 25,
+  &quot;nome&quot; =&gt; &quot;Giacomo&quot;,
+  &quot;cognome&quot; =&gt; &quot;Alberini&quot;,
+  &quot;email&quot; =&gt; &quot;giacomoalbe@gmail.com&quot;,
+  &quot;password&quot; =&gt; &quot;ilovephpjustkidding&quot; 
+];
+</code></pre>
+<p>Un esempio di quanto appena detto. Per scrivere nome e cognome dell'utente possiamo
+fare riferimento agli elementi dell'array associativo, che sono relativi appunto 
+alle caratteristiche dell'oggetto che stiamo descrivendo (una persona appunto).</p>
+<pre><code class="language-php">echo &quot;Ciao, &quot; . $utente[&quot;nome&quot;] . &quot; &quot; . $utente['cognome'] . &quot;!&lt;br&gt;&quot;;
+</code></pre>
+<p>Questa funzione si aspetta che il suo parametro di ingresso di un array associativo 
+contenente le chiavi nome, cognome, eta e email che poi andrà a stampare
+Qui definiamo la funzione, ovvero associamo un certo numero di istruzioni ad una &quot;etichetta&quot;
+(il nome della funzione) che più tardi utilizzeremo per eseguire il codice ad essa associato. </p>
+<pre><code class="language-php">function salutaPersona($utente) {
+  $nome = $utente[&quot;nome&quot;];
+  $cognome = $utente[&quot;cognome&quot;];
+  $eta = $utente[&quot;eta&quot;];
+  $email = $utente[&quot;email&quot;];
+
+  echo &quot;Ciao, $nome $cognome! Hai $eta anni! Ti mando una mail a $email!&lt;br&gt;&quot;;
+}
+</code></pre>
+<p>Qui richiamiamo la funzione salutaPersona, dopo averla definita sopra. 
+Fino al momento della chiamata, la funzione non fa assolutamente nulla. </p>
+<pre><code class="language-php">salutaPersona($utente);
+</code></pre>
+<p>Questo è un esempio di come possiamo usare il ciclo foreach per stampare 
+sia le chiavi che gli elementi di un array associativo. Se non avessimo 
+usato la sintassi <code>$chiave =&gt; $valore</code>, non avremmo avuto accesso a tutte le informazioni 
+per descrivere correttamente un array associativo, ma solo il valore corrispondente ad ogni chiave
+senza però sapere il valore della chiave stessa. </p>
+<pre><code class="language-php">foreach($utente as $chiave =&gt; $valore) {
+  echo &quot;Chiave: $chiave =&gt; Valore: $valore&lt;br&gt;&quot;;
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="iterazione.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="funzioni.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="iterazione.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="funzioni.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
