@@ -34,3 +34,4 @@ Questo lavoro collettivo è frutto della fatica, dell'impegno e della pressione 
 
 - **Giacomo Alberini** (giacomoalbe)
 - **Federico Cracco** (federico.cracco95)
+- **Erik Galbero** (erikgalbero)
