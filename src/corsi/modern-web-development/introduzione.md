@@ -25,3 +25,11 @@ A corredo, si procederà allo sviluppo di una applicazione Web di difficoltà in
     * [MVVM & Data Binding](./vue/mvvm-e-data-binding.md)
     * [Methods, Mounted & Computed](./vue/methods-mounted-e-computed.md)
     * [API, async, axios](./vue/api-async-axios.md)
+
+## Autori
+
+La stesura di questo libro rappresenta la conclusione di più di un anno di lavoro di una classe intera, che è stata letteralmente trasformata in un _laboratorio didattico_ per sperimentare nuove metodologie di apprendimento e di preparazione al crudele _Mondo del Lavoro_.
+
+Questo lavoro collettivo è frutto della fatica, dell'impegno e della pressione di _innumerevoli tasti_ da parte dei seguenti autori:
+
+- **Giacomo Alberini** (giacomoalbe)
