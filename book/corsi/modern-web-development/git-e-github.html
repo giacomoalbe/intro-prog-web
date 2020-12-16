@@ -166,25 +166,67 @@
                         <h1><a class="header" href="#git--github" id="git--github">Git &amp; Github</a></h1>
 <h2><a class="header" href="#introduzione-al-versionamento" id="introduzione-al-versionamento">Introduzione al versionamento</a></h2>
 <p>TODO: cosa significa versionare e come impatta nel mondo dello sviluppo del codice, con particolare relazione alla collaborazione tra diversi sviluppatori</p>
+<p>Il controllo di versione è un sistema che permette di tenere traccia nel tempo di cambiamenti ad un file o ad una serie di file, così da poter richiamare una specifica versione in un secondo momento.<br />
+Questo approccio permette inoltre di tenere traccia dei cambiamenti tra le versioni, oltre a facilitare la stesura della documentazione.<br />
+L'utilizzo di sistemi di controllo del versionamento come il programma Git (locale) e <a href="https://github.com/">Github</a> (il sito servizio di cloud di Git), permettono di lavorare allo sviluppo in team. Git permette infatti di creare 'branches', rami che sono copie del ramo principale del codice sorgente, nel quale si possono inserire gli sviluppi successivi. Implementate le nuove modifiche è quindi possibile inserire o 'merge' all'interno del ramo principale, unendo il lavoro di tutti gli sviluppatori controllando le sovrapposizioni.</p>
 <h2><a class="header" href="#concetti-base" id="concetti-base">Concetti base</a></h2>
 <ul>
-<li>Repository</li>
-<li>Stage</li>
-<li>Commit</li>
-<li>Branch</li>
-<li>Remote</li>
+<li>
+<p>Repository
+Una repository (aka repo) è una cartella od uno spazio di archiviazione dove sono inseriti tutti i file del progetto. Può trovarsi all'interno di una cartella nel computer o nello spazio di GitHub o in un'altro servizio di hosting online.<br />
+All'interno di una repository è possibile inserire qualunque tipo di file, che sia codice, immagine o altro. Per Github consigliano comunque di non inserire file singoli di dimensione superiore a 60Mb.</p>
+</li>
+<li>
+<p>Stage
+Lo 'stage', letteralmente 'palco', è lo step precedente al 'commit'. Esso contiene tutte le modifiche che si vuole salvare attraverso il commit. All'interno dello stage è ancora possibile modificare i file, rimuovere o aggiungere modifiche.<br />
+Il comando usato per aggiungere i file modificati all'interno dello stage è <code>git add &lt;nome_file&gt;</code></p>
+</li>
+<li>
+<p>Commit
+Commit è il termine usato per indicare la fase nella quale vengono incluse le modifiche da inserire nel prossimo commit. Una volta aggiunte le modifiche all'interno dello stage, Git non salva automaticamente tutto in un commit, ma deve essere effettuato manualmente attraverso il comando <code>git commit</code></p>
+</li>
+<li>
+<p>Branch
+Il branch indica il ramo di codice. Il ramo principale viene chiamato 'master'. Benchè si possa lavorare direttamente sul master, è consigliato iniziare un nuovo branch ogni volta che si vuole implementare una nuova funzionalità. Questo permette agli altri sviluppatori di lavorare su un codice 'non ancora inquinato'.</p>
+</li>
+<li>
+<p>Remote
+Repository in remoto sono versione di un progetto hostate su internet. Un utente Git può lavorare su git</p>
+</li>
 </ul>
 <h2><a class="header" href="#comandi-git" id="comandi-git">Comandi Git</a></h2>
 <ul>
-<li>status</li>
-<li>add</li>
-<li>commit</li>
-<li>checkout</li>
-<li>branch</li>
-<li>push</li>
-<li>pull</li>
-<li>clone</li>
-<li>merge</li>
+<li>Init<br />
+Viene utilizzato per inizializzare un progetto git. Viene utilizzato all'interno della directory da 'trasformare' in repository.<br />
+<code>git init </code></li>
+<li>status<br />
+Permette di controllare quali file sono stati modificati, quali inseriti nello stage, quali sono pronti per il commit.<br />
+<code>git status</code></li>
+<li>add<br />
+Inserisce i file selezionati all'interno dello stage.<br />
+<code>git add &lt;file&gt;</code> o <code>git add .</code></li>
+<li>commit<br />
+Salva definitivamente le modifiche all'interno del branch. Bisogna inserire anche il parametro '-m' che imposta un messaggio per il commit.<br />
+<code>git commit -m '&lt;messaggio&gt;'</code> - solitamente il messaggio viene scritto in inglese, con una frase semplice formata da verbo imperativo e complemento es. 'add interceptor'.</li>
+<li>checkout<br />
+Viene usato per 'saltare' tra un ramo e l'altro del progetto.<br />
+<code>git checkout &lt;nome_branch&gt;</code> o <code>git checkout -b &lt;nome_nuovo_branch&gt;</code> per creare un nuovo ramo e 'saltarci' sopra.</li>
+<li>branch<br />
+Viene usato per visualizzare i branch attivi e quello su cui ci si trova.</li>
+<li>push<br />
+Viene usato per inserire i commit all'interno della repo online. Al primo push su una repository remota si aggiunge 'origin' come destinazione e 'master' come branch sul quale ci si trova all'inizio:<br />
+<code>git push origin master</code> → 1° push sul branch master in remoto<br />
+<code>git push</code> → per tutte le altre</li>
+<li>pull<br />
+Permette di aggiornare la versione locale della repository con quella remota. In questa fase possono verificarsi dei conflitti che devono essere controllati ed appianati. Prima di effettuare una nuova 'push' è sempre consigliato effettuare una 'push'.<br />
+<code>git pull</code></li>
+<li>clone<br />
+Viene usato per 'clonare' una repo da remoto in locale. Il comando richiede l'indirizzo della repository su GitHub ed il protocollo utilizzato: https o ssh.<br />
+<code>git clone https://&lt;autore&gt;/&lt;nome_repo&gt;.git</code> o <code>git clone git@github.com:&lt;autore&gt;/&lt;nome_repo&gt;.git</code><br />
+NB<br />
+Per usare il metodo ssh bisogna avere un account GitHub ed aver collegato una chiave ssh valida.</li>
+<li>merge
+Permette di 'unire' due branch, i conflitti che si genereranno andranno risolti manualmente, selezionando quali modifiche mantenere.</li>
 </ul>
 <h2><a class="header" href="#github" id="github">Github</a></h2>
 <p>TODO: Cos'è e come funziona relativamente alla condivisione codice, chiave SSH e clone</p>
