@@ -1,0 +1,350 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Uso del terminale - Introduzione alla Programmazione per il Web</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../introduzione.html">Introduzione</a></li><li class="chapter-item expanded "><a href="../../corsi/modern-web-development/introduzione.html"><strong aria-hidden="true">1.</strong> Modern Web Development</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../corsi/modern-web-development/uso-del-terminale.html" class="active"><strong aria-hidden="true">1.1.</strong> Uso del terminale</a></li><li class="chapter-item expanded "><a href="../../corsi/modern-web-development/git-e-github.html"><strong aria-hidden="true">1.2.</strong> Git &amp; Github</a></li><li class="chapter-item expanded "><a href="../../corsi/modern-web-development/model-view-controller.html"><strong aria-hidden="true">1.3.</strong> Model View Controller</a></li><li class="chapter-item expanded "><a href="../../corsi/modern-web-development/protocollo-rest.html"><strong aria-hidden="true">1.4.</strong> Protocollo REST</a></li><li class="chapter-item expanded "><a href="../../corsi/modern-web-development/laravel/introduzione.html"><strong aria-hidden="true">1.5.</strong> Il Framework Laravel</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../corsi/modern-web-development/laravel/orm.html"><strong aria-hidden="true">1.5.1.</strong> ORM</a></li><li class="chapter-item expanded "><a href="../../corsi/modern-web-development/laravel/migrazioni.html"><strong aria-hidden="true">1.5.2.</strong> Migrazioni</a></li><li class="chapter-item expanded "><a href="../../corsi/modern-web-development/laravel/routing.html"><strong aria-hidden="true">1.5.3.</strong> Routing</a></li><li class="chapter-item expanded "><a href="../../corsi/modern-web-development/laravel/controller.html"><strong aria-hidden="true">1.5.4.</strong> Controller</a></li></ol></li><li class="chapter-item expanded "><a href="../../corsi/modern-web-development/vue/introduzione.html"><strong aria-hidden="true">1.6.</strong> Il Framework Vue</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../corsi/modern-web-development/vue/mvvm-e-data-binding.html"><strong aria-hidden="true">1.6.1.</strong> MVVM &amp; Data Binding</a></li><li class="chapter-item expanded "><a href="../../corsi/modern-web-development/vue/methods-mounted-e-computed.html"><strong aria-hidden="true">1.6.2.</strong> Methods, Mounted &amp; Computed</a></li><li class="chapter-item expanded "><a href="../../corsi/modern-web-development/vue/api-async-axios.html"><strong aria-hidden="true">1.6.3.</strong> API, async, axios</a></li></ol></li><li class="chapter-item expanded "><a href="../../corsi/modern-web-development/tailwind-css.html"><strong aria-hidden="true">1.7.</strong> Il Framework Tailwind CSS</a></li></ol></li><li class="chapter-item expanded "><a href="../../corsi/vanilla-php/introduzione.html"><strong aria-hidden="true">2.</strong> Vannilla PHP</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../teoria.html"><strong aria-hidden="true">2.1.</strong> Teoria</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../php.html"><strong aria-hidden="true">2.1.1.</strong> PHP</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../basi_internet_php.html"><strong aria-hidden="true">2.1.1.1.</strong> Introduzione</a></li><li class="chapter-item expanded "><a href="../../variabili.html"><strong aria-hidden="true">2.1.1.2.</strong> Variabili</a></li><li class="chapter-item expanded "><a href="../../selezione.html"><strong aria-hidden="true">2.1.1.3.</strong> Selezione</a></li><li class="chapter-item expanded "><a href="../../iterazione.html"><strong aria-hidden="true">2.1.1.4.</strong> Iterazione</a></li><li class="chapter-item expanded "><a href="../../array.html"><strong aria-hidden="true">2.1.1.5.</strong> Array</a></li><li class="chapter-item expanded "><a href="../../funzioni.html"><strong aria-hidden="true">2.1.1.6.</strong> Funzioni</a></li></ol></li><li class="chapter-item expanded "><a href="../../intro_database.html"><strong aria-hidden="true">2.1.2.</strong> Database</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../database.html"><strong aria-hidden="true">2.1.2.1.</strong> Introduzione</a></li></ol></li><li class="chapter-item expanded "><a href="../../intro_git.html"><strong aria-hidden="true">2.1.3.</strong> Versionamento Codice</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../git.html"><strong aria-hidden="true">2.1.3.1.</strong> Introduzione</a></li></ol></li><li class="chapter-item expanded "><a href="../../intro_ui_design.html"><strong aria-hidden="true">2.1.4.</strong> UI/UX</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../flexbox.html"><strong aria-hidden="true">2.1.4.1.</strong> Flexbox</a></li></ol></li><li class="chapter-item expanded "><a href="../../intro_architettura_web.html"><strong aria-hidden="true">2.1.5.</strong> Architettura Web</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../design_patterns.html"><strong aria-hidden="true">2.1.5.1.</strong> Design Patterns</a></li><li class="chapter-item expanded "><a href="../../servizi.html"><strong aria-hidden="true">2.1.5.2.</strong> Servizi Web</a></li><li class="chapter-item expanded "><a href="../../web_software_design.html"><strong aria-hidden="true">2.1.5.3.</strong> Web Software Design</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../esercizi.html"><strong aria-hidden="true">2.2.</strong> Esercizi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../esercizi_basi_php.html"><strong aria-hidden="true">2.2.1.</strong> Basi di PHP</a></li><li class="chapter-item expanded "><a href="../../esercizi_selezione_iterazione.html"><strong aria-hidden="true">2.2.2.</strong> Selezione &amp; Iterazione</a></li><li class="chapter-item expanded "><a href="../../esercizi_array.html"><strong aria-hidden="true">2.2.3.</strong> Array</a></li><li class="chapter-item expanded "><a href="../../esercizi_database.html"><strong aria-hidden="true">2.2.4.</strong> Database</a></li><li class="chapter-item expanded "><a href="../../simulazioni_esami.html"><strong aria-hidden="true">2.2.5.</strong> Simulazioni Esami</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../portale_pagamenti_pa.html"><strong aria-hidden="true">2.2.5.1.</strong> Portale Pagamenti PA</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../soluzioni.html"><strong aria-hidden="true">2.3.</strong> Soluzioni</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../esericizi_cicli_for.html"><strong aria-hidden="true">2.3.1.</strong> Cicli For</a></li><li class="chapter-item expanded "><a href="../../esercizi_scacchiera.html"><strong aria-hidden="true">2.3.2.</strong> Scacchiera</a></li><li class="chapter-item expanded "><a href="../../esercizi_form_colori.html"><strong aria-hidden="true">2.3.3.</strong> Form &amp; Colori</a></li><li class="chapter-item expanded "><a href="../../utenti_crud.html"><strong aria-hidden="true">2.3.4.</strong> Utenti CRUD</a></li><li class="chapter-item expanded "><a href="../../utenti_crud_edit.html"><strong aria-hidden="true">2.3.5.</strong> Utenti CRUD con Edit</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../contributing.html"><strong aria-hidden="true">3.</strong> Contribuire al Libro</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Introduzione alla Programmazione per il Web</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#uso-del-terminale" id="uso-del-terminale">Uso del terminale</a></h1>
+<h2><a class="header" href="#introduzione" id="introduzione">Introduzione</a></h2>
+<p>Con <strong>terminale</strong> intendiamo qualsiasi sistema fisico o virtuale attraverso il quale è possibile comunicare con un computer.
+Esempi di &quot;terminale&quot; di uso comune sono lo schermo, la tastiera e il mouse.</p>
+<p>In programmazione, con terminale andiamo ad intendere un'applicazione (nativa, virtualizzata o web) che ci permette di inviare comandi e in generale di interagire con un sistema operativo utilizzando un'<strong>interfaccia da riga di comando</strong>, comunemente nota con il nome di <strong>CLI</strong> (appunto <em>Command Line Interface</em>).</p>
+<p>Con questa modalità di interazione è possibile inviare al sistema in oggetto comandi e istruzioni sotto forma di <strong>stringhe di testo</strong> opportunamente formattate.</p>
+<p>In questo modo è possibile portare a termine tutte quelle operazioni che normalmente svolgiamo usando primariamente il mouse (ad esempio entrare in una cartella, copiare un file, creare un file di testo, spostare file e cartelle, aprire programmi, interagire con Internet, ecc) utilizzando <strong>comandi, istruzioni e parametri</strong>.</p>
+<p>Ogni terminale ha un suo &quot;linguaggio&quot;, ovvero una serie di convenzioni e di protocolli che permettono di comunicare direttamente con il computer su cui stiamo lavorando.</p>
+<p>Possiamo pensare al terminale come ad un &quot;interprete&quot;, che comprende le nostre intenzioni (inserite sotto forma di comandi e istruzioni) e le comunica direttamente al Sistema Operativo, recuperando il risultato generato e mostrandolo all'utente che ne ha fatto richiesta.</p>
+<p>L'interprete di terminale maggiormente usato sia in ambito Linux che Windows è Bash.</p>
+<p>Per accedere al terminale di un PC, è consigliato usare la funzione &quot;Terminale&quot; di VSCode, scegliendo l'interprete Bash, oppure, se su Linux, di usare l'applicazione terminale fornita dalla vostra distribuzione.</p>
+<h2><a class="header" href="#comandi" id="comandi">Comandi</a></h2>
+<p>Di seguito sono presentati i comandi più utili e maggiormente usati in fase di sviluppo di progetti Web:</p>
+<ul>
+<li>
+<p><strong>cd</strong></p>
+<p><code>cd</code> sta per Change Directory e il suo compito è esattamente quello di cambiare la directory corrente al path specificato come primo argomento.
+Ad esempio <code>cd /home/user/Desktop</code> porta la directory corrente da quella in cui siamo a <code>/home/user/Desktop</code>.
+E' l'equivalente del doppio clic all'interno di una cartella in Esplora Risorse di Windows, solamente che in questo caso è necessario indicare il percorso specifico della cartella in cui si intende entrare</p>
+</li>
+<li>
+<p><strong>pwd</strong></p>
+<p><code>pwd</code> sta per Print Working Directory e serve appunto per stampare a video la cartella corrente. Il terminale, come l'Esplora Risorse, può rappresentare una cartella del FileSystem alla volta e applica i comandi che inseriamo alla cartella in cui ci si trova nel momento dell'applicazione. <code>pwd</code> permette di conoscere questa cartella</p>
+</li>
+<li>
+<p><strong>ls</strong></p>
+<p><code>ls</code> sta per List e serve per mostrare il contenuto di una cartella. Con l'opzione <code>ls -la</code> mostra tutti i file, anche quelli nascosti, nella cartella corrente, uno sotto l'altro.</p>
+</li>
+<li>
+<p><strong>mkdir</strong></p>
+<p><code>mkdir</code> sta per Make Directory e serve per creare una cartella all'interno della cartella corrente. Il nome della cartella che verrà creata è il primo paramentro che viene passato al comando: <code>mkdir prova</code> creerà una cartella all'interno della cartella corrente di nome <code>prova</code>.</p>
+</li>
+<li>
+<p><strong>mv</strong></p>
+<p><code>mv</code> sta per Move e serve per spostare o rinominare un file o una cartella. Opera sempre su una <em>sorgente</em> (primo paramento) e su una <em>destinazione</em> (secondo paramentro). Se la destinazione è già presente ed è una cartella, la sorgente verrà <strong>spostata</strong> al suo interno. Se invece la destinazione non è presente, significa che la sorgente verrà rinominata con il valore della destinazione.</p>
+<p><strong>Attenzione:</strong> rinominare un file o una cartella non significa semplicemente cambiargli nome. <code>mv</code> si riferisce al <em>nome</em> di un file o di una cartella indicando il suo <em>path</em> o percorso. E' quindi possibile rinominare e spostare un file nella stessa operazione.</p>
+<p>Esempi:</p>
+<ul>
+<li><code>mv sorgente origine</code> rinomina il file sorgente in origine (solo se origine non esiste, altrimenti lo sovrascrive - se è un file - o lo inserisce nella cartella - se è una cartella)</li>
+</ul>
+</li>
+<li>
+<p><strong>cp</strong></p>
+<p><code>cp</code> sta per Copy ed è molto simile a <code>mv</code>, solo che invece di spostare o rinominare semplicemente copia la sorgente nella destinazione. Se la destinazione è una cartella, copia la sorgente dentro la cartella destinazione. Se si volesse copiare una cartella <em>sorgente</em> dentro la cartella <em>destinazione</em> si dovrebbe usare il paramentro <code>-r</code>, ovvero <em>recursive</em>.</p>
+<p>Esempi:</p>
+<ul>
+<li><code>cp sorgente destinazione</code> crea un file destinazione con lo stesso contenuti di sorgente.</li>
+<li><code>cp sorgente destinazione/</code> crea un file chiamato sorgente dentro la cartella destinazione.</li>
+</ul>
+</li>
+<li>
+<p><strong>rm</strong></p>
+<p><code>rm</code> sta per Remove ed è utilizzato per eliminare file o cartelle. Come <code>cp</code> per poter cancellare una cartella è necessario usare il parametro <code>-r</code>.</p>
+<p>Esempi:</p>
+<ul>
+<li><code>rm file</code> cancella il file <em>file</em></li>
+<li><code>rm -r folder</code> cancella la cartella <em>folder</em></li>
+</ul>
+</li>
+<li>
+<p><strong>clear</strong></p>
+<p><code>clear</code> serve per cancellare la finestra corrente del terminale. Dato che è un tipo di interazione testuale, solitamente le <em>console</em> (così vengono chiamate le finestra in cui gira il terminale) hanno una dimensione di 80x44, ovvero 80 colonne e 44 righe. E' quindi facile &quot;riepire&quot; il terminale di testo. <code>clear</code> lo cancella tutto e sposta il <em>prompt</em> (ovvero il posto in cui vengono inseriti i comandi) alla prima riga della console.</p>
+</li>
+<li>
+<p><strong>touch</strong></p>
+<p><code>touch</code> serve per creare un file vuoto nella directory corrente. Il nome del file sarà il primo argomento passato a <code>touch</code>. Il file viene solamente creato, ma sarà completamente privo di contenuto.</p>
+</li>
+<li>
+<p><strong>cat</strong></p>
+<p><code>cat</code> sta per Concat e serve per mandare in output il contenuto di un file. Di base, l'output di questo comando viene stampato a video ma è sempre possibile redirigere questo output ad un altro file o comando. <code>cat</code> accetta un numero arbitrario di parametri, ma tutti devono rappresentare percorsi validi di file. L'output sarà sempre la concatenazione del contenuto di questi file, uno dietro l'altro.</p>
+<p>Esempi:</p>
+<ul>
+<li><code>cat prova</code> stampa il contenuto del file <em>prova</em> a terminale</li>
+<li><code>cat uno due tre</code> stampa la concatenazione dei file <em>uno, due e tre</em> a video</li>
+<li><code>cat uno due tre &gt; concatenazione</code> concatena i file <em>uno, due e tre</em> e crea un file di nome <em>concatenazione</em> contenente l'output generato.</li>
+</ul>
+</li>
+<li>
+<p><strong>echo</strong></p>
+<p><code>echo</code>, come in PHP, permette di scrivere a video quanto gli viene comunicato come parametro.</p>
+<p>Esempi:</p>
+<ul>
+<li><code>echo testo di prova</code> stampa testo di prova sul terminale</li>
+</ul>
+</li>
+</ul>
+<p>Oltre ai comandi, in Bash esistono anche delle istruzioni che possono essere usate per concatenare tra loro diversi comandi:</p>
+<ul>
+<li>
+<p>Pipe</p>
+<p>TODO: Spiegare come usare il pipe | per redirigere l'output da un comando ad un altro</p>
+</li>
+<li>
+<p>Redirect a file</p>
+<p>TODO: Spiegare come il &gt; mandi l'output di un comando ad un file</p>
+</li>
+<li>
+<p>Path helpers</p>
+<p>TODO: spiegare significato di &quot;cd .&quot;, &quot;cd ..&quot; &quot;./&quot;, &quot;cd -&quot;</p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../corsi/modern-web-development/introduzione.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../corsi/modern-web-development/git-e-github.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../corsi/modern-web-development/introduzione.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../corsi/modern-web-development/git-e-github.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

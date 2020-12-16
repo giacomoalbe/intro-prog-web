@@ -1,0 +1,5 @@
+[book]
+authors = ["Giacomo"]
+multilingual = false
+src = "src"
+title = "Introduzione alla Programmazione per il Web"

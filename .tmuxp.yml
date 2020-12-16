@@ -1,0 +1,12 @@
+session_name: IntroWebBook
+start_directory: ./
+windows:
+  - window_name: Code
+    panes:
+      - shell_command:
+        - cd src/
+        - vim
+  - window_name: Watch
+    panes:
+      - shell_command:
+        - mdbook watch
