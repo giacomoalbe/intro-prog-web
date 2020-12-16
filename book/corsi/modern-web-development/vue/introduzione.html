@@ -165,16 +165,92 @@
                     <main>
                         <h1><a class="header" href="#il-framework-vue" id="il-framework-vue">Il Framework Vue</a></h1>
 <h2><a class="header" href="#concetti-generali" id="concetti-generali">Concetti Generali</a></h2>
-<p>TODO:</p>
-<ul>
-<li>Cos'è Vue, dove si posiziona nello sviluppo Web (frontend/backend)</li>
-<li>Aspetti centrali di Vue (component based, reactive)</li>
-</ul>
+<!-- TODO
+* Cos'è Vue, dove si posiziona nello sviluppo Web (frontend/backend)
+* Aspetti centrali di Vue (component based, reactive) -->
+<p>Vue è un framework Javascript frontend per la realizzazione di interfacce web e single page application.<br />
+Alternative ad esso possono essere React.js e Angular.js</p>
+<p>E' un sistema basato su componenti, blocchi di programma riutilizzabili, e proprietà reattive, variabili capaci reagire e modificarsi dato un cambiamento.</p>
 <h2><a class="header" href="#componenti" id="componenti">Componenti</a></h2>
-<p>TODO:</p>
+<!-- TODO 
+* Struttura del componente (template, script, style)
+* Template delle properties dello script di un componente -->
+<p>A seconda di come viene installato, Vue può avere due strutture diverse:</p>
 <ul>
-<li>Struttura del componente (template, script, style)</li>
-<li>Template delle properties dello script di un componente</li>
+<li>Struttura a componenti</li>
+<li>Struttura a pagina singola</li>
+</ul>
+<h3><a class="header" href="#struttura-a-componenti" id="struttura-a-componenti">Struttura a componenti</a></h3>
+<p>In questo caso Vue è organizzato in componenti aventi la seguente struttura:</p>
+<pre><code>&lt;template&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;HelloWorld msg=&quot;Hello World!&quot;&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import HelloWorld from '.components/Helloworld.vue
+
+export default {
+    name: 'app',
+    components: {
+        HelloWorld
+    },
+    methods: {
+
+    }
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+    * {
+        margin: 0;
+        padding: 0;
+    }
+&lt;/style&gt;
+</code></pre>
+<p>Dove:</p>
+<ul>
+<li><code>&lt;template&gt;&lt;/template&gt;</code> contiene tutto il codice che verrà visualizzato come html</li>
+<li><code>&lt;script&gt;&lt;/script&gt;</code> contiene il codice javascript, dove possiamo importare i componenti, definire le proprietà reattive, i metodi e altro di cui parleremo nei capitoli successivi</li>
+<li><code>&lt;style&gt;&lt;/style&gt;</code> contiene il codice per stili css del componente (se utilizziamo tailwind questo tag non serve)</li>
+</ul>
+<p>I componenti sono file con l'estensione <code>.vue</code>, come in questo caso <code>.HelloWorld</code>, che possono essere importati in altri componenti</p>
+<h3><a class="header" href="#struttura-a-pagina-singola" id="struttura-a-pagina-singola">Struttura a pagina singola</a></h3>
+<p>In questo caso utiliziamo Vue all'interno di una singola pagina:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;v-if&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        {{ messaggio }}
+    &lt;/div&gt;
+    &lt;script&gt;
+        let app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    messaggio: &quot;Hello World!&quot;,
+                }
+            },
+            methods: {
+            }
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Per prima cosa dobbiamo importare la cdn di Vue con <code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>Dunque, come vediamo dall'esempio, creiamo una nuovo oggetto Vue dentro al tag <code>&lt;script&gt;&lt;/script&gt;</code> dove ci sono 3 parametri fondamentali:</p>
+<ul>
+<li><code>el: </code> dove definiamo il selettore in cui verrà visualizzata la nostra applicazione (<code>#app</code> in questo caso)</li>
+<li><code>data() { }</code> che è un funzione dove definiamo le proprietà reattive, ritornandole, (<code>messaggio</code> in questo caso)</li>
+<li><code>methods: { }</code> dove definiamo le nostre funzioni Javascript</li>
 </ul>
 <h2><a class="header" href="#npm--vue-cli" id="npm--vue-cli">Npm &amp; Vue CLI</a></h2>
 <p>TODO:</p>
