@@ -4,6 +4,9 @@
 
 TODO: cos'è un protocollo, come viene usato per la comunicazione tra client & server, che tipo di tecnologia usa, il ruolo dei verbi HTTP (get, post, put,), le convenzioni, cos'è una risorsa
 
+Prova protocollo **rest**
+
+
 ## I verbi HTTP
 
 * GET
