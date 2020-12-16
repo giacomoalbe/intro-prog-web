@@ -191,6 +191,12 @@
 </ul>
 </li>
 </ul>
+<h2><a class="header" href="#autori" id="autori">Autori</a></h2>
+<p>La stesura di questo libro rappresenta la conclusione di più di un anno di lavoro di una classe intera, che è stata letteralmente trasformata in un <em>laboratorio didattico</em> per sperimentare nuove metodologie di apprendimento e di preparazione al crudele <em>Mondo del Lavoro</em>.</p>
+<p>Questo lavoro collettivo è frutto della fatica, dell'impegno e della pressione di <em>innumerevoli tasti</em> da parte dei seguenti autori:</p>
+<ul>
+<li><strong>Giacomo Alberini</strong> (giacomoalbe)</li>
+</ul>
 
                     </main>
 
@@ -229,6 +235,21 @@
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         
