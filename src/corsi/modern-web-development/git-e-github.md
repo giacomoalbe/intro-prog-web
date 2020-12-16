@@ -10,21 +10,21 @@ L'utilizzo di sistemi di controllo del versionamento come il programma Git (loca
 
 ## Concetti base
 
-* Repository
+* Repository  
 Una repository (aka repo) è una cartella od uno spazio di archiviazione dove sono inseriti tutti i file del progetto. Può trovarsi all'interno di una cartella nel computer o nello spazio di GitHub o in un'altro servizio di hosting online.  
 All'interno di una repository è possibile inserire qualunque tipo di file, che sia codice, immagine o altro. Per Github consigliano comunque di non inserire file singoli di dimensione superiore a 60Mb.
 
-* Stage
+* Stage  
 Lo 'stage', letteralmente 'palco', è lo step precedente al 'commit'. Esso contiene tutte le modifiche che si vuole salvare attraverso il commit. All'interno dello stage è ancora possibile modificare i file, rimuovere o aggiungere modifiche.  
 Il comando usato per aggiungere i file modificati all'interno dello stage è `git add <nome_file>`  
 
-* Commit
+* Commit  
 Commit è il termine usato per indicare la fase nella quale vengono incluse le modifiche da inserire nel prossimo commit. Una volta aggiunte le modifiche all'interno dello stage, Git non salva automaticamente tutto in un commit, ma deve essere effettuato manualmente attraverso il comando `git commit`
 
-* Branch
+* Branch  
 Il branch indica il ramo di codice. Il ramo principale viene chiamato 'master'. Benchè si possa lavorare direttamente sul master, è consigliato iniziare un nuovo branch ogni volta che si vuole implementare una nuova funzionalità. Questo permette agli altri sviluppatori di lavorare su un codice 'non ancora inquinato'.
 
-* Remote
+* Remote  
 Repository in remoto sono versione di un progetto hostate su internet. Un utente Git può lavorare su git
 
 ## Comandi Git
