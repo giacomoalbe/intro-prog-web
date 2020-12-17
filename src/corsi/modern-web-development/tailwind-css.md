@@ -33,6 +33,10 @@ Ottieni suggerimenti di completamento automatico intelligente, definizioni di cl
 **Installazione**
 
 Il modo più semplice ma meno personalizzabile è l'inclusione all'interno del proprio progetto del link di import dello stile.
+
+
 ![Migration](../immagini/img_0_0.png)
 
 Un altro metodo è l'installazioen tramite npm. 
+
+![Migration](../immagini/img_0_0.png)
