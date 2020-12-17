@@ -165,6 +165,54 @@
                     <main>
                         <h1><a class="header" href="#data-binding" id="data-binding">Data Binding</a></h1>
 <h2><a class="header" href="#introduzione" id="introduzione">Introduzione</a></h2>
+<p>Il data binding è una funzionalità che permette di mantenere sincronizzati dei dati (variabili Javascript, array, ecc.) in sincrono con il DOM (Document-Object-Model) molto facilmente. Ciò è grazie alla possibilità infatti di poter associare un elemento presentazionale con una particolare variabile od oggetto, e grazie alla modifica di questi avere un immediato cambiamento della view.
+Ciò appena descritto può essere riassunto in: Vue è dotato di &quot;motore&quot; che rende un applicativo <strong>reattivo</strong>.</p>
+<p>Questa utilissima funzione si basa sulle proprietà reattive, che vanno necessariamante definite all'interno di un' <strong>istanza</strong> di Vue:</p>
+<pre><code>```js
+var app = new Vue({
+    // proprietà
+});
+```
+</code></pre>
+<p>Di seguito viene mostrato come definirle:</p>
+<pre><code>```js
+var app = new Vue({
+    el: &quot;#app&quot;,
+    data() {
+        return {
+            reactiveProp1: &quot;&quot;,
+            reactiveProp2: 3,
+        },
+    }
+});
+```
+</code></pre>
+<p>E' possibile fare riferimento ad una proprietà reattiva sia all'interno del componente (usando this) sia dentro la vista (senza this):</p>
+<pre><code>```js
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;app&quot;&gt;
+            {{ reactiveProp2 }}    ==&gt;  fuori dal componente
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+var app = new Vue({
+    el: &quot;#app&quot;,
+    data() {
+        return {
+            reactiveProp1: &quot;&quot;,
+            reactiveProp2: 3,
+        },
+    },
+    methods: {
+        newFunction() {
+            this.reactivProp = &quot;Vue è bello&quot;;  ==&gt; dentro il componente
+        },
+    },
+});
+```
+</code></pre>
 <p>TODO:</p>
 <ul>
 <li>Cos'è il data binding, quale problema va a risolvere</li>

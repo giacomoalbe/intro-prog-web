@@ -2,6 +2,58 @@
 
 ## Introduzione
 
+Il data binding è una funzionalità che permette di mantenere sincronizzati dei dati (variabili Javascript, array, ecc.) in sincrono con il DOM (Document-Object-Model) molto facilmente. Ciò è grazie alla possibilità infatti di poter associare un elemento presentazionale con una particolare variabile od oggetto, e grazie alla modifica di questi avere un immediato cambiamento della view.
+Ciò appena descritto può essere riassunto in: Vue è dotato di "motore" che rende un applicativo **reattivo**.
+
+Questa utilissima funzione si basa sulle proprietà reattive, che vanno necessariamante definite all'interno di un' **istanza** di Vue:
+
+    ```js
+    var app = new Vue({
+        // proprietà
+    });
+    ```
+Di seguito viene mostrato come definirle:
+
+    ```js
+    var app = new Vue({
+        el: "#app",
+        data() {
+            return {
+                reactiveProp1: "",
+                reactiveProp2: 3,
+            },
+        }
+    });
+    ```
+E' possibile fare riferimento ad una proprietà reattiva sia all'interno del componente (usando this) sia dentro la vista (senza this):
+
+    ```js
+    <html>
+        <body>
+            <div id="app">
+                {{ reactiveProp2 }}    ==>  fuori dal componente
+            </div>
+        </body>
+    </html>
+    
+    var app = new Vue({
+        el: "#app",
+        data() {
+            return {
+                reactiveProp1: "",
+                reactiveProp2: 3,
+            },
+        },
+        methods: {
+            newFunction() {
+                this.reactivProp = "Vue è bello";  ==> dentro il componente
+            },
+        },
+    });
+    ```
+
+
+
 TODO:
 
 * Cos'è il data binding, quale problema va a risolvere

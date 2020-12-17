@@ -211,6 +211,7 @@
 <p>Questo lavoro collettivo è frutto della fatica, dell'impegno e della pressione di <em>innumerevoli tasti</em> da parte dei seguenti autori:</p>
 <ul>
 <li><strong>Giacomo Alberini</strong> (giacomoalbe)</li>
+<li><strong>Federico Cracco</strong> (federico.cracco95)</li>
 </ul>
 <h1><a class="header" href="#uso-del-terminale" id="uso-del-terminale">Uso del terminale</a></h1>
 <h2><a class="header" href="#introduzione-1" id="introduzione-1">Introduzione</a></h2>
@@ -384,7 +385,7 @@ Esso facilita notevolmente il lavoro del developer poichè:</p>
 </ul>
 <p>Esso permette di estendere le funzionalità del linguaggio di programmazione su cui è basato.<br />
 I <strong>componenti principali</strong> di un framework sono costituiti da <strong>classi</strong> collegate tra loro, a cui vengono assegnati dei <strong>metodi</strong>; tali metodi possono essere <strong>statici</strong>, ovvero immutabili, oppure <strong>flessibili</strong> e quindi modellabili.
-Vengono inoltre distinti i framework che lasciano maggiore controllo allo sviluppatore (<strong>&quot;un-opinonated&quot;</strong>), come per esempio Vue, e quelli che invece ne lasciano meno (<strong>&quot;opinionated&quot;</strong>).</p>
+Vengono inoltre distinti i framework che lasciano maggiore controllo allo sviluppatore (<strong>&quot;un-opinonated&quot;</strong>), come per esempio Vue, e quelli che invece ne lasciano meno (<strong>&quot;opinionated&quot;</strong>), come per esempio Laravel.</p>
 <h3><a class="header" href="#laravel" id="laravel">Laravel</a></h3>
 <p>Laravel è un <strong>framework</strong> orientato alla programmazione ad oggetti per la progettazione e la realizzazione di <strong>web applications</strong>, in particolare lato backend. Esso consente di sviluppare velocemente applicativi in linguaggio <strong>PHP</strong>, grazie al suo essere orientato al pattern architetturale MVC (<strong>Model-ViewController</strong>).</p>
 <p>Durante il corso si è utilizzato Laravel come <strong>API server</strong>. Attraverso la definizione di <strong>routes</strong> con l'ausilio del protocollo <strong>REST</strong> si richiamano specifiche funzioni dei <strong>controllers</strong> che vanno poi ad interfacciarsi con i dati contenuti nel database grazie ai <strong>models</strong>.</p>
@@ -392,12 +393,12 @@ Vengono inoltre distinti i framework che lasciano maggiore controllo allo svilup
 <h3><a class="header" href="#artisan" id="artisan">Artisan</a></h3>
 <p>Artisan è il nome dell'interfaccia a riga di comando (<strong>CLI</strong>) inclusa con Laravel. 
 Esso fornisce numerose funzionalità, per visualizzarle tutte è sufficente usare il seguente comando:<code>php artisan list</code>.</p>
-<p>Di seguito vengono riportate le principali funzionalità:</p>
+<p>Di seguito vengono riportati i principali comandi e le relative funzionalità:</p>
 <ul>
-<li>creazione controller ==&gt; <code>php artisan make:controller ControllerName</code></li>
-<li>creazione model ==&gt; <code>php artisan make:model ModelName</code></li>
-<li>creazione migration ==&gt; <code>php artisan make:migration migration_name</code></li>
-<li>lanciare migrazioni ==&gt; <code>php artisan migrate</code></li>
+<li><code>php artisan make:controller ControllerName</code>     ==&gt;       creazione controller</li>
+<li><code>php artisan make:model ModelName</code>               ==&gt;       creazione model</li>
+<li><code>php artisan make:migration migration_name</code>      ==&gt;       creazione migration</li>
+<li><code>php artisan migrate</code>                            ==&gt;       lanciare migrazioni</li>
 </ul>
 <p>Inoltre permette di utilizzare l'ambiente shell <strong>Tinker</strong> (REPL: Read–eval–print loop).
 Ad esso si accede attraverso il comando <code>php artisan tinker</code>.</p>
@@ -493,6 +494,54 @@ Ad esso si accede attraverso il comando <code>php artisan tinker</code>.</p>
 </ul>
 <h1><a class="header" href="#data-binding" id="data-binding">Data Binding</a></h1>
 <h2><a class="header" href="#introduzione-7" id="introduzione-7">Introduzione</a></h2>
+<p>Il data binding è una funzionalità che permette di mantenere sincronizzati dei dati (variabili Javascript, array, ecc.) in sincrono con il DOM (Document-Object-Model) molto facilmente. Ciò è grazie alla possibilità infatti di poter associare un elemento presentazionale con una particolare variabile od oggetto, e grazie alla modifica di questi avere un immediato cambiamento della view.
+Ciò appena descritto può essere riassunto in: Vue è dotato di &quot;motore&quot; che rende un applicativo <strong>reattivo</strong>.</p>
+<p>Questa utilissima funzione si basa sulle proprietà reattive, che vanno necessariamante definite all'interno di un' <strong>istanza</strong> di Vue:</p>
+<pre><code>```js
+var app = new Vue({
+    // proprietà
+});
+```
+</code></pre>
+<p>Di seguito viene mostrato come definirle:</p>
+<pre><code>```js
+var app = new Vue({
+    el: &quot;#app&quot;,
+    data() {
+        return {
+            reactiveProp1: &quot;&quot;,
+            reactiveProp2: 3,
+        },
+    }
+});
+```
+</code></pre>
+<p>E' possibile fare riferimento ad una proprietà reattiva sia all'interno del componente (usando this) sia dentro la vista (senza this):</p>
+<pre><code>```js
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;app&quot;&gt;
+            {{ reactiveProp2 }}    ==&gt;  fuori dal componente
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+var app = new Vue({
+    el: &quot;#app&quot;,
+    data() {
+        return {
+            reactiveProp1: &quot;&quot;,
+            reactiveProp2: 3,
+        },
+    },
+    methods: {
+        newFunction() {
+            this.reactivProp = &quot;Vue è bello&quot;;  ==&gt; dentro il componente
+        },
+    },
+});
+```
+</code></pre>
 <p>TODO:</p>
 <ul>
 <li>Cos'è il data binding, quale problema va a risolvere</li>
