@@ -14,4 +14,7 @@ Questi url non devono necessariamente corrispondere a file specifici esistenti s
 
 Un’istallazione default di Laravel appena scaricata, nel file web.php contiene una sola route, quella che mostra la pagina iniziale di benvenuto.
 
-![img](./immagini/img_0.png)
+![Migration](../immagini/img_0.png)
+
+Nella prima route viene definita l'homepage. Ogni volta che Laravel riceve una richiesta per la pagina /, risponderà con la view  welcome.
+
