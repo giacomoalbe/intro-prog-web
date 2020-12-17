@@ -3,6 +3,7 @@
 ## Introduzione
 
 TODO: cos'è un ORM, cosa serve e come viene rappresentato con i Model di Laravel
+prova
 
 ## Creare un Model
 
