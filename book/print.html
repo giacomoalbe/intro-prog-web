@@ -212,6 +212,7 @@
 <ul>
 <li><strong>Giacomo Alberini</strong> (giacomoalbe)</li>
 <li><strong>Federico Cracco</strong> (federico.cracco95)</li>
+<li><strong>Mattia Moretto</strong> (MattiaMoretto97)</li>
 </ul>
 <h1><a class="header" href="#uso-del-terminale" id="uso-del-terminale">Uso del terminale</a></h1>
 <h2><a class="header" href="#introduzione-1" id="introduzione-1">Introduzione</a></h2>
@@ -429,16 +430,16 @@ Ad esso si accede attraverso il comando <code>php artisan tinker</code>.</p>
 <p>Per creare una migrazione è necessario utilizzare il seguente comando Artisan sul terminale:</p>
 <pre><code>php artisan make:migration create_table_names_table
 </code></pre>
-<p><strong>N.B.</strong> Per comodità il nome della tabella dovrà attenersi ad alcune regole: </p>
+<p><strong>N.B.</strong> Per comodità il nome delle migrazioni dovrà attenersi ad alcune regole: </p>
 <ul>
 <li>Tutte le lettere minuscole</li>
 <li>Le parole devono essere separate da _</li>
 <li>Nome della tabella plurale</li>
 </ul>
-<p>Una volta creata la migrazione è possibile trovarla dentro la cartella <em>database/migration</em> insieme a tutte le altre, ogni migrazione ha un <em>timestamp</em> che permette a Laravel di individuare l'ordine delle migrazioni.</p>
+<p>Una volta creata la migrazione è possibile trovarla all'interno della cartella <em>database/migration</em> insieme a tutte le altre, ogni migrazione ha un <em>timestamp</em> che permette a Laravel di individuare l'ordine delle migrazioni.</p>
 <p>Una volta aperto il file dovrebbe presentarsi una schermata simile:</p>
 <p><img src="corsi/modern-web-development/laravel/../immagini/migration.png" alt="Migration" /></p>
-<p>Sulla migrazione troveremo due funzioni:</p>
+<p>All'interno delle migrazioni troveremo due metodi:</p>
 <ul>
 <li>Up(): permette di aggiungere una nuova tabella, aggiungere nuove colonne o nuovi indici al database.</li>
 <li>Down(): permette di eliminare le precedenti modifiche.</li>
@@ -450,7 +451,22 @@ Ad esso si accede attraverso il comando <code>php artisan tinker</code>.</p>
 <li><strong>php artisan migrate:fresh</strong>: serve ad inizializzare le migrazioni da capo eliminando quelle già eseguite</li>
 <li><strong>php artisan migrate:status</strong>: serve a vedere lo stato delle migrazioni eseguite</li>
 </ul>
-<h2><a class="header" href="#tipi-di-colonne" id="tipi-di-colonne">Tipi di Colonne</a></h2>
+<h3><a class="header" href="#creare-una-tabella" id="creare-una-tabella">Creare una tabella</a></h3>
+<p>All'interno di una migrazione e più precisamente all'interno del metodo up() bisognerà andare scrivere il seguente codice</p>
+<pre><code>Schema::create('table_names',function (Blueprint $table){
+
+});
+</code></pre>
+<p>Al suo interno dovremo andare a specificare che tipo di colonne vogliamo andare a creare all'interno della tabella, per esempio con:</p>
+<pre><code>$table-&gt;string('email')-&gt;unique()
+</code></pre>
+<p>andremo a creare una colonna chiamata <em>email</em> che sarà di tipo testo, abbiamo inoltre specificato che all'interno della tabella quel campo dovra essere unico.
+Se invece scriviamo:</p>
+<pre><code>$table-&gt;boolean('corretto')-&gt;default(false)
+</code></pre>
+<p>avremo una colonna di tipo boolean chiamata <em>corretto</em> che di dafault avrà un valore <em>false</em></p>
+<h3><a class="header" href="#tipi-di-colonne" id="tipi-di-colonne">Tipi di Colonne</a></h3>
+<p>Le colonne di una tabella possono essere di diverso tipo:</p>
 <ul>
 <li>string</li>
 <li>boolean</li>
@@ -2551,6 +2567,21 @@ if (count($_POST)) {
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         
