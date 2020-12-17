@@ -33,3 +33,4 @@ La stesura di questo libro rappresenta la conclusione di più di un anno di lavo
 Questo lavoro collettivo è frutto della fatica, dell'impegno e della pressione di _innumerevoli tasti_ da parte dei seguenti autori:
 
 - **Giacomo Alberini** (giacomoalbe)
+- **Federico Cracco** (federico.cracco95)
