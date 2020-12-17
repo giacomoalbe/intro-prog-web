@@ -166,8 +166,7 @@
                         <h1><a class="header" href="#il-framework-tailwind-css" id="il-framework-tailwind-css">Il Framework Tailwind CSS</a></h1>
 <p>Tailwind è un framework CSS, utilizzato per semplificare la scrittuta di css all'interno di siti web, che si propone come alternativa a soluzioni più tradizionali ed abbondantemente diffuse come Bootstrap o w3.</p>
 <p>Si contraddistingue per l’approccio diverso, non più basato su classi che realizzano elementi già preconfenzionati, ma bensì sfruttando una serie di classi di utility per implementare le nostre idee direttamente nelle pagine HTML.</p>
-<p><img src="./book/corsi/modern-web-development/immagini/img_0.png" alt="Migration" />
-<img src="../intro-prog-web/book/corsi/modern-web-development/immagini/img_0.png" alt="title" /></p>
+<p><img src="./immagini/img_0.png" alt="Migration" /></p>
 <p><strong>Vantaggi</strong></p>
 <ul>
 <li>Permette di scrivere direttamente lo stile all'interno dei tag html, senza mai lasciare il file. </li>
@@ -182,28 +181,31 @@
 <li>A volte fare l'html è molto lungo e richiede tante righe di codice.</li>
 </ul>
 <p><strong>Trucchetti</strong></p>
-<p>Se il problema è ricordarsi tutti i nomi delle classi l'estensione Tailwind CSS IntelliSense per VS Code fa per te.</p>
+<p>Se il problema è ricordarsi tutti i nomi delle classi l'estensione Tailwind CSS <strong>IntelliSense</strong> per VS Code fa per te.</p>
 <p>Ottieni suggerimenti di completamento automatico intelligente, definizioni di classi e altro ancora, tutto all'interno del tuo editor e senza necessità di configurazione.</p>
 <p><strong>Installazione</strong></p>
 <p>Il modo più semplice ma meno personalizzabile è l'inclusione all'interno del proprio progetto del link di import dello stile.</p>
+<p><img src="./immagini/img_4.png" alt="Migration" /></p>
 <p>Un altro metodo L’installazione di Tailwind CSS potrebbe risultare un po’ triviale. È possibile scaricarlo come modulo NodeJS sia tramite npm install tailwindcss sia con l’alternativa yarn add tailwindcss.</p>
+<pre><code>npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+</code></pre>
 <p>Tailwind CSS è compilato tramite PostCSS, quindi per utilizzarlo basta creare un file .css per importare le dipendenze appena scaricate.</p>
-<p><img src="/src/corsi/modern-web-development/immagini/img_2" alt="Migration" /></p>
 <p><em><strong>Utilizzo</strong></em></p>
-<p><img src="../src/corsi/modern-web-development/immagini/img_2" alt="Migration" /></p>
+<p><img src="./immagini/img_2.png" alt="Migration" /></p>
 <p><strong>Personalizzazioni</strong></p>
 <p>La configurazione viene espressa tramite un file Javascript, permettendoci quindi una flessibilità importante.</p>
 <p>Il file di configurazione serve per modificare, anche radicalmente, il file CSS generato dal framework e permette di definire il design system utilizzato dal nostro portale, così da avere un set di classi CSS di utility che si adattano perfettamente al nostro layout.</p>
 <p>È possibile generare un prototipo di file tramite il comando npx tailwind init. Aggiungendo invece l’opzione --full, il file generato conterrà tutte le opzioni possibili:</p>
-<pre><code>    module.exports = {
-        important: true,
-        theme: { },
-        variants: { },
-        plugins: { },
-        prefix: '',
-        separator: '-',
-        corePlugins: { }
-    }</code></pre>
+<pre><code>module.exports = {
+    important: true,
+    theme: { },
+    variants: { },
+    plugins: { },
+    prefix: '',
+    separator: '-',
+    corePlugins: { }
+}
+</code></pre>
 
                     </main>
 

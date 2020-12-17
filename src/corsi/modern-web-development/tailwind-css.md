@@ -5,8 +5,7 @@ Tailwind è un framework CSS, utilizzato per semplificare la scrittuta di css al
 
 Si contraddistingue per l’approccio diverso, non più basato su classi che realizzano elementi già preconfenzionati, ma bensì sfruttando una serie di classi di utility per implementare le nostre idee direttamente nelle pagine HTML.
 
-![Migration](./book/corsi/modern-web-development/immagini/img_0.png)
-![title](../intro-prog-web/book/corsi/modern-web-development/immagini/img_0.png)
+![Migration](./immagini/img_0.png)
 
 
 
@@ -27,7 +26,7 @@ Si contraddistingue per l’approccio diverso, non più basato su classi che rea
 **Trucchetti**
 
 
-Se il problema è ricordarsi tutti i nomi delle classi l'estensione Tailwind CSS IntelliSense per VS Code fa per te.
+Se il problema è ricordarsi tutti i nomi delle classi l'estensione Tailwind CSS **IntelliSense** per VS Code fa per te.
 
 Ottieni suggerimenti di completamento automatico intelligente, definizioni di classi e altro ancora, tutto all'interno del tuo editor e senza necessità di configurazione.
 
@@ -36,19 +35,21 @@ Ottieni suggerimenti di completamento automatico intelligente, definizioni di cl
 
 Il modo più semplice ma meno personalizzabile è l'inclusione all'interno del proprio progetto del link di import dello stile.
 
-
+![Migration](./immagini/img_4.png)
 
 
 Un altro metodo L’installazione di Tailwind CSS potrebbe risultare un po’ triviale. È possibile scaricarlo come modulo NodeJS sia tramite npm install tailwindcss sia con l’alternativa yarn add tailwindcss.
 
+    npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
 
 Tailwind CSS è compilato tramite PostCSS, quindi per utilizzarlo basta creare un file .css per importare le dipendenze appena scaricate.
 
-![Migration](/src/corsi/modern-web-development/immagini/img_2)
+   
+
 
 ***Utilizzo***
 
-![Migration](../src/corsi/modern-web-development/immagini/img_2)
+![Migration](./immagini/img_2.png)
 
 
 **Personalizzazioni**
@@ -59,12 +60,12 @@ Il file di configurazione serve per modificare, anche radicalmente, il file CSS 
 
 È possibile generare un prototipo di file tramite il comando npx tailwind init. Aggiungendo invece l’opzione --full, il file generato conterrà tutte le opzioni possibili:
 
-        module.exports = {
-            important: true,
-            theme: { },
-            variants: { },
-            plugins: { },
-            prefix: '',
-            separator: '-',
-            corePlugins: { }
-        }
+    module.exports = {
+        important: true,
+        theme: { },
+        variants: { },
+        plugins: { },
+        prefix: '',
+        separator: '-',
+        corePlugins: { }
+    }
