@@ -62,11 +62,27 @@ Permette di 'unire' due branch, i conflitti che si genereranno andranno risolti 
 
 ## Github
 
-TODO: Cos'è e come funziona relativamente alla condivisione codice, chiave SSH e clone
+GitHub è un servizio gratuito (almeno per le funzionalità base) di hosting e versionamento di codice basato su Git.  
+Ad oggi conta più di 40 milioni di utenti con più di 190 milioni di repository ed è quindi il più grande servizio di questo genere al mondo, sorpassando di gran lunga SourceForge e Google Code.  
+
+Su GitHub è possibile caricare le proprie repository e condividerle con i propri collaboratori. Permette inoltre di gestire il versionamento attraverso il sistema di pull e merge, permettendo così a più utenti collaboratori di sviluppare codice a blocchi.  
+GitHub permette di far accedere alle repository dell'utente collegando il proprio computer tramite ssh.  
+Per poter creare una chiave ssh è sufficente il comando `ssh-keygen` ed inserire la chiave pubblica all'interno delle informazioni utente sul sito di GitHub.
 
 ## Componenti Progetto Github
 
-* README
-* Issue
-* PR
-* Contributors
+* **README**  
+Il file README è spesso il primo file che viene visualizzato e deve contenere quindi le informazioni importanti del progetto.  
+GitHub permette di visualizzare direttamente sulla pagina progetto il README inserito nella root di progetto.  
+Solitamente viene scritto in Markdown, come questa guida ;-).
+* **Issue**  
+Le Issues sono il modo di GitHub per tenere traccia dei task, avanzamenti e bug di un progetto.  
+Sono messaggi che possono essere condivisi e discussi con gli altri collaboratori di progetto.  
+Ogni repository ha la propria sezione dedicata alle issue.
+Chiunque dei collaboratori può creare issue, assegnarle ad altri ed effettuare la review prima di una PR.  
+
+* **PR** (aka 'pull request')  
+Le pull request permettono ai collaboratori di venire a conoscenza dei cambiamenti che sono stati pushati all'interno di un branch. Quando una PR viene aperta, è possibile discutere e revisionare i cambiamenti con i collaboratori prima di effettuare l'ultima commit e fare il merge con il branch principale.  
+* **Contributors**
+Il creatore di una repository può inserire i collaboratori o 'contributors', i quali devono possedere un account GitHub valido.  
+Mentre per le repository pubbliche, tutti gli utenti possono vedere e scaricare (clone), solo i contributor possono effettuare i push e le pull request. 
