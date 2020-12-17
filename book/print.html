@@ -440,6 +440,10 @@ Ad esso si accede attraverso il comando <code>php artisan tinker</code>.</p>
 <li>come funziona il collegamento tra endpoint (URL) e funzione (metodo controller)</li>
 <li>esempi di passaggio di parametri alle funzioni</li>
 </ul>
+<p>Una Route è un meccanismo che serve a configurare la nostra applicazione in modo da rispondere a un certo URL. Si tratta di una modalità per creare una URL richiesta (request URL) al quale la nostra applicazione possa dare un output.</p>
+<p>Questi url non devono necessariamente corrispondere a file specifici esistenti sul nostro server. Stiamo parlando di url dinamici e riscrivibili che possono essere costruiti in qualsiasi modo, anche per essere ottimizzati in ottica SEO.</p>
+<p>Un’istallazione default di Laravel appena scaricata, nel file web.php contiene una sola route, quella che mostra la pagina iniziale di benvenuto.</p>
+<p><img src="corsi/modern-web-development/laravel/./immagini/img_0.png" alt="img" /></p>
 <h1><a class="header" href="#controller-1" id="controller-1">Controller</a></h1>
 <h1><a class="header" href="#introduzione-6" id="introduzione-6">Introduzione</a></h1>
 <p>TODO:</p>
@@ -2524,6 +2528,21 @@ if (count($_POST)) {
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         
