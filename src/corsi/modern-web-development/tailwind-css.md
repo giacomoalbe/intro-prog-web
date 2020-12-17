@@ -38,7 +38,7 @@ Il modo più semplice ma meno personalizzabile è l'inclusione all'interno del p
 ![Migration](./immagini/img_4.png)
 
 
-Un altro metodo L’installazione di Tailwind CSS potrebbe risultare un po’ triviale. È possibile scaricarlo come modulo NodeJS sia tramite npm install tailwindcss sia con l’alternativa yarn add tailwindcss.
+L' altro metodo d'installazione di Tailwind potrebbe risultare un po’ più complicato. È possibile scaricarlo come modulo NodeJS sia tramite npm install tailwindcss sia con l’alternativa yarn add tailwindcss.
 
     npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
 
@@ -69,3 +69,9 @@ Il file di configurazione serve per modificare, anche radicalmente, il file CSS 
         separator: '-',
         corePlugins: { }
     }
+    
+
+**Di seguito una piccola comparativa tra tailwind e il classico css**
+
+**Tailwind**&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**CSS**
+![Migration](./immagini/img_5.png)
