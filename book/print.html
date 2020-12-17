@@ -412,11 +412,54 @@ Ad esso si accede attraverso il comando <code>php artisan tinker</code>.</p>
 </ul>
 <h1><a class="header" href="#orm" id="orm">ORM</a></h1>
 <h2><a class="header" href="#introduzione-4" id="introduzione-4">Introduzione</a></h2>
-<p>TODO: cos'è un ORM, cosa serve e come viene rappresentato con i Model di Laravel</p>
+<p>Laravel è un framework PHP di tipo MVC (Model, View, Controller) che mette a disposizione una miriade di strumenti che aiutano i programmatori a svilppare più velocemente un app. Uno di questi strumenti è l'ORM che permette la gestione e la mappatura tra le classi in PHP e i DB relazionali.</p>
+<p>Un ORM è un interfaccia che fornisce tramite programmazione ad oggetti tutti i servizi inerenti alla persistenza dei dati , ciò significa che possiamo gestire le entità e le relazioni di un DBMS tramite PHP in modo agevolo scrivendo poche righe di codice, avendo una portabilità superiore e scrivendo un'applicazione più stratificata per quanto riguarda la persistenza dati a vantaggio della modularità del sistema.</p>
+<p>L'ORM usato in Laravel è chiamta <strong>Eloquent</strong> e viene rappresentato all'interno dei modelli nel seguente modo:</p>
+<pre><code>&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    use HasFactory;
+}
+</code></pre>
 <h2><a class="header" href="#creare-un-model" id="creare-un-model">Creare un Model</a></h2>
-<p>TODO: Creare un Model con artisan, come legarlo alla tabella giusta usando la naming convention giusta.</p>
+<p>Per creare un model basta utilizzare il comando</p>
+<pre><code>php artisan make:model &lt;nome modello&gt;
+</code></pre>
+<p>E' necessario però prestare attenzione ad alcune regole nella scelta del nome:</p>
+<ul>
+<li>Il nome deve essere uguale alla migrazione a cui fa riferimento</li>
+<li>Il nome deve essere al singolare</li>
+<li>Il nome deve avere la prima lettera maiuscola, se composto da più parole dovranno essere unite e entrambe le iniziali dovranno essere maiuscole</li>
+</ul>
+<p>quindi per esempio se precedentemente ho creato una migrazione in questo modo:</p>
+<pre><code>php artisan make:migration create_student_infos_table
+</code></pre>
+<p>il comando per creare il suo modello sarà</p>
+<pre><code>php artisan make:model StudentInfo
+</code></pre>
 <h2><a class="header" href="#creare-righe-usando-i-model" id="creare-righe-usando-i-model">Creare righe usando i Model</a></h2>
 <p>TODO: usare il new Model(), aggiungere i campi e dare il save() per creare</p>
+<p>E' possibile aggiungere i campi ad una tabella direttamente da laravel per farlo è necessario utilizzare tinker, per apirlo bisogna utilizzare il seguente comando:</p>
+<pre><code>php artisan make:model tinker
+</code></pre>
+<p>fatto questo è necessario prima importare il modello che ci serve quindi prendendo come riferimento l'esempio qui sopra scriviamo:</p>
+<pre><code>Use app\Models\StudentInfo
+</code></pre>
+<p>Fatto ciò possiamo inserire i nostri campi all'interno della tabella la struttura per farlo sarà simile a questa:</p>
+<pre><code>$Student = new StudentInfo();
+        $Student-&gt;surname = &quot;cognome studente&quot;;
+        $Student-&gt;cf = &quot;cf studente&quot;;
+        $Student-&gt;name = &quot;nome studente&quot;;
+        
+        $Student-&gt;save();
+</code></pre>
+<p>Ovviamente i codic</p>
 <h2><a class="header" href="#query-sql-con-i-model" id="query-sql-con-i-model">Query SQL con i Model</a></h2>
 <p>TODO: come ottenere tutti gli elementi di una tabella, come fare query con where, come trovare velocemente righe dall'id</p>
 <h2><a class="header" href="#eager-loading-con-with" id="eager-loading-con-with">Eager Loading con With</a></h2>
