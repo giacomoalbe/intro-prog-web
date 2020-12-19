@@ -215,6 +215,7 @@
 <li><strong>Michele Pasetto</strong> (michipase)</li>
 <li><strong>Massimo Piazza</strong> (macs-massimopiazza)</li>
 <li><strong>Alessandro Bosello</strong> (Alessandro-Bosello)</li>
+<li><strong>Erik Galbero</strong> (erikgalbero)</li>
 </ul>
 <h1><a class="header" href="#uso-del-terminale" id="uso-del-terminale">Uso del terminale</a></h1>
 <h2><a class="header" href="#introduzione-1" id="introduzione-1">Introduzione</a></h2>
@@ -477,13 +478,46 @@ Chiunque dei collaboratori può creare issue, assegnarle ad altri ed effettuare 
 </ul>
 <h1><a class="header" href="#model-view-controller" id="model-view-controller">Model View Controller</a></h1>
 <h2><a class="header" href="#introduzione-2" id="introduzione-2">Introduzione</a></h2>
-<p>TODO: cos'è un paradigma di programmazione, dove si usa l'MVC e per quale motivo è utile (separation of concerns), relazione con il pattern request-response</p>
-<h2><a class="header" href="#model" id="model">Model</a></h2>
-<p>TODO: cosa è e rappresenta il modello</p>
-<h2><a class="header" href="#view" id="view">View</a></h2>
-<p>TODO: cosa è e cosa rappresenta la vista</p>
-<h2><a class="header" href="#controller" id="controller">Controller</a></h2>
-<p>TODO: cosa è e cosa rappresenta il controller</p>
+<p><em>Model View Controller</em>, abbreviato spesso in <strong>MVC</strong>, è un paradigma di programmazione atto a dividere il codice in blocchi ben distinti in base alla loro funzionalità.</p>
+<blockquote>
+<p>Questo processo viene denominato <em>separation of concerns</em> (separazione degli ambiti) e permette, tra le altre, di aumentare la produttività di un progetto software affidando a persone con competenze speficiche aree diverse, diminuendo l'accavallamento di competenze e massimizzando la qualità del lavoro in ogni sua fase.</p>
+</blockquote>
+<p>Per capire al meglio MVC è necessario approfondire il concetto di <strong>paradigma di programmazione</strong>, ovvero un insieme di <em>regole</em> e <em>convenzioni</em> di programmazione atta ad agevolare il programmatore nella fase di progettazione.<br />
+Solitamente, un paradigma è utile in quanto è il risultato dell'<em>ingegnerizzazione</em> di un processo, ovvero dell'astrazione di un particolare metodo risolutivo per un problema ricorrente nello sviluppo di prodotti anche molto diversi tra loro.</p>
+<p>Risulta quindi <em>conveniente</em> conoscere e, per quanto possibile, aderire ai diversi paradigmi software esistenti per sfruttare a proprio vantaggio l'esperienza maturata negli anni dalla comunità accademica e professionale in ambito software.</p>
+<p>Laravel sfrutta in maniera estensiva l'MVC, utilizzando i <code>Model</code>, i <code>Controller</code> e le <code>View</code> nativamente.</p>
+<h2><a class="header" href="#anatomia-del-model-view-controller" id="anatomia-del-model-view-controller">Anatomia del Model-View-Controller</a></h2>
+<p>Il paradigma MVC è particolarmente indicato per i progetti software che sfruttino in maniera importante basi di dati o comunque siano orientati ai dati.<br />
+Rientrano in questa categoria tutti i prodotti web e la maggiorparte dei prodotti software in generale. </p>
+<p>Analizziamo una a una le 3 componenti:</p>
+<h3><a class="header" href="#model" id="model">Model</a></h3>
+<p>Si tratta della sezione di codice che <strong>si interfaccia con la base dati</strong>.</p>
+<p>Il <em>model</em> è l'astrazione software che permette all'applicazione di intergire con la base di dati.</p>
+<p>Per sua natura, il <em>model</em> non fa riferimento ad un particolare tipo di database o di struttura di salvataggio/estrazione dei dati, ma, appunto, espone un'interfaccia unica alle altre componenti software e si occupa internamente dei dettagli implementativi di ogni <em>backend</em> dati che supporti.</p>
+<h3><a class="header" href="#view" id="view">View</a></h3>
+<p>Da come suggerisce il nome è la parte di codice che più è vicina all'utente, qui verrà contenuta la <strong>logica di presentazione e di interazione</strong>.</p>
+<p>La <em>view</em> riceve le strutture dati di cui ha bisogno direttamente dal controller e si occupa quindi di posizionarle e stilarle nel modo più aderente possibile agli scopi dell'applicazione stessa.</p>
+<p>All'interno della <em>view</em> è anche presente il codice per gestire l'interazione con l'utente e l'interrogazione opportuna del <em>controller</em> corretto per portare a termina l'operazione desiderata.</p>
+<h3><a class="header" href="#controller" id="controller">Controller</a></h3>
+<p>Si tratta di quelle porzione di codice che <strong>utilizza i dati</strong> forniti dal <em>model</em> per presentarli alla <em>view</em>.<br />
+Possiamo riferirci al <em>controller</em>, come alla <strong>colla</strong> tra i dati (rappresentati dal <em>model</em>) e la visualizzazione (la <em>view</em>), in grado di operare la <strong>logica di business</strong> necessaria per svolgere l'operazione specifica dell'applicazione. </p>
+<p>Con logica di business si intende l'insieme delle azioni, istruzioni ed algoritmi che, operando sui dati, generano le strutture necessarie a portare a termine una certa operazione, specifica del controller in essere. </p>
+<p>La parte di logica è quella che caratterizza il progetto, e, insieme ai dati che vengono collezionati nel tempo, rappresenta l'<em>asset</em> strategico di maggior valore per qualunque progetto software.</p>
+<h2><a class="header" href="#mvc-e-requestresponse" id="mvc-e-requestresponse">MVC e Request/Response</a></h2>
+<p>Per sua natura, l'MVC è un paradigma <em>direzionale</em> e <em>orientato</em>, nel senso che le operazioni vengono svolte sempre nello stesso ordine: </p>
+<pre><code>Model -&gt; Controller -&gt; View in uscita
+View -&gt; Controller -&gt; Model in entrata
+</code></pre>
+<p>Per questo motivo l'MVC ben si presta ad essere accompagnato dal paradigma <strong>Request/Response</strong>, per il quale tutte le interazioni tra client e server possono essere ricondotte a scambi di <em>request</em> e corrispondenti <em>response</em>.</p>
+<p>Questa una descrizione del flusso MVC + Request/Response:</p>
+<ol>
+<li>Il client (partendo da una <em>view</em>) invia una <strong>request</strong> ad un server </li>
+<li>Il server passa questa <strong>request</strong> ad un <em>controller</em></li>
+<li>Il <em>controller</em> esegue la sua <strong>logica di business</strong>, coinvolgendo direttamente il <em>model</em> nelle sue operazioni</li>
+<li>Il <em>controller</em> impacchetta i dati necessari all'interno di una nuova <em>view</em></li>
+<li>Il server invia la <em>view</em> al client attraverso una <strong>response</strong> </li>
+</ol>
+<p>Laravel essendo un backend server aderisce al protocollo Request/Response, utilizzando appunto le classi <code>Request</code> e <code>Response</code>, <em>agganciando</em> ad esse gli altri elementi tipici del paradigma MVC. </p>
 <h1><a class="header" href="#protocollo-rest" id="protocollo-rest">Protocollo REST</a></h1>
 <h2><a class="header" href="#introduzione-3" id="introduzione-3">Introduzione</a></h2>
 <p>TODO: cos'è un protocollo, come viene usato per la comunicazione tra client &amp; server, che tipo di tecnologia usa, il ruolo dei verbi HTTP (get, post, put,), le convenzioni, cos'è una risorsa</p>
