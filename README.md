@@ -18,3 +18,4 @@ Il software usato per la formattazione del libro è [mdbook](https://rust-lang.g
 - **Massimo Piazza** (macs-massimopiazza)
 - **Alessandro Bosello** (Alessandro-Bosello)
 - **Erik Galbero** (erikgalbero)
+- **Alberto Scomparin** (Scompa00)
