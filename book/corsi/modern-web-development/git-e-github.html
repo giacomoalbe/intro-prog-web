@@ -165,35 +165,161 @@
                     <main>
                         <h1><a class="header" href="#git--github" id="git--github">Git &amp; Github</a></h1>
 <h2><a class="header" href="#introduzione-al-versionamento" id="introduzione-al-versionamento">Introduzione al versionamento</a></h2>
-<p>TODO: cosa significa versionare e come impatta nel mondo dello sviluppo del codice, con particolare relazione alla collaborazione tra diversi sviluppatori</p>
+<p>Il <em>controllo di versione</em>, anche detto <em>versionamento</em> è un sistema software che permette di tenere traccia nel tempo di cambiamenti ad un file o ad una serie di file, così da poter richiamare una specifica versione in un secondo momento.
+Questo approccio permette inoltre di tenere traccia dei cambiamenti tra le versioni, oltre a facilitare la stesura della documentazione.
+L'utilizzo di sistemi di controllo del versionamento come il programma <a href="https://git-scm.com/">git</a> (locale) e <a href="https://github.com/">Github</a> (il sito servizio di cloud di <code>git</code>), permettono di lavorare allo sviluppo in team.</p>
+<p><code>git</code> permette infatti di creare <em>branches</em>, letteralmente rami, che sono copie del ramo principale del codice sorgente, nel quale si possono inserire gli sviluppi successivi.</p>
+<p>Implementate le nuove modifiche è quindi possibile inserirle o effettuare il <em>merge</em> (<em>mergiare</em>, in gergo tecnico) all'interno del ramo principale, unendo il lavoro di tutti gli sviluppatori controllando e risolvendo le (eventuali) sovrapposizioni.</p>
+<p>Il grande vantaggio di <code>git</code> è quello di aver reso estremanente <strong>facile</strong> e <strong>sicuro</strong> condividere, scambiare, modificare e aggiornare codice sorgente tra computer, persone e tempi diversi, eliminando di fatto la maggior parte dei problemi relativi alla <em>gestione del codice sorgente</em>.</p>
+<p>Per questo motivo, ad oggi, <code>git</code> risulta il software di versionamento più usato (e sicuro) al mondo.</p>
+<p>Degno di menzione il fatto che <code>git</code> è un progetto completamente Open Source, autofinanziato e realizzato da una community di programmatori proveniente da tutti i continenti.</p>
+<p>A capo del progetto troviamo <a href="https://it.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a>, il famoso creatore del Sistema Operativo Free &amp; Open Source <a href="https://kernel.org">Linux</a></p>
 <h2><a class="header" href="#concetti-base" id="concetti-base">Concetti base</a></h2>
 <ul>
-<li>Repository</li>
-<li>Stage</li>
-<li>Commit</li>
-<li>Branch</li>
-<li>Remote</li>
+<li>
+<p><strong>Repository</strong></p>
+<p>Una <em>repository</em> (spesso appreviata con <code>repo</code>) è una cartella interamente gestita da <code>git</code> per tener traccia delle modifiche e della <em>storia</em> di un progetto. Può trovarsi all'interno di una cartella nel computer o nello spazio di GitHub o in un'altro servizio di hosting online.</p>
+<p>Il <em>repository</em> vero e proprio è all'interno della cartella nascosta <code>.git</code> che si trova nella cartella di progetto ed è uno spazio utilizzato da <code>git</code> per <em>svolgere</em> tutte le sue funzioni. E' una cartella che è importante <strong>NON</strong> andare a modificare in quanto è <code>git</code> stesso che si occupa di gestire i file in esso contenuti.</p>
+<p>All'interno di una repository è possibile inserire qualunque tipo di file, che sia codice, immagine o altro. Per Github consigliano comunque di non inserire file singoli di dimensione superiore a 60Mb, e in generale di mantenere la dimensione complessiva del repository entro i 100Mb totali.</p>
+</li>
+<li>
+<p><strong>Stage</strong></p>
+<p>Lo <em>stage</em>, letteralmente 'palco', è lo step precedente al <em>commit</em>. Esso contiene tutte le modifiche che sono state apportate ai file di progetto (ovvero i file che <code>git</code> sta già tracciando), modifiche che è quindi necessario salvare attraverso il <em>commit</em>.</p>
+<p>All'interno dello stage è ancora possibile modificare i file, rimuoverli o aggiungerli.
+Il comando usato per aggiungere i file modificati all'interno dello stage è <code>git add &lt;nome_file&gt;</code>.</p>
+<p>Nel caso si vogliano aggiungere <strong>tutti i file</strong> contenenti modifiche della cartella corrente, è necessario dare il comando <code>git add .</code>.</p>
+</li>
+<li>
+<p><strong>Commit</strong></p>
+<p>Un <code>commit</code> è una <em>fotografia</em> dello stato della cartella di progetto in un determinato momento temporale.</p>
+<p>Con <em>fotografia</em> si intende una rappresentazione dei contenuti dei singoli file di progetto. Ad ogni <code>commit</code> viene associato un <em>messaggio</em> (definito dall'utente) che va a mettere in relazione le modifiche effettuate e salvate con una loro descrizione <em>human readable</em>, ovvero comprensibile al programmatore che ha attuato quelle modifiche.</p>
+<p>Una volta salvata, la <em>commit</em> è definitiva, ovvero non è più possibile modificarne il contenuto. Questo significa che <strong>tutte quello che viene committato rimane salvato nella storia di <code>git</code></strong>.
+Anche se può sembrare una cosa di cui preoccuparsi, in realtà questo rappresenta un grandissimo vantaggio: dato che quella <em>fotografia</em> (o <em>versione</em>) è stata salvata, è sempre possibile <em>tornare indietro</em> a quelle modifiche effettuate. In altri termini, il lavoro che viene committato, non viene <strong>mai</strong> perso.</p>
+<p>Fare una <code>commit</code>, anche detto <em>committare</em>, è una procedura <em>manuale</em>. Una volta aggiunte le modifiche all'interno dello <code>stage</code>, <code>git</code> non salva automaticamente tutto in un <code>commit</code>: questo operazione deve essere effettuata manualmente attraverso il comando <code>git commit -m &quot;Messaggio relativo alle modifiche effettuate</code>.</p>
+</li>
+<li>
+<p><strong>Branch</strong></p>
+<p>Con <code>branch</code> (letteralmente <em>ramo</em>) si indica una ramificazione della storia di un progetto.</p>
+<p>Per <code>git</code>, la <em>storia</em> è un insieme di <code>commit</code> sequenziali, ovvero un gruppo di modifiche effettuate ai file della cartella di progetto.</p>
+<p>In un repository <code>git</code>, non esiste un'unica storia, quindi un unico <code>branch</code>. Diversi rami disgiunti possono convivere nello stesso repository.</p>
+<p>Nonostante questo, ogni repository può rappresentare un ramo alla volta, quindi il contenuto della cartella di progetto può fare riferimento ad una <code>commit</code> (ovvero una delle <code>versioni</code> presenti su quel ramo) per volta.</p>
+<p>Il ramo principale di ogni progetto viene chiamato (per convenzione) <code>master</code>.
+Benchè si possa lavorare direttamente sul <code>master</code>, è consigliato iniziare un nuovo <code>branch</code> ogni volta che si intende implementare una nuova funzionalità.
+Questo permette agli altri sviluppatori di poter partire sempre da una base <em>condivisa</em> (il <code>master</code>) e di effettuare tutte le prove e i test possibili senza intaccare il lavoro di altri.</p>
+</li>
+<li>
+<p><strong>Remote</strong></p>
+<p>Un <code>remote</code> è un repository remoto, ovvero presente su qualche servizio di hosting online.</p>
+<p>I <code>remote</code> vengono utilizzati per sincronizzare codice e permettere la collaborazione di più persone sui progetti.</p>
+</li>
 </ul>
 <h2><a class="header" href="#comandi-git" id="comandi-git">Comandi Git</a></h2>
 <ul>
-<li>status</li>
-<li>add</li>
-<li>commit</li>
-<li>checkout</li>
-<li>branch</li>
-<li>push</li>
-<li>pull</li>
-<li>clone</li>
-<li>merge</li>
+<li>
+<p><strong>Init</strong></p>
+<p>Viene utilizzato per inizializzare un repository <code>git</code>. Viene utilizzato all'interno della directory da <em>trasformare</em> in repository.
+<code>git init .</code></p>
+</li>
+<li>
+<p><strong>status</strong>
+Permette di controllare quali file sono stati modificati, quali inseriti nello stage, quali sono pronti per il commit.</p>
+<p>E' forse il comando che si utilizzerà di più, in quanto è fondamentale conoscere lo <em>stato</em> dello <code>stage</code> prima di fare qualsiasi operazione con <code>git</code>.</p>
+<p><code>git status</code></p>
+</li>
+<li>
+<p><strong>add</strong></p>
+<p>Inserisce i file selezionati all'interno dello stage.</p>
+<ul>
+<li><code>git add &lt;file&gt;</code> aggiunge un file singolo (dato il path del file)</li>
+<li><code>git add .</code> aggiunge tutti i file (con modifiche) della cartella corrente</li>
+</ul>
+</li>
+<li>
+<p><strong>commit</strong></p>
+<p>Salva definitivamente le modifiche all'interno del <code>stage</code>.</p>
+<p>Bisogna inserire anche il parametro '-m' che imposta un messaggio per il commit.</p>
+<p>Solitamente il messaggio viene scritto in inglese, con una frase semplice formata da verbo imperativo e complemento es. <code>add interceptors</code></p>
+<p><code>git commit -m '&lt;messaggio&gt;'</code></p>
+</li>
+<li>
+<p><strong>checkout</strong>
+Viene usato per <em>saltare</em> da un ramo all'altro del progetto.</p>
+<ul>
+<li><code>git checkout &lt;nome_branch&gt;</code> si sposta su un'altro branch di nome &lt;nome_branch&gt;</li>
+<li><code>git checkout -b &lt;nome_nuovo_branch&gt;</code> per creare un nuovo ramo e <em>saltarci</em> dentro.</li>
+<li><code>git checkout -- .</code> per <em>eliminare</em> le modifiche presenti nello <code>stage</code> e tornare alla situazione descritta dall'ultima commit del branch sui cui stiamo lavorando.</li>
+</ul>
+</li>
+<li>
+<p><strong>branch</strong>
+Viene usato per visualizzare i branch attivi e quello su cui ci si trova, per creare o eliminare i branch.</p>
+<ul>
+<li><code>git branch</code> mostra i branch presenti nel repository e segnala quello attivo con un &quot;*&quot;</li>
+<li><code>git branch -d &lt;nome_branch&gt;</code> elimina il branch &lt;nome_branch&gt;</li>
+<li><code>git branch &lt;nome_branch&gt;</code> crea il branch &lt;nome_branch&gt;</li>
+</ul>
+</li>
+<li>
+<p><strong>push</strong>
+Viene usato per <strong>inviare online</strong> (letteralmente <em>spingere</em>) i commit del <code>branch</code> su cui si sta lavorando all'interno del <code>branch</code> corrispondente online.</p>
+<p>Al primo push su una repository remota si aggiunge l'indicazione delle <code>remote</code> a cui si intende inviare il codice (tipicamente <code>origin</code>) come destinazione e il nome del branch (as esempio <code>master</code>) che si intende caricare:</p>
+<p><code>git push origin master</code> → 1° push sul branch master in remoto
+<code>git push</code> → per tutte le altre</p>
+</li>
+<li>
+<p><strong>pull</strong>
+E' il comando opposto a <code>git push</code> e permette di <em>scaricare</em> la versione remota del branch e di mergiarla con quella locale.
+In questa fase possono verificarsi dei conflitti (conseguenti al merge) che devono essere controllati ed appianati.</p>
+<p>Prima di effettuare una nuova 'push' è sempre consigliato (e a volte necessario) effettuare una 'pull'.
+<code>git pull</code></p>
+</li>
+<li>
+<p><strong>clone</strong>
+Viene usato per <em>clonare</em> una repo da remoto in locale, ovvero trasformare una cartella locale in una copia del repository remoto.</p>
+<p>Il comando richiede l'indirizzo della repository su GitHub ed il protocollo utilizzato: <strong>https</strong> o <strong>ssh</strong>.</p>
+<ul>
+<li><code>git clone https://&lt;autore&gt;/&lt;nome_repo&gt;.git</code> per il clone HTTPS</li>
+<li><code>git clone git@github.com:&lt;autore&gt;/&lt;nome_repo&gt;.git</code> per il clone SSH</li>
+</ul>
+<p><strong>NB</strong>: Per usare il metodo ssh bisogna avere un account GitHub ed aver collegato una chiave ssh valida.</p>
+</li>
+<li>
+<p><strong>merge</strong>
+Permette di <em>unire</em> il contenuto di un branch (locale o remoto) all'interno del branch corrente.</p>
+<p>Gli (eventuali) conflitti che si generano vanno risolti manualmente, selezionando quali modifiche mantenere, se la versione locale (HEAD) o quella che si sta cercando di integrare (INCOMING).</p>
+</li>
 </ul>
 <h2><a class="header" href="#github" id="github">Github</a></h2>
-<p>TODO: Cos'è e come funziona relativamente alla condivisione codice, chiave SSH e clone</p>
+<p>GitHub è un servizio gratuito (almeno per le funzionalità base) di hosting e versionamento di codice basato su Git.
+Ad oggi conta più di 40 milioni di utenti con più di 190 milioni di repository ed è quindi il più grande servizio di questo genere al mondo, sorpassando di gran lunga SourceForge e Google Code.</p>
+<p>Su GitHub è possibile caricare le proprie repository e condividerle con i propri collaboratori. Permette inoltre di gestire il versionamento attraverso il sistema di <em>pull e merge</em>, permettendo così a più utenti collaboratori di sviluppare codice a blocchi.
+GitHub permette di far accedere alle repository dell'utente collegando il proprio computer tramite ssh.
+Per poter creare una chiave ssh è sufficente il comando <code>ssh-keygen</code> ed inserire la chiave pubblica all'interno delle informazioni utente sul sito di GitHub.</p>
 <h2><a class="header" href="#componenti-progetto-github" id="componenti-progetto-github">Componenti Progetto Github</a></h2>
 <ul>
-<li>README</li>
-<li>Issue</li>
-<li>PR</li>
-<li>Contributors</li>
+<li>
+<p><strong>README</strong></p>
+<p>Il file README è spesso il primo file che viene visualizzato e deve contenere quindi le informazioni importanti del progetto.
+GitHub permette di visualizzare direttamente sulla pagina progetto il README inserito nella root di progetto.
+Solitamente viene scritto in Markdown, come questa guida ;-).</p>
+</li>
+<li>
+<p><strong>Issue</strong></p>
+<p>Le Issues sono il modo di GitHub per tenere traccia dei task, avanzamenti e bug di un progetto.
+Sono dei <em>documenti online</em> che possono essere condivisi e discussi con gli altri collaboratori di progetto.
+Ogni repository ha la propria sezione dedicata alle issue.
+Chiunque dei collaboratori può creare issue, assegnarle ad altri ed effettuare la review prima di una PR.</p>
+</li>
+<li>
+<p><strong>PR</strong> (aka 'pull request')</p>
+<p>Le pull request permettono ai collaboratori di far <em>mergiare</em> il proprio codice nel progetto principale.</p>
+<p>Quando una PR viene aperta, è possibile discutere e revisionare i cambiamenti con i collaboratori prima di effettuare l'ultima commit e fare il merge con il branch principale.</p>
+</li>
+<li>
+<p><strong>Contributors</strong></p>
+<p>Il creatore di una repository può inserire i collaboratori o <em>contributors</em>, i quali devono possedere un account GitHub valido.</p>
+<p>Mentre per le repository pubbliche, tutti gli utenti possono vedere e scaricare (clone), solo i contributor possono effettuare i push e le pull request.</p>
+</li>
 </ul>
 
                     </main>
