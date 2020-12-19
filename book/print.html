@@ -212,15 +212,12 @@
 <ul>
 <li><strong>Giacomo Alberini</strong> (giacomoalbe)</li>
 <li><strong>Federico Cracco</strong> (federico.cracco95)</li>
-<<<<<<< HEAD
-=======
 <li><strong>Michele Pasetto</strong> (michipase)</li>
 <li><strong>Massimo Piazza</strong> (macs-massimopiazza)</li>
 <li><strong>Alessandro Bosello</strong> (Alessandro-Bosello)</li>
 <li><strong>Erik Galbero</strong> (erikgalbero)</li>
 <li><strong>Alberto Scomparin</strong> (Scompa00)</li>
 <li><strong>Mattia Moretto</strong> (MattiaMoretto97)</li>
->>>>>>> master
 </ul>
 <h1><a class="header" href="#uso-del-terminale" id="uso-del-terminale">Uso del terminale</a></h1>
 <h2><a class="header" href="#introduzione-1" id="introduzione-1">Introduzione</a></h2>
@@ -1048,15 +1045,13 @@ Vue, invece, fa uso di costrutti Javascript complessi, per agevolare il programm
 <p>Il data binding è una funzionalità che permette di mantenere sincronizzati dei dati (variabili Javascript, array, ecc.) in sincrono con il DOM (Document-Object-Model) molto facilmente. Ciò è grazie alla possibilità infatti di poter associare un elemento presentazionale con una particolare variabile od oggetto, e grazie alla modifica di questi avere un immediato cambiamento della view.
 Ciò appena descritto può essere riassunto in: Vue è dotato di &quot;motore&quot; che rende un applicativo <strong>reattivo</strong>.</p>
 <p>Questa utilissima funzione si basa sulle proprietà reattive, che vanno necessariamante definite all'interno di un' <strong>istanza</strong> di Vue:</p>
-<pre><code>```js
-var app = new Vue({
+<pre><code class="language-js">var app = new Vue({
     // proprietà
 });
-```
+
 </code></pre>
 <p>Di seguito viene mostrato come definirle:</p>
-<pre><code>```js
-var app = new Vue({
+<pre><code class="language-js">var app = new Vue({
     el: &quot;#app&quot;,
     data() {
         return {
@@ -1065,11 +1060,9 @@ var app = new Vue({
         },
     }
 });
-```
 </code></pre>
 <p>E' possibile fare riferimento ad una proprietà reattiva sia all'interno del componente (usando this) sia dentro la vista (senza this):</p>
-<pre><code>```js
-&lt;html&gt;
+<pre><code class="language-js">&lt;html&gt;
     &lt;body&gt;
         &lt;div id=&quot;app&quot;&gt;
             {{ reactiveProp2 }}    ==&gt;  fuori dal componente
@@ -1091,7 +1084,6 @@ var app = new Vue({
         },
     },
 });
-```
 </code></pre>
 <p>TODO:</p>
 <ul>

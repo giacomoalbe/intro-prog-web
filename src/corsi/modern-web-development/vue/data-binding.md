@@ -7,50 +7,52 @@ Ciò appena descritto può essere riassunto in: Vue è dotato di "motore" che re
 
 Questa utilissima funzione si basa sulle proprietà reattive, che vanno necessariamante definite all'interno di un' **istanza** di Vue:
 
-    ```js
-    var app = new Vue({
-        // proprietà
-    });
-    ```
+```js
+var app = new Vue({
+    // proprietà
+});
+
+```
+
 Di seguito viene mostrato come definirle:
 
-    ```js
-    var app = new Vue({
-        el: "#app",
-        data() {
-            return {
-                reactiveProp1: "",
-                reactiveProp2: 3,
-            },
-        }
-    });
-    ```
+```js
+var app = new Vue({
+    el: "#app",
+    data() {
+        return {
+            reactiveProp1: "",
+            reactiveProp2: 3,
+        },
+    }
+});
+```
 E' possibile fare riferimento ad una proprietà reattiva sia all'interno del componente (usando this) sia dentro la vista (senza this):
 
-    ```js
-    <html>
-        <body>
-            <div id="app">
-                {{ reactiveProp2 }}    ==>  fuori dal componente
-            </div>
-        </body>
-    </html>
-    
-    var app = new Vue({
-        el: "#app",
-        data() {
-            return {
-                reactiveProp1: "",
-                reactiveProp2: 3,
-            },
+```js
+<html>
+    <body>
+        <div id="app">
+            {{ reactiveProp2 }}    ==>  fuori dal componente
+        </div>
+    </body>
+</html>
+
+var app = new Vue({
+    el: "#app",
+    data() {
+        return {
+            reactiveProp1: "",
+            reactiveProp2: 3,
         },
-        methods: {
-            newFunction() {
-                this.reactivProp = "Vue è bello";  ==> dentro il componente
-            },
+    },
+    methods: {
+        newFunction() {
+            this.reactivProp = "Vue è bello";  ==> dentro il componente
         },
-    });
-    ```
+    },
+});
+```
 
 
 
