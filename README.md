@@ -19,3 +19,4 @@ Il software usato per la formattazione del libro è [mdbook](https://rust-lang.g
 - **Alessandro Bosello** (Alessandro-Bosello)
 - **Erik Galbero** (erikgalbero)
 - **Alberto Scomparin** (Scompa00)
+- **Mattia Moretto** (MattiaMoretto97)

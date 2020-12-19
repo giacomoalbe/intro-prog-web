@@ -39,3 +39,4 @@ Questo lavoro collettivo è frutto della fatica, dell'impegno e della pressione 
 - **Alessandro Bosello** (Alessandro-Bosello)
 - **Erik Galbero** (erikgalbero)
 - **Alberto Scomparin** (Scompa00)
+- **Mattia Moretto** (MattiaMoretto97)
