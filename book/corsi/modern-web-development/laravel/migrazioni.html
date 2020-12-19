@@ -165,57 +165,108 @@
                     <main>
                         <h1><a class="header" href="#migrazioni" id="migrazioni">Migrazioni</a></h1>
 <h2><a class="header" href="#introduzione" id="introduzione">Introduzione</a></h2>
-<p>Le migrazioni sono una classe speciale di Laravel che contengono una serie di azioni da eseguire sul database come per esempio la creazione o la modifica di una tabella.</p>
-<p>Queste migrazioni servono affinchè il database venga impostato in modo identico ogni volta che viene lanciato tra le diverse macchine di sviluppo che contribuiscono al progetto.</p>
-<p>Possiamo considerare le migrazioni come un versionamento del database dell'applicazione</p>
+<p>Con <em>migrazione</em> si intende un costrutto particolare di Laravel (e di altri Web Framework similari) necessario per applicare modifiche <em>strutturali</em> al database in maniera sicura.</p>
+<p>Dato che la struttura del database non è legata direttamente al codice sorgente di un progetto Laravel, è necessario utilizzare un sistema per garantire che le modifiche strutturali alle tabelle vengano <em>propagate</em> correttamente tra tutti i vari utenti che lavorano sul progetto.</p>
+<p>Possiamo considerare le migrazioni, quindi, come un <em>sistema di versionamento</em> del database dell'applicazione.</p>
+<p>Usare le migrazioni significa garantire che ogni <em>contributor</em> del progetto abbia la stessa struttura del database senza dover manualmente intervenire per rettificare o correggere eventuali differenze.</p>
+<p>Un altro aspetto di fondamentale importanza delle migrazioni è rappresentato dal fatto che ogni migrazioni deve essere eseguita <em>una sola volta</em>.<br />
+Una volta eseguita una migrazione senza errori, infatti, il suo risultato viene salvato a database, in modo che, richiamando nuovamente il comando di migrazione, quella stessa azione non venga ripetuta. </p>
 <h3><a class="header" href="#creare-una-migrazione" id="creare-una-migrazione">Creare una migrazione</a></h3>
 <p>Per creare una migrazione è necessario utilizzare il seguente comando Artisan sul terminale:</p>
 <pre><code>php artisan make:migration create_table_names_table
 </code></pre>
-<p><strong>N.B.</strong> Per comodità il nome delle migrazioni dovrà attenersi ad alcune regole: </p>
+<p><strong>N.B.</strong> Per convenzione il nome delle migrazioni dovrà attenersi ad alcune regole: </p>
 <ul>
 <li>Tutte le lettere minuscole</li>
 <li>Le parole devono essere separate da _</li>
 <li>Nome della tabella plurale</li>
 </ul>
-<p>Una volta creata la migrazione è possibile trovarla all'interno della cartella <em>database/migration</em> insieme a tutte le altre, ogni migrazione ha un <em>timestamp</em> che permette a Laravel di individuare l'ordine delle migrazioni.</p>
+<p>Laravel è in grado di <em>indovinare</em> le intenzioni dello sviluppatore nel momento in cui si crea una migrazione, utilizzando dei semplici accorgimenti.</p>
+<p>Se ad esempio si volesse creare una tabella di nome <code>users</code>, il comando </p>
+<pre><code class="language-bash">php artisan make:migration create_users_table
+</code></pre>
+<p>Sarebbe in grado di generare il codice sorgente necessario per, appunto, generare una tabella e alcune colonna (<code>id</code>, <code>created_at</code>, <code>updated_at</code>) in maniera automatica.</p>
+<p>Una volta creata la migrazione è possibile trovarla all'interno della cartella <em>database/migration</em> insieme a tutte le altre. </p>
+<p>Ogni migrazione ha un <em>timestamp</em> (visibile come prefisso del nome del file, nella forma) che permette a Laravel di individuare l'ordine <em>cronologico</em> delle migrazioni.</p>
 <p>Una volta aperto il file dovrebbe presentarsi una schermata simile:</p>
 <p><img src="../immagini/migration.png" alt="Migration" /></p>
 <p>All'interno delle migrazioni troveremo due metodi:</p>
 <ul>
-<li>Up(): permette di aggiungere una nuova tabella, aggiungere nuove colonne o nuovi indici al database.</li>
-<li>Down(): permette di eliminare le precedenti modifiche.</li>
+<li>
+<p><code>up()</code> </p>
+<p>In questo metodo vengono inserite tutte le azioni (creazione o cancellazione di tabelle, colonne, indici, modifiche di colonne) che verranno eseguite dal comando <code>migrate</code></p>
+</li>
+<li>
+<p><code>down()</code> </p>
+<p>In questo metodo vengono inserite tutte le azioni (creazione o cancellazione di tabelle, colonne, indici, modifiche di colonne) che verranno eseguite dal comando <code>migrate:rollback</code>.</p>
+<p>Possiamo pensare al metodo <code>down()</code> come ad un <em>Ctrl-Z</em> delle migrazioni, ovvero tutte le azioni necessarie ad <em>annullare</em> gli effetti del corrispondente metodo <code>up()</code>.</p>
+</li>
 </ul>
-<h3><a class="header" href="#principali-comandi-migrazioni" id="principali-comandi-migrazioni">Principali comandi migrazioni</a></h3>
+<h3><a class="header" href="#principali-comandi-artisan-sulle-migrazioni" id="principali-comandi-artisan-sulle-migrazioni">Principali comandi Artisan sulle Migrazioni</a></h3>
 <ul>
-<li><strong>php artisan migrate</strong>: serve ad inizializzare tutte le migrazione con ordine eseguendo quindi le istruzione al database</li>
-<li><strong>php artisan migrate:rollback</strong>:  serve ad annullare le ultime operazioni delle migrazioni</li>
-<li><strong>php artisan migrate:fresh</strong>: serve ad inizializzare le migrazioni da capo eliminando quelle già eseguite</li>
-<li><strong>php artisan migrate:status</strong>: serve a vedere lo stato delle migrazioni eseguite</li>
+<li>
+<p><strong>php artisan migrate</strong>: </p>
+<p>Serve ad eseguire tutte le migrazione non ancora effettuate (quindi non ancora presenti a database) nell'ordine definito dai timestamp associati a ciascuna migrazione.</p>
+</li>
+<li>
+<p><strong>php artisan migrate:rollback</strong>:</p>
+<p>Serve ad <em>annullare</em> le modifiche effettuate dall'ultimo gruppo di migrazioni eseguire, richiamando la funzione <code>down()</code> di ciascuna migrazione.</p>
+</li>
+<li>
+<p><strong>php artisan migrate:fresh</strong>: </p>
+<p>Serve ad inizializzare il database, eseguendo nuovamente le migrazioni, su un database <em>svuotato</em> di ogni tabella</p>
+</li>
+<li>
+<p><strong>php artisan migrate:status</strong>: </p>
+<p>Serve a vedere lo stato delle migrazioni, indicando quelle eseguite (in verde) e quelle da eseguire (in rosso)</p>
+</li>
 </ul>
 <h3><a class="header" href="#creare-una-tabella" id="creare-una-tabella">Creare una tabella</a></h3>
-<p>All'interno di una migrazione e più precisamente all'interno del metodo up() bisognerà andare scrivere il seguente codice</p>
-<pre><code>Schema::create('table_names',function (Blueprint $table){
-
+<p>All'interno di una migrazione e più precisamente all'interno del metodo <code>up()</code> bisognerà andare scrivere il seguente codice:</p>
+<pre><code class="language-php">Schema::create('table_name',function (Blueprint $table) {
+    // Definizione colonne tabelle
 });
 </code></pre>
 <p>Al suo interno dovremo andare a specificare che tipo di colonne vogliamo andare a creare all'interno della tabella, per esempio con:</p>
-<pre><code>$table-&gt;string('email')-&gt;unique()
+<pre><code class="language-php">$table-&gt;string('email')-&gt;unique()
 </code></pre>
-<p>andremo a creare una colonna chiamata <em>email</em> che sarà di tipo testo, abbiamo inoltre specificato che all'interno della tabella quel campo dovra essere unico.
-Se invece scriviamo:</p>
-<pre><code>$table-&gt;boolean('corretto')-&gt;default(false)
+<p>andremo a creare una colonna chiamata <em>email</em> che sarà di tipo <code>VARCHAR(255)</code>.<br />
+Abbiamo inoltre specificato che all'interno della tabella quel campo dovra essere unico.</p>
+<p>Se invece scriviamo:</p>
+<pre><code class="language-php">$table-&gt;boolean('corretto')-&gt;default(false)
 </code></pre>
-<p>avremo una colonna di tipo boolean chiamata <em>corretto</em> che di dafault avrà un valore <em>false</em></p>
+<p>avremo una colonna di tipo boolean chiamata <em>corretto</em> che di dafault avrà un valore <em>false</em>.</p>
 <h3><a class="header" href="#tipi-di-colonne" id="tipi-di-colonne">Tipi di Colonne</a></h3>
 <p>Le colonne di una tabella possono essere di diverso tipo:</p>
 <ul>
-<li>string</li>
-<li>boolean</li>
-<li>integer &amp; bigInteger</li>
-<li>text</li>
-<li>date, datetime &amp; timestamp</li>
-<li>timestamps &amp; softdeletes</li>
+<li>
+<p><code>$table-&gt;string('colonna', 255)</code> </p>
+<p>Permette di creare una colonna di tipo <code>VARCHAR</code>, impostando il numero massimo di caratteri (in questo caso 255)</p>
+</li>
+<li>
+<p><code>$table-&gt;boolean('colonna', default)</code></p>
+<p>Permette di creare una colonna di tipo <code>TINYINT</code> (su MySQL), corrispondente ad un valore booleano (true/false in PHP).<br />
+E' possibile impostare un valore booleano predefinto all'interno di <code>default</code>.</p>
+</li>
+<li>
+<p><code>$table-&gt;integer('colonna', MAX_DIGITS)-&gt;unsigned()</code> </p>
+<p>Permette di creare una colonna di tipo <code>INT</code> (su MySQL), impostando il numero massimo di cifre (<code>MAX_DIGITS</code>).<br />
+E' possibile inoltre impostare la colonna come <code>UNSIGNED</code> (utile per le chiavi di valore).</p>
+<p>Da Laravel 6 in poi, l'ID di ogni tabella in MySQL viene codificato usando un <code>bigInteger</code>, invece dell'<code>integer</code> normale.<br />
+E' importante, dunque, nelle <em>foreign key</em> usare il nuovo valore delle colonna come riferimento.</p>
+</li>
+<li>
+<p><code>$table-&gt;text('colonna')</code></p>
+<p>Permette di creare una colonna di tipo <code>TEXT</code> (su MySQL), quindi con una dimensione prefissata, utile per testi lunghi.</p>
+</li>
+<li>
+<p>date, datetime &amp; timestamp
+TODO</p>
+</li>
+<li>
+<p>timestamps &amp; softdeletes
+TODO</p>
+</li>
 </ul>
 
                     </main>
