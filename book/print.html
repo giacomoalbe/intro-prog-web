@@ -211,15 +211,12 @@
 <p>Questo lavoro collettivo è frutto della fatica, dell'impegno e della pressione di <em>innumerevoli tasti</em> da parte dei seguenti autori:</p>
 <ul>
 <li><strong>Giacomo Alberini</strong> (giacomoalbe)</li>
-<<<<<<< HEAD
-<li><strong>Alberto Scomparin</strong> (Scompa00)</li>
-=======
 <li><strong>Federico Cracco</strong> (federico.cracco95)</li>
 <li><strong>Michele Pasetto</strong> (michipase)</li>
 <li><strong>Massimo Piazza</strong> (macs-massimopiazza)</li>
 <li><strong>Alessandro Bosello</strong> (Alessandro-Bosello)</li>
 <li><strong>Erik Galbero</strong> (erikgalbero)</li>
->>>>>>> master
+<li><strong>Alberto Scomparin</strong> (Scompa00)</li>
 </ul>
 <h1><a class="header" href="#uso-del-terminale" id="uso-del-terminale">Uso del terminale</a></h1>
 <h2><a class="header" href="#introduzione-1" id="introduzione-1">Introduzione</a></h2>
@@ -524,33 +521,93 @@ View -&gt; Controller -&gt; Model in entrata
 <p>Laravel essendo un backend server aderisce al protocollo Request/Response, utilizzando appunto le classi <code>Request</code> e <code>Response</code>, <em>agganciando</em> ad esse gli altri elementi tipici del paradigma MVC. </p>
 <h1><a class="header" href="#protocollo-rest" id="protocollo-rest">Protocollo REST</a></h1>
 <h2><a class="header" href="#introduzione-3" id="introduzione-3">Introduzione</a></h2>
-<p>TODO: cos'è un protocollo, come viene usato per la comunicazione tra client &amp; server, che tipo di tecnologia usa, il ruolo dei verbi HTTP (get, post, put,), le convenzioni, cos'è una risorsa</p>
+<!--
+TODO: cos'è un protocollo, come viene usato per la comunicazione tra client & server, che tipo di tecnologia usa, il ruolo dei verbi HTTP (get, post, put,), le convenzioni, cos'è una risorsa
+-->
 <p>Un <strong>protocollo</strong> si può definire come un insieme di regole che vengono stabilite per instaurare una comunicazione corretta: ad esempio due persone di differenti madrelingue potrebbero mettersi d'accordo nell'utilizzo della lingua inglese per comunicare.</p>
-<p>I protocolli in generale sono dei protocolli di comunicazione, i quali sono adibiti far comunicare il client e il server</p>
-<p>Il modello client-server è costituito da un insieme di processi in esecuzione su diversi host: i processi che gestiscono una o più risorse sono detti server mentre quelli che richiedono l’accesso ad alcune di queste risorse distribuite sono detti client. <strong>Un processo server può a sua volta diventare client ed essere contemporaneamente sia client che server</strong>.</p>
+<p>In ambito informatico con <em>protocolli</em> in generale si intendono i protocolli di comunicazione, il cui scopo è appunto <em>normare</em> la comunicazione tra diverse entità, tipicamente client con server. </p>
+<p>Il modello client-server è costituito da un insieme di processi in esecuzione su diversi host: i processi che gestiscono una o più risorse sono detti server mentre quelli che richiedono l’accesso ad alcune di queste risorse distribuite sono detti client.<br />
+<strong>Un processo server può a sua volta diventare client ed essere contemporaneamente sia client che server</strong>.</p>
 <p>Ad esempio uno Schema di funzionamento di un modello client-server:</p>
 <ol>
-<li>Il client manda una richiesta al server;</li>
-<li>Il server (in stato di ascolto, listening) riceve la richiesta;</li>
-<li>Esegue il servizio richiesto (mediante un thread concorrente);</li>
-<li>Manda una risposta ed eventualmente dei dati al client;</li>
+<li>Il client manda una richiesta al server</li>
+<li>Il server (in stato di ascolto, o <em>listening</em>) riceve la richiesta</li>
+<li>Il server esegue il servizio richiesto</li>
+<li>Il server manda una risposta ed eventualmente dei dati al client;</li>
 <li>Il client riceve la risposta ed eventualmente i dati. </li>
 </ol>
-<h2><a class="header" href="#i-verbi-http" id="i-verbi-http">I verbi HTTP</a></h2>
+<h2><a class="header" href="#rest" id="rest">REST</a></h2>
+<p>Il protocollo <strong>REST</strong> (<em>Representational State Transfer</em>) è un insieme di regole di comunicazione tra server basato sul protocollo HTTP.</p>
+<p>Il principio cardine di questo protocollo è che ogni richiesta scambiata tra diverse entità deve essere in grado di <em>rappresentare</em> in maniera univoca <strong>l'informazione</strong> che il client sta richiedendo al server.</p>
+<p>Con <strong>informazione</strong> si intende la coppia <strong>azione</strong> e <strong>risorsa</strong> richieste.</p>
+<p>Il protocollo REST si basa infatti sul dividere il proprio progetto in <strong>risorse</strong>, che rappresentano normalmente i diversi <em>modelli</em> dell'applicazione, e in <strong>azioni</strong> che possono essere effettuate sulle risorse.</p>
+<p>Queste <em>azioni</em> e <em>risorse</em> vengono poi tradotte in richieste HTTP tradizionali utilizzando i <strong>verbi HTTP</strong> e alcune convenzioni nella scrittura degli URL.</p>
+<blockquote>
+<p>Il protocollo REST serve semplicemente a definire il funzionamento della <em>comunicazione</em> tra diverse entità web, ma non implementa nessuna delle logiche lato client o server per la gestione delle richieste. </p>
+<p>In altra parole, oltre al <em>modo</em> di comunicare sfruttando il protocollo REST è necessario realizzare la funzionalità di estrazione ed elaborazione dei dati per soddisfare le diverse richieste.</p>
+</blockquote>
+<h2><a class="header" href="#azioni-rest-i-verbi-http" id="azioni-rest-i-verbi-http">Azioni REST: I verbi HTTP</a></h2>
 <ul>
-<li>GET</li>
-<li>POST</li>
-<li>PUT</li>
-<li>DELETE</li>
-<li>OPTIONS</li>
+<li>
+<p><strong>GET</strong></p>
+<p>Le richieste di tipo <code>GET</code> servono per richiedere dati tra due entità, sia sotto forma di <strong>lista</strong> che di <strong>dettaglio</strong></p>
+</li>
+<li>
+<p><strong>POST</strong></p>
+<p>Le richieste di tipo <code>POST</code> vengono usate per comunicare l'intenzione di creare una nuova risorsa, non ancora esistente, con i dati che presenti nella richiesta stessa. </p>
+</li>
+<li>
+<p><strong>PUT</strong></p>
+<p>Le richieste di tipo <code>PUT</code> servono per modificare una risorsa esistente (definita a partire dall'ID) aggiornando solamente i dati che vengono inviati nella richiesta stessa</p>
+</li>
+<li>
+<p><strong>DELETE</strong></p>
+<p>Le richieste di tipo <code>DELETE</code> servono per eliminare una risorsa a partire dal suo ID</p>
+</li>
 </ul>
-<h2><a class="header" href="#le-risorse-restful" id="le-risorse-restful">Le risorse RESTful</a></h2>
+<h2><a class="header" href="#le-risorse-restful-gli-endpoint" id="le-risorse-restful-gli-endpoint">Le risorse RESTful: gli endpoint</a></h2>
+<p>Gli <strong>endpoint</strong>, ovvero gli <em>estremi</em> della comunicazione, sono rappresentati da URL (indirizzi web) formattati in un certo modo. </p>
+<p>Questi, unitamente ai verbi HTTP presentati precedentemente, servono per identificare univocamente l'azione che il client sta richiedendo al server:</p>
 <ul>
-<li>Lista</li>
-<li>Dettaglio</li>
-<li>Modifica</li>
-<li>Creazione</li>
-<li>Cancellazione</li>
+<li>
+<p><strong>Lista</strong></p>
+<p>Per ottenere la lista delle risorse di un certo tipo, è necessario inserire il nome della risorsa in una richiesta GET:</p>
+<p>Esempio:</p>
+<pre><code>GET /users =&gt; lista delle risorse di tipo users 
+</code></pre>
+<blockquote>
+<p>Per ottenere la lista non è necessario usare l'endpoint /users/list in quanto il verbo GET è già sufficiente per identificare univocamente l'azione di richiesta dell'insieme delle risorse di quel tipo</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Dettaglio</strong></p>
+<p>Per ottenere il dettaglio di una risorsa di un certo tipo con un certo ID, è necessario inserire il nome della risorsa e l'ID nell'URL di una richiesta GET:</p>
+<p>Esempio:</p>
+<pre><code>GET /users/10 =&gt; dettaglio della risorsa di tipo users con ID = 10
+</code></pre>
+</li>
+<li>
+<p><strong>Creazione</strong></p>
+<p>Per creare una risorsa di un certo tipo, è necessario inserire il nome della risorsa e i dati della nuova risorsa in una richiesta POST:</p>
+<p>Esempio:</p>
+<pre><code>POST /users {name: 'nuovo_utente', password: 'mypass20200'} =&gt; creazione di una risorsa di tipo users con i dati presentati
+</code></pre>
+<blockquote>
+<p>Anche in questo caso, non è necessario indicare nell'endpoint l'intenzione di creare una risorsa con /users/create oppure /users/new in quanto il verbo POST è sufficiente per palesare questa intenzione</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Modifica</strong></p>
+<p>Per modificare una risorsa di un certo tipo con un certo ID, è necessario inserire il nome della risorsa, i dati della nuova risorsa che si intendono aggiornare e l'ID della risorsa in una richiesta PUT:</p>
+<pre><code> PUT /users/10 {email: 'nuova@email.com'} =&gt; modifica di una risorsa di tipo users con id = 10, aggiornando l'email
+</code></pre>
+</li>
+<li>
+<p><strong>Cancellazione</strong>
+Per cancellare una risorsa di un certo tipo con un certo ID, è necessario inserire il nome della risorsa e l'ID della risorsa in una richiesta DELETE:</p>
+<pre><code>DELETE /users/10 =&gt; eliminazione di una risorsa di tipo users con id = 10
+</code></pre>
+</li>
 </ul>
 <h1><a class="header" href="#il-framework-laravel" id="il-framework-laravel">Il Framework Laravel</a></h1>
 <h2><a class="header" href="#concetti-generali" id="concetti-generali">Concetti Generali</a></h2>
