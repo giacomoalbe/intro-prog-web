@@ -37,3 +37,4 @@ Questo lavoro collettivo è frutto della fatica, dell'impegno e della pressione 
 - **Michele Pasetto** (michipase)
 - **Massimo Piazza** (macs-massimopiazza)
 - **Alessandro Bosello** (Alessandro-Bosello)
+- **Erik Galbero** (erikgalbero)

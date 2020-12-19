@@ -17,3 +17,4 @@ Il software usato per la formattazione del libro è [mdbook](https://rust-lang.g
 - **Michele Pasetto** (michipase)
 - **Massimo Piazza** (macs-massimopiazza)
 - **Alessandro Bosello** (Alessandro-Bosello)
+- **Erik Galbero** (erikgalbero)
