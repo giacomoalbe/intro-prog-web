@@ -165,10 +165,12 @@
                     <main>
                         <h1><a class="header" href="#orm" id="orm">ORM</a></h1>
 <h2><a class="header" href="#introduzione" id="introduzione">Introduzione</a></h2>
-<p>Laravel è un framework PHP di tipo MVC (Model, View, Controller) che mette a disposizione una miriade di strumenti che aiutano i programmatori a svilppare più velocemente un app. Uno di questi strumenti è l'ORM che permette la gestione e la mappatura tra le classi in PHP e i DB relazionali.</p>
-<p>Un ORM è un interfaccia che fornisce tramite programmazione ad oggetti tutti i servizi inerenti alla persistenza dei dati , ciò significa che possiamo gestire le entità e le relazioni di un DBMS tramite PHP in modo agevolo scrivendo poche righe di codice, avendo una portabilità superiore e scrivendo un'applicazione più stratificata per quanto riguarda la persistenza dati a vantaggio della modularità del sistema.</p>
-<p>L'ORM usato in Laravel è chiamta <strong>Eloquent</strong> e viene rappresentato all'interno dei modelli nel seguente modo:</p>
-<pre><code>&lt;?php
+<p>Laravel è un framework PHP di tipo MVC (Model, View, Controller) che mette a disposizione una miriade di strumenti che aiutano i programmatori a svilppare più velocemente un app.<br />
+Uno di questi strumenti è l'ORM che permette la gestione e la mappatura tra le classi in PHP e i DB relazionali.</p>
+<p>Un ORM, letteralmente <em>Object-Relational Mapping</em> è un interfaccia che fornisce tramite programmazione ad oggetti tutti i servizi inerenti alla persistenza dei dati , ciò significa che possiamo gestire le entità e le relazioni di un DBMS tramite PHP in modo agevolo scrivendo poche righe di codice, avendo una portabilità superiore e scrivendo un'applicazione più stratificata per quanto riguarda la persistenza dati a vantaggio della modularità del sistema.</p>
+<p>Un ORM, dunque, è un'astrazione che ci permette di accedere al database da PHP attraverso classi &amp; oggetti, quindi <em>parlando</em> la lingua dello sviluppatore e non quella del motore di database (SQL solitamente). </p>
+<p>L'ORM usato in Laravel è chiamato <strong>Eloquent</strong> e viene rappresentato all'interno dei modelli nel seguente modo:</p>
+<pre><code class="language-php">&lt;?php
 
 namespace App\Models;
 
@@ -182,7 +184,7 @@ class User extends Model
 </code></pre>
 <h2><a class="header" href="#creare-un-model" id="creare-un-model">Creare un Model</a></h2>
 <p>Per creare un model basta utilizzare il comando</p>
-<pre><code>php artisan make:model &lt;nome modello&gt;
+<pre><code class="language-bash">php artisan make:model &lt;NomeModello&gt;
 </code></pre>
 <p>E' necessario però prestare attenzione ad alcune regole nella scelta del nome:</p>
 <ul>
@@ -191,30 +193,66 @@ class User extends Model
 <li>Il nome deve avere la prima lettera maiuscola, se composto da più parole dovranno essere unite e entrambe le iniziali dovranno essere maiuscole</li>
 </ul>
 <p>quindi per esempio se precedentemente ho creato una migrazione in questo modo:</p>
-<pre><code>php artisan make:migration create_student_infos_table
+<pre><code class="language-bash">php artisan make:migration create_student_infos_table
 </code></pre>
 <p>il comando per creare il suo modello sarà</p>
-<pre><code>php artisan make:model StudentInfo
+<pre><code class="language-bash">php artisan make:model StudentInfo
 </code></pre>
 <h2><a class="header" href="#creare-righe-usando-i-model" id="creare-righe-usando-i-model">Creare righe usando i Model</a></h2>
-<p>TODO: usare il new Model(), aggiungere i campi e dare il save() per creare</p>
-<p>E' possibile aggiungere i campi ad una tabella direttamente da laravel per farlo è necessario utilizzare tinker, per apirlo bisogna utilizzare il seguente comando:</p>
-<pre><code>php artisan make:model tinker
+<p>E' possibile aggiungere righe ad una tabella direttamente da Laravel.<br />
+Per farlo è necessario utilizzare <code>tinker</code>, una console PHP in cui è possibile <em>sperimentare</em> ed eseguire codice senza doverlo scrivere nei file sorgente.</p>
+<p><code>tinker</code> è raggiungibile da terminale digitando:</p>
+<pre><code class="language-bash">php artisan make:model tinker
 </code></pre>
-<p>fatto questo è necessario prima importare il modello che ci serve quindi prendendo come riferimento l'esempio qui sopra scriviamo:</p>
-<pre><code>Use app\Models\StudentInfo
+<p>Fattp questo è necessario prima importare il modello che ci serve quindi prendendo come riferimento l'esempio qui sopra scriviamo:</p>
+<pre><code class="language-php">use app\Models\StudentInfo
 </code></pre>
-<p>Fatto ciò possiamo inserire i nostri campi all'interno della tabella la struttura per farlo sarà simile a questa:</p>
-<pre><code>$Student = new StudentInfo();
-        $Student-&gt;surname = &quot;cognome studente&quot;;
-        $Student-&gt;cf = &quot;cf studente&quot;;
-        $Student-&gt;name = &quot;nome studente&quot;;
-        
-        $Student-&gt;save();
+<p>Quindi possiamo inserire i nostri campi all'interno della tabella.<br />
+Le istruzioni PHP da eseguire saranno le seguenti:</p>
+<pre><code class="language-php">// Creo un nuovo modello come istanza della classe StudentInfo
+$student = new StudentInfo();
+
+// Popolo le sue proprietà, corrispondenti alle colonne della tabella presente nel database
+$student-&gt;surname = &quot;cognome studente&quot;;
+$student-&gt;cf = &quot;cf studente&quot;;
+$student-&gt;name = &quot;nome studente&quot;;
+
+// IMPORTANTE: salvo il modello, ovvero eseguo la query SQL che andrà ad inserire effettivamente la riga nel database
+$student-&gt;save();
 </code></pre>
-<p>Ovviamente i codic</p>
 <h2><a class="header" href="#query-sql-con-i-model" id="query-sql-con-i-model">Query SQL con i Model</a></h2>
 <p>TODO: come ottenere tutti gli elementi di una tabella, come fare query con where, come trovare velocemente righe dall'id</p>
+<p>Per eseguire le query più comuni con <em>Eloquent</em> è possibile operare in questo modo, sia su <code>tinker</code> che nel codice sorgente (dentro ai metodi dei Controller, ad esempio):</p>
+<ul>
+<li>
+<p><code>User::all()</code> oppure <code>User::get()</code>:</p>
+<p>Con questi comandi è possibile ottenere la lista delle righe presenti nella tabella associata con il modello <code>User</code> (di norma <code>users</code>)</p>
+</li>
+<li>
+<p><code>User::where(&quot;column&quot;, &quot;value&quot;)</code></p>
+<p>Con questo comando è possibile eseguire una query <code>where</code> e trovare tutti le righe della tabella <code>users</code> che abbiano come valore della colonna <code>column</code> la stringa <code>value</code>. </p>
+<blockquote>
+<p>La query qui mostrata <strong>non</strong> ritorna i dati, ma solamente il <code>QueryBuilder</code>, ovvero l'oggetto che rappresenta la query, quindi la richiesta.<br />
+Per ottenere i dati a partire dal un <code>QueryBuilder</code> si possono usare due metodi:</p>
+<ul>
+<li>
+<p>$query-&gt;get() </p>
+<p>per ottenere un array dei risultati (anche se ce ne fosse uno solo, l'oggetto <em>contenitore</em> sarebbe comunque un array)</p>
+</li>
+<li>
+<p>$query-&gt;first() </p>
+<p>per ottenere il primo elemento corrispondente alla query (anche se ce ne fossero più di uno verrebbe ritornato solamente il primo) </p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p><code>User::find(id)</code> oppure <code>User::where('id', id)-&gt;first()</code>:</p>
+<p>In questo modo è possibile trovare l'elemento della tabella <code>users</code> con l'id uguale a <code>id</code>.<br />
+Dato che solitamente la colonna id è univoca, è preferibile usare la prima scrittura in quanto più immediata.<br />
+Se invece è necessario affinare la ricerca ulteriormente e utilizzare altri <code>where</code> o altri costrutti in genere, è preferibile la seconda, in quanto molto più <em>flessibile</em>.</p>
+</li>
+</ul>
 <h2><a class="header" href="#eager-loading-con-with" id="eager-loading-con-with">Eager Loading con With</a></h2>
 <p>TODO: come creare relazioni tra modelli e come &quot;precaricare&quot; queste relazioni quando si usano le query</p>
 
