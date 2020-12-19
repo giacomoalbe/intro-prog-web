@@ -168,9 +168,11 @@
 <!-- TODO
 * Cos'è Vue, dove si posiziona nello sviluppo Web (frontend/backend)
 * Aspetti centrali di Vue (component based, reactive) -->
-<p>Vue è un framework Javascript frontend per la realizzazione di interfacce web e single page application.<br />
-Alternative ad esso possono essere React.js e Angular.js</p>
-<p>E' un sistema basato su componenti, blocchi di programma riutilizzabili, e proprietà reattive, variabili capaci reagire e modificarsi dato un cambiamento.</p>
+<p>Vue è un framework Javascript frontend reattivo per la realizzazione di interfacce web e Single Page Application (SPA).<br />
+Alternative ad esso possono essere <strong>React.js</strong> oppure <strong>AngularJS</strong>.</p>
+<p>E' un sistema basato su <strong>componenti</strong>, blocchi di programma riutilizzabili, e <strong>proprietà reattive</strong>, variabili capaci reagire e modificarsi dato un cambiamento.</p>
+<p>La <em>reattività</em> è un aspetto fondamentale del framework, in quanto è facilità lo sviluppo e riduce enormemente i tempi di realizazione.</p>
+<p>La sostanziale aderenza di Vue al pattern MVC (nella sua <em>dialetto</em> specifico per il frontend, denominato <em>MVVM</em>) permette di costruire applicazioni complesse garantendo comunque scalabilità, manutenibilità e organizazione del codice.</p>
 <h2><a class="header" href="#componenti" id="componenti">Componenti</a></h2>
 <!-- TODO 
 * Struttura del componente (template, script, style)
@@ -182,7 +184,7 @@ Alternative ad esso possono essere React.js e Angular.js</p>
 </ul>
 <h3><a class="header" href="#struttura-a-componenti" id="struttura-a-componenti">Struttura a componenti</a></h3>
 <p>In questo caso Vue è organizzato in componenti aventi la seguente struttura:</p>
-<pre><code>&lt;template&gt;
+<pre><code class="language-javascript">&lt;template&gt;
     &lt;div id=&quot;app&quot;&gt;
         &lt;HelloWorld msg=&quot;Hello World!&quot;&gt;
     &lt;/div&gt;
@@ -196,8 +198,17 @@ export default {
     components: {
         HelloWorld
     },
+    props: {
+    },
+    data() {
+      return {
+      }
+    },
+    mounted() {
+    },
     methods: {
-
+    },
+    computed: {
     }
 }
 &lt;/script&gt;
@@ -211,14 +222,16 @@ export default {
 </code></pre>
 <p>Dove:</p>
 <ul>
-<li><code>&lt;template&gt;&lt;/template&gt;</code> contiene tutto il codice che verrà visualizzato come html</li>
-<li><code>&lt;script&gt;&lt;/script&gt;</code> contiene il codice javascript, dove possiamo importare i componenti, definire le proprietà reattive, i metodi e altro di cui parleremo nei capitoli successivi</li>
-<li><code>&lt;style&gt;&lt;/style&gt;</code> contiene il codice per stili css del componente (se utilizziamo tailwind questo tag non serve)</li>
+<li><code>&lt;template&gt;&lt;/template&gt;</code> contiene tutto il codice che verrà visualizzato come HTML nella pagina Web</li>
+<li><code>&lt;script&gt;&lt;/script&gt;</code> contiene il codice Javascript, dove possiamo importare i componenti, definire le proprietà reattive, i metodi e altro di cui parleremo nei capitoli successivi</li>
+<li><code>&lt;style&gt;&lt;/style&gt;</code> contiene il codice per stili CSS del componente (se utilizziamo <a href="../tailwind-css.html">TailwindCSS</a> questo tag non risulta necessario, in quanto lo stile viene inserito direttamente nel codice HTML).</li>
 </ul>
-<p>I componenti sono file con l'estensione <code>.vue</code>, come in questo caso <code>.HelloWorld</code>, che possono essere importati in altri componenti</p>
+<p>I componenti sono file con l'estensione <code>.vue</code>, come in questo caso <code>HelloWorld</code>, che possono essere importati in altri componenti e usati più volte.</p>
+<p>I componenti di Vue permettono di <em>incapsulare</em> funzionalità e logiche di business unitamente alla loro rappresentazione visuale, rendendo di fatto possibile &quot;riciclare&quot; e riutilizzare codice in ambienti o progetti diversi, sfruttando l'interfaccia esposta da ogni componente come metodo di comunicazione.</p>
+<p>Questo permette di vedere un'applicazione Vue come un insieme di componenti che comunicano tra loro, creando una struttura snella e facilmente modellabile secondo le esigenze.</p>
 <h3><a class="header" href="#struttura-a-pagina-singola" id="struttura-a-pagina-singola">Struttura a pagina singola</a></h3>
 <p>In questo caso utiliziamo Vue all'interno di una singola pagina:</p>
-<pre><code>&lt;!DOCTYPE html&gt;
+<pre><code class="language-javascript">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -245,19 +258,68 @@ export default {
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>Per prima cosa dobbiamo importare la cdn di Vue con <code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>Per prima cosa dobbiamo importare lo script Vue da una <em>CDN</em> (<em>Content Delivery Network</em>) con <code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</code></p>
 <p>Dunque, come vediamo dall'esempio, creiamo una nuovo oggetto Vue dentro al tag <code>&lt;script&gt;&lt;/script&gt;</code> dove ci sono 3 parametri fondamentali:</p>
 <ul>
-<li><code>el: </code> dove definiamo il selettore in cui verrà visualizzata la nostra applicazione (<code>#app</code> in questo caso)</li>
-<li><code>data() { }</code> che è un funzione dove definiamo le proprietà reattive, ritornandole, (<code>messaggio</code> in questo caso)</li>
-<li><code>methods: { }</code> dove definiamo le nostre funzioni Javascript</li>
+<li><code>el: </code> dove definiamo il selettore CSS dell'elemento in cui verrà visualizzata la nostra applicazione (<code>#app</code> in questo caso, quindi un elemento con <code>id</code> uguale ad 'app')</li>
+<li><code>data() { }</code> che è un funzione dove definiamo le proprietà reattive, ritornandole, (<code>messaggio</code> in questo caso).</li>
+<li><code>methods: { }</code> dove definiamo le nostre funzioni Javascript direttamente accessibili dalla vista.</li>
 </ul>
-<h2><a class="header" href="#npm--vue-cli" id="npm--vue-cli">Npm &amp; Vue CLI</a></h2>
-<p>TODO:</p>
+<h2><a class="header" href="#tool-di-sviluppo-per-vue" id="tool-di-sviluppo-per-vue">Tool di Sviluppo per Vue</a></h2>
+<!--
+TODO:
+* Cos'è Npm e i node_modules
+* Come usare la Vue CLI per creare progetti
+* Come usare la Vue CLI in sviluppo (serve & build)
+-->
+<h3><a class="header" href="#npm" id="npm">NPM</a></h3>
+<p>Ad oggi, l'ecosistema Javascript risulta essere quello maggiormente utilizzato al mondo.</p>
+<p>Per evitare di continuare a <em>reinventare la ruota</em> e concentrare gli sforzi di sviluppo su funzionalità immediatamente vendibili, si fa ricorso solitamente a <strong>pacchetti</strong> di codice esterni, che possono essere facilmente intergati all'interno del proprio progetto Javascript.<br />
+Da questo punto di vista, VueJS non fa eccezione: è infatti possibile integrare pacchetti generici per Javascript e specifici per Vue (solitamente indicati dal prefisso <code>vue-</code>) utilizzando programmi chiamati <em>package managers</em>, o gestori di pacchetti.</p>
+<p>Il più famoso e maggiormente utilizzato è <code>NPM</code>, letteralmente <code>Node Package Managers</code>. <em>Node</em> è il nome dell'interprete Javascript nativo per PC, quindi non quello installato nel browser.</p>
+<p>Con quasi 1,5 milioni di pacchetti disponibili online, <code>NPM</code> è il più grande <em>repository</em> (leggi contenitore) di codice (Javascript) al mondo.<br />
+Qui è possibile trovare pacchetti per risolvere praticamente tutte le esigenze di programmazione, dalle utility, alla sicurezza, al processing vario di immagini e altro.</p>
+<p><code>NPM</code> è un programma da linea di comando che permette, tra le altre, di installare pacchetti localmente al un progetto o globalmente, rendendoli disponibili sotto forma di CLI in tutto il sistema operativo. </p>
+<p>I pacchetti locali ad un progetto vengono installati nella cartella <code>node_modules</code>.</p>
+<p>E' poi compito di altri programmi, ad esempio <code>Webpack</code> o <code>Rollup</code> fare in modo di <em>comporre</em> il progetto usando sia il codice da noi generato che quello presente nei pacchetti.</p>
+<h3><a class="header" href="#vue-cli" id="vue-cli">Vue CLI</a></h3>
+<p>Per agevolare lo sviluppo di progetti Vue è stata creata una <em>CLI</em> specifica con cui è possibile creare e gestire progetti.<br />
+Maggiori informazioni e una documentazione più esaustiva sono reperibili <a href="https://cli.vuejs.org">qui</a></p>
+<p>La CLI di Vue è facilmente installabile usando NPM, nel seguente modo:</p>
+<pre><code class="language-bash">npm install @vue/cli
+</code></pre>
+<p>Una volta installato il pacchetto, sarà disponibile un nuovo programma da linea di comando, chiamato <code>vue</code>.</p>
+<p>Di seguito alcune delle operazioni più comuni che è possibile effettuare con la CLI:</p>
 <ul>
-<li>Cos'è Npm e i node_modules</li>
-<li>Come usare la Vue CLI per creare progetti</li>
-<li>Come usare la Vue CLI in sviluppo (serve &amp; build)</li>
+<li>
+<p><strong>Creare un progetto</strong></p>
+<p>Per creare un progetto è sufficiente digitare il comando:</p>
+<pre><code class="language-bash">vue create nome-progetto
+</code></pre>
+<p>A questo punto l'utente verrà guidato in un <em>wizard</em> in cui dovrà inserire le specifiche del progetto da utilizzare.<br />
+Nella maggiorparte dei casi, è possibile mantenere le impostazioni di default.</p>
+</li>
+<li>
+<p><strong>Servire un progetto</strong></p>
+<p>Il browser non è in grado di eseguire più file contemporaneamente e, in generale, comprende solamente file Javascript <em>vanilla</em>, ovvero file che presentano le caratteristiche di base del linguaggio.<br />
+Vue, invece, fa uso di costrutti Javascript complessi, per agevolare il programmatore nello sviluppo. Questo comporta che i vari file di Vue debbano venire <em>compilati</em> in modo da essere interpretabili correttamente dai vari browser (Chrome, Firefox, Safari, Opera, Edge, ecc).</p>
+<p>Operare questo <em>stage</em> di compilazione ad ogni modifica del codice risulterebbe particolarmente lento e poco ergonomico.  Per questo motivo, la Vue CLI mette a disposizione un comando, <code>vue serve</code> che si occupa proprio di riconoscere i cambiamenti ai file di progetto (ad ogni salvataggio), di <em>compilare</em> tutto il progetto e di inviarlo al browser, aggiornando la pagina in maniera automatica.</p>
+<p>Il comando <code>vue serve</code> dunque <em>serve</em> il progetto ad un certo indirizzo HTTP locale, ad esempio <code>http://localhost:8080</code>, dove è quindi possibile accedere ai file di progetto serviti attraverso il meccanismo dell'<em>hot reload</em>.</p>
+</li>
+<li>
+<p><strong>Builare un progetto</strong></p>
+<p>Una volta completato lo sviluppo locale (o in modalità <em>development</em>) deve essere possibile mandare in <em>produzione</em> il progetto, ovvero renderlo accessibile pubblicamente attraverso la rete internet. </p>
+<p>Per questa fase, le modalità sono simili a quelle del <code>serve</code>, con la sola differenza che la fase di compilazione del progetto viene fatta in ottica di produzione, andando ad applicare tutte le ottimizzazioni in termini di performance, di riduzione del peso complessivo e di messa in sicurezza del codice. </p>
+<p>Il risultato della fase di build sarà una terna di file:</p>
+<ul>
+<li><em>app.js</em>: questo file conterrà il codice Javascript completo dell'applicazione</li>
+<li><em>index.html</em>: in questo file sarà presente tutta la parte di struttura dell'applicazione</li>
+<li><em>app.css</em>: file contente tutto lo stile CSS da applicare ai vari componenti del progetto</li>
+</ul>
+<p>Per creare questo <em>bundle</em>, ovvero l'insieme dei file e delle risorse che rappresentano il progetto, è sufficiente usare il comando:</p>
+<pre><code class="language-bash">vue build --prod
+</code></pre>
+</li>
 </ul>
 <h2><a class="header" href="#contenuti" id="contenuti">Contenuti</a></h2>
 <ul>
