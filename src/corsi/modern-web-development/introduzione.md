@@ -34,3 +34,9 @@ Questo lavoro collettivo è frutto della fatica, dell'impegno e della pressione 
 
 - **Giacomo Alberini** (giacomoalbe)
 - **Federico Cracco** (federico.cracco95)
+- **Michele Pasetto** (michipase)
+- **Massimo Piazza** (macs-massimopiazza)
+- **Alessandro Bosello** (Alessandro-Bosello)
+- **Erik Galbero** (erikgalbero)
+- **Alberto Scomparin** (Scompa00)
+- **Mattia Moretto** (MattiaMoretto97)

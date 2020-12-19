@@ -212,6 +212,15 @@
 <ul>
 <li><strong>Giacomo Alberini</strong> (giacomoalbe)</li>
 <li><strong>Federico Cracco</strong> (federico.cracco95)</li>
+<<<<<<< HEAD
+=======
+<li><strong>Michele Pasetto</strong> (michipase)</li>
+<li><strong>Massimo Piazza</strong> (macs-massimopiazza)</li>
+<li><strong>Alessandro Bosello</strong> (Alessandro-Bosello)</li>
+<li><strong>Erik Galbero</strong> (erikgalbero)</li>
+<li><strong>Alberto Scomparin</strong> (Scompa00)</li>
+<li><strong>Mattia Moretto</strong> (MattiaMoretto97)</li>
+>>>>>>> master
 </ul>
 <h1><a class="header" href="#uso-del-terminale" id="uso-del-terminale">Uso del terminale</a></h1>
 <h2><a class="header" href="#introduzione-1" id="introduzione-1">Introduzione</a></h2>
@@ -316,63 +325,293 @@ E' l'equivalente del doppio clic all'interno di una cartella in Esplora Risorse 
 </ul>
 <h1><a class="header" href="#git--github" id="git--github">Git &amp; Github</a></h1>
 <h2><a class="header" href="#introduzione-al-versionamento" id="introduzione-al-versionamento">Introduzione al versionamento</a></h2>
-<p>TODO: cosa significa versionare e come impatta nel mondo dello sviluppo del codice, con particolare relazione alla collaborazione tra diversi sviluppatori</p>
+<p>Il <em>controllo di versione</em>, anche detto <em>versionamento</em> è un sistema software che permette di tenere traccia nel tempo di cambiamenti ad un file o ad una serie di file, così da poter richiamare una specifica versione in un secondo momento.
+Questo approccio permette inoltre di tenere traccia dei cambiamenti tra le versioni, oltre a facilitare la stesura della documentazione.
+L'utilizzo di sistemi di controllo del versionamento come il programma <a href="https://git-scm.com/">git</a> (locale) e <a href="https://github.com/">Github</a> (il sito servizio di cloud di <code>git</code>), permettono di lavorare allo sviluppo in team.</p>
+<p><code>git</code> permette infatti di creare <em>branches</em>, letteralmente rami, che sono copie del ramo principale del codice sorgente, nel quale si possono inserire gli sviluppi successivi.</p>
+<p>Implementate le nuove modifiche è quindi possibile inserirle o effettuare il <em>merge</em> (<em>mergiare</em>, in gergo tecnico) all'interno del ramo principale, unendo il lavoro di tutti gli sviluppatori controllando e risolvendo le (eventuali) sovrapposizioni.</p>
+<p>Il grande vantaggio di <code>git</code> è quello di aver reso estremanente <strong>facile</strong> e <strong>sicuro</strong> condividere, scambiare, modificare e aggiornare codice sorgente tra computer, persone e tempi diversi, eliminando di fatto la maggior parte dei problemi relativi alla <em>gestione del codice sorgente</em>.</p>
+<p>Per questo motivo, ad oggi, <code>git</code> risulta il software di versionamento più usato (e sicuro) al mondo.</p>
+<p>Degno di menzione il fatto che <code>git</code> è un progetto completamente Open Source, autofinanziato e realizzato da una community di programmatori proveniente da tutti i continenti.</p>
+<p>A capo del progetto troviamo <a href="https://it.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a>, il famoso creatore del Sistema Operativo Free &amp; Open Source <a href="https://kernel.org">Linux</a></p>
 <h2><a class="header" href="#concetti-base" id="concetti-base">Concetti base</a></h2>
 <ul>
-<li>Repository</li>
-<li>Stage</li>
-<li>Commit</li>
-<li>Branch</li>
-<li>Remote</li>
+<li>
+<p><strong>Repository</strong></p>
+<p>Una <em>repository</em> (spesso appreviata con <code>repo</code>) è una cartella interamente gestita da <code>git</code> per tener traccia delle modifiche e della <em>storia</em> di un progetto. Può trovarsi all'interno di una cartella nel computer o nello spazio di GitHub o in un'altro servizio di hosting online.</p>
+<p>Il <em>repository</em> vero e proprio è all'interno della cartella nascosta <code>.git</code> che si trova nella cartella di progetto ed è uno spazio utilizzato da <code>git</code> per <em>svolgere</em> tutte le sue funzioni. E' una cartella che è importante <strong>NON</strong> andare a modificare in quanto è <code>git</code> stesso che si occupa di gestire i file in esso contenuti.</p>
+<p>All'interno di una repository è possibile inserire qualunque tipo di file, che sia codice, immagine o altro. Per Github consigliano comunque di non inserire file singoli di dimensione superiore a 60Mb, e in generale di mantenere la dimensione complessiva del repository entro i 100Mb totali.</p>
+</li>
+<li>
+<p><strong>Stage</strong></p>
+<p>Lo <em>stage</em>, letteralmente 'palco', è lo step precedente al <em>commit</em>. Esso contiene tutte le modifiche che sono state apportate ai file di progetto (ovvero i file che <code>git</code> sta già tracciando), modifiche che è quindi necessario salvare attraverso il <em>commit</em>.</p>
+<p>All'interno dello stage è ancora possibile modificare i file, rimuoverli o aggiungerli.
+Il comando usato per aggiungere i file modificati all'interno dello stage è <code>git add &lt;nome_file&gt;</code>.</p>
+<p>Nel caso si vogliano aggiungere <strong>tutti i file</strong> contenenti modifiche della cartella corrente, è necessario dare il comando <code>git add .</code>.</p>
+</li>
+<li>
+<p><strong>Commit</strong></p>
+<p>Un <code>commit</code> è una <em>fotografia</em> dello stato della cartella di progetto in un determinato momento temporale.</p>
+<p>Con <em>fotografia</em> si intende una rappresentazione dei contenuti dei singoli file di progetto. Ad ogni <code>commit</code> viene associato un <em>messaggio</em> (definito dall'utente) che va a mettere in relazione le modifiche effettuate e salvate con una loro descrizione <em>human readable</em>, ovvero comprensibile al programmatore che ha attuato quelle modifiche.</p>
+<p>Una volta salvata, la <em>commit</em> è definitiva, ovvero non è più possibile modificarne il contenuto. Questo significa che <strong>tutte quello che viene committato rimane salvato nella storia di <code>git</code></strong>.
+Anche se può sembrare una cosa di cui preoccuparsi, in realtà questo rappresenta un grandissimo vantaggio: dato che quella <em>fotografia</em> (o <em>versione</em>) è stata salvata, è sempre possibile <em>tornare indietro</em> a quelle modifiche effettuate. In altri termini, il lavoro che viene committato, non viene <strong>mai</strong> perso.</p>
+<p>Fare una <code>commit</code>, anche detto <em>committare</em>, è una procedura <em>manuale</em>. Una volta aggiunte le modifiche all'interno dello <code>stage</code>, <code>git</code> non salva automaticamente tutto in un <code>commit</code>: questo operazione deve essere effettuata manualmente attraverso il comando <code>git commit -m &quot;Messaggio relativo alle modifiche effettuate</code>.</p>
+</li>
+<li>
+<p><strong>Branch</strong></p>
+<p>Con <code>branch</code> (letteralmente <em>ramo</em>) si indica una ramificazione della storia di un progetto.</p>
+<p>Per <code>git</code>, la <em>storia</em> è un insieme di <code>commit</code> sequenziali, ovvero un gruppo di modifiche effettuate ai file della cartella di progetto.</p>
+<p>In un repository <code>git</code>, non esiste un'unica storia, quindi un unico <code>branch</code>. Diversi rami disgiunti possono convivere nello stesso repository.</p>
+<p>Nonostante questo, ogni repository può rappresentare un ramo alla volta, quindi il contenuto della cartella di progetto può fare riferimento ad una <code>commit</code> (ovvero una delle <code>versioni</code> presenti su quel ramo) per volta.</p>
+<p>Il ramo principale di ogni progetto viene chiamato (per convenzione) <code>master</code>.
+Benchè si possa lavorare direttamente sul <code>master</code>, è consigliato iniziare un nuovo <code>branch</code> ogni volta che si intende implementare una nuova funzionalità.
+Questo permette agli altri sviluppatori di poter partire sempre da una base <em>condivisa</em> (il <code>master</code>) e di effettuare tutte le prove e i test possibili senza intaccare il lavoro di altri.</p>
+</li>
+<li>
+<p><strong>Remote</strong></p>
+<p>Un <code>remote</code> è un repository remoto, ovvero presente su qualche servizio di hosting online.</p>
+<p>I <code>remote</code> vengono utilizzati per sincronizzare codice e permettere la collaborazione di più persone sui progetti.</p>
+</li>
 </ul>
 <h2><a class="header" href="#comandi-git" id="comandi-git">Comandi Git</a></h2>
 <ul>
-<li>status</li>
-<li>add</li>
-<li>commit</li>
-<li>checkout</li>
-<li>branch</li>
-<li>push</li>
-<li>pull</li>
-<li>clone</li>
-<li>merge</li>
+<li>
+<p><strong>Init</strong></p>
+<p>Viene utilizzato per inizializzare un repository <code>git</code>. Viene utilizzato all'interno della directory da <em>trasformare</em> in repository.
+<code>git init .</code></p>
+</li>
+<li>
+<p><strong>status</strong>
+Permette di controllare quali file sono stati modificati, quali inseriti nello stage, quali sono pronti per il commit.</p>
+<p>E' forse il comando che si utilizzerà di più, in quanto è fondamentale conoscere lo <em>stato</em> dello <code>stage</code> prima di fare qualsiasi operazione con <code>git</code>.</p>
+<p><code>git status</code></p>
+</li>
+<li>
+<p><strong>add</strong></p>
+<p>Inserisce i file selezionati all'interno dello stage.</p>
+<ul>
+<li><code>git add &lt;file&gt;</code> aggiunge un file singolo (dato il path del file)</li>
+<li><code>git add .</code> aggiunge tutti i file (con modifiche) della cartella corrente</li>
+</ul>
+</li>
+<li>
+<p><strong>commit</strong></p>
+<p>Salva definitivamente le modifiche all'interno del <code>stage</code>.</p>
+<p>Bisogna inserire anche il parametro '-m' che imposta un messaggio per il commit.</p>
+<p>Solitamente il messaggio viene scritto in inglese, con una frase semplice formata da verbo imperativo e complemento es. <code>add interceptors</code></p>
+<p><code>git commit -m '&lt;messaggio&gt;'</code></p>
+</li>
+<li>
+<p><strong>checkout</strong>
+Viene usato per <em>saltare</em> da un ramo all'altro del progetto.</p>
+<ul>
+<li><code>git checkout &lt;nome_branch&gt;</code> si sposta su un'altro branch di nome &lt;nome_branch&gt;</li>
+<li><code>git checkout -b &lt;nome_nuovo_branch&gt;</code> per creare un nuovo ramo e <em>saltarci</em> dentro.</li>
+<li><code>git checkout -- .</code> per <em>eliminare</em> le modifiche presenti nello <code>stage</code> e tornare alla situazione descritta dall'ultima commit del branch sui cui stiamo lavorando.</li>
+</ul>
+</li>
+<li>
+<p><strong>branch</strong>
+Viene usato per visualizzare i branch attivi e quello su cui ci si trova, per creare o eliminare i branch.</p>
+<ul>
+<li><code>git branch</code> mostra i branch presenti nel repository e segnala quello attivo con un &quot;*&quot;</li>
+<li><code>git branch -d &lt;nome_branch&gt;</code> elimina il branch &lt;nome_branch&gt;</li>
+<li><code>git branch &lt;nome_branch&gt;</code> crea il branch &lt;nome_branch&gt;</li>
+</ul>
+</li>
+<li>
+<p><strong>push</strong>
+Viene usato per <strong>inviare online</strong> (letteralmente <em>spingere</em>) i commit del <code>branch</code> su cui si sta lavorando all'interno del <code>branch</code> corrispondente online.</p>
+<p>Al primo push su una repository remota si aggiunge l'indicazione delle <code>remote</code> a cui si intende inviare il codice (tipicamente <code>origin</code>) come destinazione e il nome del branch (as esempio <code>master</code>) che si intende caricare:</p>
+<p><code>git push origin master</code> → 1° push sul branch master in remoto
+<code>git push</code> → per tutte le altre</p>
+</li>
+<li>
+<p><strong>pull</strong>
+E' il comando opposto a <code>git push</code> e permette di <em>scaricare</em> la versione remota del branch e di mergiarla con quella locale.
+In questa fase possono verificarsi dei conflitti (conseguenti al merge) che devono essere controllati ed appianati.</p>
+<p>Prima di effettuare una nuova 'push' è sempre consigliato (e a volte necessario) effettuare una 'pull'.
+<code>git pull</code></p>
+</li>
+<li>
+<p><strong>clone</strong>
+Viene usato per <em>clonare</em> una repo da remoto in locale, ovvero trasformare una cartella locale in una copia del repository remoto.</p>
+<p>Il comando richiede l'indirizzo della repository su GitHub ed il protocollo utilizzato: <strong>https</strong> o <strong>ssh</strong>.</p>
+<ul>
+<li><code>git clone https://&lt;autore&gt;/&lt;nome_repo&gt;.git</code> per il clone HTTPS</li>
+<li><code>git clone git@github.com:&lt;autore&gt;/&lt;nome_repo&gt;.git</code> per il clone SSH</li>
+</ul>
+<p><strong>NB</strong>: Per usare il metodo ssh bisogna avere un account GitHub ed aver collegato una chiave ssh valida.</p>
+</li>
+<li>
+<p><strong>merge</strong>
+Permette di <em>unire</em> il contenuto di un branch (locale o remoto) all'interno del branch corrente.</p>
+<p>Gli (eventuali) conflitti che si generano vanno risolti manualmente, selezionando quali modifiche mantenere, se la versione locale (HEAD) o quella che si sta cercando di integrare (INCOMING).</p>
+</li>
 </ul>
 <h2><a class="header" href="#github" id="github">Github</a></h2>
-<p>TODO: Cos'è e come funziona relativamente alla condivisione codice, chiave SSH e clone</p>
+<p>GitHub è un servizio gratuito (almeno per le funzionalità base) di hosting e versionamento di codice basato su Git.
+Ad oggi conta più di 40 milioni di utenti con più di 190 milioni di repository ed è quindi il più grande servizio di questo genere al mondo, sorpassando di gran lunga SourceForge e Google Code.</p>
+<p>Su GitHub è possibile caricare le proprie repository e condividerle con i propri collaboratori. Permette inoltre di gestire il versionamento attraverso il sistema di <em>pull e merge</em>, permettendo così a più utenti collaboratori di sviluppare codice a blocchi.
+GitHub permette di far accedere alle repository dell'utente collegando il proprio computer tramite ssh.
+Per poter creare una chiave ssh è sufficente il comando <code>ssh-keygen</code> ed inserire la chiave pubblica all'interno delle informazioni utente sul sito di GitHub.</p>
 <h2><a class="header" href="#componenti-progetto-github" id="componenti-progetto-github">Componenti Progetto Github</a></h2>
 <ul>
-<li>README</li>
-<li>Issue</li>
-<li>PR</li>
-<li>Contributors</li>
+<li>
+<p><strong>README</strong></p>
+<p>Il file README è spesso il primo file che viene visualizzato e deve contenere quindi le informazioni importanti del progetto.
+GitHub permette di visualizzare direttamente sulla pagina progetto il README inserito nella root di progetto.
+Solitamente viene scritto in Markdown, come questa guida ;-).</p>
+</li>
+<li>
+<p><strong>Issue</strong></p>
+<p>Le Issues sono il modo di GitHub per tenere traccia dei task, avanzamenti e bug di un progetto.
+Sono dei <em>documenti online</em> che possono essere condivisi e discussi con gli altri collaboratori di progetto.
+Ogni repository ha la propria sezione dedicata alle issue.
+Chiunque dei collaboratori può creare issue, assegnarle ad altri ed effettuare la review prima di una PR.</p>
+</li>
+<li>
+<p><strong>PR</strong> (aka 'pull request')</p>
+<p>Le pull request permettono ai collaboratori di far <em>mergiare</em> il proprio codice nel progetto principale.</p>
+<p>Quando una PR viene aperta, è possibile discutere e revisionare i cambiamenti con i collaboratori prima di effettuare l'ultima commit e fare il merge con il branch principale.</p>
+</li>
+<li>
+<p><strong>Contributors</strong></p>
+<p>Il creatore di una repository può inserire i collaboratori o <em>contributors</em>, i quali devono possedere un account GitHub valido.</p>
+<p>Mentre per le repository pubbliche, tutti gli utenti possono vedere e scaricare (clone), solo i contributor possono effettuare i push e le pull request.</p>
+</li>
 </ul>
 <h1><a class="header" href="#model-view-controller" id="model-view-controller">Model View Controller</a></h1>
 <h2><a class="header" href="#introduzione-2" id="introduzione-2">Introduzione</a></h2>
-<p>TODO: cos'è un paradigma di programmazione, dove si usa l'MVC e per quale motivo è utile (separation of concerns), relazione con il pattern request-response</p>
-<h2><a class="header" href="#model" id="model">Model</a></h2>
-<p>TODO: cosa è e rappresenta il modello</p>
-<h2><a class="header" href="#view" id="view">View</a></h2>
-<p>TODO: cosa è e cosa rappresenta la vista</p>
-<h2><a class="header" href="#controller" id="controller">Controller</a></h2>
-<p>TODO: cosa è e cosa rappresenta il controller</p>
+<p><em>Model View Controller</em>, abbreviato spesso in <strong>MVC</strong>, è un paradigma di programmazione atto a dividere il codice in blocchi ben distinti in base alla loro funzionalità.</p>
+<blockquote>
+<p>Questo processo viene denominato <em>separation of concerns</em> (separazione degli ambiti) e permette, tra le altre, di aumentare la produttività di un progetto software affidando a persone con competenze speficiche aree diverse, diminuendo l'accavallamento di competenze e massimizzando la qualità del lavoro in ogni sua fase.</p>
+</blockquote>
+<p>Per capire al meglio MVC è necessario approfondire il concetto di <strong>paradigma di programmazione</strong>, ovvero un insieme di <em>regole</em> e <em>convenzioni</em> di programmazione atta ad agevolare il programmatore nella fase di progettazione.<br />
+Solitamente, un paradigma è utile in quanto è il risultato dell'<em>ingegnerizzazione</em> di un processo, ovvero dell'astrazione di un particolare metodo risolutivo per un problema ricorrente nello sviluppo di prodotti anche molto diversi tra loro.</p>
+<p>Risulta quindi <em>conveniente</em> conoscere e, per quanto possibile, aderire ai diversi paradigmi software esistenti per sfruttare a proprio vantaggio l'esperienza maturata negli anni dalla comunità accademica e professionale in ambito software.</p>
+<p>Laravel sfrutta in maniera estensiva l'MVC, utilizzando i <code>Model</code>, i <code>Controller</code> e le <code>View</code> nativamente.</p>
+<h2><a class="header" href="#anatomia-del-model-view-controller" id="anatomia-del-model-view-controller">Anatomia del Model-View-Controller</a></h2>
+<p>Il paradigma MVC è particolarmente indicato per i progetti software che sfruttino in maniera importante basi di dati o comunque siano orientati ai dati.<br />
+Rientrano in questa categoria tutti i prodotti web e la maggiorparte dei prodotti software in generale. </p>
+<p>Analizziamo una a una le 3 componenti:</p>
+<h3><a class="header" href="#model" id="model">Model</a></h3>
+<p>Si tratta della sezione di codice che <strong>si interfaccia con la base dati</strong>.</p>
+<p>Il <em>model</em> è l'astrazione software che permette all'applicazione di intergire con la base di dati.</p>
+<p>Per sua natura, il <em>model</em> non fa riferimento ad un particolare tipo di database o di struttura di salvataggio/estrazione dei dati, ma, appunto, espone un'interfaccia unica alle altre componenti software e si occupa internamente dei dettagli implementativi di ogni <em>backend</em> dati che supporti.</p>
+<h3><a class="header" href="#view" id="view">View</a></h3>
+<p>Da come suggerisce il nome è la parte di codice che più è vicina all'utente, qui verrà contenuta la <strong>logica di presentazione e di interazione</strong>.</p>
+<p>La <em>view</em> riceve le strutture dati di cui ha bisogno direttamente dal controller e si occupa quindi di posizionarle e stilarle nel modo più aderente possibile agli scopi dell'applicazione stessa.</p>
+<p>All'interno della <em>view</em> è anche presente il codice per gestire l'interazione con l'utente e l'interrogazione opportuna del <em>controller</em> corretto per portare a termina l'operazione desiderata.</p>
+<h3><a class="header" href="#controller" id="controller">Controller</a></h3>
+<p>Si tratta di quelle porzione di codice che <strong>utilizza i dati</strong> forniti dal <em>model</em> per presentarli alla <em>view</em>.<br />
+Possiamo riferirci al <em>controller</em>, come alla <strong>colla</strong> tra i dati (rappresentati dal <em>model</em>) e la visualizzazione (la <em>view</em>), in grado di operare la <strong>logica di business</strong> necessaria per svolgere l'operazione specifica dell'applicazione. </p>
+<p>Con logica di business si intende l'insieme delle azioni, istruzioni ed algoritmi che, operando sui dati, generano le strutture necessarie a portare a termine una certa operazione, specifica del controller in essere. </p>
+<p>La parte di logica è quella che caratterizza il progetto, e, insieme ai dati che vengono collezionati nel tempo, rappresenta l'<em>asset</em> strategico di maggior valore per qualunque progetto software.</p>
+<h2><a class="header" href="#mvc-e-requestresponse" id="mvc-e-requestresponse">MVC e Request/Response</a></h2>
+<p>Per sua natura, l'MVC è un paradigma <em>direzionale</em> e <em>orientato</em>, nel senso che le operazioni vengono svolte sempre nello stesso ordine: </p>
+<pre><code>Model -&gt; Controller -&gt; View in uscita
+View -&gt; Controller -&gt; Model in entrata
+</code></pre>
+<p>Per questo motivo l'MVC ben si presta ad essere accompagnato dal paradigma <strong>Request/Response</strong>, per il quale tutte le interazioni tra client e server possono essere ricondotte a scambi di <em>request</em> e corrispondenti <em>response</em>.</p>
+<p>Questa una descrizione del flusso MVC + Request/Response:</p>
+<ol>
+<li>Il client (partendo da una <em>view</em>) invia una <strong>request</strong> ad un server </li>
+<li>Il server passa questa <strong>request</strong> ad un <em>controller</em></li>
+<li>Il <em>controller</em> esegue la sua <strong>logica di business</strong>, coinvolgendo direttamente il <em>model</em> nelle sue operazioni</li>
+<li>Il <em>controller</em> impacchetta i dati necessari all'interno di una nuova <em>view</em></li>
+<li>Il server invia la <em>view</em> al client attraverso una <strong>response</strong> </li>
+</ol>
+<p>Laravel essendo un backend server aderisce al protocollo Request/Response, utilizzando appunto le classi <code>Request</code> e <code>Response</code>, <em>agganciando</em> ad esse gli altri elementi tipici del paradigma MVC. </p>
 <h1><a class="header" href="#protocollo-rest" id="protocollo-rest">Protocollo REST</a></h1>
 <h2><a class="header" href="#introduzione-3" id="introduzione-3">Introduzione</a></h2>
-<p>TODO: cos'è un protocollo, come viene usato per la comunicazione tra client &amp; server, che tipo di tecnologia usa, il ruolo dei verbi HTTP (get, post, put,), le convenzioni, cos'è una risorsa</p>
-<h2><a class="header" href="#i-verbi-http" id="i-verbi-http">I verbi HTTP</a></h2>
+<!--
+TODO: cos'è un protocollo, come viene usato per la comunicazione tra client & server, che tipo di tecnologia usa, il ruolo dei verbi HTTP (get, post, put,), le convenzioni, cos'è una risorsa
+-->
+<p>Un <strong>protocollo</strong> si può definire come un insieme di regole che vengono stabilite per instaurare una comunicazione corretta: ad esempio due persone di differenti madrelingue potrebbero mettersi d'accordo nell'utilizzo della lingua inglese per comunicare.</p>
+<p>In ambito informatico con <em>protocolli</em> in generale si intendono i protocolli di comunicazione, il cui scopo è appunto <em>normare</em> la comunicazione tra diverse entità, tipicamente client con server. </p>
+<p>Il modello client-server è costituito da un insieme di processi in esecuzione su diversi host: i processi che gestiscono una o più risorse sono detti server mentre quelli che richiedono l’accesso ad alcune di queste risorse distribuite sono detti client.<br />
+<strong>Un processo server può a sua volta diventare client ed essere contemporaneamente sia client che server</strong>.</p>
+<p>Ad esempio uno Schema di funzionamento di un modello client-server:</p>
+<ol>
+<li>Il client manda una richiesta al server</li>
+<li>Il server (in stato di ascolto, o <em>listening</em>) riceve la richiesta</li>
+<li>Il server esegue il servizio richiesto</li>
+<li>Il server manda una risposta ed eventualmente dei dati al client;</li>
+<li>Il client riceve la risposta ed eventualmente i dati. </li>
+</ol>
+<h2><a class="header" href="#rest" id="rest">REST</a></h2>
+<p>Il protocollo <strong>REST</strong> (<em>Representational State Transfer</em>) è un insieme di regole di comunicazione tra server basato sul protocollo HTTP.</p>
+<p>Il principio cardine di questo protocollo è che ogni richiesta scambiata tra diverse entità deve essere in grado di <em>rappresentare</em> in maniera univoca <strong>l'informazione</strong> che il client sta richiedendo al server.</p>
+<p>Con <strong>informazione</strong> si intende la coppia <strong>azione</strong> e <strong>risorsa</strong> richieste.</p>
+<p>Il protocollo REST si basa infatti sul dividere il proprio progetto in <strong>risorse</strong>, che rappresentano normalmente i diversi <em>modelli</em> dell'applicazione, e in <strong>azioni</strong> che possono essere effettuate sulle risorse.</p>
+<p>Queste <em>azioni</em> e <em>risorse</em> vengono poi tradotte in richieste HTTP tradizionali utilizzando i <strong>verbi HTTP</strong> e alcune convenzioni nella scrittura degli URL.</p>
+<blockquote>
+<p>Il protocollo REST serve semplicemente a definire il funzionamento della <em>comunicazione</em> tra diverse entità web, ma non implementa nessuna delle logiche lato client o server per la gestione delle richieste. </p>
+<p>In altra parole, oltre al <em>modo</em> di comunicare sfruttando il protocollo REST è necessario realizzare la funzionalità di estrazione ed elaborazione dei dati per soddisfare le diverse richieste.</p>
+</blockquote>
+<h2><a class="header" href="#azioni-rest-i-verbi-http" id="azioni-rest-i-verbi-http">Azioni REST: I verbi HTTP</a></h2>
 <ul>
-<li>GET</li>
-<li>POST</li>
-<li>PUT</li>
-<li>DELETE</li>
-<li>OPTIONS</li>
+<li>
+<p><strong>GET</strong></p>
+<p>Le richieste di tipo <code>GET</code> servono per richiedere dati tra due entità, sia sotto forma di <strong>lista</strong> che di <strong>dettaglio</strong></p>
+</li>
+<li>
+<p><strong>POST</strong></p>
+<p>Le richieste di tipo <code>POST</code> vengono usate per comunicare l'intenzione di creare una nuova risorsa, non ancora esistente, con i dati che presenti nella richiesta stessa. </p>
+</li>
+<li>
+<p><strong>PUT</strong></p>
+<p>Le richieste di tipo <code>PUT</code> servono per modificare una risorsa esistente (definita a partire dall'ID) aggiornando solamente i dati che vengono inviati nella richiesta stessa</p>
+</li>
+<li>
+<p><strong>DELETE</strong></p>
+<p>Le richieste di tipo <code>DELETE</code> servono per eliminare una risorsa a partire dal suo ID</p>
+</li>
 </ul>
-<h2><a class="header" href="#le-risorse-restful" id="le-risorse-restful">Le risorse RESTful</a></h2>
+<h2><a class="header" href="#le-risorse-restful-gli-endpoint" id="le-risorse-restful-gli-endpoint">Le risorse RESTful: gli endpoint</a></h2>
+<p>Gli <strong>endpoint</strong>, ovvero gli <em>estremi</em> della comunicazione, sono rappresentati da URL (indirizzi web) formattati in un certo modo. </p>
+<p>Questi, unitamente ai verbi HTTP presentati precedentemente, servono per identificare univocamente l'azione che il client sta richiedendo al server:</p>
 <ul>
-<li>Lista</li>
-<li>Dettaglio</li>
-<li>Modifica</li>
-<li>Creazione</li>
-<li>Cancellazione</li>
+<li>
+<p><strong>Lista</strong></p>
+<p>Per ottenere la lista delle risorse di un certo tipo, è necessario inserire il nome della risorsa in una richiesta GET:</p>
+<p>Esempio:</p>
+<pre><code>GET /users =&gt; lista delle risorse di tipo users 
+</code></pre>
+<blockquote>
+<p>Per ottenere la lista non è necessario usare l'endpoint /users/list in quanto il verbo GET è già sufficiente per identificare univocamente l'azione di richiesta dell'insieme delle risorse di quel tipo</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Dettaglio</strong></p>
+<p>Per ottenere il dettaglio di una risorsa di un certo tipo con un certo ID, è necessario inserire il nome della risorsa e l'ID nell'URL di una richiesta GET:</p>
+<p>Esempio:</p>
+<pre><code>GET /users/10 =&gt; dettaglio della risorsa di tipo users con ID = 10
+</code></pre>
+</li>
+<li>
+<p><strong>Creazione</strong></p>
+<p>Per creare una risorsa di un certo tipo, è necessario inserire il nome della risorsa e i dati della nuova risorsa in una richiesta POST:</p>
+<p>Esempio:</p>
+<pre><code>POST /users {name: 'nuovo_utente', password: 'mypass20200'} =&gt; creazione di una risorsa di tipo users con i dati presentati
+</code></pre>
+<blockquote>
+<p>Anche in questo caso, non è necessario indicare nell'endpoint l'intenzione di creare una risorsa con /users/create oppure /users/new in quanto il verbo POST è sufficiente per palesare questa intenzione</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Modifica</strong></p>
+<p>Per modificare una risorsa di un certo tipo con un certo ID, è necessario inserire il nome della risorsa, i dati della nuova risorsa che si intendono aggiornare e l'ID della risorsa in una richiesta PUT:</p>
+<pre><code> PUT /users/10 {email: 'nuova@email.com'} =&gt; modifica di una risorsa di tipo users con id = 10, aggiornando l'email
+</code></pre>
+</li>
+<li>
+<p><strong>Cancellazione</strong>
+Per cancellare una risorsa di un certo tipo con un certo ID, è necessario inserire il nome della risorsa e l'ID della risorsa in una richiesta DELETE:</p>
+<pre><code>DELETE /users/10 =&gt; eliminazione di una risorsa di tipo users con id = 10
+</code></pre>
+</li>
 </ul>
 <h1><a class="header" href="#il-framework-laravel" id="il-framework-laravel">Il Framework Laravel</a></h1>
 <h2><a class="header" href="#concetti-generali" id="concetti-generali">Concetti Generali</a></h2>
@@ -411,26 +650,200 @@ Ad esso si accede attraverso il comando <code>php artisan tinker</code>.</p>
 </ul>
 <h1><a class="header" href="#orm" id="orm">ORM</a></h1>
 <h2><a class="header" href="#introduzione-4" id="introduzione-4">Introduzione</a></h2>
-<p>TODO: cos'è un ORM, cosa serve e come viene rappresentato con i Model di Laravel</p>
+<p>Laravel è un framework PHP di tipo MVC (Model, View, Controller) che mette a disposizione una miriade di strumenti che aiutano i programmatori a svilppare più velocemente un app.<br />
+Uno di questi strumenti è l'ORM che permette la gestione e la mappatura tra le classi in PHP e i DB relazionali.</p>
+<p>Un ORM, letteralmente <em>Object-Relational Mapping</em> è un interfaccia che fornisce tramite programmazione ad oggetti tutti i servizi inerenti alla persistenza dei dati , ciò significa che possiamo gestire le entità e le relazioni di un DBMS tramite PHP in modo agevolo scrivendo poche righe di codice, avendo una portabilità superiore e scrivendo un'applicazione più stratificata per quanto riguarda la persistenza dati a vantaggio della modularità del sistema.</p>
+<p>Un ORM, dunque, è un'astrazione che ci permette di accedere al database da PHP attraverso classi &amp; oggetti, quindi <em>parlando</em> la lingua dello sviluppatore e non quella del motore di database (SQL solitamente). </p>
+<p>L'ORM usato in Laravel è chiamato <strong>Eloquent</strong> e viene rappresentato all'interno dei modelli nel seguente modo:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    use HasFactory;
+}
+</code></pre>
 <h2><a class="header" href="#creare-un-model" id="creare-un-model">Creare un Model</a></h2>
-<p>TODO: Creare un Model con artisan, come legarlo alla tabella giusta usando la naming convention giusta.</p>
+<p>Per creare un model basta utilizzare il comando</p>
+<pre><code class="language-bash">php artisan make:model &lt;NomeModello&gt;
+</code></pre>
+<p>E' necessario però prestare attenzione ad alcune regole nella scelta del nome:</p>
+<ul>
+<li>Il nome deve essere uguale alla migrazione a cui fa riferimento</li>
+<li>Il nome deve essere al singolare</li>
+<li>Il nome deve avere la prima lettera maiuscola, se composto da più parole dovranno essere unite e entrambe le iniziali dovranno essere maiuscole</li>
+</ul>
+<p>quindi per esempio se precedentemente ho creato una migrazione in questo modo:</p>
+<pre><code class="language-bash">php artisan make:migration create_student_infos_table
+</code></pre>
+<p>il comando per creare il suo modello sarà</p>
+<pre><code class="language-bash">php artisan make:model StudentInfo
+</code></pre>
 <h2><a class="header" href="#creare-righe-usando-i-model" id="creare-righe-usando-i-model">Creare righe usando i Model</a></h2>
-<p>TODO: usare il new Model(), aggiungere i campi e dare il save() per creare</p>
+<p>E' possibile aggiungere righe ad una tabella direttamente da Laravel.<br />
+Per farlo è necessario utilizzare <code>tinker</code>, una console PHP in cui è possibile <em>sperimentare</em> ed eseguire codice senza doverlo scrivere nei file sorgente.</p>
+<p><code>tinker</code> è raggiungibile da terminale digitando:</p>
+<pre><code class="language-bash">php artisan make:model tinker
+</code></pre>
+<p>Fattp questo è necessario prima importare il modello che ci serve quindi prendendo come riferimento l'esempio qui sopra scriviamo:</p>
+<pre><code class="language-php">use app\Models\StudentInfo
+</code></pre>
+<p>Quindi possiamo inserire i nostri campi all'interno della tabella.<br />
+Le istruzioni PHP da eseguire saranno le seguenti:</p>
+<pre><code class="language-php">// Creo un nuovo modello come istanza della classe StudentInfo
+$student = new StudentInfo();
+
+// Popolo le sue proprietà, corrispondenti alle colonne della tabella presente nel database
+$student-&gt;surname = &quot;cognome studente&quot;;
+$student-&gt;cf = &quot;cf studente&quot;;
+$student-&gt;name = &quot;nome studente&quot;;
+
+// IMPORTANTE: salvo il modello, ovvero eseguo la query SQL che andrà ad inserire effettivamente la riga nel database
+$student-&gt;save();
+</code></pre>
 <h2><a class="header" href="#query-sql-con-i-model" id="query-sql-con-i-model">Query SQL con i Model</a></h2>
 <p>TODO: come ottenere tutti gli elementi di una tabella, come fare query con where, come trovare velocemente righe dall'id</p>
+<p>Per eseguire le query più comuni con <em>Eloquent</em> è possibile operare in questo modo, sia su <code>tinker</code> che nel codice sorgente (dentro ai metodi dei Controller, ad esempio):</p>
+<ul>
+<li>
+<p><code>User::all()</code> oppure <code>User::get()</code>:</p>
+<p>Con questi comandi è possibile ottenere la lista delle righe presenti nella tabella associata con il modello <code>User</code> (di norma <code>users</code>)</p>
+</li>
+<li>
+<p><code>User::where(&quot;column&quot;, &quot;value&quot;)</code></p>
+<p>Con questo comando è possibile eseguire una query <code>where</code> e trovare tutti le righe della tabella <code>users</code> che abbiano come valore della colonna <code>column</code> la stringa <code>value</code>. </p>
+<blockquote>
+<p>La query qui mostrata <strong>non</strong> ritorna i dati, ma solamente il <code>QueryBuilder</code>, ovvero l'oggetto che rappresenta la query, quindi la richiesta.<br />
+Per ottenere i dati a partire dal un <code>QueryBuilder</code> si possono usare due metodi:</p>
+<ul>
+<li>
+<p>$query-&gt;get() </p>
+<p>per ottenere un array dei risultati (anche se ce ne fosse uno solo, l'oggetto <em>contenitore</em> sarebbe comunque un array)</p>
+</li>
+<li>
+<p>$query-&gt;first() </p>
+<p>per ottenere il primo elemento corrispondente alla query (anche se ce ne fossero più di uno verrebbe ritornato solamente il primo) </p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p><code>User::find(id)</code> oppure <code>User::where('id', id)-&gt;first()</code>:</p>
+<p>In questo modo è possibile trovare l'elemento della tabella <code>users</code> con l'id uguale a <code>id</code>.<br />
+Dato che solitamente la colonna id è univoca, è preferibile usare la prima scrittura in quanto più immediata.<br />
+Se invece è necessario affinare la ricerca ulteriormente e utilizzare altri <code>where</code> o altri costrutti in genere, è preferibile la seconda, in quanto molto più <em>flessibile</em>.</p>
+</li>
+</ul>
 <h2><a class="header" href="#eager-loading-con-with" id="eager-loading-con-with">Eager Loading con With</a></h2>
 <p>TODO: come creare relazioni tra modelli e come &quot;precaricare&quot; queste relazioni quando si usano le query</p>
 <h1><a class="header" href="#migrazioni" id="migrazioni">Migrazioni</a></h1>
 <h2><a class="header" href="#introduzione-5" id="introduzione-5">Introduzione</a></h2>
-<p>TODO: Cos'è una migrazione, a cosa serve, perché viene versionata, come crearla, come vedere quali migrazioni ci sono da fare, come eseguire una migrazione</p>
-<h2><a class="header" href="#tipi-di-colonne" id="tipi-di-colonne">Tipi di Colonne</a></h2>
+<p>Con <em>migrazione</em> si intende un costrutto particolare di Laravel (e di altri Web Framework similari) necessario per applicare modifiche <em>strutturali</em> al database in maniera sicura.</p>
+<p>Dato che la struttura del database non è legata direttamente al codice sorgente di un progetto Laravel, è necessario utilizzare un sistema per garantire che le modifiche strutturali alle tabelle vengano <em>propagate</em> correttamente tra tutti i vari utenti che lavorano sul progetto.</p>
+<p>Possiamo considerare le migrazioni, quindi, come un <em>sistema di versionamento</em> del database dell'applicazione.</p>
+<p>Usare le migrazioni significa garantire che ogni <em>contributor</em> del progetto abbia la stessa struttura del database senza dover manualmente intervenire per rettificare o correggere eventuali differenze.</p>
+<p>Un altro aspetto di fondamentale importanza delle migrazioni è rappresentato dal fatto che ogni migrazioni deve essere eseguita <em>una sola volta</em>.<br />
+Una volta eseguita una migrazione senza errori, infatti, il suo risultato viene salvato a database, in modo che, richiamando nuovamente il comando di migrazione, quella stessa azione non venga ripetuta. </p>
+<h3><a class="header" href="#creare-una-migrazione" id="creare-una-migrazione">Creare una migrazione</a></h3>
+<p>Per creare una migrazione è necessario utilizzare il seguente comando Artisan sul terminale:</p>
+<pre><code>php artisan make:migration create_table_names_table
+</code></pre>
+<p><strong>N.B.</strong> Per convenzione il nome delle migrazioni dovrà attenersi ad alcune regole: </p>
 <ul>
-<li>string</li>
-<li>boolean</li>
-<li>integer &amp; bigInteger</li>
-<li>text</li>
-<li>date, datetime &amp; timestamp</li>
-<li>timestamps &amp; softdeletes</li>
+<li>Tutte le lettere minuscole</li>
+<li>Le parole devono essere separate da _</li>
+<li>Nome della tabella plurale</li>
+</ul>
+<p>Laravel è in grado di <em>indovinare</em> le intenzioni dello sviluppatore nel momento in cui si crea una migrazione, utilizzando dei semplici accorgimenti.</p>
+<p>Se ad esempio si volesse creare una tabella di nome <code>users</code>, il comando </p>
+<pre><code class="language-bash">php artisan make:migration create_users_table
+</code></pre>
+<p>Sarebbe in grado di generare il codice sorgente necessario per, appunto, generare una tabella e alcune colonna (<code>id</code>, <code>created_at</code>, <code>updated_at</code>) in maniera automatica.</p>
+<p>Una volta creata la migrazione è possibile trovarla all'interno della cartella <em>database/migration</em> insieme a tutte le altre. </p>
+<p>Ogni migrazione ha un <em>timestamp</em> (visibile come prefisso del nome del file, nella forma) che permette a Laravel di individuare l'ordine <em>cronologico</em> delle migrazioni.</p>
+<p>Una volta aperto il file dovrebbe presentarsi una schermata simile:</p>
+<p><img src="corsi/modern-web-development/laravel/../immagini/migration.png" alt="Migration" /></p>
+<p>All'interno delle migrazioni troveremo due metodi:</p>
+<ul>
+<li>
+<p><code>up()</code> </p>
+<p>In questo metodo vengono inserite tutte le azioni (creazione o cancellazione di tabelle, colonne, indici, modifiche di colonne) che verranno eseguite dal comando <code>migrate</code></p>
+</li>
+<li>
+<p><code>down()</code> </p>
+<p>In questo metodo vengono inserite tutte le azioni (creazione o cancellazione di tabelle, colonne, indici, modifiche di colonne) che verranno eseguite dal comando <code>migrate:rollback</code>.</p>
+<p>Possiamo pensare al metodo <code>down()</code> come ad un <em>Ctrl-Z</em> delle migrazioni, ovvero tutte le azioni necessarie ad <em>annullare</em> gli effetti del corrispondente metodo <code>up()</code>.</p>
+</li>
+</ul>
+<h3><a class="header" href="#principali-comandi-artisan-sulle-migrazioni" id="principali-comandi-artisan-sulle-migrazioni">Principali comandi Artisan sulle Migrazioni</a></h3>
+<ul>
+<li>
+<p><strong>php artisan migrate</strong>: </p>
+<p>Serve ad eseguire tutte le migrazione non ancora effettuate (quindi non ancora presenti a database) nell'ordine definito dai timestamp associati a ciascuna migrazione.</p>
+</li>
+<li>
+<p><strong>php artisan migrate:rollback</strong>:</p>
+<p>Serve ad <em>annullare</em> le modifiche effettuate dall'ultimo gruppo di migrazioni eseguire, richiamando la funzione <code>down()</code> di ciascuna migrazione.</p>
+</li>
+<li>
+<p><strong>php artisan migrate:fresh</strong>: </p>
+<p>Serve ad inizializzare il database, eseguendo nuovamente le migrazioni, su un database <em>svuotato</em> di ogni tabella</p>
+</li>
+<li>
+<p><strong>php artisan migrate:status</strong>: </p>
+<p>Serve a vedere lo stato delle migrazioni, indicando quelle eseguite (in verde) e quelle da eseguire (in rosso)</p>
+</li>
+</ul>
+<h3><a class="header" href="#creare-una-tabella" id="creare-una-tabella">Creare una tabella</a></h3>
+<p>All'interno di una migrazione e più precisamente all'interno del metodo <code>up()</code> bisognerà andare scrivere il seguente codice:</p>
+<pre><code class="language-php">Schema::create('table_name',function (Blueprint $table) {
+    // Definizione colonne tabelle
+});
+</code></pre>
+<p>Al suo interno dovremo andare a specificare che tipo di colonne vogliamo andare a creare all'interno della tabella, per esempio con:</p>
+<pre><code class="language-php">$table-&gt;string('email')-&gt;unique()
+</code></pre>
+<p>andremo a creare una colonna chiamata <em>email</em> che sarà di tipo <code>VARCHAR(255)</code>.<br />
+Abbiamo inoltre specificato che all'interno della tabella quel campo dovra essere unico.</p>
+<p>Se invece scriviamo:</p>
+<pre><code class="language-php">$table-&gt;boolean('corretto')-&gt;default(false)
+</code></pre>
+<p>avremo una colonna di tipo boolean chiamata <em>corretto</em> che di dafault avrà un valore <em>false</em>.</p>
+<h3><a class="header" href="#tipi-di-colonne" id="tipi-di-colonne">Tipi di Colonne</a></h3>
+<p>Le colonne di una tabella possono essere di diverso tipo:</p>
+<ul>
+<li>
+<p><code>$table-&gt;string('colonna', 255)</code> </p>
+<p>Permette di creare una colonna di tipo <code>VARCHAR</code>, impostando il numero massimo di caratteri (in questo caso 255)</p>
+</li>
+<li>
+<p><code>$table-&gt;boolean('colonna', default)</code></p>
+<p>Permette di creare una colonna di tipo <code>TINYINT</code> (su MySQL), corrispondente ad un valore booleano (true/false in PHP).<br />
+E' possibile impostare un valore booleano predefinto all'interno di <code>default</code>.</p>
+</li>
+<li>
+<p><code>$table-&gt;integer('colonna', MAX_DIGITS)-&gt;unsigned()</code> </p>
+<p>Permette di creare una colonna di tipo <code>INT</code> (su MySQL), impostando il numero massimo di cifre (<code>MAX_DIGITS</code>).<br />
+E' possibile inoltre impostare la colonna come <code>UNSIGNED</code> (utile per le chiavi di valore).</p>
+<p>Da Laravel 6 in poi, l'ID di ogni tabella in MySQL viene codificato usando un <code>bigInteger</code>, invece dell'<code>integer</code> normale.<br />
+E' importante, dunque, nelle <em>foreign key</em> usare il nuovo valore delle colonna come riferimento.</p>
+</li>
+<li>
+<p><code>$table-&gt;text('colonna')</code></p>
+<p>Permette di creare una colonna di tipo <code>TEXT</code> (su MySQL), quindi con una dimensione prefissata, utile per testi lunghi.</p>
+</li>
+<li>
+<p>date, datetime &amp; timestamp
+TODO</p>
+</li>
+<li>
+<p>timestamps &amp; softdeletes
+TODO</p>
+</li>
 </ul>
 <h1><a class="header" href="#routing" id="routing">Routing</a></h1>
 <p>TODO:</p>
@@ -468,23 +881,161 @@ Ad esso si accede attraverso il comando <code>php artisan tinker</code>.</p>
 </ul>
 <h1><a class="header" href="#il-framework-vue" id="il-framework-vue">Il Framework Vue</a></h1>
 <h2><a class="header" href="#concetti-generali-1" id="concetti-generali-1">Concetti Generali</a></h2>
-<p>TODO:</p>
-<ul>
-<li>Cos'è Vue, dove si posiziona nello sviluppo Web (frontend/backend)</li>
-<li>Aspetti centrali di Vue (component based, reactive)</li>
-</ul>
+<!-- TODO
+* Cos'è Vue, dove si posiziona nello sviluppo Web (frontend/backend)
+* Aspetti centrali di Vue (component based, reactive) -->
+<p>Vue è un framework Javascript frontend reattivo per la realizzazione di interfacce web e Single Page Application (SPA).<br />
+Alternative ad esso possono essere <strong>React.js</strong> oppure <strong>AngularJS</strong>.</p>
+<p>E' un sistema basato su <strong>componenti</strong>, blocchi di programma riutilizzabili, e <strong>proprietà reattive</strong>, variabili capaci reagire e modificarsi dato un cambiamento.</p>
+<p>La <em>reattività</em> è un aspetto fondamentale del framework, in quanto è facilità lo sviluppo e riduce enormemente i tempi di realizazione.</p>
+<p>La sostanziale aderenza di Vue al pattern MVC (nella sua <em>dialetto</em> specifico per il frontend, denominato <em>MVVM</em>) permette di costruire applicazioni complesse garantendo comunque scalabilità, manutenibilità e organizazione del codice.</p>
 <h2><a class="header" href="#componenti" id="componenti">Componenti</a></h2>
-<p>TODO:</p>
+<!-- TODO 
+* Struttura del componente (template, script, style)
+* Template delle properties dello script di un componente -->
+<p>A seconda di come viene installato, Vue può avere due strutture diverse:</p>
 <ul>
-<li>Struttura del componente (template, script, style)</li>
-<li>Template delle properties dello script di un componente</li>
+<li>Struttura a componenti</li>
+<li>Struttura a pagina singola</li>
 </ul>
-<h2><a class="header" href="#npm--vue-cli" id="npm--vue-cli">Npm &amp; Vue CLI</a></h2>
-<p>TODO:</p>
+<h3><a class="header" href="#struttura-a-componenti" id="struttura-a-componenti">Struttura a componenti</a></h3>
+<p>In questo caso Vue è organizzato in componenti aventi la seguente struttura:</p>
+<pre><code class="language-javascript">&lt;template&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;HelloWorld msg=&quot;Hello World!&quot;&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import HelloWorld from '.components/Helloworld.vue
+
+export default {
+    name: 'app',
+    components: {
+        HelloWorld
+    },
+    props: {
+    },
+    data() {
+      return {
+      }
+    },
+    mounted() {
+    },
+    methods: {
+    },
+    computed: {
+    }
+}
+&lt;/script&gt;
+
+&lt;style&gt;
+    * {
+        margin: 0;
+        padding: 0;
+    }
+&lt;/style&gt;
+</code></pre>
+<p>Dove:</p>
 <ul>
-<li>Cos'è Npm e i node_modules</li>
-<li>Come usare la Vue CLI per creare progetti</li>
-<li>Come usare la Vue CLI in sviluppo (serve &amp; build)</li>
+<li><code>&lt;template&gt;&lt;/template&gt;</code> contiene tutto il codice che verrà visualizzato come HTML nella pagina Web</li>
+<li><code>&lt;script&gt;&lt;/script&gt;</code> contiene il codice Javascript, dove possiamo importare i componenti, definire le proprietà reattive, i metodi e altro di cui parleremo nei capitoli successivi</li>
+<li><code>&lt;style&gt;&lt;/style&gt;</code> contiene il codice per stili CSS del componente (se utilizziamo <a href="corsi/modern-web-development/vue/../tailwind-css.html">TailwindCSS</a> questo tag non risulta necessario, in quanto lo stile viene inserito direttamente nel codice HTML).</li>
+</ul>
+<p>I componenti sono file con l'estensione <code>.vue</code>, come in questo caso <code>HelloWorld</code>, che possono essere importati in altri componenti e usati più volte.</p>
+<p>I componenti di Vue permettono di <em>incapsulare</em> funzionalità e logiche di business unitamente alla loro rappresentazione visuale, rendendo di fatto possibile &quot;riciclare&quot; e riutilizzare codice in ambienti o progetti diversi, sfruttando l'interfaccia esposta da ogni componente come metodo di comunicazione.</p>
+<p>Questo permette di vedere un'applicazione Vue come un insieme di componenti che comunicano tra loro, creando una struttura snella e facilmente modellabile secondo le esigenze.</p>
+<h3><a class="header" href="#struttura-a-pagina-singola" id="struttura-a-pagina-singola">Struttura a pagina singola</a></h3>
+<p>In questo caso utiliziamo Vue all'interno di una singola pagina:</p>
+<pre><code class="language-javascript">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;v-if&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        {{ messaggio }}
+    &lt;/div&gt;
+    &lt;script&gt;
+        let app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    messaggio: &quot;Hello World!&quot;,
+                }
+            },
+            methods: {
+            }
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Per prima cosa dobbiamo importare lo script Vue da una <em>CDN</em> (<em>Content Delivery Network</em>) con <code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>Dunque, come vediamo dall'esempio, creiamo una nuovo oggetto Vue dentro al tag <code>&lt;script&gt;&lt;/script&gt;</code> dove ci sono 3 parametri fondamentali:</p>
+<ul>
+<li><code>el: </code> dove definiamo il selettore CSS dell'elemento in cui verrà visualizzata la nostra applicazione (<code>#app</code> in questo caso, quindi un elemento con <code>id</code> uguale ad 'app')</li>
+<li><code>data() { }</code> che è un funzione dove definiamo le proprietà reattive, ritornandole, (<code>messaggio</code> in questo caso).</li>
+<li><code>methods: { }</code> dove definiamo le nostre funzioni Javascript direttamente accessibili dalla vista.</li>
+</ul>
+<h2><a class="header" href="#tool-di-sviluppo-per-vue" id="tool-di-sviluppo-per-vue">Tool di Sviluppo per Vue</a></h2>
+<!--
+TODO:
+* Cos'è Npm e i node_modules
+* Come usare la Vue CLI per creare progetti
+* Come usare la Vue CLI in sviluppo (serve & build)
+-->
+<h3><a class="header" href="#npm" id="npm">NPM</a></h3>
+<p>Ad oggi, l'ecosistema Javascript risulta essere quello maggiormente utilizzato al mondo.</p>
+<p>Per evitare di continuare a <em>reinventare la ruota</em> e concentrare gli sforzi di sviluppo su funzionalità immediatamente vendibili, si fa ricorso solitamente a <strong>pacchetti</strong> di codice esterni, che possono essere facilmente intergati all'interno del proprio progetto Javascript.<br />
+Da questo punto di vista, VueJS non fa eccezione: è infatti possibile integrare pacchetti generici per Javascript e specifici per Vue (solitamente indicati dal prefisso <code>vue-</code>) utilizzando programmi chiamati <em>package managers</em>, o gestori di pacchetti.</p>
+<p>Il più famoso e maggiormente utilizzato è <code>NPM</code>, letteralmente <code>Node Package Managers</code>. <em>Node</em> è il nome dell'interprete Javascript nativo per PC, quindi non quello installato nel browser.</p>
+<p>Con quasi 1,5 milioni di pacchetti disponibili online, <code>NPM</code> è il più grande <em>repository</em> (leggi contenitore) di codice (Javascript) al mondo.<br />
+Qui è possibile trovare pacchetti per risolvere praticamente tutte le esigenze di programmazione, dalle utility, alla sicurezza, al processing vario di immagini e altro.</p>
+<p><code>NPM</code> è un programma da linea di comando che permette, tra le altre, di installare pacchetti localmente al un progetto o globalmente, rendendoli disponibili sotto forma di CLI in tutto il sistema operativo. </p>
+<p>I pacchetti locali ad un progetto vengono installati nella cartella <code>node_modules</code>.</p>
+<p>E' poi compito di altri programmi, ad esempio <code>Webpack</code> o <code>Rollup</code> fare in modo di <em>comporre</em> il progetto usando sia il codice da noi generato che quello presente nei pacchetti.</p>
+<h3><a class="header" href="#vue-cli" id="vue-cli">Vue CLI</a></h3>
+<p>Per agevolare lo sviluppo di progetti Vue è stata creata una <em>CLI</em> specifica con cui è possibile creare e gestire progetti.<br />
+Maggiori informazioni e una documentazione più esaustiva sono reperibili <a href="https://cli.vuejs.org">qui</a></p>
+<p>La CLI di Vue è facilmente installabile usando NPM, nel seguente modo:</p>
+<pre><code class="language-bash">npm install @vue/cli
+</code></pre>
+<p>Una volta installato il pacchetto, sarà disponibile un nuovo programma da linea di comando, chiamato <code>vue</code>.</p>
+<p>Di seguito alcune delle operazioni più comuni che è possibile effettuare con la CLI:</p>
+<ul>
+<li>
+<p><strong>Creare un progetto</strong></p>
+<p>Per creare un progetto è sufficiente digitare il comando:</p>
+<pre><code class="language-bash">vue create nome-progetto
+</code></pre>
+<p>A questo punto l'utente verrà guidato in un <em>wizard</em> in cui dovrà inserire le specifiche del progetto da utilizzare.<br />
+Nella maggiorparte dei casi, è possibile mantenere le impostazioni di default.</p>
+</li>
+<li>
+<p><strong>Servire un progetto</strong></p>
+<p>Il browser non è in grado di eseguire più file contemporaneamente e, in generale, comprende solamente file Javascript <em>vanilla</em>, ovvero file che presentano le caratteristiche di base del linguaggio.<br />
+Vue, invece, fa uso di costrutti Javascript complessi, per agevolare il programmatore nello sviluppo. Questo comporta che i vari file di Vue debbano venire <em>compilati</em> in modo da essere interpretabili correttamente dai vari browser (Chrome, Firefox, Safari, Opera, Edge, ecc).</p>
+<p>Operare questo <em>stage</em> di compilazione ad ogni modifica del codice risulterebbe particolarmente lento e poco ergonomico.  Per questo motivo, la Vue CLI mette a disposizione un comando, <code>vue serve</code> che si occupa proprio di riconoscere i cambiamenti ai file di progetto (ad ogni salvataggio), di <em>compilare</em> tutto il progetto e di inviarlo al browser, aggiornando la pagina in maniera automatica.</p>
+<p>Il comando <code>vue serve</code> dunque <em>serve</em> il progetto ad un certo indirizzo HTTP locale, ad esempio <code>http://localhost:8080</code>, dove è quindi possibile accedere ai file di progetto serviti attraverso il meccanismo dell'<em>hot reload</em>.</p>
+</li>
+<li>
+<p><strong>Builare un progetto</strong></p>
+<p>Una volta completato lo sviluppo locale (o in modalità <em>development</em>) deve essere possibile mandare in <em>produzione</em> il progetto, ovvero renderlo accessibile pubblicamente attraverso la rete internet. </p>
+<p>Per questa fase, le modalità sono simili a quelle del <code>serve</code>, con la sola differenza che la fase di compilazione del progetto viene fatta in ottica di produzione, andando ad applicare tutte le ottimizzazioni in termini di performance, di riduzione del peso complessivo e di messa in sicurezza del codice. </p>
+<p>Il risultato della fase di build sarà una terna di file:</p>
+<ul>
+<li><em>app.js</em>: questo file conterrà il codice Javascript completo dell'applicazione</li>
+<li><em>index.html</em>: in questo file sarà presente tutta la parte di struttura dell'applicazione</li>
+<li><em>app.css</em>: file contente tutto lo stile CSS da applicare ai vari componenti del progetto</li>
+</ul>
+<p>Per creare questo <em>bundle</em>, ovvero l'insieme dei file e delle risorse che rappresentano il progetto, è sufficiente usare il comando:</p>
+<pre><code class="language-bash">vue build --prod
+</code></pre>
+</li>
 </ul>
 <h2><a class="header" href="#contenuti-3" id="contenuti-3">Contenuti</a></h2>
 <ul>
@@ -621,6 +1172,54 @@ var app = new Vue({
 <li>Come impostare un baseUrl per le API</li>
 </ul>
 <h1><a class="header" href="#il-framework-tailwind-css" id="il-framework-tailwind-css">Il Framework Tailwind CSS</a></h1>
+<p>Tailwind è un framework CSS, utilizzato per semplificare la scrittuta di css all'interno di siti web, che si propone come alternativa a soluzioni più tradizionali ed abbondantemente diffuse come Bootstrap o w3.</p>
+<p>Si contraddistingue per l’approccio diverso, non più basato sullo scrivere direttamente codice CSS o utilizzando classi che realizzano elementi già preconfenzionati, bensì sfruttando una serie di <em>classi di utility</em> molto specifiche (in alcuni caso mappate 1 ad 1 con le proprietà CSS) per implementare le nostre idee direttamente nelle pagine HTML.</p>
+<p><img src="corsi/modern-web-development/./immagini/img_0.png" alt="Migration" /></p>
+<h2><a class="header" href="#vantaggi" id="vantaggi">Vantaggi</a></h2>
+<ul>
+<li>Permette di scrivere direttamente lo stile all'interno dell'HTML, senza mai lasciare il file. </li>
+<li>Facile da utilizzare da qualunque tipo di utenza, compresi i programmatori alle prime &quot;armi&quot;.</li>
+<li>Dotato di una documentazione completa e facilmente accessibile.</li>
+<li>La maggior parte dei progetti Tailwind invia meno di 10 KB di CSS al client, quindi è estremamente leggero.</li>
+<li>Completamente responsive.</li>
+</ul>
+<h2><a class="header" href="#svantaggi" id="svantaggi">Svantaggi</a></h2>
+<ul>
+<li>E' più difficile ricordare tutte le classi rispetto ad altri framework (Si può rimediare con un estensione).</li>
+<li>L'HTML generato potrebbe risultate <em>verboso</em> ed estremamente lungo </li>
+</ul>
+<h2><a class="header" href="#trucchetti" id="trucchetti">Trucchetti</a></h2>
+<p>Se il problema è ricordarsi tutti i nomi delle classi l'estensione Tailwind CSS <strong>IntelliSense</strong> per VS Code fa per te.</p>
+<p>Ottieni suggerimenti di completamento automatico intelligente, definizioni di classi e altro ancora, tutto all'interno del tuo editor e senza necessità di configurazione.</p>
+<h2><a class="header" href="#installazione" id="installazione">Installazione</a></h2>
+<p>Il modo più semplice (ma meno personalizzabile) è l'inclusione all'interno del proprio progetto del link di import dello stile.</p>
+<p><img src="corsi/modern-web-development/./immagini/img_4.png" alt="Migration" /></p>
+<p>L' altro metodo d'installazione di Tailwind potrebbe risultare un po’ più complicato. È possibile scaricarlo come modulo NodeJS sia tramite NPM sia con l’alternativa Yarn. </p>
+<pre><code class="language-bash">npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+</code></pre>
+<h2><a class="header" href="#utilizzo" id="utilizzo">Utilizzo</a></h2>
+<p>Tailwind CSS è compilato tramite PostCSS, quindi per utilizzarlo basta creare un file .css per importare le dipendenze appena scaricate.</p>
+<p><img src="corsi/modern-web-development/./immagini/img_2.png" alt="Migration" /></p>
+<h2><a class="header" href="#personalizzazioni" id="personalizzazioni">Personalizzazioni</a></h2>
+<p>La configurazione viene espressa tramite un file Javascript, permettendoci quindi una flessibilità importante.</p>
+<p>Il file di configurazione serve per modificare, anche radicalmente, il file CSS generato dal framework e permette di definire il <em>design system</em> utilizzato dalla nostra applicazione, così da avere un set di classi CSS di utility che si adattano perfettamente al nostro layout.</p>
+<p>È possibile generare un prototipo di file tramite il comando <code>npx tailwind init</code> (è necessario installare il pacchetto <em>npx</em> con <code>npm install -g npx</code>).
+Aggiungendo invece l’opzione <code>--full</code>, il file generato conterrà tutte le opzioni possibili:</p>
+<pre><code class="language-javascript">module.exports = {
+    important: true,
+    theme: { },
+    variants: { },
+    plugins: { },
+    prefix: '',
+    separator: '-',
+    corePlugins: { }
+}
+</code></pre>
+<h2><a class="header" href="#tailwindcss-vs-css-tradizionale" id="tailwindcss-vs-css-tradizionale">TailwindCSS vs CSS Tradizionale</a></h2>
+<p>Di seguito una piccola comparativa tra tailwind e il CSS <em>tradizionale</em>.<br />
+Come si può notare, con TailwindCSS è possibile sia ridurre la quantità di codice da scrivere che aumentare la chiarezza dei propri intenti di layout. </p>
+<p><strong>Tailwind</strong>                  <strong>CSS</strong>
+<img src="corsi/modern-web-development/./immagini/img_5.png" alt="Migration" /></p>
 <h1><a class="header" href="#corso-vanilla-php" id="corso-vanilla-php">Corso <em>Vanilla PHP</em></a></h1>
 <h2><a class="header" href="#scopo-1" id="scopo-1">Scopo</a></h2>
 <p>Questo ebook digitale ha lo scopo di raccogliere gli appunti delle lezioni

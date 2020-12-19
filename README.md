@@ -12,5 +12,11 @@ Il software usato per la formattazione del libro è [mdbook](https://rust-lang.g
 
 ## Autori
 
-* **Giacomo Alberini** (giacomoalbe)
-* **Federico Cracco** (federicocracco95)
+- **Giacomo Alberini** (giacomoalbe)
+- **Federico Cracco** (federico.cracco95)
+- **Michele Pasetto** (michipase)
+- **Massimo Piazza** (macs-massimopiazza)
+- **Alessandro Bosello** (Alessandro-Bosello)
+- **Erik Galbero** (erikgalbero)
+- **Alberto Scomparin** (Scompa00)
+- **Mattia Moretto** (MattiaMoretto97)
