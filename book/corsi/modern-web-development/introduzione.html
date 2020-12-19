@@ -197,6 +197,10 @@
 <ul>
 <li><strong>Giacomo Alberini</strong> (giacomoalbe)</li>
 <li><strong>Federico Cracco</strong> (federico.cracco95)</li>
+<li><strong>Michele Pasetto</strong> (michipase)</li>
+<li><strong>Massimo Piazza</strong> (macs-massimopiazza)</li>
+<li><strong>Alessandro Bosello</strong> (Alessandro-Bosello)</li>
+<li><strong>Erik Galbero</strong> (erikgalbero)</li>
 </ul>
 
                     </main>
@@ -236,6 +240,21 @@
 
         </div>
 
+        
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         
 
         
