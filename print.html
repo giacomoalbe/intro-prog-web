@@ -213,6 +213,8 @@
 <li><strong>Giacomo Alberini</strong> (giacomoalbe)</li>
 <li><strong>Federico Cracco</strong> (federico.cracco95)</li>
 <li><strong>Michele Pasetto</strong> (michipase)</li>
+<li><strong>Massimo Piazza</strong> (macs-massimopiazza)</li>
+<li><strong>Alessandro Bosello</strong> (Alessandro-Bosello)</li>
 </ul>
 <h1><a class="header" href="#uso-del-terminale" id="uso-del-terminale">Uso del terminale</a></h1>
 <h2><a class="header" href="#introduzione-1" id="introduzione-1">Introduzione</a></h2>
@@ -838,6 +840,54 @@ Vue, invece, fa uso di costrutti Javascript complessi, per agevolare il programm
 <li>Come impostare un baseUrl per le API</li>
 </ul>
 <h1><a class="header" href="#il-framework-tailwind-css" id="il-framework-tailwind-css">Il Framework Tailwind CSS</a></h1>
+<p>Tailwind è un framework CSS, utilizzato per semplificare la scrittuta di css all'interno di siti web, che si propone come alternativa a soluzioni più tradizionali ed abbondantemente diffuse come Bootstrap o w3.</p>
+<p>Si contraddistingue per l’approccio diverso, non più basato sullo scrivere direttamente codice CSS o utilizzando classi che realizzano elementi già preconfenzionati, bensì sfruttando una serie di <em>classi di utility</em> molto specifiche (in alcuni caso mappate 1 ad 1 con le proprietà CSS) per implementare le nostre idee direttamente nelle pagine HTML.</p>
+<p><img src="corsi/modern-web-development/./immagini/img_0.png" alt="Migration" /></p>
+<h2><a class="header" href="#vantaggi" id="vantaggi">Vantaggi</a></h2>
+<ul>
+<li>Permette di scrivere direttamente lo stile all'interno dell'HTML, senza mai lasciare il file. </li>
+<li>Facile da utilizzare da qualunque tipo di utenza, compresi i programmatori alle prime &quot;armi&quot;.</li>
+<li>Dotato di una documentazione completa e facilmente accessibile.</li>
+<li>La maggior parte dei progetti Tailwind invia meno di 10 KB di CSS al client, quindi è estremamente leggero.</li>
+<li>Completamente responsive.</li>
+</ul>
+<h2><a class="header" href="#svantaggi" id="svantaggi">Svantaggi</a></h2>
+<ul>
+<li>E' più difficile ricordare tutte le classi rispetto ad altri framework (Si può rimediare con un estensione).</li>
+<li>L'HTML generato potrebbe risultate <em>verboso</em> ed estremamente lungo </li>
+</ul>
+<h2><a class="header" href="#trucchetti" id="trucchetti">Trucchetti</a></h2>
+<p>Se il problema è ricordarsi tutti i nomi delle classi l'estensione Tailwind CSS <strong>IntelliSense</strong> per VS Code fa per te.</p>
+<p>Ottieni suggerimenti di completamento automatico intelligente, definizioni di classi e altro ancora, tutto all'interno del tuo editor e senza necessità di configurazione.</p>
+<h2><a class="header" href="#installazione" id="installazione">Installazione</a></h2>
+<p>Il modo più semplice (ma meno personalizzabile) è l'inclusione all'interno del proprio progetto del link di import dello stile.</p>
+<p><img src="corsi/modern-web-development/./immagini/img_4.png" alt="Migration" /></p>
+<p>L' altro metodo d'installazione di Tailwind potrebbe risultare un po’ più complicato. È possibile scaricarlo come modulo NodeJS sia tramite NPM sia con l’alternativa Yarn. </p>
+<pre><code class="language-bash">npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+</code></pre>
+<h2><a class="header" href="#utilizzo" id="utilizzo">Utilizzo</a></h2>
+<p>Tailwind CSS è compilato tramite PostCSS, quindi per utilizzarlo basta creare un file .css per importare le dipendenze appena scaricate.</p>
+<p><img src="corsi/modern-web-development/./immagini/img_2.png" alt="Migration" /></p>
+<h2><a class="header" href="#personalizzazioni" id="personalizzazioni">Personalizzazioni</a></h2>
+<p>La configurazione viene espressa tramite un file Javascript, permettendoci quindi una flessibilità importante.</p>
+<p>Il file di configurazione serve per modificare, anche radicalmente, il file CSS generato dal framework e permette di definire il <em>design system</em> utilizzato dalla nostra applicazione, così da avere un set di classi CSS di utility che si adattano perfettamente al nostro layout.</p>
+<p>È possibile generare un prototipo di file tramite il comando <code>npx tailwind init</code> (è necessario installare il pacchetto <em>npx</em> con <code>npm install -g npx</code>).
+Aggiungendo invece l’opzione <code>--full</code>, il file generato conterrà tutte le opzioni possibili:</p>
+<pre><code class="language-javascript">module.exports = {
+    important: true,
+    theme: { },
+    variants: { },
+    plugins: { },
+    prefix: '',
+    separator: '-',
+    corePlugins: { }
+}
+</code></pre>
+<h2><a class="header" href="#tailwindcss-vs-css-tradizionale" id="tailwindcss-vs-css-tradizionale">TailwindCSS vs CSS Tradizionale</a></h2>
+<p>Di seguito una piccola comparativa tra tailwind e il CSS <em>tradizionale</em>.<br />
+Come si può notare, con TailwindCSS è possibile sia ridurre la quantità di codice da scrivere che aumentare la chiarezza dei propri intenti di layout. </p>
+<p><strong>Tailwind</strong>                  <strong>CSS</strong>
+<img src="corsi/modern-web-development/./immagini/img_5.png" alt="Migration" /></p>
 <h1><a class="header" href="#corso-vanilla-php" id="corso-vanilla-php">Corso <em>Vanilla PHP</em></a></h1>
 <h2><a class="header" href="#scopo-1" id="scopo-1">Scopo</a></h2>
 <p>Questo ebook digitale ha lo scopo di raccogliere gli appunti delle lezioni
