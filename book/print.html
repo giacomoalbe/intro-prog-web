@@ -770,31 +770,96 @@ TODO</p>
 <li>esempi di passaggio di parametri alle funzioni</li>
 </ul>
 <h1><a class="header" href="#controller-1" id="controller-1">Controller</a></h1>
-<h1><a class="header" href="#introduzione-6" id="introduzione-6">Introduzione</a></h1>
-<p>TODO:</p>
+<h2><a class="header" href="#cosè-un-controller" id="cosè-un-controller">Cos'è un controller</a></h2>
+<p>Il <strong>Controller</strong> è il punto di ingresso per qualsiasi applicazione basata sul framework MVC: riceve le richieste HTTP in arrivo e le elabora comunicando con modelli e viste, restituendo il risultato alla pagina web.</p>
+<h3><a class="header" href="#sintassi" id="sintassi">Sintassi</a></h3>
+<p>I controller possono essere creati utilizzando il seguente commando:</p>
+<pre><code class="language-bash">php artisan make:controller &lt;controller-name&gt;
+</code></pre>
+<p>Sostiisci il <code>&lt;controller-name&gt;</code> con il nome che ti piace per il controller che stai creando.</p>
+<p>Una volta seguito il comando precedente, verrá creato un file di classe controller con un codice controller di base nella cartella controller, situata in <code>/App/HTTP/Controllers</code></p>
+<h2><a class="header" href="#metodi" id="metodi">Metodi</a></h2>
+<p>In qualsiasi applicazione web CRUD (Create, Read, Update and Delete) solo le operazioni di base su una risosrsa. Con un controller di risorse si ottiene una stuttura di controller generica che include tutti i metodi per eseguire operazioni CRUD. In Laravel, utilizzando un singolo comando é possibile creare un controller di risorse</p>
+<h3><a class="header" href="#sintassi-1" id="sintassi-1">Sintassi</a></h3>
+<p>In Laravel, il comando utilizzato per creare un controller di risorse é lo stesso del controller normale, solo alla fine dobbiamo aggiungere il suffisso <code>resource</code>.</p>
+<pre><code class="language-bash">php artisan make:controller PostController --resource
+</code></pre>
+<p>Una volta eseguito il comando precedente, nella cartella controller, situata in <code>/App/HTTP/Controllers</code>, verrá creato un file di classe controller <code>PostController.php</code> con i <strong>metodi</strong> di:</p>
 <ul>
-<li>Cos'è un controller (che tipo di costrutto PHP)</li>
-<li>Come si crea con Laravel</li>
-<li>Come si definiscono i metodi</li>
+<li>indicizzazione</li>
+<li>creazione</li>
+<li>archiviazione</li>
+<li>visualizzazione</li>
+<li>modifica</li>
+<li>aggiornamento </li>
+<li>distruzione</li>
 </ul>
 <h2><a class="header" href="#requestresponse" id="requestresponse">Request/Response</a></h2>
-<p>TODO:</p>
-<ul>
-<li>Come ritornare risposte HTTP</li>
-<li>Come recuperare i dati dalle Request</li>
-<li>Come recuperare i dati dalla Route</li>
-</ul>
+<h3><a class="header" href="#risposta-base" id="risposta-base">Risposta Base</a></h3>
+<p>La risposta più semplice da una route Laravel è una stringa:</p>
+<pre><code class="language-php">Route::get('/', function()
+{
+    return 'Hello World';
+});
+</code></pre>
+<h3><a class="header" href="#risposta-personalizzata" id="risposta-personalizzata">Risposta Personalizzata</a></h3>
+<p>Tuttavia, per la maggior parte delle rotte e delle azioni del controller, restituirai <code>Illuminate\Http\Response</code> un'istanza completa o una <strong>vista</strong>.
+La restituzione di un'istanza <code>Response</code> completa consente di personalizzare il codice di stato HTTP e le intestazioni della risposta.
+A istanza <code>Response</code> eredita dalla classe <code>Symfony\Component\HttpFoundation\Response</code>, fornendo una varietà di metodi per costruire risposte HTTP:</p>
+<pre><code class="language-php">use Illuminate\Http\Response;
+
+return (new Response($content, $status))
+              -&gt;header('Content-Type', $value);
+</code></pre>
+<p>Per comodità, puoi anche usare il <code>Response</code> helper:</p>
+<pre><code class="language-php">return response($content, $status)
+              -&gt;header('Content-Type', $value);
+</code></pre>
+<h3><a class="header" href="#request" id="request">Request</a></h3>
+<p>Utilizzando alcuni semplici metodi, puoi accedere a tutti gli input dell'utente dalla tua istanza <code>Illuminate\Http\Request</code>. Non è necessario preoccuparsi del verbo HTTP utilizzato per la richiesta, poiché si accede all'input allo stesso modo per tutti i verbi.</p>
+<pre><code class="language-php">$name = Request::input('name');
+</code></pre>
+<p>Recupero di un valore predefinito se il valore di input è assente</p>
+<pre><code class="language-php">$name = Request::input('name', 'Sally');
+</code></pre>
+<p>Determinare se è presente un valore di input</p>
+<pre><code class="language-php">if (Request::has('name'))
+{
+    //
+}
+</code></pre>
+<p>Ottenere tutti gli input per la richiesta</p>
+<pre><code class="language-php">$input = Request::all(); 
+</code></pre>
+<p>Ottenere solo una parte dell'input della richiesta</p>
+<pre><code class="language-php">$input = Request::only('username', 'password');
+
+$input = Request::except('credit_card');
+</code></pre>
+<p>Quando si lavora su moduli con input <code>array</code>, è possibile utilizzare la notazione a punti per accedere agli array:</p>
+<pre><code class="language-php">$input = Request::input('products.0.name');
+</code></pre>
 <h2><a class="header" href="#codici-di-stato-http" id="codici-di-stato-http">Codici di Stato HTTP</a></h2>
-<p>TODO:</p>
+<h3><a class="header" href="#--200-ok" id="--200-ok">- 200: OK</a></h3>
+<p>La richiesta è andata a buon fine. Il significato di un successo varia a seconda del metodo HTTP: </p>
 <ul>
-<li>200</li>
-<li>201</li>
-<li>400</li>
-<li>401</li>
-<li>404</li>
-<li>422</li>
-<li>500</li>
+<li>GET: la risorsa è stata recuperata e viene trasmessa nel corpo del messaggio. </li>
+<li>HEAD: le intestazioni dell'entità si trovano nel corpo del messaggio. </li>
+<li>POST: la risorsa che descrive il risultato dell'azione viene trasmessa nel corpo del messaggio. </li>
+<li>TRACE: il corpo del messaggio contiene il messaggio di richiesta ricevuto dal server.</li>
 </ul>
+<h3><a class="header" href="#--201-created" id="--201-created">- 201: Created</a></h3>
+<p>La richiesta è andata a buon fine e come risultato è stata creata una nuova risorsa. Questa è in genere la risposta inviata dopo una richiesta PUT.</p>
+<h3><a class="header" href="#--400-bad-request" id="--400-bad-request">- 400: Bad Request</a></h3>
+<p>Questa risposta significa che il server non è stato in grado di comprendere la richiesta a causa di una sintassi non valida</p>
+<h3><a class="header" href="#--401-unauthorized" id="--401-unauthorized">- 401: Unauthorized</a></h3>
+<p>Sebbene lo standard HTTP specifichi &quot;non autorizzato&quot;, semanticamente questa risposta significa &quot;non autenticato&quot;. Cioè, il client deve autenticarsi per ottenere la risposta richiesta.</p>
+<h3><a class="header" href="#--404-not-found" id="--404-not-found">- 404: Not Found</a></h3>
+<p>Il server non riesce a trovare la risorsa richiesta. Nel browser, questo significa che l'URL non viene riconosciuto. In un'API, questo può anche significare che l'endpoint è valido ma la risorsa stessa non esiste. I server possono anche inviare questa risposta invece di 403 per nascondere l'esistenza di una risorsa a un client non autorizzato. Questo codice di risposta è probabilmente il più famoso a causa della sua frequente presenza sul web.</p>
+<h3><a class="header" href="#--422-unprocessable-entity" id="--422-unprocessable-entity">- 422: Unprocessable Entity</a></h3>
+<p>La richiesta era ben formata ma non è stato possibile seguirla a causa di errori semantici.</p>
+<h3><a class="header" href="#--500-internal-server-error" id="--500-internal-server-error">- 500: Internal Server Error</a></h3>
+<p>Il server ha riscontrato una situazione che non sa come gestire.</p>
 <h1><a class="header" href="#il-framework-vue" id="il-framework-vue">Il Framework Vue</a></h1>
 <h2><a class="header" href="#concetti-generali-1" id="concetti-generali-1">Concetti Generali</a></h2>
 <!-- TODO
@@ -960,7 +1025,7 @@ Vue, invece, fa uso di costrutti Javascript complessi, per agevolare il programm
 <li><a href="corsi/modern-web-development/vue/./api-async-axios.html">API, async, axios</a></li>
 </ul>
 <h1><a class="header" href="#data-binding" id="data-binding">Data Binding</a></h1>
-<h2><a class="header" href="#introduzione-7" id="introduzione-7">Introduzione</a></h2>
+<h2><a class="header" href="#introduzione-6" id="introduzione-6">Introduzione</a></h2>
 <p>TODO:</p>
 <ul>
 <li>Cos'è il data binding, quale problema va a risolvere</li>
@@ -997,7 +1062,7 @@ Vue, invece, fa uso di costrutti Javascript complessi, per agevolare il programm
 </li>
 </ul>
 <h1><a class="header" href="#methods-mounted--computed" id="methods-mounted--computed">Methods, Mounted &amp; Computed</a></h1>
-<h2><a class="header" href="#introduzione-8" id="introduzione-8">Introduzione</a></h2>
+<h2><a class="header" href="#introduzione-7" id="introduzione-7">Introduzione</a></h2>
 <p>TODO:</p>
 <ul>
 <li>Componenti reattive diverse dalle properties</li>
@@ -1024,7 +1089,7 @@ Vue, invece, fa uso di costrutti Javascript complessi, per agevolare il programm
 <li>Cos'è il ciclo di vita di un componente e quali altri hook ci sono</li>
 </ul>
 <h1><a class="header" href="#programmazione-async" id="programmazione-async">Programmazione Async</a></h1>
-<h2><a class="header" href="#introduzione-9" id="introduzione-9">Introduzione</a></h2>
+<h2><a class="header" href="#introduzione-8" id="introduzione-8">Introduzione</a></h2>
 <p>TODO:</p>
 <ul>
 <li>Sincrono vs asincrono</li>
