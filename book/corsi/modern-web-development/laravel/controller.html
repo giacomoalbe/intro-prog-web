@@ -165,64 +165,61 @@
                     <main>
                         <h1><a class="header" href="#controller" id="controller">Controller</a></h1>
 <h2><a class="header" href="#cosè-un-controller" id="cosè-un-controller">Cos'è un controller</a></h2>
-<p>Il <strong>Controller</strong> è il punto di ingresso per qualsiasi applicazione basata sul framework MVC: riceve le richieste HTTP in arrivo e le elabora comunicando con modelli e viste, restituendo il risultato alla pagina web.</p>
+<p>Il <strong>Controller</strong> è il punto centrale di qualsiasi applicazione basata sul framework MVC: risponde alle richieste HTTP in arrivo, le elabora comunicando con i Modelli e restituisce il risultato alla pagina web popolando la Vista.</p>
 <h3><a class="header" href="#sintassi" id="sintassi">Sintassi</a></h3>
 <p>I controller possono essere creati utilizzando il seguente commando:</p>
-<pre><code class="language-bash">php artisan make:controller &lt;controller-name&gt;
+<pre><code class="language-bash">php artisan make:controller &lt;ControllerName&gt;
 </code></pre>
-<p>Sostiisci il <code>&lt;controller-name&gt;</code> con il nome che ti piace per il controller che stai creando.</p>
-<p>Una volta seguito il comando precedente, verrá creato un file di classe controller con un codice controller di base nella cartella controller, situata in <code>/App/HTTP/Controllers</code></p>
-<h2><a class="header" href="#metodi" id="metodi">Metodi</a></h2>
-<p>In qualsiasi applicazione web CRUD (Create, Read, Update and Delete) solo le operazioni di base su una risosrsa. Con un controller di risorse si ottiene una stuttura di controller generica che include tutti i metodi per eseguire operazioni CRUD. In Laravel, utilizzando un singolo comando é possibile creare un controller di risorse</p>
-<h3><a class="header" href="#sintassi-1" id="sintassi-1">Sintassi</a></h3>
-<p>In Laravel, il comando utilizzato per creare un controller di risorse é lo stesso del controller normale, solo alla fine dobbiamo aggiungere il suffisso <code>resource</code>.</p>
-<pre><code class="language-bash">php artisan make:controller PostController --resource
-</code></pre>
-<p>Una volta eseguito il comando precedente, nella cartella controller, situata in <code>/App/HTTP/Controllers</code>, verrá creato un file di classe controller <code>PostController.php</code> con i <strong>metodi</strong> di:</p>
+<p>Dove con <code>&lt;ControllerName&gt;</code> si intende il nome, in PascalCase, che si vuole dare al nuovo Controller.</p>
+<blockquote>
+<p>I Controller in PHP sono rappresentati da Classi, per questo motivo il nome che diamo alla classe (e conseguentemente al file) deve rispettare le regole di nomenclatura delle Classi.</p>
+<p>In particolare, le classi in PHP utilizzano la PascalCase.</p>
+<p>Qui di seguito una comparazione dei diversi modi (o <em>casing</em>) con cui possiamo scrivere nomi di variabili:</p>
 <ul>
-<li>indicizzazione</li>
-<li>creazione</li>
-<li>archiviazione</li>
-<li>visualizzazione</li>
-<li>modifica</li>
-<li>aggiornamento </li>
-<li>distruzione</li>
+<li>PascalCase: prima lettera maiuscola, nessuno spazio e ogni parola con lettera maiuscola</li>
+<li>kebab-case: tutte lettere minuscole, nessuno spazio e ogni parola separata da un -</li>
+<li>snake_case: tutte lettere minuscole, nessuno spazio e ogni parola separata da un _ </li>
+<li>camelCase: prima lettera minuscole, nessuno spazio e ogni parola successiva alla prima con lettera maiuscola </li>
 </ul>
+<p>E' sempre bene evitare di usare più convenzioni di <em>casing</em> all'interno dello stesso codice.</p>
+</blockquote>
+<p>Una volta seguito il comando precedente, verrá creato un file di classe <code>Controller</code> con al suo interno una struttura di base nella cartella controllers, situata in <code>/App/Http/Controllers</code>.</p>
+<h2><a class="header" href="#metodi" id="metodi">Metodi</a></h2>
+<p>Con <em>CRUD</em> (Create, Read, Update and Delete) si intendono le operazioni di base che possono essere eseguite da un Controller su una <em>risorsa</em>, ovvero sui Modelli del database.</p>
+<p>In particolare, in Laravel, si usa una certa convenzione per indicare le funzioni dei Controller (quindi i <em>metodi</em>) associate alle azioni di base:</p>
+<ul>
+<li><strong>lista risorse</strong> (<em>READ</em>): si usa il metodo <code>index()</code></li>
+<li><strong>dettaglio risorsa</strong> (<em>READ</em>): si usa il metodo <code>show()</code></li>
+<li><strong>creazione risorsa</strong> (<em>CREATE</em>): si usa il metodo <code>store()</code></li>
+<li><strong>modifica risorse</strong> (<em>UPDATE</em>): si usa il metodo <code>edit()</code></li>
+<li><strong>eliminazione risorse</strong> (<em>DELETE</em>): si usa il metodo <code>destroy()</code></li>
+</ul>
+<p>Ovviamente nulla vieta di utilizzare nomi di funzioni diverse, ma è fortemente consigliato (quando possibile) seguire le convenzioni di Laravel, in quanto questo agevola notevolmente la <em>consistenza</em> del codice e la facilità di intervento di altri sviluppatori. </p>
 <h2><a class="header" href="#requestresponse" id="requestresponse">Request/Response</a></h2>
-<h3><a class="header" href="#risposta-base" id="risposta-base">Risposta Base</a></h3>
-<p>La risposta più semplice da una route Laravel è una stringa:</p>
-<pre><code class="language-php">Route::get('/', function()
-{
-    return 'Hello World';
-});
-</code></pre>
-<h3><a class="header" href="#risposta-personalizzata" id="risposta-personalizzata">Risposta Personalizzata</a></h3>
-<p>Tuttavia, per la maggior parte delle rotte e delle azioni del controller, restituirai <code>Illuminate\Http\Response</code> un'istanza completa o una <strong>vista</strong>.
-La restituzione di un'istanza <code>Response</code> completa consente di personalizzare il codice di stato HTTP e le intestazioni della risposta.
-A istanza <code>Response</code> eredita dalla classe <code>Symfony\Component\HttpFoundation\Response</code>, fornendo una varietà di metodi per costruire risposte HTTP:</p>
-<pre><code class="language-php">use Illuminate\Http\Response;
+<p>Il compito principale di un Controller è quello di elaborare una certa <em>request</em> e, conseguentemente, di inviare una <em>response</em>.</p>
+<h3><a class="header" href="#recuperare-informazioni-dalla-request" id="recuperare-informazioni-dalla-request">Recuperare informazioni dalla Request</a></h3>
+<p>Quando il client fa partire una <em>request</em> particolare ad un certo URL, spesso vi associa alcuni dati necessari al Controller dall'altra parte per processarla correttamente.</p>
+<p>All'interno del Controller, per recuperare questi dati è necessario usare la classe Laravel <code>Request</code>, oppure l'oggetto <code>$request</code> che viene <em>iniettato</em> da Laravel in ogni metodo associato (attraverso una <code>Route</code>) ad un particolare <em>endpoint</em>.</p>
+<pre><code class="language-php">function index(Request $request) {
+    // Notazione usando il singleton Request
+    $data = Request::all(); 
 
-return (new Response($content, $status))
-              -&gt;header('Content-Type', $value);
+    // Notazione usando la $request iniettata nel metodo
+    $data = $request-&gt;all();
+}
 </code></pre>
-<p>Per comodità, puoi anche usare il <code>Response</code> helper:</p>
-<pre><code class="language-php">return response($content, $status)
-              -&gt;header('Content-Type', $value);
-</code></pre>
-<h3><a class="header" href="#request" id="request">Request</a></h3>
-<p>Utilizzando alcuni semplici metodi, puoi accedere a tutti gli input dell'utente dalla tua istanza <code>Illuminate\Http\Request</code>. Non è necessario preoccuparsi del verbo HTTP utilizzato per la richiesta, poiché si accede all'input allo stesso modo per tutti i verbi.</p>
+<p>Utilizzando alcuni semplici metodi, puoi accedere a tutti gli input dell'utente dalla tua istanza <code>Illuminate\Http\Request</code>.</p>
 <pre><code class="language-php">$name = Request::input('name');
 </code></pre>
 <p>Recupero di un valore predefinito se il valore di input è assente</p>
 <pre><code class="language-php">$name = Request::input('name', 'Sally');
 </code></pre>
-<p>Determinare se è presente un valore di input</p>
-<pre><code class="language-php">if (Request::has('name'))
-{
+<p>Determinare se è presente un valore di input:</p>
+<pre><code class="language-php">if (Request::has('name')) {
     //
 }
 </code></pre>
-<p>Ottenere tutti gli input per la richiesta</p>
+<p>Ottenere tutti gli input per la richiesta:</p>
 <pre><code class="language-php">$input = Request::all(); 
 </code></pre>
 <p>Ottenere solo una parte dell'input della richiesta</p>
@@ -230,17 +227,55 @@ return (new Response($content, $status))
 
 $input = Request::except('credit_card');
 </code></pre>
-<p>Quando si lavora su moduli con input <code>array</code>, è possibile utilizzare la notazione a punti per accedere agli array:</p>
+<p>Quando si lavora con input di tipo <code>array</code>, è possibile utilizzare la notazione a punti per accedere agli array:</p>
 <pre><code class="language-php">$input = Request::input('products.0.name');
 </code></pre>
+<h3><a class="header" href="#recuperare-informazioni-dallurl" id="recuperare-informazioni-dallurl">Recuperare informazioni dall'URL</a></h3>
+<p>Quando si utilizzano API di tipo REST, solitamente alcuni dati vengono codificati all'interno dell'URL della richiesta stessa, quindi all'interno dell'Endpoint.</p>
+<p>Questi dati <strong>non</strong> sono recuperabili usando i metodi espressi nel paragrafo precedente, ma sono <em>iniettati</em> all'interno del metodo esattamente come la <code>$request</code>, se opportunamente segnalati nella <code>Route</code> di collegamento:</p>
+<ul>
+<li><strong>Endpoint</strong>: <code>/users/10</code></li>
+<li><strong>Route</strong>: <code>/users/{userId}</code></li>
+<li><strong>Metodo</strong>:
+<pre><code class="language-php">function show(Request $request, $userId) {
+    // $userId sarà collegata a tutto quello che c'è dopo /users/ 
+    Log::info(&quot;UserId: &quot; . $userId);
+    // Stamperà =&gt; UserId: 10
+}
+</code></pre>
+</li>
+</ul>
+<h3><a class="header" href="#inviare-una-response-di-base" id="inviare-una-response-di-base">Inviare una Response di base</a></h3>
+<p>Una volta recuperati e processati opportunamente i dati della <code>Request</code>, è necessario che il Controller risponda al client, popolando una <code>Response</code>. </p>
+<p>Un server Web tradizionale, a questo punto, andrebbe a creare una View, inserendovi all'interno di dati necessari e quindi restituendo al client una pagina HTML.<br />
+Nel caso di server API, invece, quello che accade è che il Controller invia al client <strong>solamente</strong> i dati, delegando il compito di creare tutti gli elementi di visualizzazione al client.</p>
+<p>Dato che noi stiamo utilizzando Laravel come Server API (per sfruttare al massimo la compatibilità con Vue), ci concentreremo sul secondo modo di comunicare. </p>
+<p>Per convenzione, tutto quello che un metodo Laravel associato ad una <code>Route</code> ritorna viene visto come una <code>Response</code>.<br />
+Nel caso non si trattasse di un oggetto <code>Response</code>, Laravel si preoccupa di <em>incapsulare</em> i dati da noi ritornati all'interno di una <code>Response</code> con status HTTP 200.</p>
+<pre><code class="language-php">function index() {
+    // In questo caso verrà ritornato un oggetto Response con status 200 e contenuto di tipo stringa &quot;tutto ok&quot;.
+    return &quot;tutto ok&quot;;
+}
+</code></pre>
+<p>Da notare come in questo caso lo status della <code>Response</code> sarà sempre 200.</p>
+<h3><a class="header" href="#inviare-una-response-personalizzata" id="inviare-una-response-personalizzata">Inviare una Response personalizzata</a></h3>
+<p>Per poter <em>personalizzare</em> la <code>Response</code> che si intende inviare è necessario restituire un oggetto <code>Response</code> e di impostare correttamente i parametri.</p>
+<pre><code class="language-php">function index() {
+    return response()-&gt;json([
+        &quot;error&quot; =&gt; &quot;not-authorized&quot;
+    ], 401);
+}
+</code></pre>
+<p>In questo caso, abbiamo creato una <code>Response</code> con la funzione <code>response()</code> e abbiamo richiamato su di essa il metodo <code>json($data, $http_status)</code> che permette di dichiarare il <em>tipo</em> di risposta (<code>json</code> e non <code>html</code>), di aggiungere dati e di impostare uno status HTTP diverso.</p>
+<p>Utilizzando questa sintassi è anche possibile <em>aggiungere</em> altre informazioni alla <code>Response</code>, come <em>cookie</em> o <em>headers</em>.</p>
 <h2><a class="header" href="#codici-di-stato-http" id="codici-di-stato-http">Codici di Stato HTTP</a></h2>
+<p>I <em>codici di stato HTTP</em> o più semplicemente <em>status</em>, rappresentano un modo per comunicare il valore <em>di ritorno</em> delle <code>Response</code>, per dare informazioni <em>a colpo d'occhio</em> sullo stato della richiesta.</p>
 <h3><a class="header" href="#--200-ok" id="--200-ok">- 200: OK</a></h3>
 <p>La richiesta è andata a buon fine. Il significato di un successo varia a seconda del metodo HTTP: </p>
 <ul>
 <li>GET: la risorsa è stata recuperata e viene trasmessa nel corpo del messaggio. </li>
 <li>HEAD: le intestazioni dell'entità si trovano nel corpo del messaggio. </li>
 <li>POST: la risorsa che descrive il risultato dell'azione viene trasmessa nel corpo del messaggio. </li>
-<li>TRACE: il corpo del messaggio contiene il messaggio di richiesta ricevuto dal server.</li>
 </ul>
 <h3><a class="header" href="#--201-created" id="--201-created">- 201: Created</a></h3>
 <p>La richiesta è andata a buon fine e come risultato è stata creata una nuova risorsa. Questa è in genere la risposta inviata dopo una richiesta PUT.</p>
