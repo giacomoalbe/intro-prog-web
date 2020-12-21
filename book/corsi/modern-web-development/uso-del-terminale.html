@@ -252,16 +252,46 @@ E' l'equivalente del doppio clic all'interno di una cartella in Esplora Risorse 
 <p>Oltre ai comandi, in Bash esistono anche delle istruzioni che possono essere usate per concatenare tra loro diversi comandi:</p>
 <ul>
 <li>
-<p>Pipe</p>
-<p>TODO: Spiegare come usare il pipe | per redirigere l'output da un comando ad un altro</p>
+<p><strong>Pipe</strong></p>
+<p>In bash il <code>|</code>, anche detto <em>pipe</em>, serve per <em>dirigere l'output di un comando all'input di un altro</em>.
+Operativamente, quindi, è possibile concatenare due comandi e permettere di utilizzare il risultato del primo come <em>input</em> del secondo.</p>
+<p>Ad esempio, in questo caso, l'output del primo comando è un testo che normalmente verrebbe stampato a schermo, mentre in questo caso viene inviato al secondo comando, <code>cat</code> che provvede a stamparlo a schermo:</p>
+<pre><code class="language-bash">echo &quot;Testo di prova&quot; | cat
+</code></pre>
+<p>In questo altro esempio, <code>cat</code> stamperebbe il contenuto del file <em>prova</em> a schermo, invece con il <code>|</code> questo viene usato come input per il comando <code>grep</code>, che serve per cercare stringhe all'interno di un testo. I due comandi, insieme, permettono di cercare una stringa all'interno di un file:</p>
+<pre><code class="language-bash">cat prova | grep 'testo da cercare'
+</code></pre>
 </li>
 <li>
-<p>Redirect a file</p>
-<p>TODO: Spiegare come il &gt; mandi l'output di un comando ad un file</p>
+<p><strong>Redirect a file</strong></p>
+<p>Di base, l'output dei comandi viene stampato a video, quindi sul terminale su cui si sta lavorando.</p>
+<p>Talvolta è necessario salvare l'esecuizione di un programma all'interno di un file.<br />
+Per fare questo, in bash è sufficiente <em>redirigere</em> l'output di un comando usando il carattere <code>&gt;</code>.</p>
+<pre><code class="language-bash">ls &gt; folder-content.txt
+</code></pre>
+<p>Questo comando andrà a scrivere la struttura della cartella corrente all'interno del file <code>folder-content.txt</code>.</p>
+<p>Nel caso il file non fosse presente, bash andrà a crearlo e quindi a popolarlo con il contenuto desiderato.<br />
+In alcuni casi, è preferibile o necessario andare a concatenare un certo output al contenuto già presente in un certo file. In questo caso si usa il comando <code>&gt;&gt;</code>, che appunto va ad <em>appendere</em> in fondo al file il nuovo output.</p>
+<pre><code class="language-bash">echo &quot;Prima riga&quot; &gt; append.txt
+echo &quot;Seconda riga&quot; &gt;&gt; append.txt
+
+cat append
+</code></pre>
+<p>A schermo verrà mostrato il contenuto del file <code>append.txt</code>:</p>
+<pre><code>Prima riga
+Seconda riga
+</code></pre>
 </li>
 <li>
-<p>Path helpers</p>
-<p>TODO: spiegare significato di &quot;cd .&quot;, &quot;cd ..&quot; &quot;./&quot;, &quot;cd -&quot;</p>
+<p><strong>Path helpers</strong></p>
+<p>La maggiorparte dei comandi in bash possono ricevere come paramentro un <em>path</em>, ovvero il percorso di un file.</p>
+<p>Bash permette di utilizzare come path alcune <em>scorciatoie</em>:</p>
+<ul>
+<li><code>.</code>: con il punto si fa riferimento alla cartella corrente</li>
+<li><code>..</code>: con il doppio punto si fa riferimento alla cartella <em>padre</em> della cartella di lavoro</li>
+<li><code>-</code>: con il - si fa riferimento all'ultima cartella visitata (ultimo salto effettuatato con <code>cd</code>)</li>
+<li><code>~</code>: con la ~ si fa riferimento alla propria cartella Home</li>
+</ul>
 </li>
 </ul>
 

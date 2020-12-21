@@ -84,12 +84,57 @@ Di seguito sono presentati i comandi più utili e maggiormente usati in fase di 
 
 Oltre ai comandi, in Bash esistono anche delle istruzioni che possono essere usate per concatenare tra loro diversi comandi:
 
-* Pipe
+* **Pipe**
 
-    TODO: Spiegare come usare il pipe | per redirigere l'output da un comando ad un altro
-* Redirect a file
+    In bash il `|`, anche detto _pipe_, serve per _dirigere l'output di un comando all'input di un altro_.
+    Operativamente, quindi, è possibile concatenare due comandi e permettere di utilizzare il risultato del primo come _input_ del secondo.
 
-    TODO: Spiegare come il > mandi l'output di un comando ad un file
-* Path helpers
+    Ad esempio, in questo caso, l'output del primo comando è un testo che normalmente verrebbe stampato a schermo, mentre in questo caso viene inviato al secondo comando, `cat` che provvede a stamparlo a schermo:
+    ```bash
+    echo "Testo di prova" | cat
+    ```
 
-    TODO: spiegare significato di "cd .", "cd .." "./", "cd -"
+    In questo altro esempio, `cat` stamperebbe il contenuto del file _prova_ a schermo, invece con il `|` questo viene usato come input per il comando `grep`, che serve per cercare stringhe all'interno di un testo. I due comandi, insieme, permettono di cercare una stringa all'interno di un file:
+    ```bash
+    cat prova | grep 'testo da cercare'
+    ```
+
+* **Redirect a file**
+
+    Di base, l'output dei comandi viene stampato a video, quindi sul terminale su cui si sta lavorando.
+
+    Talvolta è necessario salvare l'esecuizione di un programma all'interno di un file.  
+    Per fare questo, in bash è sufficiente _redirigere_ l'output di un comando usando il carattere `>`.
+
+    ```bash
+    ls > folder-content.txt
+    ```
+
+    Questo comando andrà a scrivere la struttura della cartella corrente all'interno del file `folder-content.txt`.
+
+    Nel caso il file non fosse presente, bash andrà a crearlo e quindi a popolarlo con il contenuto desiderato.  
+    In alcuni casi, è preferibile o necessario andare a concatenare un certo output al contenuto già presente in un certo file. In questo caso si usa il comando `>>`, che appunto va ad _appendere_ in fondo al file il nuovo output.
+
+    ```bash
+    echo "Prima riga" > append.txt
+    echo "Seconda riga" >> append.txt
+
+    cat append
+    ```
+
+    A schermo verrà mostrato il contenuto del file `append.txt`:
+    ```
+    Prima riga
+    Seconda riga
+    ```
+
+* **Path helpers**
+
+    La maggiorparte dei comandi in bash possono ricevere come paramentro un _path_, ovvero il percorso di un file.
+
+    Bash permette di utilizzare come path alcune _scorciatoie_:
+
+    * `.`: con il punto si fa riferimento alla cartella corrente
+    * `..`: con il doppio punto si fa riferimento alla cartella _padre_ della cartella di lavoro
+    * `-`: con il - si fa riferimento all'ultima cartella visitata (ultimo salto effettuatato con `cd`)
+    * `~`: con la ~ si fa riferimento alla propria cartella Home
