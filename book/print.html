@@ -1305,18 +1305,45 @@ export default {
 <p>In questo esempio, modificando il valore dell'input (associazione mono-direzionale da Vista a Componente) si aggiorna anche il contenuto del div (associazione mono-direzionale da Componente a Vista).</p>
 <h1><a class="header" href="#methods-mounted--computed" id="methods-mounted--computed">Methods, Mounted &amp; Computed</a></h1>
 <h2><a class="header" href="#introduzione-7" id="introduzione-7">Introduzione</a></h2>
-<p>TODO:</p>
-<ul>
-<li>Componenti reattive diverse dalle properties</li>
-<li>Dove vengono definite, richiamo alla struttura del componente</li>
-</ul>
+<p>In Vue con <em>componenti reattive</em> si intendono tutte le variabili che sono soggetto al data-binding.</p>
+<p>Oltre a quelle che è possibile definire all'interno dell'oggetto <code>data()</code> sono considerate proprietà reattive anche i <em>methods</em>, le <em>computed</em> e le <em>props</em>.</p>
+<pre><code class="language-js">export default {
+    props: {
+    },
+    data() {
+        return {
+            // Data properties
+        }
+    },
+    methods: {
+    },
+    computed: {
+    },
+}
+</code></pre>
 <h2><a class="header" href="#methods" id="methods">Methods</a></h2>
-<p>TODO:</p>
-<ul>
-<li>Cosa sono i methods</li>
-<li>Come si richiamano, come si passano parametri</li>
-</ul>
+<p>I <em>methods</em> sono delle funzioni definite all'interno dell'oggetto <code>methods</code> proprio di ogni componente.</p>
+<p>I methods possono accettare parametri e possono utilizzare tutte le proprietà reattive del componente.
+Solitamente vengono usati come <em>callback</em> di qualche evento oppure per effettuare binding o interpolazioni complesse, difficilmente inseribile, per questioni di spazio, all'interno della vista.</p>
+<p>Per essere richiamati all'interno della View, devono essere eseguiti:</p>
+<pre><code class="language-js">&lt;template&gt;
+    &lt;div&gt;{{ aMethod() }}&lt;/div&gt;
+    &lt;div :class=&quot;aComplexClassBinding()&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
 <h2><a class="header" href="#computed" id="computed">Computed</a></h2>
+<p>Le <em>computed</em> sono delle funzioni definite all'interno dell'oggetto <em>computed</em> proprio di ogni componente.</p>
+<p>La differenza principale tra un method e una computed sta nel fatto che il valore di una computed viene ricalcolato ogni volta che una delle proprietà reattive che la compongono cambia. </p>
+<pre><code class="language-javascript">computed: {
+    name() {
+        return this.user.name,
+    },
+    fullName() {
+        return &quot;Ciao, &quot; + this.name
+    },
+}
+</code></pre>
+<p>In questo esempio, ogni volta che la computed <code>name</code> viene modificata, il valore della computed <code>fullName</code> viene ricalcolato a quindi vengono aggiornate tutte le viste che fanno riferimento alla computed </p>
 <p>TODO:</p>
 <ul>
 <li>Cosa sono le computed</li>
