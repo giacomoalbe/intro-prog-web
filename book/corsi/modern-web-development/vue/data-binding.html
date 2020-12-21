@@ -165,8 +165,9 @@
                     <main>
                         <h1><a class="header" href="#data-binding" id="data-binding">Data Binding</a></h1>
 <h2><a class="header" href="#introduzione" id="introduzione">Introduzione</a></h2>
-<p>Il data binding è una funzionalità che permette di mantenere sincronizzati dei dati (variabili Javascript, array, ecc.) in sincrono con il DOM (Document-Object-Model) molto facilmente. Ciò è grazie alla possibilità infatti di poter associare un elemento presentazionale con una particolare variabile od oggetto, e grazie alla modifica di questi avere un immediato cambiamento della view.
-Ciò appena descritto può essere riassunto in: Vue è dotato di &quot;motore&quot; che rende un applicativo <strong>reattivo</strong>.</p>
+<p>Il <em>data binding</em> è una funzionalità che permette di mantenere sincronizzati dei dati (variabili Javascript, array, ecc.) con il DOM (Document-Object-Model) molto facilmente.<br />
+Con <em>sincronizzazione</em> si intende che ogni modifica che viene effettuata ad una variabile viene subito applicata in ogni punto dove questa variabile viene utilizzata, sia che questo si verifichi nella View che nel Componente. </p>
+<p>Ciò appena descritto può essere riassunto in: Vue è dotato di &quot;motore&quot; che rende un applicativo <strong>reattivo</strong>.</p>
 <p>Questa utilissima funzione si basa sulle proprietà reattive, che vanno necessariamante definite all'interno di un' <strong>istanza</strong> di Vue:</p>
 <pre><code class="language-js">var app = new Vue({
     // proprietà
@@ -208,41 +209,93 @@ var app = new Vue({
     },
 });
 </code></pre>
-<p>TODO:</p>
-<ul>
-<li>Cos'è il data binding, quale problema va a risolvere</li>
-<li>Cos'è un proprietà reattiva, come si definiscono nei componenti</li>
-<li>Come si fa riferimento alle proprietà reattive dentro il Componente (usando this)</li>
-<li>Come si fa riferimento alle proprietà reattive dentro la Vista (senza usare this)</li>
-</ul>
 <h2><a class="header" href="#one--two-way-data-binding" id="one--two-way-data-binding">One &amp; Two Way data binding</a></h2>
-<p>TODO:</p>
-<ul>
-<li>Data binding monodirezionale tra Vista e Controller (@input, @change, event-handling)</li>
-<li>Data binding monodirezionale tra Controller e Vista (:value, :class, :style, attribute binding)</li>
-<li>Data binding bidirezionale (v-model)</li>
-</ul>
-<h2><a class="header" href="#interpolazione-template" id="interpolazione-template">Interpolazione Template</a></h2>
-<p>TODO:</p>
-<ul>
-<li>Usare le {{ }} per popolare contenuto HTML con proprietà reattiva</li>
-<li>Operazioni che è possibile fare dentro le interpolazioni (aritmetiche, logiche, richiamare funzioni, passare argomenti)</li>
-</ul>
-<h2><a class="header" href="#binding-attributi" id="binding-attributi">Binding Attributi</a></h2>
-<p>TODO:</p>
-<ul>
+<p>Il <em>data-binding</em> è di due tipi: <em>one way</em> e <em>two way</em>.</p>
+<p>Con <em>way</em> si può far riferimento o alla View (quindi la parte HTML o <em>template</em>) o al Componente in sè (ovvero la parte Javascript).</p>
+<h3><a class="header" href="#oneway-dalla-view-al-componente" id="oneway-dalla-view-al-componente">OneWay: dalla view al Componente</a></h3>
+<p>Il primo tipo di <em>binding</em> è tra la vista e il Componente.<br />
+Questo accade, ad esempio, quando andiamo ad agganciare dei metodi del componente a particolari eventi della view, ad esempio inserimento di testo in un <code>&lt;input&gt;</code> oppure click su pulsanti.</p>
+<p>In Vue, questo è possibile usando la sintassi <code>@&lt;nome-evento&gt;</code> e associando ad esso un metodo del Componente:</p>
+<pre><code class="language-javascript">&lt;template&gt;
+&lt;div&gt;
+    &lt;button @click=&quot;onBtnClick&quot;&gt;&lt;/button&gt;
+    &lt;input @input=&quot;onInput&quot;/&gt;
+&lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+    methods: {
+        onBtnClick(event) {
+            console.log(&quot;Btn Clicked&quot;);
+        },
+        onInput(event) {
+            console.log(&quot;New value: &quot; + event.target.value);
+        }
+    }
+}
+&lt;/script&gt;
+</code></pre>
+<h3><a class="header" href="#oneway-dal-componente-alla-view" id="oneway-dal-componente-alla-view">OneWay: dal Componente alla View</a></h3>
+<p>Il secondo caso di <em>binding</em> monodirezionale è quello tra le proprietà reattive del Componente e la View.<br />
+In questo caso, è possibile <em>popolare</em> la View usando proprietà del Componente, sapendo che ogni modifica della proprietà sarà sincronizzata con il template. </p>
+<p>Esempi di questo tipo di associazione sono:</p>
+<ol>
 <li>
-<p>Spiegare funzionamento del class binding, sia semplice (:class=&quot;loading ? 'bg-gray-800' : 'bg-red-800'&quot;) che usando oggetti complessi per più binding sullo stesso oggetto</p>
-<pre><code class="language-js">:class=&quot;{
-    'bg-gray-800 underline': loading,
-    'bg-red-800 font-bold': !loading,
-}&quot;
+<p><strong>Interpolazione variabili</strong>:</p>
+<p>Per <em>stampare</em> il valore di una variabile reattiva all'interno del contenuto di elemento HTML è necessario usare la sintassi di interpolazione, ovvero usare la doppie parentesi graffe.</p>
+<pre><code class="language-html">&lt;div&gt;{{ user }}&lt;/div&gt;
+</code></pre>
+<p>In questo caso, il contenuto del div sarà legato alla variabile reattiva <code>user</code>.</p>
+<p>All'interno delle doppie parentesi graffe è possibile far riferimento a <strong>qualsiasi</strong> proprietà reattiva (metodi, computed, props, data) ed è inoltre ammesso qualsiasi costrutto Javascript in grado di ritornare un valore.</p>
+<pre><code class="language-html">&lt;div&gt;{{ (someMethod() + someOtherMethod())&lt;/div&gt;
+</code></pre>
+<pre><code class="language-html">&lt;div&gt;{{ booleanOperator || logicValue &amp;&amp; otherLogicValue  }}&lt;/div&gt;
 </code></pre>
 </li>
 <li>
-<p>Mostrare esempi del binding su attributi HTML anche non class (style, id, name, custom properties, ecc)</p>
+<p><strong>Class binding</strong>: <code>&lt;div :class=&quot;user.class&quot;&gt;&lt;/div&gt;</code> </p>
+<p>E' possibile <em>aggiungere</em> o <em>rimuovere</em> una classe da un componente HTML associando a tale classe una proprietà reattiva presente nel Componente.</p>
+<p>Sintassi semplice (usando operatore ternario, per una sola classe alla volta):</p>
+<pre><code class="language-html">&lt;div :class=&quot;loading ? 'bg-gray-800' : 'bg-red-800'&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>Sintassi completa (usando un oggetto Javascript):</p>
+<pre><code class="language-html">&lt;div :class=&quot;{
+    'bg-gray-800 underline': loading,
+    'bg-red-800 font-bold': !loading,
+}&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>In questo caso, ogni <em>chiave</em> dell'oggetto associato alla classe viene <em>aggiunta</em> quando il corrispondente valore è <code>true</code> e <em>rimossa</em> nel caso contrario.</p>
 </li>
-</ul>
+<li>
+<p><strong>Style binding</strong>: </p>
+<p>TODO</p>
+</li>
+<li>
+<p><strong>Attribute binding</strong>: </p>
+<p>TODO</p>
+</li>
+</ol>
+<p>Vediamo ora nel dettaglio i diversi tipi di binding tra Vista e Componente</p>
+<h3><a class="header" href="#twoway-data-binding" id="twoway-data-binding">TwoWay Data Binding</a></h3>
+<p>E' possibile creare un tipo particolare di associazione che sfrutta entrambe le modalità di sicronizzazione, ovvero è in grado di aggiornare la variabili sia da View a Componente che nel caso contrario. </p>
+<p>Questo è possibile usando l'attributo <code>v-model</code>, che permette sia di ascoltare le <em>modifiche</em> che arrivano dalla View (quindi in risposta a interazione dell'utente) che quelle che arrivano dal Componente (quindi il risultato di chiamate di Rete o di elaborazioni dei metodi).</p>
+<pre><code class="language-javascript">&lt;template&gt;
+&lt;div&gt;
+    &lt;input v-model=&quot;input&quot;/&gt;
+    &lt;div&gt;{{ input }}&lt;/div&gt;
+&lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+export default {
+    data() {
+        return {
+            input: &quot;&quot;,
+        }
+    }
+}
+&lt;/script&gt;
+</code></pre>
+<p>In questo esempio, modificando il valore dell'input (associazione mono-direzionale da Vista a Componente) si aggiorna anche il contenuto del div (associazione mono-direzionale da Componente a Vista).</p>
 
                     </main>
 
